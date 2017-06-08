@@ -31,7 +31,18 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:src="@drawable/cloud"
+            android:id="@+id/im1"
             android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/im1"
+            android:maxWidth="150dp"
+            android:layout_centerHorizontal="true"
+            android:text="Welcome to Easy Loan Solutions"
+            android:layout_marginTop="100dp"
+            />
 
 
     </RelativeLayout>
