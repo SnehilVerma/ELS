@@ -70,10 +70,9 @@ public class CarLoanActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             //MODIFY THE LOGIC
-            /*
             if(position==2){
             Fragment f=new Retired_P();
-            return f;}*/
+            return f;}
 
             return mFragmentList.get(position);
         }
