@@ -3,6 +3,8 @@
     <color name="colorPrimary">#2674B6</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="green">#14a895</color>
+    <color name="cyan">#8cf9eb</color>
 
 
     <color name="dot_dark_screen1">#d1395c</color>

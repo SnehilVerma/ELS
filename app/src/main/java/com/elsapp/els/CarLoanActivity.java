@@ -6,39 +6,47 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.Homeloanslide1;
-import Fragments.Homeloanslide2;
-import Fragments.Homeloanslide3;
-import Fragments.Homeloanslide4;
-import Fragments.Homeloanslide5;
-import Fragments.Homeloanslide6;
+import Fragments.CarType;
+import Fragments.Gender;
+import Fragments.PrefCar;
+import Fragments.Retired_P;
+import Fragments.Self_Employed;
 import Transformer.PagerTransformer;
 
-public class HomeLoan extends AppCompatActivity {
-    private ViewPager viewPager;
 
+public class CarLoanActivity extends AppCompatActivity {
+
+
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_loan);
-
+        setContentView(R.layout.activity_car_loan);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true,new PagerTransformer());
         setUpViewPager(viewPager);
+
     }
+
+
+
     private void setUpViewPager(ViewPager viewPager) {
-        HomeLoan.ViewPagerAdapter adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Homeloanslide1(), "1");
-        adapter.addFragment(new Homeloanslide2(), "2");
-        adapter.addFragment(new Homeloanslide3(), "3");
-        adapter.addFragment(new Homeloanslide4(), "4");
-        adapter.addFragment(new Homeloanslide5(), "5");
-        adapter.addFragment(new Homeloanslide6(), "6");
+        CarLoanActivity.ViewPagerAdapter adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new CarType(), "CarType");
+        adapter.addFragment(new PrefCar(), "PrefCar");
+        adapter.addFragment(new Gender(),"Gender");
+        adapter.addFragment(new Retired_P(), "Retired_Pensioner");
+        adapter.addFragment(new Self_Employed(), "Self_Employed" +
+                "");
+
         viewPager.setAdapter(adapter);
     }
 
@@ -71,4 +79,5 @@ public class HomeLoan extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
 }
