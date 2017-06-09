@@ -9,18 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity"></activity>
+
+
+
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoAction">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
         <activity android:name=".WelcomeActivity"></activity>
         <activity android:name=".LoanSelect"></activity>
+
+
+
+        <activity
+            android:name=".CarLoanActivity"
+            android:label="@string/title_activity_car_loan"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

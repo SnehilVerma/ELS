@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,18 +18,15 @@ import com.elsapp.els.R;
 
 public class bank extends BaseAdapter {
     Context context;
-    String[] string;
-    int[] ints;
 
-    public bank(Context context, String[] string, int[] ints) {
+
+    public bank(Context context) {
         this.context = context;
-        this.string = string;
-        this.ints = ints;
     }
 
     @Override
     public int getCount() {
-        return string.length;
+        return image.length;
     }
 
     @Override
@@ -44,19 +42,24 @@ public class bank extends BaseAdapter {
     @Override
     public View getView(int positions, View convertview, ViewGroup viewGroup) {
 
-        View view;
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ImageView pics;
         if(convertview == null){
-            view = new View(context);
-            view=inflater.inflate(R.layout.bank,null);
-            TextView texts = (TextView) view.findViewById(R.id.gridtext);
-            ImageView image = (ImageView) view.findViewById(R.id.gridimg);
-            texts.setText(string[positions]);
-            image.setImageResource(ints[positions]);
+            pics = new ImageView(context);
+            pics.setLayoutParams(new GridView.LayoutParams(400, 400));
+            pics.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            pics.setPadding(5, 5, 5, 5);
         }
         else {
-            view = convertview;
+            pics = (ImageView) convertview ;
         }
-        return view;
+        pics.setImageResource(image[positions]);
+        return pics;
     }
+
+    public Integer[] image ={
+            R.drawable.b1,R.drawable.b2,
+            R.drawable.b3,R.drawable.b4,
+            R.drawable.b5
+
+    };
 }
