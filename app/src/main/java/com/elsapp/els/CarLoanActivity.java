@@ -14,6 +14,9 @@ import java.util.List;
 import Fragments.CarType;
 import Fragments.Gender;
 import Fragments.PrefCar;
+import Fragments.Retired_P;
+import Fragments.Self_Employed;
+import Transformer.PagerTransformer;
 
 
 public class CarLoanActivity extends AppCompatActivity {
@@ -28,6 +31,7 @@ public class CarLoanActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         viewPager=(ViewPager)findViewById(R.id.viewpager);
+        viewPager.setPageTransformer(true,new PagerTransformer());
         setUpViewPager(viewPager);
 
     }
@@ -39,8 +43,10 @@ public class CarLoanActivity extends AppCompatActivity {
         adapter.addFragment(new CarType(), "CarType");
         adapter.addFragment(new PrefCar(), "PrefCar");
         adapter.addFragment(new Gender(),"Gender");
-        //adapter.addFragment(new Profession(), "Profession");
-        //adapter.addFragment(new NumAndEmail(), "NumAndEmail");
+        adapter.addFragment(new Retired_P(), "Retired_Pensioner");
+        adapter.addFragment(new Self_Employed(), "Self_Employed" +
+                "");
+
         viewPager.setAdapter(adapter);
     }
 
