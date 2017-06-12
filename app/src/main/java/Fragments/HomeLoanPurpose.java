@@ -14,13 +14,13 @@ import com.elsapp.els.R;
  * Created by Rishi on 6/12/2017.
  */
 
-public class Homeloanslide7 extends Fragment {
+public class HomeLoanPurpose extends Fragment {
 
     Button construct,repair,identified,tranfer;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.homeloan_slide7,container,false);
+        final View view = inflater.inflate(R.layout.fragment_home_loanpurpose,container,false);
 
         construct = (Button) view.findViewById(R.id.construct);
         tranfer = (Button) view.findViewById(R.id.transfer);

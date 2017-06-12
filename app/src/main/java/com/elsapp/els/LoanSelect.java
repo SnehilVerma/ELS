@@ -18,6 +18,8 @@ import android.widget.GridView;
 import Adapter.CustomGrid;
 
 public class LoanSelect extends AppCompatActivity {
+
+
     GridView grid;
     String[] loans = {"Home","vehicle","Gold","Education","Con-Durable"};
     int[] pic_loans = {
