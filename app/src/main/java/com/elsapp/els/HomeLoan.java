@@ -16,6 +16,7 @@ import Fragments.Homeloanslide3;
 import Fragments.Homeloanslide4;
 import Fragments.Homeloanslide5;
 import Fragments.Homeloanslide6;
+import Fragments.Homeloanslide7;
 import Transformer.PagerTransformer;
 
 public class HomeLoan extends AppCompatActivity {
@@ -36,9 +37,10 @@ public class HomeLoan extends AppCompatActivity {
         adapter.addFragment(new Homeloanslide1(), "1");
         adapter.addFragment(new Homeloanslide2(), "2");
         adapter.addFragment(new Homeloanslide3(), "3");
-        adapter.addFragment(new Homeloanslide4(), "4");
-        adapter.addFragment(new Homeloanslide5(), "5");
-        adapter.addFragment(new Homeloanslide6(), "6");
+        adapter.addFragment(new Homeloanslide7(), "4");
+        adapter.addFragment(new Homeloanslide4(), "5");
+        adapter.addFragment(new Homeloanslide5(), "6");
+        adapter.addFragment(new Homeloanslide6(), "7");
         viewPager.setAdapter(adapter);
     }
 

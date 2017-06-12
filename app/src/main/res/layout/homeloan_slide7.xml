@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#2a81c9"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purpose of Loan"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/purpose_loan"
+            android:tint="#ffffff"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Purchase Identified Property"
+                android:textColor="#ffffff"
+                android:layout_margin="5dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/identified"
+                android:background="@drawable/btn_round"/>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Renovate/repair flat"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/renovate"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_round"/>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Construction of House"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/identified"
+                android:id="@+id/construct"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_round"/>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Transfer Existing Loan"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/renovate"
+                android:id="@+id/transfer"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_round"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
