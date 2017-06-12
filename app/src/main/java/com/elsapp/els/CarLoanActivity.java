@@ -64,18 +64,22 @@ public class CarLoanActivity extends AppCompatActivity {
 
     }
 
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
+
 
 
     private void setUpViewPager(ViewPager viewPager) {
         adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CarType(), "CarType");
-      //  adapter.addFragment(new PrefCar(), "PrefCar");
-       // adapter.addFragment(new Gender(),"Gender");
-        //adapter.addFragment(new DOB(),"Date of Birth");
-        //adapter.addFragment(new Retired_P(), "Retired_Pensioner");
-        //adapter.addFragment(new Self_Employed(), "Self_Employed");
-
+       // adapter.addFragment(new City(), "City");
+        //adapter.addFragment(new Gender(), "Gender");
+        //adapter.addFragment(new DOB(), "DOB");
+        //adapter.addFragment(new PrefCar(), "PrefCar");
+        //adapter.addFragment(new PurposeC(), "Purpose of Car");
         viewPager.setAdapter(adapter);
+
     }
 
     public ViewPagerAdapter getCurrAdapter(){
@@ -85,8 +89,8 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
     public  class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
+        public final List<Fragment> mFragmentList = new ArrayList<>();
+        public final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
@@ -114,11 +118,7 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
 
-        public void repFragment(Fragment fragment,String title){
-            mFragmentList.set(1,fragment);
-            mFragmentTitleList.set(1,title);
 
-        }
 
         public void remFragment(Fragment fragment,String title){
         //    mFragmentList.remove(fragment);

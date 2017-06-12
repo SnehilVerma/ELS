@@ -1,10 +1,8 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -53,7 +51,7 @@ public class DOB extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                new DatePickerDialog(getActivity().getBaseContext(), date, myCalendar
+                new DatePickerDialog(getActivity(), date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }

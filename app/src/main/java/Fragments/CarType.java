@@ -3,6 +3,7 @@ package Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +20,9 @@ import com.elsapp.els.R;
 
 public class CarType extends Fragment {
 
+
+    ViewPagerAdapter ad;
+    ViewPager viewPager;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -26,20 +30,29 @@ public class CarType extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_car_type, container, false);
 
 
+
         ImageButton im1=(ImageButton) view.findViewById(R.id.im1);
         ImageButton im2=(ImageButton)view.findViewById(R.id.im2);
 
-        final ViewPagerAdapter ad=((CarLoanActivity)getActivity()).getCurrAdapter();
+        ad=((CarLoanActivity)getActivity()).getCurrAdapter();
+        viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+
+
 
 
         im1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //SessionManager.putStringInPreferences(getContext(),"1","pos");
 
-                ad.addFragment(new DOB(), "DOB");
+                //TESTING
+
+                //ad.addFragment(new Gender(), "Gender");
+                //ad.notifyDataSetChanged();
+
+
+                ad.mFragmentList.add(new DOB());
+                ad.mFragmentTitleList.add("DOB");
                 ad.notifyDataSetChanged();
-
 
 
 
@@ -49,9 +62,16 @@ public class CarType extends Fragment {
         im2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ad.addFragment(new Gender(),"Gender");
 
+                ad.mFragmentList.remove(viewPager.getCurrentItem());
+                ad.mFragmentTitleList.remove("DOB");
+                
+                ad.mFragmentList.add(new Gender());
+                ad.mFragmentTitleList.add("Gender");
                 ad.notifyDataSetChanged();
+
+
+
 
             }
         });
