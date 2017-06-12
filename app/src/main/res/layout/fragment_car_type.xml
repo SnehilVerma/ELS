@@ -36,6 +36,7 @@
         android:layout_marginLeft="20dp"
         android:src="@drawable/car1"
         android:id="@+id/im1"
+        android:clickable="true"
         android:layout_marginTop="150dp">
 
     </ImageView>
@@ -45,11 +46,42 @@
         android:layout_height="100dp"
         android:layout_below="@+id/tv1"
         android:id="@+id/im2"
+        android:clickable="true"
+
         android:layout_marginLeft="220dp"
         android:background="@drawable/car2"
         android:layout_marginTop="150dp">
 
     </ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/backarrow"
+            android:id="@+id/back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"
+            android:id="@+id/prev"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/next"
+            android:layout_marginLeft="200dp"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/forwardarrow"
+            android:id="@+id/forw"/>
+    </LinearLayout>
 
 
 
