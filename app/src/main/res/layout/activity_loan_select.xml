@@ -13,9 +13,10 @@
         android:text="Which Loan are you Interested In?"
         android:gravity="center"
         android:textColor="#000000"
-        android:padding="50dp"
+        android:elevation="2dp"
+        android:padding="30dp"
         android:background="#ffffaa"
-        android:elevation="3dp"
+
         />
     <GridView
         android:layout_marginTop="5dp"
