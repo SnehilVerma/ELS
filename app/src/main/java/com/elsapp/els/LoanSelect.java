@@ -1,11 +1,11 @@
 package com.elsapp.els;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import Adapter.CustomGrid;
 
@@ -38,10 +38,23 @@ public class LoanSelect extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(LoanSelect.this,"Hello",Toast.LENGTH_SHORT).show();
+                        if(position==1){
+                            Intent i=new Intent(LoanSelect.this,CarLoanActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                        }
+                        else if(position==0){
+                            Intent i=new Intent(LoanSelect.this,HomeLoan.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+
+                        }
 
             }
         });
+
+
+
 
     }
 }
