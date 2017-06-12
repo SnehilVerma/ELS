@@ -38,6 +38,7 @@ public class CarLoanActivity extends AppCompatActivity {
         tv.setTypeface(font);
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true,new PagerTransformer());
+        viewPager.getCurrentItem();
 
 
 
