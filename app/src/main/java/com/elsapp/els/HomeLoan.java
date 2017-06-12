@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import Fragments.HomeLoanPurpose;
 import Fragments.DOB;
 import Fragments.Gender;
 import Fragments.HomeInto;
@@ -47,11 +49,13 @@ public class HomeLoan extends AppCompatActivity {
     }
     private void setUpViewPager(ViewPager viewPager) {
         HomeLoan.ViewPagerAdapter adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
+
         adapter.addFragment(new HomeInto(), "Intro");
         adapter.addFragment(new City(), "City");
         adapter.addFragment(new Gender(), "Gender");
         adapter.addFragment(new DOB(), "Date of Birth");
         adapter.addFragment(new HomePropLoc(), "Property Location");
+        adapter.addFragment(new HomeLoanPurpose(), "Purpose of Loan");
         adapter.addFragment(new HomePropCost(), "Property Cost");
         adapter.addFragment(new Salaried(), "Salaried");
         adapter.addFragment(new Retired_NP(), "Retired NonPensioner");

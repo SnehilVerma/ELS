@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +19,11 @@ import Utility.SessionManager;
 
 
 public class CarLoanActivity extends AppCompatActivity {
+
+    QEC_Model[] layouts = new QEC_Model[]{
+            new QEC_Model(R.layout.fragment_veh_type),
+            new QEC_Model(R.layout.fragment_car_type)
+    };
 
 
     private ViewPager viewPager;
@@ -64,6 +69,10 @@ public class CarLoanActivity extends AppCompatActivity {
 
     }
 
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
+
 
 
 
@@ -78,8 +87,14 @@ public class CarLoanActivity extends AppCompatActivity {
         //adapter.addFragment(new DOB(),"Date of Birth");   
         //adapter.addFragment(new Retired_P(), "Retired_Pensioner");
         //adapter.addFragment(new Self_Employed(), "Self_Employed");
+       // adapter.addFragment(new City(), "City");
+        //adapter.addFragment(new Gender(), "Gender");
+        //adapter.addFragment(new DOB(), "DOB");
+        //adapter.addFragment(new PrefCar(), "PrefCar");
+        //adapter.addFragment(new PurposeC(), "Purpose of Car");
 
         viewPager.setAdapter(adapter);
+
     }
 
     public ViewPagerAdapter getCurrAdapter(){
@@ -88,32 +103,25 @@ public class CarLoanActivity extends AppCompatActivity {
     }
 
 
-    public  class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
+    public  class ViewPagerAdapter extends FragmentStatePagerAdapter {
+        public final List<Fragment> mFragmentList = new ArrayList<>();
+        public final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
+
+        @Override
+        public int getItemPosition(Object object) {
+            return adapter.POSITION_NONE;
+        }
+
+
         @Override
         public Fragment getItem(int position) {
             //MODIFY THE LOGIC
 
-            String pos= SessionManager.getStringFromPreferences(CarLoanActivity.this,"pos");
-            int p=Integer.parseInt(pos);
-
-//            viewPager.setCurrentItem(p);
-            /*
-            if(p==1){
-                Fragment f=new DOB();
-                return f;
-
-            }else if(p==2){
-                Fragment f=new Gender();
-                return f;
-
-            }*/
 
             return mFragmentList.get(position);
         }
@@ -123,9 +131,37 @@ public class CarLoanActivity extends AppCompatActivity {
             return mFragmentList.size();
         }
 
+
         public void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
+        }
+
+
+
+
+
+
+        public void remFragment(Fragment fragment,String title){
+        //    mFragmentList.remove(fragment);
+
+            int p=0;
+            /*
+            for(String x : mFragmentTitleList){
+
+                if(x.equals(title)) {
+                    p=mFragmentTitleList.indexOf(x);
+                    break;
+                }
+
+
+            }
+            */
+
+            //Toast.makeText(getApplicationContext(),title+' '+ p,Toast.LENGTH_SHORT ).show();
+            mFragmentList.remove(fragment);
+            mFragmentTitleList.remove(title);
+
         }
 
         @Override
