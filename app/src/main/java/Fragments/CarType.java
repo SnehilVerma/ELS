@@ -65,7 +65,7 @@ public class CarType extends Fragment {
 
                 ad.mFragmentList.remove(viewPager.getCurrentItem());
                 ad.mFragmentTitleList.remove("DOB");
-                
+
                 ad.mFragmentList.add(new Gender());
                 ad.mFragmentTitleList.add("Gender");
                 ad.notifyDataSetChanged();

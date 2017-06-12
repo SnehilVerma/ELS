@@ -13,12 +13,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragments.VehSelect;
 import Fragments.CarType;
 import Transformer.PagerTransformer;
 import Utility.SessionManager;
 
 
 public class CarLoanActivity extends AppCompatActivity {
+
+    QEC_Model[] layouts = new QEC_Model[]{
+            new QEC_Model(R.layout.fragment_veh_type),
+            new QEC_Model(R.layout.fragment_car_type)
+    };
 
 
     private ViewPager viewPager;
@@ -71,6 +77,7 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
     private void setUpViewPager(ViewPager viewPager) {
+
         adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CarType(), "CarType");
        // adapter.addFragment(new City(), "City");
@@ -78,6 +85,7 @@ public class CarLoanActivity extends AppCompatActivity {
         //adapter.addFragment(new DOB(), "DOB");
         //adapter.addFragment(new PrefCar(), "PrefCar");
         //adapter.addFragment(new PurposeC(), "Purpose of Car");
+
         viewPager.setAdapter(adapter);
 
     }

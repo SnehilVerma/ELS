@@ -40,6 +40,7 @@ public class LoanSelect extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+
                         if(position==1){
                             Intent i=new Intent(LoanSelect.this,CarLoanActivity.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -52,10 +53,9 @@ public class LoanSelect extends AppCompatActivity {
 
                         }
 
+
             }
         });
-
-
 
 
     }

@@ -9,28 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoAction">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity"/>
-        <activity android:name=".HomeLoan"/>
-        <activity android:name=".LoanSelect"/>
+
+        <activity android:name=".LoanSelect" />
+        <activity android:name=".WelcomeActivity"></activity>
         <activity
             android:name=".CarLoanActivity"
             android:label="@string/title_activity_car_loan"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".VehicleSelect" android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity android:name=".HomeLoan"></activity>
         <activity
             android:name=".LoanSelec"
             android:label="@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+>>>>>>> f32b7471c060720738d294384d7a1cebb3156c48
     </application>
 
 </manifest>
