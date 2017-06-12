@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.CarType;
+import Fragments.DOB;
 import Fragments.Gender;
 import Fragments.PrefCar;
 import Fragments.Retired_P;
@@ -53,6 +54,7 @@ public class CarLoanActivity extends AppCompatActivity {
         adapter.addFragment(new CarType(), "CarType");
         adapter.addFragment(new PrefCar(), "PrefCar");
         adapter.addFragment(new Gender(),"Gender");
+        adapter.addFragment(new DOB(),"Date of Birth");
         adapter.addFragment(new Retired_P(), "Retired_Pensioner");
         adapter.addFragment(new Self_Employed(), "Self_Employed");
 

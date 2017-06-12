@@ -1,21 +1,10 @@
 package com.elsapp.els;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import Fragments.Homeloanslide1;
-import Fragments.Homeloanslide2;
-import Fragments.Homeloanslide3;
-import Fragments.Homeloanslide4;
-import Fragments.Homeloanslide5;
-import Fragments.Homeloanslide6;
+import Adapter.QEC_adapter;
 import Transformer.PagerTransformer;
 
 public class HomeLoan extends AppCompatActivity {
@@ -29,9 +18,10 @@ public class HomeLoan extends AppCompatActivity {
 
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true,new PagerTransformer());
-        setUpViewPager(viewPager);
+        viewPager.setAdapter(new QEC_adapter(this));
+        //setUpViewPager(viewPager);
     }
-    private void setUpViewPager(ViewPager viewPager) {
+    /*private void setUpViewPager(ViewPager viewPager) {
         HomeLoan.ViewPagerAdapter adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Homeloanslide1(), "1");
         adapter.addFragment(new Homeloanslide2(), "2");
@@ -70,5 +60,5 @@ public class HomeLoan extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
-    }
+    }*/
 }
