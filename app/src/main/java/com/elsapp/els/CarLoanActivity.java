@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.VehSelect;
 import Fragments.CarType;
 import Transformer.PagerTransformer;
 import Utility.SessionManager;
@@ -96,13 +95,20 @@ public class CarLoanActivity extends AppCompatActivity {
     }
 
 
-    public  class ViewPagerAdapter extends FragmentPagerAdapter {
+    public  class ViewPagerAdapter extends FragmentStatePagerAdapter {
         public final List<Fragment> mFragmentList = new ArrayList<>();
         public final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
+
+
+        @Override
+        public int getItemPosition(Object object) {
+            return adapter.POSITION_NONE;
+        }
+
 
         @Override
         public Fragment getItem(int position) {

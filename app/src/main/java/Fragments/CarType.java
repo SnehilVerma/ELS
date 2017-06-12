@@ -63,8 +63,9 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                ad.mFragmentList.remove(viewPager.getCurrentItem());
+                ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
                 ad.mFragmentTitleList.remove("DOB");
+
 
                 ad.mFragmentList.add(new Gender());
                 ad.mFragmentTitleList.add("Gender");
