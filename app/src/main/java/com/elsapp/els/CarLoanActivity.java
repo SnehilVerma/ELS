@@ -25,6 +25,11 @@ import Transformer.PagerTransformer;
 
 public class CarLoanActivity extends AppCompatActivity {
 
+    QEC_Model[] layouts = new QEC_Model[]{
+            new QEC_Model(R.layout.fragment_veh_type),
+            new QEC_Model(R.layout.fragment_car_type)
+    };
+
 
     private ViewPager viewPager;
     int x=0;
