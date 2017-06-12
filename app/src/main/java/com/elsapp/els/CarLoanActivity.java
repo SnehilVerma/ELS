@@ -21,6 +21,7 @@ import Fragments.Gender;
 import Fragments.PrefCar;
 import Fragments.Retired_P;
 import Fragments.Self_Employed;
+import Fragments.PurposeC;
 import Transformer.PagerTransformer;
 import Utility.SessionManager;
 
@@ -90,7 +91,8 @@ public class CarLoanActivity extends AppCompatActivity {
         adapter.addFragment(new Gender(), "Gender");
         adapter.addFragment(new DOB(), "DOB");
         adapter.addFragment(new CarType(), "CarType");
-
+        adapter.addFragment(new PrefCar(), "PrefCar");
+        adapter.addFragment(new PurposeC(), "Purpose of Car");
 
         viewPager.setAdapter(adapter);
     }
