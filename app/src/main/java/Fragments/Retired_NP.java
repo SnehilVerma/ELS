@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.elsapp.els.HomeLoan;
@@ -23,6 +24,8 @@ public class Retired_NP extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_retirednonpens, container, false);
 
+        EditText mincome = (EditText) view.findViewById(R.id.mincome);
+        EditText emi = (EditText) view.findViewById(R.id.emi);
 
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);

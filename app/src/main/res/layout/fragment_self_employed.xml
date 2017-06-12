@@ -53,6 +53,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:id="@+id/taxamount"
                 android:hint="Enter amount"
 
                 android:background="@drawable/round_background1"/>
@@ -81,6 +82,7 @@
                 android:layout_marginTop="20dp"
                 android:paddingLeft="10dp"
                 android:hint="Enter amount"
+                android:id="@+id/emiamount"
                 android:paddingRight="10dp"
                 android:gravity="center_vertical"
                 android:background="@drawable/round_background1"/>

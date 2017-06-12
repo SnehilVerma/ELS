@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.elsapp.els.R;
 
@@ -22,6 +23,8 @@ public class Gender extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_gender, container, false);
 
 
+        ImageView male = (ImageView) view.findViewById(R.id.male);
+        ImageView female = (ImageView) view.findViewById(R.id.female);
         return view;
 
     }

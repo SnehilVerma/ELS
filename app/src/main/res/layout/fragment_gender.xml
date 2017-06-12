@@ -36,7 +36,8 @@
             android:layout_below="@+id/tv1"
             android:layout_marginLeft="20dp"
             android:src="@drawable/male"
-            android:id="@+id/im1"
+            android:id="@+id/male"
+            android:clickable="true"
             android:layout_marginTop="150dp">
 
         </ImageView>
@@ -54,7 +55,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
-            android:id="@+id/im2"
+            android:id="@+id/female"
+            android:clickable="true"
             android:layout_marginLeft="220dp"
             android:background="@drawable/female"
             android:layout_marginTop="150dp">
@@ -65,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
             android:layout_marginLeft="250dp"
-            android:text="Male"
+            android:text="Female"
 
             />
         <LinearLayout

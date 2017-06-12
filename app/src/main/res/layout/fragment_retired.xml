@@ -53,6 +53,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:id="@+id/mpension"
                 android:hint="Enter amount"
 
                 android:background="@drawable/round_background1"/>
@@ -78,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_below="@+id/tv2"
+                android:id="@+id/emiamount"
                 android:layout_marginTop="20dp"
                 android:paddingLeft="10dp"
                 android:hint="Enter amount"
