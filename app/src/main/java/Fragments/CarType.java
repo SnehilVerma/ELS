@@ -69,7 +69,7 @@ public class CarType extends Fragment {
 
                 ad.mFragmentList.add(new Gender());
                 ad.mFragmentTitleList.add("Gender");
-                ad.notifyDataSetChanged();
+               // ad.notifyDataSetChanged();
 
 
 
