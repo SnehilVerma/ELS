@@ -1,10 +1,23 @@
 package com.elsapp.els;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import Adapter.QEC_adapter;
+import java.util.ArrayList;
+import java.util.List;
+
+import Fragments.DOB;
+import Fragments.Gender;
+import Fragments.HomeInto;
+import Fragments.City;
+import Fragments.HomePropLoc;
+import Fragments.HomePropCost;
+import Fragments.Salaried;
+import Fragments.Retired_NP;
 import Transformer.PagerTransformer;
 
 public class HomeLoan extends AppCompatActivity {
@@ -18,17 +31,30 @@ public class HomeLoan extends AppCompatActivity {
 
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true,new PagerTransformer());
-        viewPager.setAdapter(new QEC_adapter(this));
-        //setUpViewPager(viewPager);
+        /*viewPager.setAdapter(new QEC_adapter(this));
+        switch(viewPager.getCurrentItem()){
+            case(1):
+                ImageView others = (ImageView) findViewById(R.id.others);
+                others.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(),"bla bla",Toast.LENGTH_SHORT).show();
+                    }
+                });
+        }*/
+
+        setUpViewPager(viewPager);
     }
-    /*private void setUpViewPager(ViewPager viewPager) {
+    private void setUpViewPager(ViewPager viewPager) {
         HomeLoan.ViewPagerAdapter adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Homeloanslide1(), "1");
-        adapter.addFragment(new Homeloanslide2(), "2");
-        adapter.addFragment(new Homeloanslide3(), "3");
-        adapter.addFragment(new Homeloanslide4(), "4");
-        adapter.addFragment(new Homeloanslide5(), "5");
-        adapter.addFragment(new Homeloanslide6(), "6");
+        adapter.addFragment(new HomeInto(), "Intro");
+        adapter.addFragment(new City(), "City");
+        adapter.addFragment(new Gender(), "Gender");
+        adapter.addFragment(new DOB(), "Date of Birth");
+        adapter.addFragment(new HomePropLoc(), "Property Location");
+        adapter.addFragment(new HomePropCost(), "Property Cost");
+        adapter.addFragment(new Salaried(), "Salaried");
+        adapter.addFragment(new Retired_NP(), "Retired NonPensioner");
         viewPager.setAdapter(adapter);
     }
 
@@ -60,5 +86,8 @@ public class HomeLoan extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
-    }*/
+    }
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
 }
