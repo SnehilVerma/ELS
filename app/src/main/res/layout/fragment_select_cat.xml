@@ -29,7 +29,7 @@
             android:layout_marginTop="50dp"
             android:textSize="20dp"
             android:textColor="@android:color/white"
-
+            android:id="@+id/retired_np"
             android:layout_marginLeft="20dp"
 
             />
@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:text="Salaried"
             android:textSize="20dp"
+            android:id="@+id/salary"
             android:textColor="@android:color/white"
             android:layout_marginTop="150dp"
             android:layout_marginLeft="20dp"
@@ -50,6 +51,7 @@
             android:text="Retired Pensioner"
             android:textColor="@android:color/white"
             android:textSize="20dp"
+            android:id="@+id/retired_pensioner"
             android:layout_marginTop="250dp"
             android:layout_marginLeft="20dp"
 
@@ -61,6 +63,7 @@
             android:textColor="@android:color/white"
             android:layout_marginTop="50dp"
             android:textSize="20dp"
+            android:id="@+id/self_pro"
             android:layout_marginLeft="200dp"
 
             />
@@ -70,6 +73,7 @@
             android:text="Self Employed"
             android:layout_marginTop="150dp"
             android:textSize="20dp"
+            android:id="@+id/self"
             android:textColor="@android:color/white"
             android:layout_marginLeft="200dp"
 
@@ -81,6 +85,7 @@
             android:layout_marginTop="250dp"
             android:textColor="@android:color/white"
             android:textSize="20dp"
+            android:id="@+id/homemaker"
             android:layout_marginLeft="200dp"
 
             />

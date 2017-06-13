@@ -50,8 +50,8 @@ public class CarType extends Fragment {
                 //ad.notifyDataSetChanged();
 
 
-                ad.mFragmentList.add(new DOB());
-                ad.mFragmentTitleList.add("DOB");
+                ad.mFragmentList.add(new PurposeC());
+                ad.mFragmentTitleList.add("PurposeC");
                 ad.notifyDataSetChanged();
 
 
@@ -63,13 +63,13 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                ad.mFragmentTitleList.remove("DOB");
+                //ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
+                //ad.mFragmentTitleList.remove("DOB");
 
 
-                ad.mFragmentList.add(new Gender());
-                ad.mFragmentTitleList.add("Gender");
-               // ad.notifyDataSetChanged();
+                ad.mFragmentList.add(new PurposeC());
+                ad.mFragmentTitleList.add("PurposeC");
+                ad.notifyDataSetChanged();
 
 
 

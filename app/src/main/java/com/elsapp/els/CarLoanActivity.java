@@ -13,14 +13,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.CarType;
 import Fragments.City;
 import Fragments.DOB;
 import Fragments.Gender;
-import Fragments.PrefCar;
-import Fragments.PurposeC;
 import Fragments.VehIntro;
-import Fragments.VehLoanCost;
+import Fragments.VehSelect;
 import Transformer.PagerTransformer;
 import Utility.SessionManager;
 
@@ -89,23 +86,11 @@ public class CarLoanActivity extends AppCompatActivity {
         adapter.addFragment(new City(), "City");
         adapter.addFragment(new Gender(), "Gender");
         adapter.addFragment(new DOB(), "DOB");
-        adapter.addFragment(new CarType(), "CarType");
-        adapter.addFragment(new PurposeC(), "Purpose");
-        adapter.addFragment(new PrefCar(), "Preferred Car");
-        adapter.addFragment(new VehLoanCost(), "Vehicle Loan Cost");
-        /*adapter.addFragment(new PrefCar(), "PrefCar");
-        adapter.addFragment(new Retired_P(), "Retired_Pensioner");
-        adapter.addFragment(new Self_Employed(), "Self_Employed");*/
-      //  adapter.addFragment(new PrefCar(), "PrefCar");
-       // adapter.addFragment(new Gender(),"Gender");
-        //adapter.addFragment(new DOB(),"Date of Birth");   
-        //adapter.addFragment(new Retired_P(), "Retired_Pensioner");
-        //adapter.addFragment(new Self_Employed(), "Self_Employed");
-       // adapter.addFragment(new City(), "City");
-        //adapter.addFragment(new Gender(), "Gender");
-        //adapter.addFragment(new DOB(), "DOB");
-        //adapter.addFragment(new PrefCar(), "PrefCar");
-        //adapter.addFragment(new PurposeC(), "Purpose of Car");
+        adapter.addFragment(new VehSelect(),"VehSelect");
+        //adapter.addFragment(new CarType(), "CarType");
+        //adapter.addFragment(new PurposeC(), "Purpose");
+        //adapter.addFragment(new PrefCar(), "Preferred Car");
+        //adapter.addFragment(new VehLoanCost(), "Vehicle Loan Cost");
 
         viewPager.setAdapter(adapter);
 
