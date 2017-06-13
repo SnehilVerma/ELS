@@ -25,6 +25,7 @@ public class Gender extends Fragment {
 
         ImageView male = (ImageView) view.findViewById(R.id.male);
         ImageView female = (ImageView) view.findViewById(R.id.female);
+
         return view;
 
     }
