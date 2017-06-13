@@ -42,7 +42,6 @@ public class Select_Category extends Fragment {
         TextView tv5=(TextView)view.findViewById(R.id.retired_pensioner);
         TextView tv6=(TextView)view.findViewById(R.id.homemaker);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
-        Toast.makeText(getActivity(),loantype,Toast.LENGTH_SHORT).show();
 
         tv1.setOnClickListener(new OnClickListener() {
             @Override
@@ -92,7 +91,7 @@ public class Select_Category extends Fragment {
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
                     int flag=0;
 
-                    for(String x : adapter.mFragmentTitleList){
+                    for(String x : adapter1.mFragmentTitleList){
                         if(x.equals("Retired NonPensioner")){
                             flag=1;
                             break;
@@ -179,7 +178,7 @@ public class Select_Category extends Fragment {
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
                     int flag=0;
 
-                    for(String x : adapter.mFragmentTitleList){
+                    for(String x : adapter1.mFragmentTitleList){
                         if(x.equals("Self Employed Professional")){
                             flag=1;
                             break;
@@ -265,7 +264,7 @@ public class Select_Category extends Fragment {
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
                     int flag=0;
 
-                    for(String x : adapter.mFragmentTitleList){
+                    for(String x : adapter1.mFragmentTitleList){
                         if(x.equals("Salaried")){
                             flag=1;
                             break;
@@ -352,7 +351,7 @@ public class Select_Category extends Fragment {
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
                     int flag=0;
 
-                    for(String x : adapter.mFragmentTitleList){
+                    for(String x : adapter1.mFragmentTitleList){
                         if(x.equals("Self Employed")){
                             flag=1;
                             break;
@@ -438,7 +437,7 @@ public class Select_Category extends Fragment {
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
                     int flag=0;
 
-                    for(String x : adapter.mFragmentTitleList){
+                    for(String x : adapter1.mFragmentTitleList){
                         if(x.equals("Retired Pensioner")){
                             flag=1;
                             break;
@@ -526,7 +525,7 @@ public class Select_Category extends Fragment {
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
                     int flag=0;
 
-                    for(String x : adapter.mFragmentTitleList){
+                    for(String x : adapter1.mFragmentTitleList){
                         if(x.equals("Homemaker")){
                             flag=1;
                             break;
