@@ -3,7 +3,9 @@ package Fragments;
 import android.app.DatePickerDialog;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.elsapp.els.R;
 import java.util.Locale;
 
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class DOB extends Fragment {
     EditText text;
     Calendar myCalendar = Calendar.getInstance();
@@ -48,6 +51,7 @@ public class DOB extends Fragment {
 
         text.setOnClickListener(new View.OnClickListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -62,6 +66,7 @@ public class DOB extends Fragment {
         return y;
     }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         private void updateLabel() {
 
             String myFormat = "MM/dd/yy"; //In which you need put here
