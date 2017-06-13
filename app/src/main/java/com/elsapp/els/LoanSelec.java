@@ -15,11 +15,13 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import Adapter.CustomGrid;
+import Utility.SessionManager;
 
 public class LoanSelec extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private String loantype;
     GridView grid;
     String[] loans = {"Home","vehicle"};
     int[] pic_loans = {
@@ -50,11 +52,15 @@ public class LoanSelec extends AppCompatActivity
                 if(position==1){
                     Intent i=new Intent(LoanSelec.this,CarLoanActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    loantype = "CarLoanActivity";
+                    SessionManager.putStringInPreferences(getApplicationContext(),loantype,"loantype");
                     startActivity(i);
                 }
                 else if(position==0){
                     Intent i=new Intent(LoanSelec.this,HomeLoan.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    loantype = "HomeLoan";
+                    SessionManager.putStringInPreferences(getApplicationContext(),loantype,"loantype");
                     startActivity(i);
 
                 }

@@ -141,6 +141,7 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
 
+
         public void remFragment(Fragment fragment,String title){
         //    mFragmentList.remove(fragment);
 
@@ -168,7 +169,7 @@ public class CarLoanActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
 
-
     }
+
 
 }

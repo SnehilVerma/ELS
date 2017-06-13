@@ -10,20 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import Fragments.HomeLoanPurpose;
+import Fragments.City;
 import Fragments.DOB;
 import Fragments.Gender;
 import Fragments.HomeInto;
-import Fragments.City;
-import Fragments.HomePropLoc;
+import Fragments.HomeLoanPurpose;
 import Fragments.HomePropCost;
-import Fragments.Salaried;
-import Fragments.Retired_NP;
+import Fragments.HomePropLoc;
+import Fragments.Select_Category;
 import Transformer.PagerTransformer;
 
 public class HomeLoan extends AppCompatActivity {
     private ViewPager viewPager;
+    private HomeLoan.ViewPagerAdapter adapter;
 
 
     @Override
@@ -48,7 +47,7 @@ public class HomeLoan extends AppCompatActivity {
         setUpViewPager(viewPager);
     }
     private void setUpViewPager(ViewPager viewPager) {
-        HomeLoan.ViewPagerAdapter adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new HomeInto(), "Intro");
         adapter.addFragment(new City(), "City");
@@ -57,13 +56,16 @@ public class HomeLoan extends AppCompatActivity {
         adapter.addFragment(new HomePropLoc(), "Property Location");
         adapter.addFragment(new HomeLoanPurpose(), "Purpose of Loan");
         adapter.addFragment(new HomePropCost(), "Property Cost");
-        adapter.addFragment(new Salaried(), "Salaried");
-        adapter.addFragment(new Retired_NP(), "Retired NonPensioner");
+        adapter.addFragment(new Select_Category(), "Select Category");
         viewPager.setAdapter(adapter);
+    }
+    public HomeLoan.ViewPagerAdapter getCurrAdapter(){
+        return adapter;
+
     }
 
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
