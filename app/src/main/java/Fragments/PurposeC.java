@@ -126,10 +126,10 @@ public class PurposeC extends Fragment {
 
 
 
-                if(vpsize==ad.mFragmentList.size() && ad.mFragmentTitleList.get(viewPager.getCurrentItem()).equals("CarType")){
-                    Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
+//                if(vpsize==ad.mFragmentList.size() && ad.mFragmentTitleList.get(viewPager.getCurrentItem()).equals("CarType")){
+ //                   Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
 
-                }
+                //}
 
 
 

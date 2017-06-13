@@ -15,13 +15,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.DOM;
-import Fragments.PrefBike;
-import Fragments.PrefCar;
-import Fragments.PurposeC;
-import Fragments.VehSelect;
-import Fragments.CarType;
-
 import Fragments.City;
 import Fragments.DOB;
 import Fragments.Gender;
@@ -91,17 +84,13 @@ public class CarLoanActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setUpViewPager(ViewPager viewPager) {
-        CarLoanActivity.ViewPagerAdapter adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new VehSelect(), "VehSelect");
-        adapter.addFragment(new Gender(),"Gender");
-       //adapter.addFragment(new NumAndEmail(), "NumAndEmail");
-        adapter.addFragment(new DOB(),"Date of Birth");
+        adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new VehIntro(),"VehIntro");
         adapter.addFragment(new City(), "City");
-        adapter.addFragment(new CarType(), "CarType");
-        adapter.addFragment(new PrefCar(), "PrefCar");
-        adapter.addFragment(new DOM(), "Date of Manufacturing");
-        adapter.addFragment(new PrefBike(), "PrefBike");
-        adapter.addFragment(new PurposeC(), "Purpose of Car");
+        adapter.addFragment(new Gender(),"Gender");
+        adapter.addFragment(new DOB(),"Date of Birth");
+        adapter.addFragment(new VehSelect(), "VehSelect");
+       //adapter.addFragment(new NumAndEmail(), "NumAndEmail");
 
 
 
