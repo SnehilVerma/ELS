@@ -24,7 +24,7 @@ public class PurposeC extends Fragment {
     ViewPagerAdapter ad;
     ViewPager viewPager;
     int vpsize;
-    //int gflag;
+
 
 
 
@@ -39,7 +39,7 @@ public class PurposeC extends Fragment {
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
         vpsize=ad.mFragmentList.size();
-        //gflag=viewPager.getCurrentItem();
+
 
 
 
@@ -47,7 +47,7 @@ public class PurposeC extends Fragment {
             @Override
             public void onClick(View view) {
 
-//                gflag=1;
+
 
 
                 int flag=0;
@@ -124,13 +124,13 @@ public class PurposeC extends Fragment {
             @Override
             public void onPageScrollStateChanged(int state) {
 
-                /*
 
-                if(vpsize==ad.mFragmentList.size()){
-                    Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
 
-                }
-                */
+//                if(vpsize==ad.mFragmentList.size() && ad.mFragmentTitleList.get(viewPager.getCurrentItem()).equals("CarType")){
+ //                   Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
+
+                //}
+
 
 
 
