@@ -5,7 +5,9 @@ import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.elsapp.els.R;
 import java.util.Locale;
 
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class DOB extends Fragment {
     EditText text;
     Calendar myCalendar = Calendar.getInstance();
