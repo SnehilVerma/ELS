@@ -16,6 +16,18 @@ import Adapter.GridAdapter;
 
 public class Deposited extends Fragment {
 
+    public Integer[] thumbs = {
+            R.drawable.car1, R.drawable.car3,
+            R.drawable.car4, R.drawable.car2,
+            R.drawable.car1, R.drawable.car3,
+            R.drawable.car4, R.drawable.car2,
+            R.drawable.car1, R.drawable.car3,
+            R.drawable.car4, R.drawable.car2,
+
+
+
+    };
+
 
     public Deposited() {
         // Required empty public constructor
@@ -27,7 +39,7 @@ public class Deposited extends Fragment {
                              Bundle savedInstanceState) {
         final View x = inflater.inflate(R.layout.fragment_deposited,container,false);
         GridView gridView=(GridView)x.findViewById(R.id.gridviews);
-        gridView.setAdapter(new GridAdapter(getContext()));
+        gridView.setAdapter(new GridAdapter(getContext(),thumbs));
         // Inflate the layout for this fragment
         return x;
     }

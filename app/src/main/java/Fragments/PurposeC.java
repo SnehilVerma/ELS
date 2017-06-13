@@ -26,6 +26,8 @@ public class PurposeC extends Fragment {
     int vpsize;
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,9 +42,12 @@ public class PurposeC extends Fragment {
 
 
 
+
         personal.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
 
 
                 int flag=0;
@@ -73,6 +78,7 @@ public class PurposeC extends Fragment {
             @Override
             public void onClick(View view) {
 
+                //gflag=1;
                 int flag=0;
 
                 for(String x : ad.mFragmentTitleList){
@@ -98,6 +104,9 @@ public class PurposeC extends Fragment {
 
         //CHECK IF THE USER HAS SELECTED ANY OPTION.
         viewPager.addOnPageChangeListener(new OnPageChangeListener() {
+
+
+
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -108,17 +117,21 @@ public class PurposeC extends Fragment {
             @Override
             public void onPageSelected(int position) {
 
+
+
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
 
-                /*
-                if(vpsize==ad.mFragmentList.size()){
-                    Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
 
-                }
-                */
+
+//                if(vpsize==ad.mFragmentList.size() && ad.mFragmentTitleList.get(viewPager.getCurrentItem()).equals("CarType")){
+ //                   Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
+
+                //}
+
+
 
 
             }

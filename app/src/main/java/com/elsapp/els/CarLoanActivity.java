@@ -82,19 +82,17 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setUpViewPager(ViewPager viewPager) {
         adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new VehIntro(), "Vehicle Intro");
+        adapter.addFragment(new VehIntro(),"VehIntro");
         adapter.addFragment(new City(), "City");
-        adapter.addFragment(new Gender(), "Gender");
-        adapter.addFragment(new DOB(), "DOB");
-        adapter.addFragment(new VehSelect(),"VehSelect");
-        //adapter.addFragment(new CarType(), "CarType");
-        //adapter.addFragment(new PurposeC(), "Purpose");
-        //adapter.addFragment(new PrefCar(), "Preferred Car");
-        //adapter.addFragment(new VehLoanCost(), "Vehicle Loan Cost");
+        adapter.addFragment(new Gender(),"Gender");
+        adapter.addFragment(new DOB(),"Date of Birth");
+        adapter.addFragment(new VehSelect(), "VehSelect");
+       //adapter.addFragment(new NumAndEmail(), "NumAndEmail");
+
+
 
         viewPager.setAdapter(adapter);
 
@@ -145,6 +143,7 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
 
+
         public void remFragment(Fragment fragment,String title){
         //    mFragmentList.remove(fragment);
 
@@ -172,7 +171,7 @@ public class CarLoanActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
 
-
     }
+
 
 }

@@ -50,6 +50,12 @@ public class VehSelect extends Fragment {
                         flag=1;
                         break;
                     }
+                    else if(x.equals(("CarType"))){
+                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
+                        ad.mFragmentTitleList.remove("CarType");
+
+
+                    }
 
                 }
                 if(flag==0){
@@ -75,6 +81,13 @@ public class VehSelect extends Fragment {
                     if(x.equals("CarType")){
                         flag=1;
                         break;
+                    }
+
+                    else if(x.equals(("BikeType"))){
+                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
+                        ad.mFragmentTitleList.remove("BikeType");
+
+
                     }
 
                 }

@@ -35,9 +35,12 @@
         <activity
             android:name=".LoanSelec"
             android:label="@string/title_activity_loan_selec"
+
             android:theme="@style/AppTheme.NoActionBar" />
-        >>>>>>> f32b7471c060720738d294384d7a1cebb3156c48
+        
         <activity android:name=".login"></activity>
+
+
     </application>
 
 </manifest>

@@ -3,14 +3,12 @@ package Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
 /**
@@ -29,7 +27,7 @@ public class Salaried extends Fragment{
         EditText emi = (EditText) view.findViewById(R.id.emi);
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
-        final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
+        /*final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +40,7 @@ public class Salaried extends Fragment{
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
-
+*/
         return view;
 
     }
