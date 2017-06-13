@@ -34,7 +34,7 @@ public class DOM extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dom,container,false);
 
         dom = (EditText) view.findViewById(R.id.monthtxt);
-        
+
 
 
         return view;

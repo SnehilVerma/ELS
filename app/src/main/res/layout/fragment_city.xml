@@ -40,6 +40,8 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:src="@drawable/mumbai"
+                android:clickable="true"
+                android:id="@+id/mumbai"
                 android:elevation="12dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,6 +60,8 @@
                 android:layout_height="130dp"
                 android:src="@drawable/delhi"
                 android:layout_marginLeft="20dp"
+                android:id="@+id/delhi"
+                android:clickable="true"
                 android:elevation="12dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -79,6 +83,7 @@
                 android:src="@drawable/others"
                 android:elevation="12dp"
                 android:layout_gravity="center"
+                android:clickable="true"
                 android:id="@+id/others"/>
             <TextView
                 android:layout_width="wrap_content"

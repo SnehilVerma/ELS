@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
 
+<RelativeLayout
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                         android:orientation="vertical"
 
@@ -24,52 +23,38 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:textColor="@android:color/holo_red_dark"
-            android:text="What type of car do you want to buy?"
+            android:text="What type of bike do you want to buy?"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"
             />
 
 
-        <ImageView
+        <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/male"
-            android:id="@+id/male"
+            android:src="@drawable/motorcycle"
+            android:id="@+id/im1"
+            android:background="@android:color/holo_green_light"
             android:clickable="true"
             android:layout_marginTop="150dp">
 
-        </ImageView>
+        </ImageButton>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="50dp"
-            android:text="Male"
-
-            />
-
-        <ImageView
+        <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
-            android:id="@+id/female"
+            android:id="@+id/im2"
             android:clickable="true"
             android:layout_marginLeft="220dp"
-            android:background="@drawable/female"
+            android:src="@drawable/motorcycle"
             android:layout_marginTop="150dp">
 
-        </ImageView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="250dp"
-            android:text="Female"
 
-            />
+        </ImageButton>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,6 +89,4 @@
 
 
     </android.support.v7.widget.CardView>
-
-
 </RelativeLayout>

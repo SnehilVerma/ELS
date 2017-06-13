@@ -1,10 +1,9 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-import android.net.Uri;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -53,6 +52,7 @@ public class DOB extends Fragment {
 
         text.setOnClickListener(new View.OnClickListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -67,6 +67,7 @@ public class DOB extends Fragment {
         return y;
     }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         private void updateLabel() {
 
             String myFormat = "MM/dd/yy"; //In which you need put here
