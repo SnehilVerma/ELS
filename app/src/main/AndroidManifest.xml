@@ -33,7 +33,6 @@
             android:label="@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
->>>>>>> f32b7471c060720738d294384d7a1cebb3156c48
     </application>
 
 </manifest>
