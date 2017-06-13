@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
@@ -49,10 +50,26 @@ public class CarType extends Fragment {
                 //ad.addFragment(new Gender(), "Gender");
                 //ad.notifyDataSetChanged();
 
+                int flag=0;
 
-                ad.mFragmentList.add(new PurposeC());
-                ad.mFragmentTitleList.add("PurposeC");
-                ad.notifyDataSetChanged();
+                for(String x : ad.mFragmentTitleList){
+                    if(x.equals("PurposeC")){
+                        flag=1;
+                        break;
+                    }
+
+                }
+                if(flag==0) {
+
+
+                    ad.mFragmentList.add(new PurposeC());
+                    ad.mFragmentTitleList.add("PurposeC");
+                    ad.notifyDataSetChanged();
+
+                }
+                else{
+                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                }
 
 
 
@@ -65,11 +82,26 @@ public class CarType extends Fragment {
 
                 //ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
                 //ad.mFragmentTitleList.remove("DOB");
+                int flag=0;
+
+                for(String x : ad.mFragmentTitleList){
+                    if(x.equals("PurposeC")){
+                        flag=1;
+                        break;
+                    }
+
+                }
+                if(flag==0) {
 
 
-                ad.mFragmentList.add(new PurposeC());
-                ad.mFragmentTitleList.add("PurposeC");
-                ad.notifyDataSetChanged();
+                    ad.mFragmentList.add(new PurposeC());
+                    ad.mFragmentTitleList.add("PurposeC");
+                    ad.notifyDataSetChanged();
+
+                }
+                else{
+                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                }
 
 
 

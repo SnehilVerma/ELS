@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
@@ -42,9 +43,23 @@ public class VehSelect extends Fragment {
         ib1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                int flag=0;
+
+                for(String x : ad.mFragmentTitleList){
+                    if(x.equals("BikeType")){
+                        flag=1;
+                        break;
+                    }
+
+                }
+                if(flag==0){
                 ad.mFragmentList.add(new BikeType());
-                ad.mFragmentTitleList.add("CarType");
-                ad.notifyDataSetChanged();
+                ad.mFragmentTitleList.add("BikeType");
+                ad.notifyDataSetChanged();}
+                else{
+
+                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -54,9 +69,25 @@ public class VehSelect extends Fragment {
             @Override
             public void onClick(View view) {
 
-                ad.mFragmentList.add(new CarType());
-                ad.mFragmentTitleList.add("BikeType");
-                ad.notifyDataSetChanged();
+                int flag=0;
+
+                for(String x : ad.mFragmentTitleList){
+                    if(x.equals("CarType")){
+                        flag=1;
+                        break;
+                    }
+
+                }
+                if(flag==0) {
+
+                    ad.mFragmentList.add(new CarType());
+                    ad.mFragmentTitleList.add("CarType");
+                    ad.notifyDataSetChanged();
+                }
+                else{
+
+                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
