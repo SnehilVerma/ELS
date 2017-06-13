@@ -12,9 +12,22 @@
 
         <item
             android:id="@+id/nav_login"
+            android:title="Login"
+            android:icon="@drawable/log"
+            >
+        </item>
+
+
+
+        <item
+            android:id="@+id/nav_logout"
             android:title="Logout"
             android:icon="@drawable/logout"
             ></item>
+
+
+
+
     </group>
 
 </menu>

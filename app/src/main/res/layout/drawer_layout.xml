@@ -22,7 +22,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/header"
-        app:menu="@menu/activity_drawer"
+        app:menu="@menu/activity_loan_selec_drawer"
         app:itemIconTint="@color/colorPrimary"
         app:itemTextColor="@color/colorPrimaryDark"/>
 

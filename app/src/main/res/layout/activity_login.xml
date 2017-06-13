@@ -1,0 +1,84 @@
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login_activity"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="1dp"
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login/Signup"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="68dp" />
+
+        <EditText
+            android:id="@+id/mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="43dp"
+            android:layout_marginTop="194dp"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="183dp"
+            android:layout_toStartOf="@+id/mail"
+            card_view:srcCompat="@drawable/email" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/mail"
+            android:layout_below="@+id/imageView5"
+            android:layout_marginTop="36dp"
+            android:ems="10"
+            android:inputType="numberPassword" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:srcCompat="@drawable/password"
+            android:layout_alignTop="@+id/pass"
+            android:layout_alignStart="@+id/imageView5"
+            android:layout_alignEnd="@+id/imageView5"
+            android:layout_alignBottom="@+id/pass" />
+
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/imageView6"
+            android:layout_marginBottom="54dp"
+            android:layout_marginStart="28dp"
+            android:text="SignIn" />
+
+        <Button
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/signin"
+            android:layout_alignEnd="@+id/pass"
+            android:layout_marginEnd="30dp"
+            android:text="First Time?" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
