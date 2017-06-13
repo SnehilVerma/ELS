@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.elsapp.els.R;
 
@@ -22,6 +23,8 @@ public class Self_Employed extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_self_employed, container, false);
 
+        EditText taxamount = (EditText) view.findViewById(R.id.taxamount);
+        EditText emiammount = (EditText) view.findViewById(R.id.emiamount);
 
         return view;
 

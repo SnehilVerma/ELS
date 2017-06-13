@@ -75,10 +75,18 @@ public class CarLoanActivity extends AppCompatActivity {
 
 
 
-    private void setUpViewPager(ViewPager viewPager) {
 
+    private void setUpViewPager(ViewPager viewPager) {
         adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CarType(), "CarType");
+        /*adapter.addFragment(new PrefCar(), "PrefCar");
+        adapter.addFragment(new Retired_P(), "Retired_Pensioner");
+        adapter.addFragment(new Self_Employed(), "Self_Employed");*/
+      //  adapter.addFragment(new PrefCar(), "PrefCar");
+       // adapter.addFragment(new Gender(),"Gender");
+        //adapter.addFragment(new DOB(),"Date of Birth");   
+        //adapter.addFragment(new Retired_P(), "Retired_Pensioner");
+        //adapter.addFragment(new Self_Employed(), "Self_Employed");
        // adapter.addFragment(new City(), "City");
         //adapter.addFragment(new Gender(), "Gender");
         //adapter.addFragment(new DOB(), "DOB");
