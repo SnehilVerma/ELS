@@ -15,11 +15,11 @@ import com.elsapp.els.R;
 
 public class GridAdapter extends BaseAdapter {
     private Context context;
-    //public Integer thumbs;
+    public Integer[] thumbs;
 
-    public GridAdapter (Context c){
-
-        context=c;
+    public GridAdapter(Context context, Integer[] thumbs) {
+        this.context = context;
+        this.thumbs = thumbs;
     }
 
     public int getCount(){
@@ -55,15 +55,4 @@ public class GridAdapter extends BaseAdapter {
 
     }
 
-    public Integer[] thumbs = {
-            R.drawable.car1, R.drawable.car3,
-            R.drawable.car4, R.drawable.car2,
-            R.drawable.car1, R.drawable.car3,
-            R.drawable.car4, R.drawable.car2,
-            R.drawable.car1, R.drawable.car3,
-            R.drawable.car4, R.drawable.car2,
-
-
-
-    };
 }
