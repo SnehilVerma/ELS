@@ -46,15 +46,44 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
-                    viewGroup = ((CarLoanActivity) getActivity()).getViewPager();
-                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                    adapter.addFragment(new Retired_NP(), "Retired NonPensioner");
-                    adapter.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+
+                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        adapter.addFragment(new Retired_NP(), "Retired NonPensioner");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                    adapter1.addFragment(new Retired_NP(), "Retired NonPensioner");
-                    adapter1.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+
+                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                        adapter1.addFragment(new Retired_NP(), "Retired NonPensioner");
+                        adapter1.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -64,15 +93,43 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
-                    viewGroup = ((CarLoanActivity) getActivity()).getViewPager();
-                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                    adapter.addFragment(new Retired_NP(), "Self Employed Professional");
-                    adapter.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+
+                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        adapter.addFragment(new Retired_NP(), "Self Employed Professional");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                    adapter1.addFragment(new Retired_NP(), "Self Employed Professional");
-                    adapter1.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                        adapter1.addFragment(new Retired_NP(), "Self Employed Professional");
+                        adapter1.notifyDataSetChanged();
+                    }
+                    else {
+                        Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -81,15 +138,42 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
-                    viewGroup = ((CarLoanActivity) getActivity()).getViewPager();
-                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                    adapter.addFragment(new Salaried(), "Salaried");
-                    adapter.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        adapter.addFragment(new Salaried(), "Salaried");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                    adapter1.addFragment(new Salaried(), "Salaried");
-                    adapter1.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                        adapter1.addFragment(new Salaried(), "Salaried");
+                        adapter1.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -99,15 +183,42 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
-                    viewGroup = ((CarLoanActivity) getActivity()).getViewPager();
-                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                    adapter.addFragment(new Self_Employed(), "Self Employed");
-                    adapter.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        adapter.addFragment(new Self_Employed(), "Self Employed");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                    adapter1.addFragment(new Self_Employed(), "Self Employed");
-                    adapter1.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                        adapter1.addFragment(new Self_Employed(), "Self Employed");
+                        adapter1.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -116,15 +227,42 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
-                    viewGroup = ((CarLoanActivity) getActivity()).getViewPager();
-                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                    adapter.addFragment(new Retired_P(), "Retired Pensioner");
-                    adapter.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        adapter.addFragment(new Retired_P(), "Retired Pensioner");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                    adapter1.addFragment(new Retired_P(), "Retired Pensioner");
-                    adapter1.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                        adapter1.addFragment(new Retired_P(), "Retired Pensioner");
+                        adapter1.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -134,15 +272,42 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
-                    viewGroup = ((CarLoanActivity) getActivity()).getViewPager();
-                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                    adapter.addFragment(new Retired_NP(), "Homemaker");
-                    adapter.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        adapter.addFragment(new Retired_NP(), "Homemaker");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                    adapter1.addFragment(new Retired_NP(), "Homemaker");
-                    adapter1.notifyDataSetChanged();
+                    int flag=0;
+
+                    for(String x : adapter.mFragmentTitleList){
+                        if(x.equals("PrefCar")){
+                            flag=1;
+                            break;
+                        }
+
+                    }
+                    if(flag==0) {
+                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                        adapter1.addFragment(new Retired_NP(), "Homemaker");
+                        adapter1.notifyDataSetChanged();
+                    }
+                    else{
+                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }

@@ -1,6 +1,8 @@
 package com.elsapp.els;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.City;
+
+import Fragments.CoAPP;
+import Fragments.HomeLoanPurpose;
 import Fragments.DOB;
 import Fragments.Gender;
 import Fragments.HomeInto;
@@ -25,6 +30,7 @@ public class HomeLoan extends AppCompatActivity {
     private HomeLoan.ViewPagerAdapter adapter;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +52,7 @@ public class HomeLoan extends AppCompatActivity {
 
         setUpViewPager(viewPager);
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void setUpViewPager(ViewPager viewPager) {
         adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
 
