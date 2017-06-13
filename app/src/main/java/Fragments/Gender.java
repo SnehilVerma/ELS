@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 
 import com.elsapp.els.R;
@@ -25,6 +26,8 @@ public class Gender extends Fragment {
 
         ImageView male = (ImageView) view.findViewById(R.id.male);
         ImageView female = (ImageView) view.findViewById(R.id.female);
+        CheckBox malecheck = (CheckBox) view.findViewById(R.id.malecheck);
+        CheckBox femalecheck = (CheckBox) view.findViewById(R.id.femalecheck);
 
         return view;
 

@@ -49,6 +49,10 @@ public class HomeLoan extends AppCompatActivity {
 
         setUpViewPager(viewPager);
     }
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void setUpViewPager(ViewPager viewPager) {
         adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
@@ -96,8 +100,5 @@ public class HomeLoan extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
-    }
-    public ViewPager getViewPager(){
-        return viewPager;
     }
 }

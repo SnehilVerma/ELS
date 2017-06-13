@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +28,12 @@ public class HomePropLoc extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_home_proploc, container, false);
 
 
-        ImageView mumbai = (ImageView)view.findViewById(R.id.mumbai);
-        ImageView delhi = (ImageView) view.findViewById(R.id.delhi);
+        CheckBox mumbai = (CheckBox)view.findViewById(R.id.mumbai);
+        CheckBox delhi = (CheckBox) view.findViewById(R.id.delhi);
         ImageView others = (ImageView) view.findViewById(R.id.others);
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
+        EditText editothers = (EditText) view.findViewById(R.id.editothers);
         final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
