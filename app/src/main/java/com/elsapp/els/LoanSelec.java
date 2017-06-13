@@ -21,14 +21,11 @@ public class LoanSelec extends AppCompatActivity
 
 
     GridView grid;
-    String[] loans = {"Home","vehicle","Gold","Education","Con-Durable"};
+    String[] loans = {"Home","vehicle"};
     int[] pic_loans = {
 
-            R.drawable.home,
-            R.drawable.vehicle,
-            R.drawable.gold,
-            R.drawable.education,
-            R.drawable.con_dur
+            R.drawable.house,
+            R.drawable.car,
 
 
 

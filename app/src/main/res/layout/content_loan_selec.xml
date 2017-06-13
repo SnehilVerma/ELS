@@ -4,8 +4,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context="com.elsapp.els.LoanSelect"
-              android:orientation="vertical">
+              tools:context="com.elsapp.els.LoanSelec"
+              android:orientation="vertical"    >
 
     <TextView
         android:layout_width="match_parent"
@@ -14,8 +14,8 @@
         android:gravity="center"
         android:textColor="#000000"
         android:padding="30dp"
-        android:background="#ffffaa"
-        />
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="50dp" />
     <GridView
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
