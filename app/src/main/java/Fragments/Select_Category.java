@@ -49,7 +49,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Retired NonPensioner")){
                             flag=1;
                             break;
                         }
@@ -69,7 +69,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Retired NonPensioner")){
                             flag=1;
                             break;
                         }
@@ -96,7 +96,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Self Employed Professional")){
                             flag=1;
                             break;
                         }
@@ -105,7 +105,7 @@ public class Select_Category extends Fragment {
                     if(flag==0) {
 
                         adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                        adapter.addFragment(new Retired_NP(), "Self Employed Professional");
+                        adapter.addFragment(new Self_Employed(), "Self Employed Professional");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -116,7 +116,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Self Employed Professional")){
                             flag=1;
                             break;
                         }
@@ -124,7 +124,7 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                        adapter1.addFragment(new Retired_NP(), "Self Employed Professional");
+                        adapter1.addFragment(new Self_Employed(), "Self Employed Professional");
                         adapter1.notifyDataSetChanged();
                     }
                     else {
@@ -141,7 +141,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Salaried")){
                             flag=1;
                             break;
                         }
@@ -160,7 +160,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Salaried")){
                             flag=1;
                             break;
                         }
@@ -186,7 +186,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Self Employed")){
                             flag=1;
                             break;
                         }
@@ -205,7 +205,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Self Employed")){
                             flag=1;
                             break;
                         }
@@ -230,7 +230,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Retired Pensioner")){
                             flag=1;
                             break;
                         }
@@ -249,7 +249,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Retired Pensioner")){
                             flag=1;
                             break;
                         }
@@ -275,7 +275,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Homemaker")){
                             flag=1;
                             break;
                         }
@@ -283,7 +283,7 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                        adapter.addFragment(new Retired_NP(), "Homemaker");
+                        adapter.addFragment(new Homemaker(), "Homemaker");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -294,7 +294,7 @@ public class Select_Category extends Fragment {
                     int flag=0;
 
                     for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("PrefCar")){
+                        if(x.equals("Homemaker")){
                             flag=1;
                             break;
                         }
@@ -302,7 +302,7 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                        adapter1.addFragment(new Retired_NP(), "Homemaker");
+                        adapter1.addFragment(new Homemaker(), "Homemaker");
                         adapter1.notifyDataSetChanged();
                     }
                     else{
