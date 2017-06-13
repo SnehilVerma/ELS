@@ -13,9 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.City;
-
-import Fragments.CoAPP;
-import Fragments.HomeLoanPurpose;
 import Fragments.DOB;
 import Fragments.Gender;
 import Fragments.HomeInto;
@@ -53,7 +50,7 @@ public class HomeLoan extends AppCompatActivity {
         setUpViewPager(viewPager);
     }
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void setUpViewPager(ViewPager viewPager) {
+    public void setUpViewPager(ViewPager viewPager) {
         adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new HomeInto(), "Intro");
@@ -73,8 +70,8 @@ public class HomeLoan extends AppCompatActivity {
 
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
+        public final List<Fragment> mFragmentList = new ArrayList<>();
+        public final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
