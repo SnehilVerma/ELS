@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#ffffff"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            android:id="@+id/im1"
+            android:src="@drawable/cs2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Congratulations!!!"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/im1"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="true"
+            android:id="@+id/tv1"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textColor="@android:color/background_dark"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv1"
+            android:text="Elgible Loan Amount"/>
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_below="@+id/textView"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:id="@+id/eligible"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter following details:"
+            android:layout_below="@+id/im1"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_gravity="left"
+            android:id="@+id/tv2"
+            android:layout_marginLeft="130dp"/>
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv2"
+            android:id="@+id/name"/>
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/mob"
+            android:layout_marginLeft="130dp"/>
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mob"
+            android:id="@+id/email"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/backarrow"
+            android:id="@+id/back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"
+            android:id="@+id/prev"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/next"
+            android:layout_marginLeft="200dp"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/forwardarrow"
+            android:id="@+id/forw"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -46,24 +46,28 @@ public class CarType extends Fragment {
             public void onClick(View view) {
 
                 //TESTING
-
-                //ad.addFragment(new Gender(), "Gender");
-                //ad.notifyDataSetChanged();
-
                 int flag=0;
 
                 for(String x : ad.mFragmentTitleList){
-                    if(x.equals("PurposeC")){
+                    if(x.equals("PrefCar")){
                         flag=1;
                         break;
                     }
+
+                    else if(x.equals("DOM")){
+
+                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
+                        ad.mFragmentTitleList.remove("DOM");
+
+                    }
+
 
                 }
                 if(flag==0) {
 
 
-                    ad.mFragmentList.add(new PurposeC());
-                    ad.mFragmentTitleList.add("PurposeC");
+                    ad.mFragmentList.add(new PrefCar());
+                    ad.mFragmentTitleList.add("PrefCar");
                     ad.notifyDataSetChanged();
 
                 }
@@ -71,6 +75,10 @@ public class CarType extends Fragment {
                     Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
                 }
 
+
+
+                //ad.addFragment(new Gender(), "Gender");
+                //ad.notifyDataSetChanged();
 
 
             }
@@ -82,26 +90,35 @@ public class CarType extends Fragment {
 
                 //ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
                 //ad.mFragmentTitleList.remove("DOB");
+
+
                 int flag=0;
 
                 for(String x : ad.mFragmentTitleList){
-                    if(x.equals("PurposeC")){
+                    if(x.equals("DOM")){
                         flag=1;
                         break;
+                    }
+                    else if(x.equals("PrefCar")){
+                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
+                        ad.mFragmentTitleList.remove("PrefCar");
+
                     }
 
                 }
                 if(flag==0) {
 
 
-                    ad.mFragmentList.add(new PurposeC());
-                    ad.mFragmentTitleList.add("PurposeC");
+                    ad.mFragmentList.add(new DOM());
+                    ad.mFragmentTitleList.add("DOM");
                     ad.notifyDataSetChanged();
 
                 }
                 else{
                     Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
                 }
+
+
 
 
 

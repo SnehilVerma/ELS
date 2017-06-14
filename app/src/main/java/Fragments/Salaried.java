@@ -27,6 +27,13 @@ public class Salaried extends Fragment{
         EditText emi = (EditText) view.findViewById(R.id.emi);
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
+
+
+        //CHECK DATA VALIDITY
+
+
+
+
         /*final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
