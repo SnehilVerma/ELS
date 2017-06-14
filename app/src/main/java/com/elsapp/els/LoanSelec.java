@@ -19,6 +19,7 @@ import Utility.SessionManager;
 
 public class LoanSelec extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+   // FragmentManager mFragmentManager;
 
 
     private String loantype;
@@ -117,12 +118,18 @@ public class LoanSelec extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+       /* Fragment newFragment;
+        mFragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();*/
 
-        //if (id == R.id.nav_camera) {
-         //   // Handle the camera action
-        //}
+
+        int id = item.getItemId();
+        if(id==R.id.nav_login){
+            Intent intent = new Intent(LoanSelec.this,login.class);
+            startActivity(intent);
+
+        }
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
