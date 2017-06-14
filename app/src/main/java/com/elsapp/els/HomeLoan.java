@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -49,6 +49,10 @@ public class HomeLoan extends AppCompatActivity {
 
         setUpViewPager(viewPager);
     }
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void setUpViewPager(ViewPager viewPager) {
         adapter = new HomeLoan.ViewPagerAdapter(getSupportFragmentManager());
@@ -69,7 +73,7 @@ public class HomeLoan extends AppCompatActivity {
     }
 
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         public final List<Fragment> mFragmentList = new ArrayList<>();
         public final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -96,8 +100,5 @@ public class HomeLoan extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
-    }
-    public ViewPager getViewPager(){
-        return viewPager;
     }
 }

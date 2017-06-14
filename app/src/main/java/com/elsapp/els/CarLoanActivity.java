@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.City;
-import Fragments.DOB;
-import Fragments.Gender;
 import Fragments.VehIntro;
 import Fragments.VehSelect;
 import Transformer.PagerTransformer;
@@ -87,8 +85,8 @@ public class CarLoanActivity extends AppCompatActivity {
         adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new VehIntro(),"VehIntro");
         adapter.addFragment(new City(), "City");
-        adapter.addFragment(new Gender(),"Gender");
-        adapter.addFragment(new DOB(),"Date of Birth");
+        //adapter.addFragment(new Gender(),"Gender");
+        //adapter.addFragment(new DOB(),"Date of Birth");
         adapter.addFragment(new VehSelect(), "VehSelect");
        //adapter.addFragment(new NumAndEmail(), "NumAndEmail");
 
