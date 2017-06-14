@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -73,7 +73,7 @@ public class HomeLoan extends AppCompatActivity {
     }
 
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         public final List<Fragment> mFragmentList = new ArrayList<>();
         public final List<String> mFragmentTitleList = new ArrayList<>();
 

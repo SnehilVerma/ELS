@@ -1,10 +1,8 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -55,6 +53,7 @@ public class CoAPP extends Fragment {
         Name = (EditText) x.findViewById(R.id.name);
         Phone = (EditText) x.findViewById(R.id.phone);
         Age = (EditText) x.findViewById(R.id.age);
+        EditText relationship = (EditText) x.findViewById(R.id.relationship);
 
         Age.setOnClickListener(new View.OnClickListener() {
             @Override

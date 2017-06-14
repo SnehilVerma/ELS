@@ -3,6 +3,7 @@ package Fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -37,7 +38,8 @@ public class Salaried extends Fragment{
         TextView t2 = (TextView) view.findViewById(R.id.next);
         final ImageView i1 = (ImageView) view.findViewById(R.id.i1);
         ImageView i2 = (ImageView) view.findViewById(R.id.i2);
-        //ImageView i3 = (ImageView) view.findViewById(R.id.i3);
+        //ImageView i3 = (ImageView) view.findViewById(R.id.i3);4
+        final CoordinatorLayout cl = (CoordinatorLayout) view.findViewById(R.id.cl);
         final LinearLayout layout = (LinearLayout) view.findViewById(R.id.layout);
         gmincome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -46,7 +48,7 @@ public class Salaried extends Fragment{
                     gmincome.setError("entered value not accepted");
                 } else {
                     Snackbar snackbar = Snackbar
-                            .make(layout, "You have stated gross salary as " + gmincome.getText().toString(), Snackbar.LENGTH_LONG);
+                            .make(cl, "You have stated gross salary as " + gmincome.getText().toString(), Snackbar.LENGTH_LONG);
 
                     snackbar.show();
                 }
@@ -68,7 +70,7 @@ public class Salaried extends Fragment{
                 }
                 else{
                     Snackbar snackbar = Snackbar
-                            .make(layout, "You have stated gross salary as "+msalary.getText().toString(), Snackbar.LENGTH_LONG);
+                            .make(cl, "You have stated gross salary as "+msalary.getText().toString(), Snackbar.LENGTH_LONG);
 
                     snackbar.show();
                 }
@@ -103,7 +105,7 @@ public class Salaried extends Fragment{
             @Override
             public void onClick(View v) {
                 Snackbar snackbar = Snackbar
-                        .make(layout, "Your Total Salary", Snackbar.LENGTH_LONG);
+                        .make(cl, "Your Total Salary", Snackbar.LENGTH_LONG);
 
                 snackbar.show();
             }
@@ -112,7 +114,7 @@ public class Salaried extends Fragment{
             @Override
             public void onClick(View v) {
                 Snackbar snackbar = Snackbar
-                        .make(layout, "Your Salary excluding all deductions", Snackbar.LENGTH_LONG);
+                        .make(cl, "Your Salary excluding all deductions", Snackbar.LENGTH_LONG);
 
                 snackbar.show();
             }
