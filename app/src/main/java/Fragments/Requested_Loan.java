@@ -49,7 +49,7 @@ public class Requested_Loan extends Fragment {
         //et.setFocusable(false);
         //et.setKeyListener(null);
 
-        String loan_type=SessionManager.getStringFromPreferences(getContext(),"loan_type");
+        String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");
         String city=SessionManager.getStringFromPreferences(getContext(),"city");
         String vehicle_type=SessionManager.getStringFromPreferences(getContext(),"vehicle_type");
         String car_condition=SessionManager.getStringFromPreferences(getContext(),"car_type");
@@ -153,7 +153,7 @@ public class Requested_Loan extends Fragment {
 
         }else {
 
-            float pemi=rla/60;      //PROJECTED EMI
+            float pemi=(float)rla/60;      //PROJECTED EMI
             float inc=Float.parseFloat(net_salary);         //ANY INCOME SOURCE
 
             String emp_type=SessionManager.getStringFromPreferences(getContext(),"employment_type");
@@ -194,7 +194,7 @@ public class Requested_Loan extends Fragment {
 
 
             float net_inc=inc-(emi+pemi);
-            if(net_inc>=0.4*inc){
+            if(net_inc<0.4*inc){
 
                 breakflag=2;
                 exitprocess();
