@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.elsapp.els.R;
@@ -25,6 +26,7 @@ public class Retired_P extends Fragment {
 
         EditText mpension = (EditText) view.findViewById(R.id.mpension);
         EditText emiamount = (EditText) view.findViewById(R.id.emiamount);
+        Button b1 = (Button) view.findViewById(R.id.button);
         return view;
 
     }

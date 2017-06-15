@@ -32,7 +32,8 @@
         <activity
             android:name=".VehicleSelect"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeLoan" />
+        <activity android:name=".HomeLoan"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LoanSelec"
             android:label="@string/title_activity_loan_selec"
