@@ -30,4 +30,7 @@
     </string>
     <string name="title_activity_login_activityg">Sign in</string>
 
+    <string name="Mandatory">Field Mandatory</string>
+    <string name="Password">Should Same as Password</string>
+    <string name="ValidateEmail">Enter Valid Email ID</string>
 </resources>
