@@ -44,7 +44,7 @@ public class Salaried extends Fragment{
         emi.setText("00");
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
-        b1=(Button)view.findViewById(R.id.submit);
+        b1=(Button)view.findViewById(R.id.button);
 
 
         final ImageView i1 = (ImageView) view.findViewById(R.id.i1);

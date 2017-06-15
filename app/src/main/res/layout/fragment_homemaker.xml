@@ -42,6 +42,11 @@
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/button"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

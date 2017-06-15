@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.elsapp.els.R;
@@ -27,6 +28,7 @@ public class Self_Employed extends Fragment {
         EditText taxamount = (EditText) view.findViewById(R.id.taxamount);
         EditText emiammount = (EditText) view.findViewById(R.id.emiamount);
 
+        Button b1 = (Button) view.findViewById(R.id.button);
         taxamount.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {

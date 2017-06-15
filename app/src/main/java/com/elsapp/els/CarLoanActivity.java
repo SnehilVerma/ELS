@@ -135,6 +135,11 @@ public class CarLoanActivity extends AppCompatActivity
             startActivity(intent);
 
         }
+        if(id == R.id.nav_QVC){
+            Intent intent = new Intent(CarLoanActivity.this,LoanSelec.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
 
 
 
