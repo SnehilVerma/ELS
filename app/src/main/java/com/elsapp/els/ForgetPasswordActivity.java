@@ -42,7 +42,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(isMandatory()){
                     ForgotPassword();
-                   
+
                 }
             }
         });
