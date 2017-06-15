@@ -35,6 +35,17 @@ public class Select_Category extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_select_cat, container, false);
 
 
+
+        // CHHUTIYA TEST . REMOVE AFTER CHECIKING
+        //String[] s=new String[4];
+        //s[0]=SessionManager.getStringFromPreferences(getContext(),"loan_type");
+        //s[1]=SessionManager.getStringFromPreferences(getContext(),"car_type");
+        //s[2]=SessionManager.getStringFromPreferences(getContext(),"city_car");
+
+       // Toast.makeText(getContext(),""+s[0]+" "+s[1]+ " "+ s[2],Toast.LENGTH_SHORT).show();
+
+
+
         TextView tv1=(TextView)view.findViewById(R.id.retired_np);
         TextView tv2=(TextView)view.findViewById(R.id.self_pro);
         TextView tv3=(TextView)view.findViewById(R.id.salary);
@@ -473,7 +484,7 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
-                    else{
+                   else{
                         Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
                     }
                 }
