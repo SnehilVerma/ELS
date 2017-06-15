@@ -4,6 +4,7 @@ package Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +27,14 @@ public class Self_Employed extends Fragment {
         EditText taxamount = (EditText) view.findViewById(R.id.taxamount);
         EditText emiammount = (EditText) view.findViewById(R.id.emiamount);
 
+        taxamount.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                return false;
+            }
+        });
         return view;
 
     }
-
-
 }
