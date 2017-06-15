@@ -277,6 +277,8 @@ public class Select_Category extends Fragment {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     int flag=0;
+                    SessionManager.putStringInPreferences(getContext(),"Salaried","employment_type");
+                    //SET EMPLOYEMENT TYPE.
 
                     for(int y = 0;y<adapter.mFragmentTitleList.size();y++){
                         if(adapter.mFragmentTitleList.get(y).equals("Salaried")){

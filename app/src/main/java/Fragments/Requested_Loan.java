@@ -31,6 +31,12 @@ public class Requested_Loan extends Fragment {
 
     int count=0;
     int breakflag=0;
+
+    String cost;
+    String gross;
+    String net_salary;
+    String existing_emi;
+
     EditText et;
     @Nullable
     @Override
@@ -47,10 +53,11 @@ public class Requested_Loan extends Fragment {
         String city=SessionManager.getStringFromPreferences(getContext(),"city");
         String vehicle_type=SessionManager.getStringFromPreferences(getContext(),"vehicle_type");
         String car_condition=SessionManager.getStringFromPreferences(getContext(),"car_type");
-        String cost=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
-        String gross=SessionManager.getStringFromPreferences(getContext(),"gross_salary");
-        String net_salary=SessionManager.getStringFromPreferences(getContext(),"net_salary");
-        String existing_emi=SessionManager.getStringFromPreferences(getContext(),"existing_emi");
+        cost=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
+        gross=SessionManager.getStringFromPreferences(getContext(),"gross_salary");
+        net_salary=SessionManager.getStringFromPreferences(getContext(),"net_salary");
+        existing_emi=SessionManager.getStringFromPreferences(getContext(),"existing_emi");
+
 
         Toast.makeText(getContext(),loan_type+ "  "+ city+ "   "+vehicle_type+ "  "+cost+" "+ car_condition+'\n'
                 +gross+'\n'+ net_salary+'\n'+ existing_emi,Toast.LENGTH_LONG).show();
@@ -130,7 +137,7 @@ public class Requested_Loan extends Fragment {
 
         //String requested_loan_amount=SessionManager.getStringFromPreferences(getContext(),"requested_loan_amount");
 
-        String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
+//        String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
 
         String loan=et.getText().toString();
         Float val=Float.parseFloat(loan);
@@ -139,7 +146,7 @@ public class Requested_Loan extends Fragment {
 
         //float rla=Float.parseFloat(requested_loan_amount);
         float rla=val;
-        float coe=Float.parseFloat(cost_of_entity);
+        float coe=Float.parseFloat(cost);
         if(rla>0.9*coe){        //CHECK RLA AND COE CONDITION
             breakflag=1;
             exitprocess();
@@ -147,34 +154,34 @@ public class Requested_Loan extends Fragment {
         }else {
 
             float pemi=rla/60;      //PROJECTED EMI
-            float inc=0;         //ANY INCOME SOURCE
+            float inc=Float.parseFloat(net_salary);         //ANY INCOME SOURCE
 
-            String emp_type=SessionManager.getStringFromPreferences(getContext(),"employement_type");
-            String existing_emi=SessionManager.getStringFromPreferences(getContext(),"existing_emi");
+            String emp_type=SessionManager.getStringFromPreferences(getContext(),"employment_type");
+
 
             float emi=Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
 
 
             if(emp_type.equals("Salaried")){
 
-                String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                inc = Float.parseFloat(income);
+                //String income=SessionManager.getStringFromPreferences(getContext(),"income");
+                //inc = Float.parseFloat(income);
 
 
             }else if(emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")){
-                String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                inc = Float.parseFloat(income);
+//                String income=SessionManager.getStringFromPreferences(getContext(),"income");
+ //               inc = Float.parseFloat(income);
 
 
             }else if(emp_type.equals("Retired_P")){
-                String income= SessionManager.getStringFromPreferences(getContext(),"income");
-                inc = Float.parseFloat(income);
+//                String income= SessionManager.getStringFromPreferences(getContext(),"income");
+ //               inc = Float.parseFloat(income);
 
 
             }
             else if(emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")){
-                String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                inc = Float.parseFloat(income);
+//                String income=SessionManager.getStringFromPreferences(getContext(),"income");
+ //               inc = Float.parseFloat(income);
 
 
             }
@@ -217,6 +224,7 @@ public class Requested_Loan extends Fragment {
     // LAUNCH FAILURE SCREEN
     public void exitprocess(){
 
+        Toast.makeText(getContext(),"shame",Toast.LENGTH_SHORT).show();
 
         Intent i=new Intent(getContext(),Failure_Result.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -226,6 +234,8 @@ public class Requested_Loan extends Fragment {
 
     //LAUNCH CONGRATS SCREEN
     public void launchCongrats(){
+
+        Toast.makeText(getContext(),"congrats",Toast.LENGTH_SHORT).show();
 
         Intent i=new Intent(getContext(),Eligibility_Result.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
