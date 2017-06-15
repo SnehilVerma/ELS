@@ -55,6 +55,7 @@ public class LoanSelec extends AppCompatActivity
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     loantype = "CarLoanActivity";
                     SessionManager.putStringInPreferences(getApplicationContext(),loantype,"loantype");
+                    SessionManager.putStringInPreferences(getApplicationContext(),"0","flaggy");
                     startActivity(i);
                 }
                 else if(position==0){
@@ -62,6 +63,7 @@ public class LoanSelec extends AppCompatActivity
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     loantype = "HomeLoan";
                     SessionManager.putStringInPreferences(getApplicationContext(),loantype,"loantype");
+                    SessionManager.putStringInPreferences(getApplicationContext(),"0","flaggy");
                     startActivity(i);
 
                 }

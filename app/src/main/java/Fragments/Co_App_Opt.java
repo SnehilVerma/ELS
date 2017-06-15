@@ -57,8 +57,6 @@ public class Co_App_Opt extends Fragment {
                         if(flag == 0){
                             adapter1.addFragment(new CoAPP(), "CoApp");
                             adapter1.notifyDataSetChanged();
-                            adapter1.addFragment(new CoApp_Cat(), "CoAppCat");
-                            adapter1.notifyDataSetChanged();
                         }
                         else{
                             Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
@@ -77,8 +75,6 @@ public class Co_App_Opt extends Fragment {
                         if(flag == 0){
                             adapter.addFragment(new CoAPP(), "CoApp");
                             adapter.notifyDataSetChanged();
-                            adapter.addFragment(new CoApp_Cat(), "CoAppCat");
-                            adapter.notifyDataSetChanged();
                         }
                         else{
                             Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
@@ -91,9 +87,6 @@ public class Co_App_Opt extends Fragment {
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                         for(int y = 0;y< adapter1.mFragmentTitleList.size();y++) {
                             if (adapter1.mFragmentTitleList.get(y).equals("CoApp")) {
-                                adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                                adapter1.mFragmentTitleList.remove("CoAppCat");
-                                adapter1.notifyDataSetChanged();
                                 adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                                 adapter1.mFragmentTitleList.remove("CoApp");
                                 adapter1.notifyDataSetChanged();
@@ -106,16 +99,13 @@ public class Co_App_Opt extends Fragment {
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                         for(int y = 0;y< adapter.mFragmentTitleList.size();y++) {
                             if (adapter.mFragmentTitleList.get(y).equals("CoApp")) {
-                                adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                                adapter.mFragmentTitleList.remove("CoAppCat");
-                                adapter.notifyDataSetChanged();
                                 adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                                 adapter.mFragmentTitleList.remove("CoApp");
                                 adapter.notifyDataSetChanged();
                                 break;
                             }
                         }
-                        adapter.mFragmentList.add(new Requested_Loan());
+                       adapter.mFragmentList.add(new Requested_Loan());
                         adapter.mFragmentTitleList.add("Requested_Loan");
                         adapter.notifyDataSetChanged();
                     }
