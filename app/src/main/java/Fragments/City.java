@@ -53,7 +53,7 @@ public class City extends Fragment {
         final SessionManager sessionManager=new SessionManager();
 
 
-        String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
+        final String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
         if(type.equals("CarLoanActivity")) {
             ad = ((CarLoanActivity) getActivity()).getCurrAdapter();
             viewPager = ((CarLoanActivity) getActivity()).getViewPager();
@@ -179,31 +179,59 @@ public class City extends Fragment {
             @Override
             public void onClick(View view) {
                 String text=editothers.getText().toString();
-                if(text==null){
+                if(type.equals("CarLoanActivity")) {
+                    if (text == null) {
 
-                    Toast.makeText(getContext(),"Fill city info.",Toast.LENGTH_SHORT).show();
-                }
-                else {
-
-
+                        Toast.makeText(getContext(), "Fill city info.", Toast.LENGTH_SHORT).show();
+                    } else {
 
 
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city_car");
 
-                    int index=(viewPager.getCurrentItem())+1;
-                    if(index<ad.mFragmentList.size()) {
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < ad.mFragmentList.size()) {
 
-                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                            ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                            ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                            ad.notifyDataSetChanged();
+
+                        }
+
+
+                        ad.addFragment(new VehSelect(), "VehSelect");
                         ad.notifyDataSetChanged();
+                        Log.d("1", editothers.getText().toString());
 
                     }
+                }
+                else{
+                    if (text == null) {
+
+                        Toast.makeText(getContext(), "Fill city info.", Toast.LENGTH_SHORT).show();
+                    } else {
 
 
-                    ad.addFragment(new VehSelect(), "VehSelect");
-                    ad.notifyDataSetChanged();
-                    Log.d("1",editothers.getText().toString());
+                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city_car");
 
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < ad2.mFragmentList.size()) {
+
+                            ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                            ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                            ad2.notifyDataSetChanged();
+
+                        }
+
+
+                        ad2.addFragment(new Gender(), "Gender");
+                        ad2.addFragment(new DOB(), "DOB");
+                        ad2.addFragment(new HomePropLoc(), "HomePropLoc");
+                        ad2.addFragment(new HomeLoanPurpose(), "HomeLoanPurpose");
+                        ad2.addFragment(new HomePropCost(), "HomePropCost");
+                        ad2.notifyDataSetChanged();
+                        Log.d("1", editothers.getText().toString());
+
+                    }
                 }
             }
         });
