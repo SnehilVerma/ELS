@@ -21,13 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.City;
-import Fragments.DOB;
-import Fragments.Gender;
 import Fragments.HomeInto;
-import Fragments.HomeLoanPurpose;
-import Fragments.HomePropCost;
-import Fragments.HomePropLoc;
-import Fragments.Select_Category;
 import Transformer.PagerTransformer;
 
 public class HomeLoan extends AppCompatActivity
@@ -136,12 +130,14 @@ public class HomeLoan extends AppCompatActivity
 
         adapter.addFragment(new HomeInto(), "Intro");
         adapter.addFragment(new City(), "City");
+        /*
         adapter.addFragment(new Gender(), "Gender");
         adapter.addFragment(new DOB(), "Date of Birth");
         adapter.addFragment(new HomePropLoc(), "Property Location");
         adapter.addFragment(new HomeLoanPurpose(), "Purpose of Loan");
         adapter.addFragment(new HomePropCost(), "Property Cost");
         adapter.addFragment(new Select_Category(), "Select Category");
+        */
         viewPager.setAdapter(adapter);
     }
     public HomeLoan.ViewPagerAdapter getCurrAdapter(){

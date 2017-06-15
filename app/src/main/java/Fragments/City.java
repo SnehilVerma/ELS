@@ -73,18 +73,46 @@ public class City extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 boolean check2=delhi.isChecked();
+
+
                 if(b==true && check2==false){
                     mumbai.setChecked(true);
                     delhi.setChecked(false);
+
+
                     editothers.setText("Mumbai");
                     String text=editothers.getText().toString();
                     sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
 
 
                     int flag=0;
-                    int index=viewPager.getCurrentItem();
-                    ad.mFragmentList.subList(index,ad.mFragmentList.size()).clear();
-                    
+
+                    //TEST DATA.
+
+
+
+
+                    //Toast.makeText(getContext(),index+"" + ad.mFragmentList.size(), Toast.LENGTH_LONG).show();
+
+                    /*
+                    if(index<ad.mFragmentList.size()) {
+
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+
+
+
+
+                    }*/
+
+                    //Toast.makeText(getContext(),ad.mFragmentList.size()+" ",Toast.LENGTH_SHORT).show();
+
+                    //ad.mFragmentList.add(new VehLoanCost());
+                    //ad.mFragmentTitleList.add("VehLoanCost");
+                   // ad.notifyDataSetChanged();
+
+
+
 
 
 
@@ -156,7 +184,22 @@ public class City extends Fragment {
                     Toast.makeText(getContext(),"Fill city info.",Toast.LENGTH_SHORT).show();
                 }
                 else {
+
+
+
+
                     sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+
+                    int index=(viewPager.getCurrentItem())+1;
+                    if(index<ad.mFragmentList.size()) {
+
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+                    }
+
+
                     ad.addFragment(new VehSelect(), "VehSelect");
                     ad.notifyDataSetChanged();
                     Log.d("1",editothers.getText().toString());
