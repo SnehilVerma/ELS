@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,7 +17,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.elsapp.els.CarLoanActivity;
+import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
 import Utility.SessionManager;
@@ -26,6 +30,9 @@ import Utility.SessionManager;
  */
 
 public class Salaried extends Fragment{
+    HomeLoan.ViewPagerAdapter adapter;
+    ViewPager viewPager;
+    CarLoanActivity.ViewPagerAdapter adapter1;
 
 
     Button b1;
@@ -44,6 +51,7 @@ public class Salaried extends Fragment{
         emi.setText("00");
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
+        final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         b1=(Button)view.findViewById(R.id.button);
 
 
@@ -155,13 +163,85 @@ public class Salaried extends Fragment{
                     snackbar.show();
 
                 }
-                else{
+                else {
 
-                    SessionManager.putStringInPreferences(getContext(),gross,"gross_salary");
-                    SessionManager.putStringInPreferences(getContext(),takeaway,"net_salary");
-                    SessionManager.putStringInPreferences(getContext(),existing_emi,"existing_emi");
+                    SessionManager.putStringInPreferences(getContext(), gross, "gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), takeaway, "net_salary");
+                    SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
+
+                    if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
+                        if (loantype.equals("HomeLoan")) {
+                            int flag = 0;
+                            adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+                            viewPager = ((HomeLoan) getActivity()).getViewPager();
+                            for (int y = 0; y < adapter.mFragmentTitleList.size(); y++) {
+                                if (adapter.mFragmentTitleList.get(y).equals("Co_App_Opt")) {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if (flag == 0) {
+                                adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                                adapter.notifyDataSetChanged();
+                            } else {
+                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            int flag = 0;
+                            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+                            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+                            for (int y = 0; y < adapter1.mFragmentTitleList.size(); y++) {
+                                if (adapter1.mFragmentTitleList.get(y).equals("Co_App_Opt")) {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if (flag == 0) {
+                                adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                                adapter1.notifyDataSetChanged();
+                            } else {
+                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+                            }
+                        }
 
 
+                    }
+                    else{
+                        if (loantype.equals("HomeLoan")) {
+                            int flag = 0;
+                            adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+                            viewPager = ((HomeLoan) getActivity()).getViewPager();
+                            for (int y = 0; y < adapter.mFragmentTitleList.size(); y++) {
+                                if (adapter.mFragmentTitleList.get(y).equals("Requested_Loan")) {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if (flag == 0) {
+                                adapter.addFragment(new Requested_Loan(), "Requested_Loan");
+                                adapter.notifyDataSetChanged();
+                            } else {
+                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            int flag = 0;
+                            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+                            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+                            for (int y = 0; y < adapter1.mFragmentTitleList.size(); y++) {
+                                if (adapter1.mFragmentTitleList.get(y).equals("Requested_Loan")) {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if (flag == 0) {
+                                adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                                adapter1.notifyDataSetChanged();
+                            } else {
+                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                    }
                 }
             }
         });

@@ -69,34 +69,34 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
                             adapter.mFragmentTitleList.remove("Self_Employed");
-                            Toast.makeText(getActivity(),"removing",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getActivity(),"removing",Toast.LENGTH_SHORT).show();
                             adapter.notifyDataSetChanged();
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Homemaker");
                         }
@@ -104,7 +104,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter.addFragment(new Retired_NP(), "Retired_NP");
-                        adapter.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -122,32 +121,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Homemaker");
                         }
@@ -155,7 +154,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1.addFragment(new Retired_NP(), "Retired_NP");
-                        adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
                     else{
@@ -180,32 +178,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_P"))) {
                             adapter.mFragmentList.remove(viewPager.getCurrentItem() + 2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem() + 1);
                             adapter.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Homemaker");
                         }
@@ -213,7 +211,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter.addFragment(new Self_Employed(), "Self_Employed");
-                        adapter.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -231,32 +228,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Homemaker");
                         }
@@ -264,7 +261,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1.addFragment(new Self_Employed(), "Self_Employed");
-                        adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
                     else {
@@ -288,32 +284,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Homemaker");
                         }
@@ -321,7 +317,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter.addFragment(new Salaried(), "Salaried");
-                        adapter.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -339,32 +334,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Homemaker");
                         }
@@ -372,7 +367,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1.addFragment(new Salaried(), "Salaried");
-                        adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
                     else{
@@ -397,32 +391,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Homemaker");
                         }
@@ -430,7 +424,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter.addFragment(new Self_Employed(), "Self_Employed");
-                        adapter.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -448,32 +441,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Homemaker");
                         }
@@ -481,7 +474,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1.addFragment(new Self_Employed(), "Self_Employed");
-                        adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
                    else{
@@ -505,33 +497,33 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
 
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Homemaker");
                         }
@@ -539,7 +531,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter.addFragment(new Retired_P(), "Retired_P");
-                        adapter.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -557,32 +548,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_NP");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Homemaker");
                         }
@@ -590,7 +581,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1.addFragment(new Retired_P(), "Retired_P");
-                        adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
                     else{
@@ -616,32 +606,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter.mFragmentTitleList.remove("Retired_NP");
                         }
@@ -649,7 +639,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter.addFragment(new Homemaker(), "Homemaker");
-                        adapter.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter.notifyDataSetChanged();
                     }
                     else{
@@ -667,32 +656,32 @@ public class Select_Category extends Fragment {
                             break;
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Salaried");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Self_Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Self_Employed");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_P"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_P");
                         }
                         else if(adapter1.mFragmentTitleList.get(y).equals(("Retired_NP"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+2);
-                            adapter1.mFragmentTitleList.remove("CoAppOpt");
+                            
+                            
                             adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
                             adapter1.mFragmentTitleList.remove("Retired_NP");
                         }
@@ -700,7 +689,6 @@ public class Select_Category extends Fragment {
                     }
                     if(flag==0) {
                         adapter1.addFragment(new Homemaker(), "Homemaker");
-                        adapter1.addFragment(new Co_App_Opt(), "CoAppOpt");
                         adapter1.notifyDataSetChanged();
                     }
                     else{
