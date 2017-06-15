@@ -150,7 +150,7 @@ public class City extends Fragment {
                     delhi.setChecked(true);
                     editothers.setText("Delhi");
                     String text=editothers.getText().toString();
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
                 }else if(b==false && check==false){
                     mumbai.setChecked(false);
@@ -162,7 +162,7 @@ public class City extends Fragment {
                     delhi.setChecked(true);
                     editothers.setText("Delhi");
                     String text=editothers.getText().toString();
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
                 }
 
@@ -188,7 +188,8 @@ public class City extends Fragment {
 
 
 
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+
 
                     int index=(viewPager.getCurrentItem())+1;
                     if(index<ad.mFragmentList.size()) {

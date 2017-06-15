@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
@@ -52,9 +50,14 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
+
+
+
+                /*
                 //TESTING
                 int flag=0;
                 tflag=1;
+
 
                 for(String x : ad.mFragmentTitleList){
                     if(x.equals("PrefCar")){
@@ -71,6 +74,7 @@ public class CarType extends Fragment {
 
 
                 }
+
                 if(flag==0) {
 
                     String x="New";
@@ -81,6 +85,8 @@ public class CarType extends Fragment {
                     ad.notifyDataSetChanged();
 
                 }
+
+
                 else{
                     Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
                 }
@@ -89,6 +95,24 @@ public class CarType extends Fragment {
 
                 //ad.addFragment(new Gender(), "Gender");
                 //ad.notifyDataSetChanged();
+                */
+
+
+                sessionManager.putStringInPreferences(getActivity(),"New","car_type");
+
+
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
+
+
+                ad.addFragment(new PrefCar(), "PrefCar");
+                ad.notifyDataSetChanged();
 
 
             }
@@ -101,7 +125,7 @@ public class CarType extends Fragment {
                 //ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
                 //ad.mFragmentTitleList.remove("DOB");
 
-
+                /*
                 int flag=0;
                 tflag=2;
 
@@ -131,6 +155,23 @@ public class CarType extends Fragment {
                     Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
                 }
 
+                */
+
+                sessionManager.putStringInPreferences(getActivity(),"Old","car_type");
+
+
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
+
+
+                ad.addFragment(new DOM(), "DOM");
+                ad.notifyDataSetChanged();
 
 
 
