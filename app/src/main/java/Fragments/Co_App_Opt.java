@@ -115,6 +115,9 @@ public class Co_App_Opt extends Fragment {
                                 break;
                             }
                         }
+                        adapter.mFragmentList.add(new Requested_Loan());
+                        adapter.mFragmentTitleList.add("Requested_Loan");
+                        adapter.notifyDataSetChanged();
                     }
                 }
                 // checkedId is the RadioButton selected

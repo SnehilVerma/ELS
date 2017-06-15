@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +16,8 @@ import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
 /**
  * Created by snehil on 8/6/17.
  */
@@ -24,6 +27,7 @@ public class CarType extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    int tflag=0;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class CarType extends Fragment {
         ImageButton im1=(ImageButton) view.findViewById(R.id.im1);
         ImageButton im2=(ImageButton)view.findViewById(R.id.im2);
 
+
+
+        final SessionManager sessionManager=new SessionManager();
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
 
@@ -47,6 +54,7 @@ public class CarType extends Fragment {
 
                 //TESTING
                 int flag=0;
+                tflag=1;
 
                 for(String x : ad.mFragmentTitleList){
                     if(x.equals("PrefCar")){
@@ -65,7 +73,9 @@ public class CarType extends Fragment {
                 }
                 if(flag==0) {
 
-
+                    String x="New";
+                    sessionManager.putStringInPreferences(getActivity(),x,"car_type");
+                    Log.d("2",x);
                     ad.mFragmentList.add(new PrefCar());
                     ad.mFragmentTitleList.add("PrefCar");
                     ad.notifyDataSetChanged();
@@ -93,6 +103,7 @@ public class CarType extends Fragment {
 
 
                 int flag=0;
+                tflag=2;
 
                 for(String x : ad.mFragmentTitleList){
                     if(x.equals("DOM")){
@@ -108,7 +119,9 @@ public class CarType extends Fragment {
                 }
                 if(flag==0) {
 
-
+                    String x="Old";
+                    sessionManager.putStringInPreferences(getActivity(),x,"car_type");
+                    Log.d("2",x);
                     ad.mFragmentList.add(new DOM());
                     ad.mFragmentTitleList.add("DOM");
                     ad.notifyDataSetChanged();
@@ -125,6 +138,9 @@ public class CarType extends Fragment {
 
             }
         });
+
+
+
 
         return view;
 
