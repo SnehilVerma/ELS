@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,6 +77,18 @@ public class City extends Fragment {
                     mumbai.setChecked(true);
                     delhi.setChecked(false);
                     editothers.setText("Mumbai");
+                    String text=editothers.getText().toString();
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+
+
+                    int flag=0;
+                    int index=viewPager.getCurrentItem();
+                    ad.mFragmentList.subList(index,ad.mFragmentList.size()).clear();
+                    
+
+
+
+
                 }else if(b==false && check2==false){
                     mumbai.setChecked(false);
                     delhi.setChecked(false);
@@ -87,8 +98,13 @@ public class City extends Fragment {
                     mumbai.setChecked(true);
                     delhi.setChecked(false);
                     editothers.setText("Mumbai");
+                    String text=editothers.getText().toString();
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+
 
                 }
+
+
                 //Toast.makeText(getContext(),""+b+"   "+ check2,Toast.LENGTH_SHORT).show();
 
 
@@ -99,21 +115,31 @@ public class City extends Fragment {
         delhi.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
                 boolean check=mumbai.isChecked();
                 if(b==true && check==false){
                     mumbai.setChecked(false);
                     delhi.setChecked(true);
                     editothers.setText("Delhi");
+                    String text=editothers.getText().toString();
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+
                 }else if(b==false && check==false){
-                    mumbai.setChecked(true);
-                    delhi.setChecked(true);
+                    mumbai.setChecked(false);
+                    delhi.setChecked(false);
                     editothers.setText("None");
 
                 }else if(b==true && check==true){
                     mumbai.setChecked(false);
                     delhi.setChecked(true);
                     editothers.setText("Delhi");
+                    String text=editothers.getText().toString();
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+
                 }
+
+
+
 
 
 
@@ -140,26 +166,6 @@ public class City extends Fragment {
         });
 
 
-
-        viewPager.addOnPageChangeListener(new OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-
-
-            }
-        });
 
 
 

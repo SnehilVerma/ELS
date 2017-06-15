@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".WelcomeActivity" />
+
         <activity
             android:name=".CarLoanActivity"
             android:label="@string/title_activity_car_loan"
@@ -41,8 +43,14 @@
         <activity android:name=".LogInActivity">
 
         </activity>
+
         <activity android:name=".RegistrationActivity"></activity>
+
         <activity android:name=".ForgetPasswordActivity"></activity>
+
+        <activity android:name=".Eligibility_Result"></activity>
+
+        <activity android:name=".Failure_Result"></activity>
 
     </application>
 
