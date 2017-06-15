@@ -143,6 +143,7 @@ public class Salaried extends Fragment{
 
 
         b1.setOnClickListener(new OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String gross=gmincome.getText().toString();

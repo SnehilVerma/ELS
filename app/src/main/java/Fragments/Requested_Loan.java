@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.Eligibility_Result;
-import com.elsapp.els.Failure_Result;
+import com.elsapp.els.LoanSelec;
 import com.elsapp.els.R;
 
 import Utility.SessionManager;
@@ -202,7 +202,7 @@ public class Requested_Loan extends Fragment {
             }
             else{
 
-                Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
                 launchCongrats();
 
 
@@ -226,9 +226,42 @@ public class Requested_Loan extends Fragment {
 
         Toast.makeText(getContext(),"shame",Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(getContext(),Failure_Result.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
+        final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.custom_eligibile_dialog);
+
+        Button lb=(Button)dialog.findViewById(R.id.b1);
+        Button rb=(Button)dialog.findViewById(R.id.b2);
+
+        lb.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                et.setText("");
+                dialog.dismiss();
+
+            }
+        });
+
+        rb.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+                Intent i=new Intent(getActivity(), LoanSelec.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+            }
+        });
+
+
+
+        dialog.show();
+
+
+//        Intent i=new Intent(getContext(),Failure_Result.class);
+ //       i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+  //      startActivity(i);
 
     }
 
@@ -237,7 +270,7 @@ public class Requested_Loan extends Fragment {
 
         Toast.makeText(getContext(),"congrats",Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(getContext(),Eligibility_Result.class);
+        Intent i=new Intent(getActivity(),Eligibility_Result.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
 

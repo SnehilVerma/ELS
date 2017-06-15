@@ -1,18 +1,25 @@
 package com.elsapp.els;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 /**
  * Created by snehil on 14/6/17.
  */
 
-public class Eligibility_Result extends BaseActivity {
+public class Eligibility_Result extends AppCompatActivity {
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eligibility);
+
+
+        Toast.makeText(getApplicationContext(),"here", Toast.LENGTH_LONG).show();
+
+
+
     }
 }
