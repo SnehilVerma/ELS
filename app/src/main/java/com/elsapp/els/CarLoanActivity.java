@@ -24,6 +24,7 @@ import java.util.List;
 
 import Fragments.City;
 import Fragments.VehIntro;
+import Fragments.VehSelect;
 import Transformer.PagerTransformer;
 import Utility.SessionManager;
 
@@ -145,16 +146,17 @@ public class CarLoanActivity extends AppCompatActivity
     public ViewPager getViewPager(){
         return viewPager;
     }
-    
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setUpViewPager(ViewPager viewPager) {
-
         adapter = new CarLoanActivity.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new VehIntro(),"VehIntro");
         adapter.addFragment(new City(), "City");
         //adapter.addFragment(new Gender(),"Gender");
         //adapter.addFragment(new DOB(),"Date of Birth");
+        adapter.addFragment(new VehSelect(), "VehSelect");
        //adapter.addFragment(new NumAndEmail(), "NumAndEmail");
 
 
@@ -235,13 +237,6 @@ public class CarLoanActivity extends AppCompatActivity
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
-
-    }
-
-
-    @Override
-    public void onBackPressed() {
-
 
     }
 
