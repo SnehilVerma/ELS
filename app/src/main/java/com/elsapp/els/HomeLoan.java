@@ -153,6 +153,10 @@ public class HomeLoan extends AppCompatActivity
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
+        @Override
+        public int getItemPosition(Object object) {
+            return adapter.POSITION_NONE;
+        }
 
         @Override
         public Fragment getItem(int position) {
