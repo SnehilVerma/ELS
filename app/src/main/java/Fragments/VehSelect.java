@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +64,9 @@ public class VehSelect extends Fragment {
 
                 }
                 if(flag==0){
+
+                sessionManager.putStringInPreferences(getActivity(),"Bike","vehicle_type");
+                Log.d("VehSelect:","Bike");
                 ad.mFragmentList.add(new BikeType());
                 ad.mFragmentTitleList.add("BikeType");
                 ad.notifyDataSetChanged();}
@@ -100,6 +102,8 @@ public class VehSelect extends Fragment {
                 }
                 if(flag==0) {
 
+                    sessionManager.putStringInPreferences(getActivity(),"Car","vehicle_type");
+                    Log.d("VehSelect:","Car");
                     ad.mFragmentList.add(new CarType());
                     ad.mFragmentTitleList.add("CarType");
                     ad.notifyDataSetChanged();
@@ -113,30 +117,6 @@ public class VehSelect extends Fragment {
         });
 
 
-        viewPager.addOnPageChangeListener(new OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if(tflag==1){
-                 //   sessionManager.putStringInPreferences(getActivity(),"Car","loan_type");
-                }
-                else if(tflag==2){
-                   // sessionManager.putStringInPreferences(getActivity(),"Bike","loan_type");
-
-                }
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-                Log.d("frag_position",position+"");
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
 
         return view;
     }

@@ -5,14 +5,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -43,6 +47,8 @@ public class City extends Fragment {
         delhi= (CheckBox) view.findViewById(R.id.delhi);
         ImageView others = (ImageView) view.findViewById(R.id.others);
         final EditText editothers = (EditText) view.findViewById(R.id.editothers);
+
+        Button b1=(Button)view.findViewById(R.id.b1);
 
 
         final SessionManager sessionManager=new SessionManager();
@@ -115,13 +121,31 @@ public class City extends Fragment {
         });
 
 
+        b1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text=editothers.getText().toString();
+                if(text==null){
+
+                    Toast.makeText(getContext(),"Fill city info.",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                    ad.addFragment(new VehSelect(), "VehSelect");
+                    ad.notifyDataSetChanged();
+                    Log.d("1",editothers.getText().toString());
+
+                }
+            }
+        });
+
+
 
         viewPager.addOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-              //  sessionManager.putStringInPreferences(getActivity(),editothers.getText().toString(),"city_car");
-               // Log.d("1",editothers.getText().toString());
+
             }
 
             @Override
@@ -132,7 +156,6 @@ public class City extends Fragment {
             @Override
             public void onPageScrollStateChanged(int state) {
 
-                //Toast.makeText(getContext(),""+editothers.getText().toString(),Toast.LENGTH_SHORT).show();
 
 
             }

@@ -31,21 +31,35 @@ public class Requested_Loan extends Fragment {
 
     int count=0;
     int breakflag=0;
+    EditText et;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_requested_loan,container,false);
 
 
-        final EditText et=(EditText)view.findViewById(R.id.loan);
+        et=(EditText)view.findViewById(R.id.loan);
         et.setText("00.00");
         //et.setFocusable(false);
         //et.setKeyListener(null);
 
+        String loan_type=SessionManager.getStringFromPreferences(getContext(),"loan_type");
+        String city=SessionManager.getStringFromPreferences(getContext(),"city");
+        String vehicle_type=SessionManager.getStringFromPreferences(getContext(),"vehicle_type");
+        String car_condition=SessionManager.getStringFromPreferences(getContext(),"car_type");
+        String cost=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
+        String gross=SessionManager.getStringFromPreferences(getContext(),"gross_salary");
+        String net_salary=SessionManager.getStringFromPreferences(getContext(),"net_salary");
+        String existing_emi=SessionManager.getStringFromPreferences(getContext(),"existing_emi");
 
+        Toast.makeText(getContext(),loan_type+ "  "+ city+ "   "+vehicle_type+ "  "+cost+" "+ car_condition+'\n'
+                +gross+'\n'+ net_salary+'\n'+ existing_emi,Toast.LENGTH_LONG).show();
 
         //view.setFocusableInTouchMode(true);
         //view.requestFocus();
+
+
+
 
         et.setOnKeyListener(new OnKeyListener() {
             @Override
@@ -94,7 +108,8 @@ public class Requested_Loan extends Fragment {
         calc_eligibility.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-               // exec_process();
+
+                exec_process();
             }
         });
 
@@ -113,13 +128,19 @@ public class Requested_Loan extends Fragment {
     //PROCESS TO CHECK ELGIBILITY
     public void exec_process(){
 
-        String requested_loan_amount=SessionManager.getStringFromPreferences(getContext(),"requested_loan_amount");
+        //String requested_loan_amount=SessionManager.getStringFromPreferences(getContext(),"requested_loan_amount");
+
         String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
 
+        String loan=et.getText().toString();
+        Float val=Float.parseFloat(loan);
 
-        float rla=Float.parseFloat(requested_loan_amount);
+
+
+        //float rla=Float.parseFloat(requested_loan_amount);
+        float rla=val;
         float coe=Float.parseFloat(cost_of_entity);
-        if(rla<=0.9*coe){        //CHECK RLA AND COE CONDITION
+        if(rla>0.9*coe){        //CHECK RLA AND COE CONDITION
             breakflag=1;
             exitprocess();
 
@@ -168,7 +189,7 @@ public class Requested_Loan extends Fragment {
             float net_inc=inc-(emi+pemi);
             if(net_inc>=0.4*inc){
 
-                breakflag=1;
+                breakflag=2;
                 exitprocess();
 
             }
@@ -195,6 +216,7 @@ public class Requested_Loan extends Fragment {
 
     // LAUNCH FAILURE SCREEN
     public void exitprocess(){
+
 
         Intent i=new Intent(getContext(),Failure_Result.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
