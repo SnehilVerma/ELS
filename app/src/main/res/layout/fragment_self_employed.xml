@@ -27,7 +27,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp">
+            android:layout_marginTop="150dp"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +40,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:id="@+id/tv1"
-                android:background="@drawable/round_background1"
                 android:text="Income after Tax"
 
                 />
@@ -55,7 +55,7 @@
                 android:paddingRight="10dp"
                 android:id="@+id/taxamount"
                 android:hint="Enter amount"
-
+                android:inputType="number"
                 android:background="@drawable/round_background1"/>
 
             <TextView
@@ -67,7 +67,6 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:background="@drawable/round_background1"
                 android:text="Existing EMI"
                 android:id="@+id/tv2"
 
@@ -85,6 +84,7 @@
                 android:id="@+id/emiamount"
                 android:paddingRight="10dp"
                 android:gravity="center_vertical"
+                android:inputType="number"
                 android:background="@drawable/round_background1"/>
 
 

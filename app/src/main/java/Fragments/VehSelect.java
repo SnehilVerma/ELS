@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
+
+import Utility.SessionManager;
 
 import static com.elsapp.els.R.id.im1;
 
@@ -26,12 +29,13 @@ public class VehSelect extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    int tflag=0;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View view=inflater.inflate(R.layout.fragment_veh_type, container, false);
-
+        final SessionManager sessionManager=new SessionManager();
 
         ImageButton ib1=(ImageButton)view.findViewById(im1);
         ImageButton ib2=(ImageButton)view.findViewById(R.id.im2);
@@ -44,6 +48,7 @@ public class VehSelect extends Fragment {
             @Override
             public void onClick(View view) {
                 int flag=0;
+                tflag=1;
 
                 for(String x : ad.mFragmentTitleList){
                     if(x.equals("BikeType")){
@@ -76,6 +81,7 @@ public class VehSelect extends Fragment {
             public void onClick(View view) {
 
                 int flag=0;
+                tflag=2;
 
                 for(String x : ad.mFragmentTitleList){
                     if(x.equals("CarType")){
@@ -106,7 +112,30 @@ public class VehSelect extends Fragment {
         });
 
 
+        viewPager.addOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if(tflag==1){
+                 //   sessionManager.putStringInPreferences(getActivity(),"Car","loan_type");
+                }
+                else if(tflag==2){
+                   // sessionManager.putStringInPreferences(getActivity(),"Bike","loan_type");
+
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         return view;
     }
+
 }

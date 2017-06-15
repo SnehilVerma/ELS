@@ -44,6 +44,8 @@ public class Requested_Loan extends Fragment {
 
 
 
+        //view.setFocusableInTouchMode(true);
+        //view.requestFocus();
 
         et.setOnKeyListener(new OnKeyListener() {
             @Override
@@ -68,17 +70,31 @@ public class Requested_Loan extends Fragment {
                     }
 
                 }
+
+                if(i==KeyEvent.KEYCODE_BACK && keyEvent.getAction()==KeyEvent.ACTION_UP){
+                    Toast.makeText(getContext(),"Back Pressed",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
                 return false;
             }
 
         });
 
 
+
+
+
+
+
+
+
+
         Button calc_eligibility=(Button)view.findViewById(R.id.calculate);
         calc_eligibility.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                exec_process();
+               // exec_process();
             }
         });
 
@@ -90,6 +106,7 @@ public class Requested_Loan extends Fragment {
 
         return view;
     }
+
 
 
 
@@ -194,6 +211,8 @@ public class Requested_Loan extends Fragment {
 
 
     }
+
+
 
 
 }
