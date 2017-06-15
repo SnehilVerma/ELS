@@ -138,6 +138,7 @@ public class CarLoanActivity extends AppCompatActivity
             Intent intent = new Intent(CarLoanActivity.this,LoanSelec.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+
         }
 
 
