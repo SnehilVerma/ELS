@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,18 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import Adapter.City_Adapter;
 import Utility.SessionManager;
 
 /**
@@ -29,12 +33,14 @@ import Utility.SessionManager;
 
 public class City extends Fragment {
 
-    CheckBox delhi;
-    CheckBox mumbai;
+    ImageView delhi;
+    ImageView mumbai;
+    ImageView others;
 
     private CarLoanActivity.ViewPagerAdapter ad;
     private HomeLoan.ViewPagerAdapter ad2;
     private ViewPager viewPager;
+    ArrayList<String> city_names;
 
 
     @Nullable
@@ -42,10 +48,14 @@ public class City extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         final View view=inflater.inflate(R.layout.fragment_city, container, false);
-        mumbai = (CheckBox) view.findViewById(R.id.mumbai);
-        delhi= (CheckBox) view.findViewById(R.id.delhi);
-        ImageView others = (ImageView) view.findViewById(R.id.others);
-        final EditText editothers = (EditText) view.findViewById(R.id.editothers);
+        mumbai = (ImageView) view.findViewById(R.id.mumbai);
+        delhi= (ImageView) view.findViewById(R.id.delhi);
+        others=(ImageView)view.findViewById(R.id.others);
+
+        city_names =new ArrayList<>(Arrays.asList("Kanpur","Lucknow","Bengaluru","Patna","Surat","Kota","Jaipur","Pune","Panaji"));
+
+
+
 
         Button b1=(Button)view.findViewById(R.id.b1);
 
@@ -66,107 +76,62 @@ public class City extends Fragment {
 
 
 
+        final Dialog dialog=new Dialog(getContext());
+        dialog.setContentView(R.layout.custom_city_dialog);
+        dialog.setTitle("Choose a city");
+        ListView cities=(ListView)dialog.findViewById(R.id.List);
+        final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
+        cities.setAdapter(adapter);
 
 
-
-        mumbai.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+        cities.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                boolean check2=delhi.isChecked();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                dialog.dismiss();
+                String city=city_names.get(i);
+                Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
+                SessionManager.putStringInPreferences(getContext(),city,"city");
 
 
-                if(b==true && check2==false){
-                    mumbai.setChecked(true);
-                    delhi.setChecked(false);
+                if(type.equals("CarLoanActivity")) {
 
-
-                    editothers.setText("Mumbai");
-                    String text=editothers.getText().toString();
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
-
-
-                    int flag=0;
-
-                    //TEST DATA.
-
-
-
-
-                    //Toast.makeText(getContext(),index+"" + ad.mFragmentList.size(), Toast.LENGTH_LONG).show();
-
-                    /*
-                    if(index<ad.mFragmentList.size()) {
-
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
                         ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
                         ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+                    }
 
 
 
-
-                    }*/
-
-                    //Toast.makeText(getContext(),ad.mFragmentList.size()+" ",Toast.LENGTH_SHORT).show();
-
-                    //ad.mFragmentList.add(new VehLoanCost());
-                    //ad.mFragmentTitleList.add("VehLoanCost");
-                   // ad.notifyDataSetChanged();
-
-
-
-
-
-
-
-                }else if(b==false && check2==false){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(false);
-                    editothers.setText("None");
-
-                }else if(b==true && check2==true){
-                    mumbai.setChecked(true);
-                    delhi.setChecked(false);
-                    editothers.setText("Mumbai");
-                    String text=editothers.getText().toString();
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+                    ad.addFragment(new VehSelect(), "VehSelect");
+                    ad.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
 
                 }
+                else {
 
 
-                //Toast.makeText(getContext(),""+b+"   "+ check2,Toast.LENGTH_SHORT).show();
 
 
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
 
-            }
-        });
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
 
-        delhi.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    }
 
-                boolean check=mumbai.isChecked();
-                if(b==true && check==false){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(true);
-                    editothers.setText("Delhi");
-                    String text=editothers.getText().toString();
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
-                }else if(b==false && check==false){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(false);
-                    editothers.setText("None");
-
-                }else if(b==true && check==true){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(true);
-                    editothers.setText("Delhi");
-                    String text=editothers.getText().toString();
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+                    ad2.addFragment(new Gender(), "Gender");
+                    ad2.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
                 }
 
-
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
 
@@ -175,64 +140,132 @@ public class City extends Fragment {
         });
 
 
-        b1.setOnClickListener(new OnClickListener() {
+
+
+        mumbai.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text=editothers.getText().toString();
+
+
                 if(type.equals("CarLoanActivity")) {
-                    if (text == null) {
-
-                        Toast.makeText(getContext(), "Fill city info.", Toast.LENGTH_SHORT).show();
-                    } else {
-
-
-                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city");
 
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < ad.mFragmentList.size()) {
                             ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
                             ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                             ad.notifyDataSetChanged();
-
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
-
-
                         }
+
 
 
                         ad.addFragment(new VehSelect(), "VehSelect");
                         ad.notifyDataSetChanged();
-                        Log.d("1", editothers.getText().toString());
+                        Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
-                    }
+
                 }
-                else{
-                    if (text == null) {
-
-                        Toast.makeText(getContext(), "Fill city info.", Toast.LENGTH_SHORT).show();
-                    } else {
+                else {
 
 
-                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city");
-
-                        int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < ad2.mFragmentList.size()) {
-
-                            ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
-                            ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
-                            ad2.notifyDataSetChanged();
-
-                        }
 
 
-                        ad2.addFragment(new Gender(), "Gender");
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
+
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
                         ad2.notifyDataSetChanged();
-                        Log.d("1", editothers.getText().toString());
 
                     }
+
+
+                    ad2.addFragment(new Gender(), "Gender");
+                    ad2.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+
                 }
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+
             }
         });
+
+        delhi.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getContext(),"Delhi","city");
+
+                if(type.equals("CarLoanActivity")) {
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+                    }
+
+
+
+                        ad.addFragment(new VehSelect(), "VehSelect");
+                        ad.notifyDataSetChanged();
+                        Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+
+                    }
+
+                else {
+
+
+
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
+
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
+
+                    }
+
+
+                    ad2.addFragment(new Gender(), "Gender");
+                    ad2.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+
+
+
+
+                }
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+
+
+
+            }
+        });
+
+
+        others.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.show();
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
 
 
 

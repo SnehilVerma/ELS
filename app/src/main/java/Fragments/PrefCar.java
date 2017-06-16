@@ -13,12 +13,14 @@ import android.view.animation.GridLayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
 import Adapter.GridAdapter;
+import Utility.SessionManager;
 
 /**
  * Created by snehil on 9/6/17.
@@ -68,9 +70,15 @@ public class PrefCar extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+
+                SessionManager.putStringInPreferences(getContext(),String.valueOf(i),"car_option");
+                Toast.makeText(getContext(),i+"",Toast.LENGTH_SHORT).show();
                 ad.mFragmentList.add(new VehLoanCost());
                 ad.mFragmentTitleList.add("VehLoanCost");
                 ad.notifyDataSetChanged();
+
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
 

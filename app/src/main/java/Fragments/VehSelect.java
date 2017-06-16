@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
@@ -47,33 +46,26 @@ public class VehSelect extends Fragment {
         ib1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                int flag=0;
-                tflag=1;
-
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("BikeType")){
-                        flag=1;
-                        break;
-                    }
-                    else if(x.equals(("CarType"))){
-                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                        ad.mFragmentTitleList.remove("CarType");
-
-
-                    }
-
-                }
-                if(flag==0){
 
                 sessionManager.putStringInPreferences(getActivity(),"Bike","vehicle_type");
-                Log.d("VehSelect:","Bike");
-                ad.mFragmentList.add(new BikeType());
-                ad.mFragmentTitleList.add("BikeType");
-                ad.notifyDataSetChanged();}
-                else{
-
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
                 }
+
+
+
+                ad.addFragment(new BikeType(), "BikeType");
+                ad.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"vehicle_type"));
+
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+
 
             }
         });
@@ -83,35 +75,24 @@ public class VehSelect extends Fragment {
             @Override
             public void onClick(View view) {
 
-                int flag=0;
-                tflag=2;
-
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("CarType")){
-                        flag=1;
-                        break;
-                    }
-
-                    else if(x.equals(("BikeType"))){
-                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                        ad.mFragmentTitleList.remove("BikeType");
-
-
-                    }
-
-                }
-                if(flag==0) {
-
-                    sessionManager.putStringInPreferences(getActivity(),"Car","vehicle_type");
-                    Log.d("VehSelect:","Car");
-                    ad.mFragmentList.add(new CarType());
-                    ad.mFragmentTitleList.add("CarType");
+                sessionManager.putStringInPreferences(getActivity(),"Car","vehicle_type");
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                     ad.notifyDataSetChanged();
                 }
-                else{
 
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
+
+
+                ad.addFragment(new CarType(), "CarType");
+                ad.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"vehicle_type"));
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+
 
             }
         });

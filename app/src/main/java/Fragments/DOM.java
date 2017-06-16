@@ -23,8 +23,6 @@ import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
-import Utility.SessionManager;
-
 /**
  * Created by Rishi on 6/13/2017.
  */
@@ -121,10 +119,25 @@ public class DOM extends Fragment {
             public void onClick(View view) {
 
                 if(flag==1 && gflag==1) {
-                    //SET SESSION MANAGER FOR MONTH AND YEAR
+
+
+
+                    //TODO:SET SESSION MANAGER FOR MONTH AND YEAR
+                    int index=(viewPager.getCurrentItem())+1;
+                    if(index<ad.mFragmentList.size()) {
+
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+                    }
+
                     ad.mFragmentList.add(new PrefCar());
                     ad.mFragmentTitleList.add("PrefCar");
                     ad.notifyDataSetChanged();
+
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
                 }
                 else{
                     Toast.makeText(getContext(),"All fields are mandatory",Toast.LENGTH_SHORT).show();

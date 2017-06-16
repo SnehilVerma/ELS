@@ -50,55 +50,7 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
-
-
-
-                /*
-                //TESTING
-                int flag=0;
-                tflag=1;
-
-
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("PrefCar")){
-                        flag=1;
-                        break;
-                    }
-
-                    else if(x.equals("DOM")){
-
-                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                        ad.mFragmentTitleList.remove("DOM");
-
-                    }
-
-
-                }
-
-                if(flag==0) {
-
-                    String x="New";
-                    sessionManager.putStringInPreferences(getActivity(),x,"car_type");
-                    Log.d("2",x);
-                    ad.mFragmentList.add(new PrefCar());
-                    ad.mFragmentTitleList.add("PrefCar");
-                    ad.notifyDataSetChanged();
-
-                }
-
-
-                else{
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
-
-
-
-                //ad.addFragment(new Gender(), "Gender");
-                //ad.notifyDataSetChanged();
-                */
-
-
-                sessionManager.putStringInPreferences(getActivity(),"New","car_type");
+            sessionManager.putStringInPreferences(getActivity(),"New","car_type");
 
 
                 int index=(viewPager.getCurrentItem())+1;
@@ -114,6 +66,8 @@ public class CarType extends Fragment {
                 ad.addFragment(new PrefCar(), "PrefCar");
                 ad.notifyDataSetChanged();
 
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
 
             }
         });
@@ -122,40 +76,6 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                //ad.mFragmentTitleList.remove("DOB");
-
-                /*
-                int flag=0;
-                tflag=2;
-
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("DOM")){
-                        flag=1;
-                        break;
-                    }
-                    else if(x.equals("PrefCar")){
-                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                        ad.mFragmentTitleList.remove("PrefCar");
-
-                    }
-
-                }
-                if(flag==0) {
-
-                    String x="Old";
-                    sessionManager.putStringInPreferences(getActivity(),x,"car_type");
-                    Log.d("2",x);
-                    ad.mFragmentList.add(new DOM());
-                    ad.mFragmentTitleList.add("DOM");
-                    ad.notifyDataSetChanged();
-
-                }
-                else{
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
-
-                */
 
                 sessionManager.putStringInPreferences(getActivity(),"Old","car_type");
 
@@ -173,6 +93,7 @@ public class CarType extends Fragment {
                 ad.addFragment(new DOM(), "DOM");
                 ad.notifyDataSetChanged();
 
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
 

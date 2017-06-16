@@ -111,9 +111,24 @@ public class VehLoanCost extends Fragment{
                 final String cos=cost.getText().toString();
                 sessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
                 Log.d("cost:",cos+" rs");
+
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
+
                 ad.mFragmentList.add(new Select_Category());
                 ad.mFragmentTitleList.add("Select_Category");
                 ad.notifyDataSetChanged();
+
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
             }
         });
 

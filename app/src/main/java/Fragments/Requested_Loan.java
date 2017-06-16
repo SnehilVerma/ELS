@@ -274,7 +274,6 @@ public class Requested_Loan extends Fragment {
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
 
-
     }
 
 

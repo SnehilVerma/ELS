@@ -43,10 +43,12 @@
             android:layout_below="@+id/tv1"
             android:text="Elgible Loan Amount"/>
 
-        <EditText
+        <TextView
             android:layout_width="220dp"
             android:layout_below="@+id/textView"
             android:layout_height="wrap_content"
+            android:text="60000"
+            android:textAlignment="center"
             android:layout_marginLeft="120dp"
             android:id="@+id/eligible"/>
         <TextView
@@ -66,7 +68,9 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv2"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
             android:id="@+id/name"
+            android:maxLength="50"
             android:hint="Name"/>
 
         <EditText
@@ -75,6 +79,8 @@
             android:layout_below="@+id/name"
             android:layout_centerHorizontal="true"
             android:id="@+id/mob"
+            android:digits="0123456789"
+            android:maxLength="10"
             android:layout_marginLeft="130dp"
             android:hint="Mobie No."/>
 
