@@ -23,11 +23,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_location_on_black_24dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/property"
-            android:tint="#ffffff"/>
 
 
         <LinearLayout
@@ -123,6 +118,11 @@
                     android:id="@+id/editothers"/>
             </LinearLayout>
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/button" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

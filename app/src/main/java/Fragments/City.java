@@ -226,10 +226,6 @@ public class City extends Fragment {
 
 
                         ad2.addFragment(new Gender(), "Gender");
-                        ad2.addFragment(new DOB(), "DOB");
-                        ad2.addFragment(new HomePropLoc(), "HomePropLoc");
-                        ad2.addFragment(new HomeLoanPurpose(), "HomeLoanPurpose");
-                        ad2.addFragment(new HomePropCost(), "HomePropCost");
                         ad2.notifyDataSetChanged();
                         Log.d("1", editothers.getText().toString());
 

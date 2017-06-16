@@ -3,17 +3,19 @@ package Fragments;
 import android.app.DatePickerDialog;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
 import java.util.Locale;
@@ -22,6 +24,8 @@ import java.util.Locale;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class DOB extends Fragment {
     EditText text;
+    ViewPager viewPager;
+    HomeLoan.ViewPagerAdapter ad;
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -48,7 +52,29 @@ public class DOB extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View y = inflater.inflate(R.layout.fragment_dob, container, false);
-        text = (EditText) y.findViewById(R.id.editText);
+        Button b1 = (Button) y.findViewById(R.id.button);
+        ad = ((HomeLoan)getActivity()).getCurrAdapter();
+        viewPager = ((HomeLoan)getActivity()).getViewPager();
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+
+
+                }
+
+
+                ad.addFragment(new HomePropLoc(), "HomePropLoc");
+                ad.notifyDataSetChanged();
+            }
+        });
+                text = (EditText) y.findViewById(R.id.editText);
 
         text.setOnClickListener(new View.OnClickListener() {
 
