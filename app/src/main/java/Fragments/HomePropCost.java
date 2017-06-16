@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
@@ -27,9 +26,12 @@ import Utility.SessionManager;
 
 public class HomePropCost extends Fragment {
     ViewPager viewPager;
-    HomeLoan.ViewPagerAdapter adapter;
+    HomeLoan.ViewPagerAdapter ad;
     EditText cost;
-    CarLoanActivity.ViewPagerAdapter adapter1;
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -37,28 +39,42 @@ public class HomePropCost extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_home_propcost, container, false);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         cost = (EditText) view.findViewById(R.id.cost);
-        Button b1 = (Button) view.findViewById(R.id.button);
+
+        ad = ((HomeLoan)getActivity()).getCurrAdapter();
+        viewPager = ((HomeLoan)getActivity()).getViewPager();
+
+
+
+
+        Button b1 = (Button) view.findViewById(R.id.b1);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    final String cos= cost.getText().toString();
-                    SessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
-                    Log.d("cost:",cos+" rs");
-                    int flag = 0;
-                    adapter = ((HomeLoan) getActivity()).getCurrAdapter();
-                    viewPager = ((HomeLoan) getActivity()).getViewPager();
-                    for (int y = 0; y < adapter.mFragmentTitleList.size(); y++) {
-                        if (adapter.mFragmentTitleList.get(y).equals("Select_Category")) {
-                            flag = 1;
-                            break;
-                        }
-                    }
-                    if (flag == 0) {
-                        adapter.addFragment(new Select_Category(), "Select_Category");
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                    }
+
+                final String cos=cost.getText().toString();
+                SessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
+                Log.d("cost:",cos+" rs");
+
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
+
+                ad.mFragmentList.add(new Select_Category());
+                ad.mFragmentTitleList.add("Select_Category");
+                ad.notifyDataSetChanged();
+
+
+
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+
             }
         });
         cost.setOnKeyListener(new View.OnKeyListener() {
@@ -95,21 +111,9 @@ public class HomePropCost extends Fragment {
 
         });
 
-        TextView t1 = (TextView) view.findViewById(R.id.prev);
-        TextView t2 = (TextView) view.findViewById(R.id.next);
-        final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
-        t1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
-            }
-        });
-        t2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-            }
-        });
+
+
+
         return view;
 
     }

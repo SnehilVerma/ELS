@@ -108,6 +108,7 @@ public class VehLoanCost extends Fragment{
 
             @Override
             public void onClick(View view) {
+
                 final String cos=cost.getText().toString();
                 sessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
                 Log.d("cost:",cos+" rs");
@@ -124,6 +125,8 @@ public class VehLoanCost extends Fragment{
                 ad.mFragmentList.add(new Select_Category());
                 ad.mFragmentTitleList.add("Select_Category");
                 ad.notifyDataSetChanged();
+
+
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);

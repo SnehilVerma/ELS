@@ -20,6 +20,8 @@ import com.elsapp.els.R;
 
 import java.util.Locale;
 
+import Utility.SessionManager;
+
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class DOB extends Fragment {
@@ -63,9 +65,16 @@ public class DOB extends Fragment {
         Button b1 = (Button) y.findViewById(R.id.button);
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
+        text = (EditText) y.findViewById(R.id.editText);
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //SESSION MANAGER
+                SessionManager.putStringInPreferences(getContext(),text.getText().toString(),"DOB");
+
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -79,9 +88,11 @@ public class DOB extends Fragment {
 
                 ad.addFragment(new HomePropLoc(), "HomePropLoc");
                 ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
-                text = (EditText) y.findViewById(R.id.editText);
+
 
         text.setOnClickListener(new View.OnClickListener() {
 

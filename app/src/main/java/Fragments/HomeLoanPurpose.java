@@ -50,6 +50,8 @@ public class HomeLoanPurpose extends Fragment {
                 SessionManager.putStringInPreferences(getActivity(),"pidentifiedprop","homepurpose");
                 ad.addFragment(new HomePropCost(), "HomePropCost");
                 ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
         ib2.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +72,8 @@ public class HomeLoanPurpose extends Fragment {
 
                 ad.addFragment(new HomePropCost(), "HomePropCost");
                 ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
         ib3.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +94,8 @@ public class HomeLoanPurpose extends Fragment {
 
                 ad.addFragment(new HomePropCost(), "HomePropCost");
                 ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
         ib4.setOnClickListener(new View.OnClickListener() {

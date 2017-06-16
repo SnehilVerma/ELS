@@ -4,7 +4,6 @@ package Fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -101,41 +100,6 @@ public class PurposeC extends Fragment {
             }
         });
 
-
-        //CHECK IF THE USER HAS SELECTED ANY OPTION.
-        viewPager.addOnPageChangeListener(new OnPageChangeListener() {
-
-
-
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-
-
-//                if(vpsize==ad.mFragmentList.size() && ad.mFragmentTitleList.get(viewPager.getCurrentItem()).equals("CarType")){
- //                   Toast.makeText(getContext(),"Please choose one option",Toast.LENGTH_SHORT).show();
-
-                //}
-
-
-
-
-            }
-        });
 
 
 
