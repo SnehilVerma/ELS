@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -68,43 +67,39 @@ public class CoAPP extends Fragment {
             public void onClick(View view) {
 
                     if(loantype.equals("HomeLoan")){
-                        int flag = 0;
                         adapter = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
-                        for(int y = 0;y<adapter.mFragmentTitleList.size();y++) {
-                            if(adapter.mFragmentTitleList.get(y).equals("CoApp_Cat")){
-                                flag=1;
-                                break;
-                            }
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter1.mFragmentList.size()) {
+                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                            adapter1.notifyDataSetChanged();
+
+
+
                         }
-                        if(flag==0) {
                             adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
                             SessionManager.putStringInPreferences(getActivity(),"1","flaggy");
                             adapter.notifyDataSetChanged();
-                        }
-                        else{
-                            Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                        }
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
                     else
                     {
-                        int flag = 0;
                         adapter1 = ((CarLoanActivity)getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                        for(int y = 0;y<adapter1.mFragmentTitleList.size();y++) {
-                            if(adapter1.mFragmentTitleList.get(y).equals("CoApp_Cat")){
-                                flag=1;
-                                break;
-                            }
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter1.mFragmentList.size()) {
+                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                            adapter1.notifyDataSetChanged();
+
+
+
                         }
-                        if(flag==0) {
                             adapter1.addFragment(new CoApp_Cat(), "CoApp_Cat");
                             SessionManager.putStringInPreferences(getActivity(),"1","flaggy");
                             adapter1.notifyDataSetChanged();
-                        }
-                        else{
-                            Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                        }
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
             }
         });
