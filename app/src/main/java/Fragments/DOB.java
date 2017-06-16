@@ -64,7 +64,6 @@ public class DOB extends Fragment {
                     ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                     ad.notifyDataSetChanged();
 
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
 
                 }

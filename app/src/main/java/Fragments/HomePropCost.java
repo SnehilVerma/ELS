@@ -1,10 +1,12 @@
 package Fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ import Utility.SessionManager;
 public class HomePropCost extends Fragment {
     ViewPager viewPager;
     HomeLoan.ViewPagerAdapter adapter;
+    EditText cost;
     CarLoanActivity.ViewPagerAdapter adapter1;
     @Nullable
     @Override
@@ -33,13 +36,11 @@ public class HomePropCost extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_home_propcost, container, false);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
-
-        final EditText cost = (EditText) view.findViewById(R.id.cost);
+        cost = (EditText) view.findViewById(R.id.cost);
         Button b1 = (Button) view.findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (loantype.equals("HomeLoan")) {
                     final String cos= cost.getText().toString();
                     SessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
                     Log.d("cost:",cos+" rs");
@@ -58,24 +59,40 @@ public class HomePropCost extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    int flag = 0;
-                    adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
-                    viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                    for (int y = 0; y < adapter1.mFragmentTitleList.size(); y++) {
-                        if (adapter1.mFragmentTitleList.get(y).equals("Select_Category")) {
-                            flag = 1;
-                            break;
-                        }
-                    }
-                    if (flag == 0) {
-                        adapter1.addFragment(new Select_Category(), "Select_Category");
-                        adapter1.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                    }
-                }
             }
+        });
+        cost.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+
+                if((i== KeyEvent.KEYCODE_ENTER)){
+                    String loan=cost.getText().toString();
+                    Float val=Float.parseFloat(loan);
+
+                    if(val>999999.99){
+
+                        Toast.makeText(getContext(),"Cost of vehicle should not exceed 999999.99",Toast.LENGTH_SHORT).show();
+                        return true;
+                    }else {
+                        final Dialog dialog = new Dialog(getContext());
+                        dialog.setContentView(R.layout.custom_dialog);
+                        TextView tv = (TextView) dialog.findViewById(R.id.amount);
+                        String loan2 = cost.getText().toString();
+                        tv.setText(loan2);
+                        dialog.show();
+                        return true;
+                    }
+
+                }
+
+                if(i==KeyEvent.KEYCODE_BACK && keyEvent.getAction()==KeyEvent.ACTION_UP){
+                    Toast.makeText(getContext(),"Back Pressed",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                return false;
+            }
+
         });
 
         TextView t1 = (TextView) view.findViewById(R.id.prev);

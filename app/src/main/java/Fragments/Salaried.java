@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -172,74 +171,69 @@ public class Salaried extends Fragment{
 
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
                         if (loantype.equals("HomeLoan")) {
-                            int flag = 0;
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                             viewPager = ((HomeLoan) getActivity()).getViewPager();
-                            for (int y = 0; y < adapter.mFragmentTitleList.size(); y++) {
-                                if (adapter.mFragmentTitleList.get(y).equals("Co_App_Opt")) {
-                                    flag = 1;
-                                    break;
-                                }
+                            int index = (viewPager.getCurrentItem()) + 1;
+                            if (index < adapter.mFragmentList.size()) {
+                                adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                adapter.notifyDataSetChanged();
+
+
+
                             }
-                            if (flag == 0) {
                                 adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
                                 adapter.notifyDataSetChanged();
-                            } else {
-                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                            }
+                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                         } else {
-                            int flag = 0;
                             adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
                             viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                            for (int y = 0; y < adapter1.mFragmentTitleList.size(); y++) {
-                                if (adapter1.mFragmentTitleList.get(y).equals("Co_App_Opt")) {
-                                    flag = 1;
-                                    break;
-                                }
+                            int index = (viewPager.getCurrentItem()) + 1;
+                            if (index < adapter1.mFragmentList.size()) {
+                                adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                                adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                                adapter1.notifyDataSetChanged();
+
+
+
                             }
-                            if (flag == 0) {
                                 adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
                                 adapter1.notifyDataSetChanged();
-                            } else {
-                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                            }
+                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                         }
 
 
                     }
                     else{
                         if (loantype.equals("HomeLoan")) {
-                            int flag = 0;
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                             viewPager = ((HomeLoan) getActivity()).getViewPager();
-                            for (int y = 0; y < adapter.mFragmentTitleList.size(); y++) {
-                                if (adapter.mFragmentTitleList.get(y).equals("Requested_Loan")) {
-                                    flag = 1;
-                                    break;
-                                }
+                            int index = (viewPager.getCurrentItem()) + 1;
+                            if (index < adapter.mFragmentList.size()) {
+                                adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                adapter.notifyDataSetChanged();
+
+
+
                             }
-                            if (flag == 0) {
                                 adapter.addFragment(new Requested_Loan(), "Requested_Loan");
                                 adapter.notifyDataSetChanged();
-                            } else {
-                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                            }
                         } else {
-                            int flag = 0;
                             adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
                             viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                            for (int y = 0; y < adapter1.mFragmentTitleList.size(); y++) {
-                                if (adapter1.mFragmentTitleList.get(y).equals("Requested_Loan")) {
-                                    flag = 1;
-                                    break;
-                                }
+                            int index = (viewPager.getCurrentItem()) + 1;
+                            if (index < adapter1.mFragmentList.size()) {
+                                adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                                adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                                adapter1.notifyDataSetChanged();
+
+
+
                             }
-                            if (flag == 0) {
                                 adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
                                 adapter1.notifyDataSetChanged();
-                            } else {
-                                Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                            }
+                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                         }
 
                     }
