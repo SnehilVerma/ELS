@@ -40,6 +40,13 @@
             android:focusable="false"
             android:layout_weight="0.63" />
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="350dp"
+        android:id="@+id/button"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
