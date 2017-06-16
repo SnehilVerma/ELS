@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -41,80 +40,73 @@ public class Retired_P extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if(SessionManager.getStringFromPreferences(getActivity(),"flaggy").equals("0")){
-                    if(loantype.equals("HomeLoan")){
-                        int flag = 0;
-                        adapter = ((HomeLoan)getActivity()).getCurrAdapter();
-                        viewPager = ((HomeLoan)getActivity()).getViewPager();
-                        for(int y = 0;y<adapter.mFragmentTitleList.size();y++) {
-                            if(adapter.mFragmentTitleList.get(y).equals("Co_App_Opt")){
-                                flag=1;
-                                break;
-                            }
-                        }
-                        if(flag==0) {
-                            adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
-                            adapter.notifyDataSetChanged();
-                        }
-                        else{
-                            Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    else
-                    {
-                        int flag = 0;
-                        adapter1 = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                        viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                        for(int y = 0;y<adapter1.mFragmentTitleList.size();y++) {
-                            if(adapter1.mFragmentTitleList.get(y).equals("Co_App_Opt")){
-                                flag=1;
-                                break;
-                            }
-                        }
-                        if(flag==0) {
-                            adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
-                            adapter1.notifyDataSetChanged();
-                        }
-                        else{
-                            Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-            }
-            else {
+                if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
                     if (loantype.equals("HomeLoan")) {
-                        int flag = 0;
                         adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan) getActivity()).getViewPager();
-                        for (int y = 0; y < adapter.mFragmentTitleList.size(); y++) {
-                            if (adapter.mFragmentTitleList.get(y).equals("Requested_Loan")) {
-                                flag = 1;
-                                break;
-                            }
-                        }
-                        if (flag == 0) {
-                            adapter.addFragment(new Requested_Loan(), "Requested_Loan");
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter.mFragmentList.size()) {
+                            adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                            adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                             adapter.notifyDataSetChanged();
-                        } else {
-                            Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+
+
+
                         }
+                        adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                        adapter.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     } else {
-                        int flag = 0;
                         adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                        for (int y = 0; y < adapter1.mFragmentTitleList.size(); y++) {
-                            if (adapter1.mFragmentTitleList.get(y).equals("Requested_Loan")) {
-                                flag = 1;
-                                break;
-                            }
-                        }
-                        if (flag == 0) {
-                            adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter1.mFragmentList.size()) {
+                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                             adapter1.notifyDataSetChanged();
-                        } else {
-                            Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
+
+
+
                         }
+                        adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                        adapter1.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
+
+
+                }
+                else{
+                    if (loantype.equals("HomeLoan")) {
+                        adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+                        viewPager = ((HomeLoan) getActivity()).getViewPager();
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter.mFragmentList.size()) {
+                            adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                            adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                            adapter.notifyDataSetChanged();
+
+
+
+                        }
+                        adapter.addFragment(new Requested_Loan(), "Requested_Loan");
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+                        viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter1.mFragmentList.size()) {
+                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                            adapter1.notifyDataSetChanged();
+
+
+
+                        }
+                        adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                        adapter1.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    }
+
                 }
 
             }

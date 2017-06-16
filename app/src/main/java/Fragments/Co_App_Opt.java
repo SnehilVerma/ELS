@@ -47,67 +47,69 @@ public class Co_App_Opt extends Fragment {
                     if(loantype.equals("HomeLoan")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
-                        int flag=0;
-                        for(int y = 0;y< adapter1.mFragmentTitleList.size();y++) {
-                            if (adapter1.mFragmentTitleList.get(y).equals("CoApp")) {
-                                flag = 1;
-                                break;
+                            int index = (viewPager.getCurrentItem()) + 1;
+                            if (index < adapter1.mFragmentList.size()) {
+                                adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                                adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                                adapter1.notifyDataSetChanged();
+
+
+
                             }
-                        }
-                        if(flag == 0){
                             adapter1.addFragment(new CoAPP(), "CoApp");
                             adapter1.notifyDataSetChanged();
-                        }
-                        else{
-                            Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                        }
+                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
                     else {
                         adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                        int flag=0;
-                        for(int y = 0;y< adapter.mFragmentTitleList.size();y++) {
-                            if (adapter.mFragmentTitleList.get(y).equals("CoApp")) {
-                                flag = 1;
-                                break;
+                            int index = (viewPager.getCurrentItem()) + 1;
+                            if (index < adapter.mFragmentList.size()) {
+                                adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                adapter.notifyDataSetChanged();
+
+
+
                             }
-                        }
-                        if(flag == 0){
                             adapter.addFragment(new CoAPP(), "CoApp");
                             adapter.notifyDataSetChanged();
-                        }
-                        else{
-                            Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                        }
+                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
                 }
                 else{
                     if(loantype.equals("HomeLoan")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
-                        for(int y = 0;y< adapter1.mFragmentTitleList.size();y++) {
-                            if (adapter1.mFragmentTitleList.get(y).equals("CoApp")) {
-                                adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                                adapter1.mFragmentTitleList.remove("CoApp");
-                                adapter1.notifyDataSetChanged();
-                                break;
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter1.mFragmentList.size()) {
+                                    adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                                    adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                                    adapter1.notifyDataSetChanged();
+
+
+
+                                }
+                        adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                        adapter1.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                             }
-                        }
-                    }
                     else {
                         adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                        for(int y = 0;y< adapter.mFragmentTitleList.size();y++) {
-                            if (adapter.mFragmentTitleList.get(y).equals("CoApp")) {
-                                adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                                adapter.mFragmentTitleList.remove("CoApp");
-                                adapter.notifyDataSetChanged();
-                                break;
-                            }
-                        }
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter.mFragmentList.size()) {
+                                    adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                    adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                    adapter.notifyDataSetChanged();
+
+
+
+                                }
                        adapter.mFragmentList.add(new Requested_Loan());
                         adapter.mFragmentTitleList.add("Requested_Loan");
                         adapter.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
                 }
                 // checkedId is the RadioButton selected

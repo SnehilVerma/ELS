@@ -12,6 +12,8 @@ import android.widget.Button;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
 /**
  * Created by Rishi on 6/12/2017.
  */
@@ -26,14 +28,71 @@ public class HomeLoanPurpose extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home_loanpurpose,container,false);
 
-        construct = (Button) view.findViewById(R.id.construct);
-        tranfer = (Button) view.findViewById(R.id.transfer);
-        repair = (Button) view.findViewById(R.id.renovate);
-        identified = (Button) view.findViewById(R.id.identified);
-        Button b1 = (Button) view.findViewById(R.id.button);
+        Button ib1 = (Button) view.findViewById(R.id.ib1);
+        Button ib2 = (Button) view.findViewById(R.id.ib2);
+        Button ib3 = (Button) view.findViewById(R.id.ib3);
+        Button ib4 = (Button) view.findViewById(R.id.ib4);
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
-        b1.setOnClickListener(new View.OnClickListener() {
+        ib1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+
+                }
+
+
+                SessionManager.putStringInPreferences(getActivity(),"pidentifiedprop","homepurpose");
+                ad.addFragment(new HomePropCost(), "HomePropCost");
+                ad.notifyDataSetChanged();
+            }
+        });
+        ib2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+
+
+                }
+
+                SessionManager.putStringInPreferences(getActivity(),"renovateflat","homepurpose");
+
+                ad.addFragment(new HomePropCost(), "HomePropCost");
+                ad.notifyDataSetChanged();
+            }
+        });
+        ib3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+
+
+                }
+
+                SessionManager.putStringInPreferences(getActivity(),"constructhouse","homepurpose");
+
+                ad.addFragment(new HomePropCost(), "HomePropCost");
+                ad.notifyDataSetChanged();
+            }
+        });
+        ib4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -48,6 +107,7 @@ public class HomeLoanPurpose extends Fragment {
 
                 }
 
+                SessionManager.putStringInPreferences(getActivity(),"transferloan","homepurpose");
 
                 ad.addFragment(new HomePropCost(), "HomePropCost");
                 ad.notifyDataSetChanged();
