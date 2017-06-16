@@ -36,6 +36,7 @@ public class HomeLoanPurpose extends Fragment {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -50,6 +51,8 @@ public class HomeLoanPurpose extends Fragment {
 
                 ad.addFragment(new HomePropCost(), "HomePropCost");
                 ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
 
