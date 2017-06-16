@@ -120,7 +120,9 @@
         </LinearLayout>
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:background="@color/cardview_light_background"
+            android:textColor="@color/black"
             android:text="SAVE"
             android:id="@+id/button" />
     </LinearLayout>

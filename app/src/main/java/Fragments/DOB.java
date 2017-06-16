@@ -27,19 +27,27 @@ public class DOB extends Fragment {
     ViewPager viewPager;
     HomeLoan.ViewPagerAdapter ad;
     Calendar myCalendar = Calendar.getInstance();
+
+
+
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
             // TODO Auto-generated method stub
+
             myCalendar.set(Calendar.YEAR, year);
             myCalendar.set(Calendar.MONTH, monthOfYear);
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
             updateLabel();
         }
 
     };
+
+
+
 
 
 
@@ -81,10 +89,13 @@ public class DOB extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                new DatePickerDialog(getActivity(), date, myCalendar
+
+                DatePickerDialog dialog;
+                dialog=new DatePickerDialog(getActivity(),date , myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                dialog.show();
             }
         });
 
