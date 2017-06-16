@@ -12,12 +12,29 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
         android:text="Car Loan"
         android:textStyle="bold"
         android:id="@+id/tv1"
         android:textAlignment="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/tv1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/progress"
+            android:layout_marginRight="20dp"/>
+        <ProgressBar
+            android:id="@+id/pb"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+            />
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

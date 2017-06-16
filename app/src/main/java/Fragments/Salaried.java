@@ -219,6 +219,7 @@ public class Salaried extends Fragment{
                             }
                                 adapter.addFragment(new Requested_Loan(), "Requested_Loan");
                                 adapter.notifyDataSetChanged();
+                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                         } else {
                             adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
                             viewPager = ((CarLoanActivity) getActivity()).getViewPager();

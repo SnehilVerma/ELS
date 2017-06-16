@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ import Utility.SessionManager;
 
 public class CarLoanActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
+    ProgressBar pb;
+    TextView progress;
 
     QEC_Model[] layouts = new QEC_Model[]{
             new QEC_Model(R.layout.fragment_veh_type),
@@ -47,6 +50,9 @@ public class CarLoanActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_loan);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        progress = (TextView)findViewById(R.id.progress);
+        pb = (ProgressBar) findViewById(R.id.pb);
+        pb.setProgress(0);
         SessionManager.putStringInPreferences(CarLoanActivity.this,"0","pos");
         setSupportActionBar(toolbar);
         TextView tv=(TextView)findViewById(R.id.tv1);
@@ -169,6 +175,10 @@ public class CarLoanActivity extends AppCompatActivity
     public ViewPagerAdapter getCurrAdapter(){
         return adapter;
 
+    }
+    public TextView getprogresstv(){ return progress; }
+    public ProgressBar getPb(){
+        return pb;
     }
 
 

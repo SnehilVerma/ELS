@@ -16,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,8 @@ public class HomeLoan extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     private ViewPager viewPager;
     private HomeLoan.ViewPagerAdapter adapter;
+    private ProgressBar pb;
+    private TextView progress;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -37,6 +41,9 @@ public class HomeLoan extends AppCompatActivity
         setContentView(R.layout.activity_home_loan);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        progress = (TextView) findViewById(R.id.progress);
+        pb = (ProgressBar) findViewById(R.id.pb);
+        pb.setProgress(0);
 
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true,new PagerTransformer());
@@ -122,6 +129,10 @@ public class HomeLoan extends AppCompatActivity
     }
     public ViewPager getViewPager(){
         return viewPager;
+    }
+    public TextView getprogresstv(){ return progress; }
+    public ProgressBar getPb(){
+        return pb;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

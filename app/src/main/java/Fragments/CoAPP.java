@@ -70,10 +70,10 @@ public class CoAPP extends Fragment {
                         adapter = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                         int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < adapter1.mFragmentList.size()) {
-                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                            adapter1.notifyDataSetChanged();
+                        if (index < adapter.mFragmentList.size()) {
+                            adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                            adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                            adapter.notifyDataSetChanged();
 
 
 
