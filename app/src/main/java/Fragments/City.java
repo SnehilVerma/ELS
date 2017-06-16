@@ -82,7 +82,7 @@ public class City extends Fragment {
 
                     editothers.setText("Mumbai");
                     String text=editothers.getText().toString();
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
 
                     int flag=0;
@@ -127,7 +127,7 @@ public class City extends Fragment {
                     delhi.setChecked(false);
                     editothers.setText("Mumbai");
                     String text=editothers.getText().toString();
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city_car");
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
 
                 }
@@ -150,7 +150,7 @@ public class City extends Fragment {
                     delhi.setChecked(true);
                     editothers.setText("Delhi");
                     String text=editothers.getText().toString();
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
                 }else if(b==false && check==false){
                     mumbai.setChecked(false);
@@ -162,7 +162,7 @@ public class City extends Fragment {
                     delhi.setChecked(true);
                     editothers.setText("Delhi");
                     String text=editothers.getText().toString();
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
                 }
 
@@ -186,7 +186,7 @@ public class City extends Fragment {
                     } else {
 
 
-                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city_car");
+                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city");
 
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < ad.mFragmentList.size()) {
@@ -194,7 +194,7 @@ public class City extends Fragment {
                             ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                             ad.notifyDataSetChanged();
 
-                    sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
 
 
                         }
@@ -213,7 +213,7 @@ public class City extends Fragment {
                     } else {
 
 
-                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city_car");
+                        sessionManager.putStringInPreferences(getActivity(), text.toString(), "city");
 
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < ad2.mFragmentList.size()) {
