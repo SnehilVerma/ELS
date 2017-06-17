@@ -22,6 +22,8 @@ import com.elsapp.els.R;
 
 import java.util.Locale;
 
+import Utility.SessionManager;
+
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class DOB extends Fragment {
@@ -29,8 +31,8 @@ public class DOB extends Fragment {
     ViewPager viewPager;
     HomeLoan.ViewPagerAdapter ad;
     Calendar myCalendar = Calendar.getInstance();
-    final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
-    final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
+    ProgressBar pb;
+    TextView progress ;
 
 
 
@@ -67,9 +69,18 @@ public class DOB extends Fragment {
         Button b1 = (Button) y.findViewById(R.id.button);
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
+        text = (EditText) y.findViewById(R.id.editText);
+        pb = ((HomeLoan)getActivity()).getPb();
+
+        progress = ((HomeLoan)getActivity()).getprogresstv();
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //SESSION MANAGER
+                SessionManager.putStringInPreferences(getContext(),text.getText().toString(),"DOB");
+
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -85,12 +96,12 @@ public class DOB extends Fragment {
                 ad.notifyDataSetChanged();
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 int p = Integer.parseInt(progress.getText().toString());
-                pb.setProgress(18);
+                pb.setProgress(20);
 
-                progress.setText(String.valueOf(18));
+                progress.setText(String.valueOf(20));
             }
         });
-                text = (EditText) y.findViewById(R.id.editText);
+
 
         text.setOnClickListener(new View.OnClickListener() {
 

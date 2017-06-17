@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
@@ -28,6 +29,8 @@ public class Select_Category extends Fragment {
     private CarLoanActivity.ViewPagerAdapter adapter;
     private HomeLoan.ViewPagerAdapter adapter1;
     private ViewPager viewPager;
+    ProgressBar pb;
+    TextView progress;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class Select_Category extends Fragment {
         TextView tv5=(TextView)view.findViewById(R.id.retired_pensioner);
         TextView tv6=(TextView)view.findViewById(R.id.homemaker);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
+        SessionManager.putStringInPreferences(getActivity(),"0","flaggy");
 
         tv1.setOnClickListener(new OnClickListener() {
             @Override
@@ -60,6 +64,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -72,10 +78,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Retired_NP(), "Retired_NP");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -88,6 +98,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Retired_NP(), "Retired_NP");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }
@@ -99,6 +111,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -111,10 +125,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Self_Employed(), "Self_Employed");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -127,6 +145,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Self_Employed(), "Self_Employed");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
             }
         });
@@ -137,6 +157,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     SessionManager.putStringInPreferences(getContext(),"Salaried","employment_type");
                     //SET EMPLOYEMENT TYPE.
 
@@ -152,10 +174,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Salaried(), "Salaried");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -168,6 +194,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Salaried(), "Salaried");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }
@@ -179,6 +207,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     SessionManager.putStringInPreferences(getContext(),"SalariedProf","employment_type");
                     //SET EMPLOYEMENT TYPE.
 
@@ -194,10 +224,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Salaried(), "Salaried");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -210,6 +244,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Salaried(), "Salaried");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }
@@ -221,6 +257,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -233,10 +271,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Self_Employed(), "Self_Employed");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -249,6 +291,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Self_Employed(), "Self_Employed");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
             }
         });
@@ -259,6 +303,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -271,10 +317,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Retired_P(), "Retired_P");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -287,6 +337,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Retired_P(), "Retired_P");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
             }
         });
@@ -298,6 +350,8 @@ public class Select_Category extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
@@ -311,10 +365,14 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Homemaker(), "Homemaker");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -327,6 +385,8 @@ public class Select_Category extends Fragment {
                         adapter1.addFragment(new Homemaker(), "Homemaker");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }

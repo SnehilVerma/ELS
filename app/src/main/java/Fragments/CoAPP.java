@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -29,6 +31,8 @@ public class CoAPP extends Fragment {
     HomeLoan.ViewPagerAdapter adapter;
     ViewPager viewPager;
     EditText Name,Phone,Age;
+    ProgressBar pb;
+    TextView progress;
     Calendar calendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener dates = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -67,6 +71,8 @@ public class CoAPP extends Fragment {
             public void onClick(View view) {
 
                     if(loantype.equals("HomeLoan")){
+                        pb = ((HomeLoan)getActivity()).getPb();
+                        progress = ((HomeLoan)getActivity()).getprogresstv();
                         adapter = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                         int index = (viewPager.getCurrentItem()) + 1;
@@ -87,6 +93,8 @@ public class CoAPP extends Fragment {
                     {
                         adapter1 = ((CarLoanActivity)getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                        pb = ((CarLoanActivity)getActivity()).getPb();
+                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < adapter1.mFragmentList.size()) {
                             adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -101,6 +109,8 @@ public class CoAPP extends Fragment {
                             adapter1.notifyDataSetChanged();
                         viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
+                pb.setProgress(80);
+                progress.setText(80+"");
             }
         });
 

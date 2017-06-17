@@ -1,24 +1,31 @@
 package Fragments;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import Adapter.City_Adapter;
 import Utility.SessionManager;
 
 /**
@@ -26,168 +33,197 @@ import Utility.SessionManager;
  */
 
 public class HomePropLoc extends Fragment {
-    ViewPager viewPager;
-    HomeLoan.ViewPagerAdapter ad;
-    CheckBox mumbai;
-    CheckBox delhi;
-    EditText editothers;
-    String text;
+
+
+    ImageView delhi;
+    ImageView mumbai;
+    ImageView others;
+
+    //private CarLoanActivity.ViewPagerAdapter ad;
+    private HomeLoan.ViewPagerAdapter ad2;
+    private ViewPager viewPager;
+    ArrayList<String> city_names;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         final View view=inflater.inflate(R.layout.fragment_home_proploc, container, false);
 
+        mumbai = (ImageView) view.findViewById(R.id.mumbai);
+        delhi= (ImageView) view.findViewById(R.id.delhi);
+        others=(ImageView)view.findViewById(R.id.others);
+        final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
+        final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
 
-        mumbai = (CheckBox)view.findViewById(R.id.mumbai);
-        delhi = (CheckBox) view.findViewById(R.id.delhi);
-        ImageView others = (ImageView) view.findViewById(R.id.others);
-        TextView t1 = (TextView) view.findViewById(R.id.prev);
-        TextView t2 = (TextView) view.findViewById(R.id.next);
-        Button b1 = (Button)  view.findViewById(R.id.button);
-        editothers = (EditText) view.findViewById(R.id.editothers);
-        ad = ((HomeLoan)getActivity()).getCurrAdapter();
+        city_names =new ArrayList<>(Arrays.asList("Kanpur","Lucknow","Bengaluru","Patna","Surat","Kota","Jaipur","Pune","Panaji"));
+
+
+
+
+        //Button b1=(Button)view.findViewById(R.id.b1);
+
+
+        final SessionManager sessionManager=new SessionManager();
+
+
+
+        ad2 = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
-        mumbai.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+
+        final Dialog dialog=new Dialog(getContext());
+        dialog.setContentView(R.layout.custom_city_dialog);
+        dialog.setTitle("Choose a city");
+        ListView cities=(ListView)dialog.findViewById(R.id.List);
+        final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
+        cities.setAdapter(adapter);
+
+
+        cities.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                boolean check2=delhi.isChecked();
-
-
-                if(b==true && check2==false){
-                    mumbai.setChecked(true);
-                    delhi.setChecked(false);
-
-
-                    editothers.setText("Mumbai");
-                    String text=editothers.getText().toString();
-                    //SessionManager.putStringInPreferences(getActivity(),text.toString(),"homeproploc");
-
-
-                    int flag=0;
-
-                    //TEST DATA.
-
-
-
-
-                    //Toast.makeText(getContext(),index+"" + ad.mFragmentList.size(), Toast.LENGTH_LONG).show();
-
-                    /*
-                    if(index<ad.mFragmentList.size()) {
-
-                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
-
-
-
-
-                    }*/
-
-                    //Toast.makeText(getContext(),ad.mFragmentList.size()+" ",Toast.LENGTH_SHORT).show();
-
-                    //ad.mFragmentList.add(new VehLoanCost());
-                    //ad.mFragmentTitleList.add("VehLoanCost");
-                    // ad.notifyDataSetChanged();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                dialog.dismiss();
+                String city=city_names.get(i);
+                Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
+                SessionManager.putStringInPreferences(getContext(),city,"property_location");
 
 
 
 
 
 
-
-                }else if(b==false && check2==false){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(false);
-                    editothers.setText("None");
-
-                }else if(b==true && check2==true){
-                    mumbai.setChecked(true);
-                    delhi.setChecked(false);
-                    editothers.setText("Mumbai");
-                    String text=editothers.getText().toString();
-                    //SessionManager.putStringInPreferences(getActivity(),text.toString(),"homeproploc");
-
-
-                }
-
-
-                //Toast.makeText(getContext(),""+b+"   "+ check2,Toast.LENGTH_SHORT).show();
-
-
-
-            }
-        });
-
-        delhi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                boolean check=mumbai.isChecked();
-                if(b==true && check==false){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(true);
-                    editothers.setText("Delhi");
-                    String text=editothers.getText().toString();
-                    //SessionManager.putStringInPreferences(getActivity(),text.toString(),"homeproploc");
-
-                }else if(b==false && check==false){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(false);
-                    editothers.setText("None");
-
-                }else if(b==true && check==true){
-                    mumbai.setChecked(false);
-                    delhi.setChecked(true);
-                    editothers.setText("Delhi");
-                    String text=editothers.getText().toString();
-                    //SessionManager.putStringInPreferences(getActivity(),text.toString(),"homeproploc");
-
-                }
-
-
-
-
-
-
-            }
-        });
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text = editothers.getText().toString();
-                if(text == null){
-                    Toast.makeText(getActivity(),"Enter the fields",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    SessionManager.putStringInPreferences(getActivity(), text.toString(), "homeproploc");
                     int index = (viewPager.getCurrentItem()) + 1;
-                    if (index < ad.mFragmentList.size()) {
-                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
-                        ad.notifyDataSetChanged();
+                    if (index < ad2.mFragmentList.size()) {
 
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
 
                     }
-                    ad.addFragment(new HomeLoanPurpose(), "HomeLoanPurpose");
-                    ad.notifyDataSetChanged();
-                }
+
+
+                    ad2.addFragment(new HomeLoanPurpose(), "HomeLoanPurpose");
+                    ad2.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"property_location"));
+
+
+
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
+
+
 
             }
         });
-        final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
-        t1.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        mumbai.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
-            }
-        });
-        t2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getContext(), "Mumbai", "property_location");
+
+
+
+
+
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
+
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
+
+                    }
+
+
+                    ad2.addFragment(new HomeLoanPurpose(), "HomeLoanPurpose");
+                    ad2.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"property_location")+"");
+
+
+
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
+
             }
         });
+
+        delhi.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getContext(), "Delhi", "property_location");
+
+
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad2.mFragmentList.size()) {
+
+                    ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                    ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                    ad2.notifyDataSetChanged();
+
+                }
+
+
+                ad2.addFragment(new HomeLoanPurpose(), "HomeLoanPurpose");
+                ad2.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(), "property_location"));
+
+
+
+
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
+
+
+
+            }
+        });
+
+
+        others.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                dialog.show();
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
+
+
         return view;
 
     }

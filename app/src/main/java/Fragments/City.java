@@ -157,6 +157,8 @@ public class City extends Fragment {
             @Override
             public void onClick(View view) {
 
+                SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
+
 
                 if(type.equals("CarLoanActivity")) {
                     pb = ((CarLoanActivity)getActivity()).getPb();

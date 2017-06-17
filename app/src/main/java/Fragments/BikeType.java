@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
@@ -37,6 +39,8 @@ public class BikeType extends Fragment {
 
         ImageButton im1=(ImageButton) view.findViewById(R.id.im1);
         ImageButton im2=(ImageButton)view.findViewById(R.id.im2);
+        final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
+        final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -57,6 +61,9 @@ public class BikeType extends Fragment {
                 ad.mFragmentList.add(new DOB());
                 ad.mFragmentTitleList.add("DOB");
                 ad.notifyDataSetChanged();
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
 
 
 
@@ -74,6 +81,9 @@ public class BikeType extends Fragment {
                 ad.mFragmentList.add(new Gender());
                 ad.mFragmentTitleList.add("Gender");
                 // ad.notifyDataSetChanged();
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
 
 
 

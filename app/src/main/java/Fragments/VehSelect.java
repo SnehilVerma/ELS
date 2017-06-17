@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
@@ -35,6 +37,8 @@ public class VehSelect extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View view=inflater.inflate(R.layout.fragment_veh_type, container, false);
         final SessionManager sessionManager=new SessionManager();
+        final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
+        final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
         ImageButton ib1=(ImageButton)view.findViewById(im1);
         ImageButton ib2=(ImageButton)view.findViewById(R.id.im2);
@@ -63,6 +67,9 @@ public class VehSelect extends Fragment {
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(20);
+
+                progress.setText(String.valueOf(20));
 
 
 
@@ -91,6 +98,9 @@ public class VehSelect extends Fragment {
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
+                pb.setProgress(20);
+
+                progress.setText(String.valueOf(20));
 
 
 

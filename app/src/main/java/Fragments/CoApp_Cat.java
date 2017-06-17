@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
@@ -27,6 +28,8 @@ public class CoApp_Cat extends Fragment {
     private CarLoanActivity.ViewPagerAdapter adapter;
     private HomeLoan.ViewPagerAdapter adapter1;
     private ViewPager viewPager;
+    ProgressBar pb;
+    TextView progress;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class CoApp_Cat extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
@@ -65,6 +70,8 @@ public class CoApp_Cat extends Fragment {
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -78,6 +85,8 @@ public class CoApp_Cat extends Fragment {
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
+                pb.setProgress(85);
+                progress.setText(85+"");
 
             }
         });
@@ -88,6 +97,8 @@ public class CoApp_Cat extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -104,6 +115,8 @@ public class CoApp_Cat extends Fragment {
                 else {
                     adapter1 = ((HomeLoan) getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan) getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -116,6 +129,8 @@ public class CoApp_Cat extends Fragment {
                     adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
+                pb.setProgress(85);
+                progress.setText(85+"");
             }
         });
 
@@ -125,6 +140,8 @@ public class CoApp_Cat extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -141,6 +158,8 @@ public class CoApp_Cat extends Fragment {
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -154,6 +173,8 @@ public class CoApp_Cat extends Fragment {
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
+                pb.setProgress(85);
+                progress.setText(85+"");
 
             }
         });
@@ -161,6 +182,8 @@ public class CoApp_Cat extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -179,6 +202,8 @@ public class CoApp_Cat extends Fragment {
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -193,6 +218,8 @@ public class CoApp_Cat extends Fragment {
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
 
+                pb.setProgress(85);
+                progress.setText(85+"");
             }
         });
 
@@ -200,6 +227,8 @@ public class CoApp_Cat extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -218,6 +247,8 @@ public class CoApp_Cat extends Fragment {
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -231,6 +262,8 @@ public class CoApp_Cat extends Fragment {
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
+                pb.setProgress(85);
+                progress.setText(85+"");
             }
         });
 
@@ -238,6 +271,8 @@ public class CoApp_Cat extends Fragment {
             @Override
             public void onClick(View view) {
                 if(loantype.equals("CarLoanActivity")) {
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -256,6 +291,8 @@ public class CoApp_Cat extends Fragment {
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -269,6 +306,8 @@ public class CoApp_Cat extends Fragment {
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
+                pb.setProgress(85);
+                progress.setText(85+"");
             }
         });
 
@@ -279,6 +318,8 @@ public class CoApp_Cat extends Fragment {
                 if(loantype.equals("CarLoanActivity")) {
                     adapter = ((CarLoanActivity) getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
@@ -297,6 +338,8 @@ public class CoApp_Cat extends Fragment {
                 {
                     adapter1 = ((HomeLoan) getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan) getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter1.mFragmentList.size()) {
                         adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -310,6 +353,8 @@ public class CoApp_Cat extends Fragment {
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
 
+                pb.setProgress(85);
+                progress.setText(85+"");
             }
         });
 

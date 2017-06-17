@@ -14,10 +14,13 @@ import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.Eligibility_Result;
+import com.elsapp.els.HomeLoan;
 import com.elsapp.els.LoanSelec;
 import com.elsapp.els.R;
 
@@ -36,6 +39,8 @@ public class Requested_Loan extends Fragment {
     String gross;
     String net_salary;
     String existing_emi;
+    ProgressBar pb;
+    TextView progress;
 
     EditText et;
     @Nullable
@@ -49,7 +54,7 @@ public class Requested_Loan extends Fragment {
         //et.setFocusable(false);
         //et.setKeyListener(null);
 
-        String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");
+        final String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");
         String city=SessionManager.getStringFromPreferences(getContext(),"city");
         String vehicle_type=SessionManager.getStringFromPreferences(getContext(),"vehicle_type");
         String car_condition=SessionManager.getStringFromPreferences(getContext(),"car_type");
@@ -116,6 +121,16 @@ public class Requested_Loan extends Fragment {
             @Override
             public void onClick(View view) {
 
+                if(loan_type.equals("CarLoanActivity")){
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                }
+                else{
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                }
+                pb.setProgress(100);
+                progress.setText(String.valueOf(100));
                 exec_process();
             }
         });
@@ -139,80 +154,76 @@ public class Requested_Loan extends Fragment {
 
 //        String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
 
-        String loan=et.getText().toString();
-        Float val=Float.parseFloat(loan);
+        try {
+            String loan = et.getText().toString();
+            Float val = Float.parseFloat(loan);
 
 
+            //float rla=Float.parseFloat(requested_loan_amount);
+            float rla = val;
+            float coe = Float.parseFloat(cost);
+            if (rla > 0.9 * coe) {        //CHECK RLA AND COE CONDITION
+                breakflag = 1;
+                exitprocess();
 
-        //float rla=Float.parseFloat(requested_loan_amount);
-        float rla=val;
-        float coe=Float.parseFloat(cost);
-        if(rla>0.9*coe){        //CHECK RLA AND COE CONDITION
-            breakflag=1;
-            exitprocess();
+            } else {
 
-        }else {
+                float pemi = (float) rla / 60;      //PROJECTED EMI
+                float inc = Float.parseFloat(net_salary);         //ANY INCOME SOURCE
 
-            float pemi=(float)rla/60;      //PROJECTED EMI
-            float inc=Float.parseFloat(net_salary);         //ANY INCOME SOURCE
-
-            String emp_type=SessionManager.getStringFromPreferences(getContext(),"employment_type");
-
-
-            float emi=Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
+                String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
 
 
-            if(emp_type.equals("Salaried")){
-
-                //String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                //inc = Float.parseFloat(income);
+                float emi = Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
 
 
-            }else if(emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")){
+                if (emp_type.equals("Salaried")) {
+
+                    //String income=SessionManager.getStringFromPreferences(getContext(),"income");
+                    //inc = Float.parseFloat(income);
+
+
+                } else if (emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")) {
 //                String income=SessionManager.getStringFromPreferences(getContext(),"income");
- //               inc = Float.parseFloat(income);
+                    //               inc = Float.parseFloat(income);
 
 
-            }else if(emp_type.equals("Retired_P")){
+                } else if (emp_type.equals("Retired_P")) {
 //                String income= SessionManager.getStringFromPreferences(getContext(),"income");
- //               inc = Float.parseFloat(income);
+                    //               inc = Float.parseFloat(income);
 
 
-            }
-            else if(emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")){
+                } else if (emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")) {
 //                String income=SessionManager.getStringFromPreferences(getContext(),"income");
- //               inc = Float.parseFloat(income);
+                    //               inc = Float.parseFloat(income);
+
+
+                } else {
+
+                    Toast.makeText(getContext(), "Something is wrong in e_type", Toast.LENGTH_SHORT).show();
+                    exitprocess();
+
+                }
+
+
+                float net_inc = inc - (emi + pemi);
+                if (net_inc < 0.4 * inc) {
+
+                    breakflag = 2;
+                    exitprocess();
+
+                } else {
+
+                    //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
+                    launchCongrats();
+
+
+                }
 
 
             }
-            else{
-
-                Toast.makeText(getContext(), "Something is wrong in e_type", Toast.LENGTH_SHORT).show();
-                exitprocess();
-
-            }
-
-
-            float net_inc=inc-(emi+pemi);
-            if(net_inc<0.4*inc){
-
-                breakflag=2;
-                exitprocess();
-
-            }
-            else{
-
-                //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
-                launchCongrats();
-
-
-            }
-
-
-
-
-
-
+        }catch(Exception e){
+            Toast.makeText(getActivity(),"Error",Toast.LENGTH_SHORT).show();
         }
 
 

@@ -33,11 +33,12 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
-            />
+            android:layout_marginBottom="10dp"/>
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
+        android:padding="10dp"
         android:layout_below="@+id/tv1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

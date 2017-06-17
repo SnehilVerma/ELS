@@ -13,6 +13,8 @@ import android.view.animation.GridLayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
@@ -50,6 +52,8 @@ public class PrefCar extends Fragment {
 
 
         final View view=inflater.inflate(R.layout.fragment_car_pref, container, false);
+        final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
+        final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
         GridView gridView=(GridView)view.findViewById(R.id.gridview);
         Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.grid_item_anim);
         GridLayoutAnimationController controller = new GridLayoutAnimationController(animation, .2f, .2f);
@@ -79,6 +83,9 @@ public class PrefCar extends Fragment {
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(40);
+
+                progress.setText(String.valueOf(40));
 
 
 

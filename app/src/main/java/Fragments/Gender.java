@@ -5,17 +5,20 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
+
+import Utility.SessionManager;
 
 /**
  * Created by snehil on 9/6/17.
@@ -31,26 +34,58 @@ public class Gender extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_gender, container, false);
 
 
-        ImageView male = (ImageView) view.findViewById(R.id.male);
-        ImageView female = (ImageView) view.findViewById(R.id.female);
-        CheckBox malecheck = (CheckBox) view.findViewById(R.id.malecheck);
-        CheckBox femalecheck = (CheckBox) view.findViewById(R.id.femalecheck);
+        ImageView male = (ImageView) view.findViewById(R.id.malecheck);
+        ImageView female = (ImageView) view.findViewById(R.id.femalecheck);
+        Button others=(Button) view.findViewById(R.id.others);
+
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
         final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
         final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
 
-        Button b1 = (Button) view.findViewById(R.id.button);
-        b1.setOnClickListener(new View.OnClickListener() {
+
+        male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SessionManager.putStringInPreferences(getActivity(),"Male","gender");
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
                     ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                     ad.notifyDataSetChanged();
 
-                    //sessionManager.putStringInPreferences(getActivity(),text.toString(),"city");
+
+
+
+                }
+
+
+                ad.addFragment(new DOB(), "DOB");
+                ad.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"gender").toString());
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+                pb.setProgress(15);
+
+                progress.setText(String.valueOf(15));
+            }
+        });
+
+
+        female.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SessionManager.putStringInPreferences(getActivity(),"Female","gender");
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+
 
 
                 }
@@ -60,12 +95,47 @@ public class Gender extends Fragment {
                 ad.notifyDataSetChanged();
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 int p = Integer.parseInt(progress.getText().toString());
-                pb.setProgress(14);
+                pb.setProgress(15);
 
-                progress.setText(String.valueOf(14));
+                progress.setText(String.valueOf(15));
                 //Log.d("1", editothers.getText().toString());
             }
         });
+
+
+        others.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getActivity(),"Others","gender");
+
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+
+
+
+                }
+
+
+                ad.addFragment(new DOB(), "DOB");
+                ad.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"gender").toString());
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                pb.setProgress(15);
+
+                progress.setText(String.valueOf(15));
+            }
+
+
+        });
+
+
         return view;
 
     }

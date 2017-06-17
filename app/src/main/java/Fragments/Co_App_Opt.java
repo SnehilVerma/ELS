@@ -8,7 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
@@ -26,6 +28,8 @@ public class Co_App_Opt extends Fragment {
     private CarLoanActivity.ViewPagerAdapter adapter;
     private HomeLoan.ViewPagerAdapter adapter1;
     private String loantype;
+    ProgressBar pb;
+    TextView progress;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +51,8 @@ public class Co_App_Opt extends Fragment {
                     if(loantype.equals("HomeLoan")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
+                        pb = ((HomeLoan)getActivity()).getPb();
+                        progress = ((HomeLoan)getActivity()).getprogresstv();
                             int index = (viewPager.getCurrentItem()) + 1;
                             if (index < adapter1.mFragmentList.size()) {
                                 adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -63,6 +69,8 @@ public class Co_App_Opt extends Fragment {
                     else {
                         adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                        pb = ((CarLoanActivity)getActivity()).getPb();
+                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
                             int index = (viewPager.getCurrentItem()) + 1;
                             if (index < adapter.mFragmentList.size()) {
                                 adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -76,11 +84,15 @@ public class Co_App_Opt extends Fragment {
                             adapter.notifyDataSetChanged();
                             viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
+                    pb.setProgress(75);
+                    progress.setText(75+"");
                 }
                 else{
                     if(loantype.equals("HomeLoan")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
+                        pb = ((HomeLoan)getActivity()).getPb();
+                        progress = ((HomeLoan)getActivity()).getprogresstv();
                                 int index = (viewPager.getCurrentItem()) + 1;
                                 if (index < adapter1.mFragmentList.size()) {
                                     adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
@@ -97,6 +109,8 @@ public class Co_App_Opt extends Fragment {
                     else {
                         adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                        pb = ((CarLoanActivity)getActivity()).getPb();
+                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
                                 int index = (viewPager.getCurrentItem()) + 1;
                                 if (index < adapter.mFragmentList.size()) {
                                     adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -111,6 +125,8 @@ public class Co_App_Opt extends Fragment {
                         adapter.notifyDataSetChanged();
                         viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
+                    pb.setProgress(90);
+                    progress.setText(90+"");
                 }
                 // checkedId is the RadioButton selected
             }
