@@ -50,44 +50,11 @@ public class HomePropCost extends Fragment {
 
 
         Button b1 = (Button) view.findViewById(R.id.b1);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                final String cos=cost.getText().toString();
-                SessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
-                Log.d("cost:",cos+" rs");
-
-                int index=(viewPager.getCurrentItem())+1;
-                if(index<ad.mFragmentList.size()) {
-
-                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
-                    ad.notifyDataSetChanged();
-
-                }
-
-                ad.mFragmentList.add(new Select_Category());
-                ad.mFragmentTitleList.add("Select_Category");
-                ad.notifyDataSetChanged();
-
-
-
-
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                pb.setProgress(50);
-
-                progress.setText(String.valueOf(50));
-
-
-
-            }
-        });
         cost.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
 
-                if((i== KeyEvent.KEYCODE_ENTER)){
+                if((keyEvent.getAction()==KeyEvent.ACTION_DOWN) && (i== KeyEvent.KEYCODE_ENTER)){
                     String loan=cost.getText().toString();
                     Float val=Float.parseFloat(loan);
 
@@ -115,6 +82,39 @@ public class HomePropCost extends Fragment {
                 return false;
             }
 
+        });
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((!cost.getText().toString().equals(""))&&(Integer.parseInt(cost.getText().toString())<10000000)) {
+
+                    final String cos = cost.getText().toString();
+                    SessionManager.putStringInPreferences(getContext(), cos, "cost_of_entity");
+                    Log.d("cost:", cos + " rs");
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+                    }
+
+                    ad.mFragmentList.add(new Select_Category());
+                    ad.mFragmentTitleList.add("Select_Category");
+                    ad.notifyDataSetChanged();
+
+
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    pb.setProgress(50);
+
+                    progress.setText(String.valueOf(50));
+
+
+                }
+
+            }
         });
 
 

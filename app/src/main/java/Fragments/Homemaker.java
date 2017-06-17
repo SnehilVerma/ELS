@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -31,130 +33,130 @@ public class Homemaker extends Fragment {
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
 
 
+        final EditText income = (EditText) view.findViewById(R.id.income);
+        final EditText emi = (EditText) view.findViewById(R.id.emi);
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
         Button b1 = (Button) view.findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
-                    if (loantype.equals("HomeLoan")) {
-                        pb = ((HomeLoan)getActivity()).getPb();
-                        progress = ((HomeLoan)getActivity()).getprogresstv();
-                        adapter = ((HomeLoan) getActivity()).getCurrAdapter();
-                        viewPager = ((HomeLoan) getActivity()).getViewPager();
-                        int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < adapter.mFragmentList.size()) {
-                            adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
-                            adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
-                            adapter.notifyDataSetChanged();
-
-
-
-                        }
-                        adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
-                        adapter.notifyDataSetChanged();
-                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                        pb.setProgress(70);
-                        progress.setText(String.valueOf(70));
-                    } else {
-                        pb = ((CarLoanActivity)getActivity()).getPb();
-                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
-                        adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
-                        viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                        int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < adapter1.mFragmentList.size()) {
-                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                            adapter1.notifyDataSetChanged();
-
-
-
-                        }
-                        adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
-                        adapter1.notifyDataSetChanged();
-                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                        pb.setProgress(70);
-                        progress.setText(String.valueOf(70));
-                    }
-
-
-                }
-                else{
-                    if (loantype.equals("HomeLoan")) {
-                        pb = ((HomeLoan)getActivity()).getPb();
-                        progress = ((HomeLoan)getActivity()).getprogresstv();
-                        adapter = ((HomeLoan) getActivity()).getCurrAdapter();
-                        viewPager = ((HomeLoan) getActivity()).getViewPager();
-                        if(adapter.mFragmentList.size()>10) {
+                if((!income.getText().toString().equals(""))&&(!emi.getText().toString().equals(""))) {
+                    if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
+                        if (loantype.equals("Home")) {
+                            pb = ((HomeLoan) getActivity()).getPb();
+                            progress = ((HomeLoan) getActivity()).getprogresstv();
+                            adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+                            viewPager = ((HomeLoan) getActivity()).getViewPager();
                             int index = (viewPager.getCurrentItem()) + 1;
                             if (index < adapter.mFragmentList.size()) {
                                 adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
                                 adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                                 adapter.notifyDataSetChanged();
-
-
-                            }
-                            adapter.addFragment(new Requested_Loan(), "Requested_Loan");
-                            adapter.notifyDataSetChanged();
-                            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                            pb.setProgress(90);
-                            progress.setText(String.valueOf(90));
-                        }
-                        else{
-                            int index = (viewPager.getCurrentItem()) + 1;
-                            if (index < adapter.mFragmentList.size()) {
-                                adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
-                                adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
-                                adapter.notifyDataSetChanged();
-
 
 
                             }
                             adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
                             adapter.notifyDataSetChanged();
-                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                             pb.setProgress(70);
                             progress.setText(String.valueOf(70));
-                        }
-                    } else {
-                        adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
-                        viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                        pb = ((CarLoanActivity)getActivity()).getPb();
-                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
-                        if(adapter1.mFragmentList.size()>10) {
+                        } else {
+                            pb = ((CarLoanActivity) getActivity()).getPb();
+                            progress = ((CarLoanActivity) getActivity()).getprogresstv();
+                            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+                            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
                             int index = (viewPager.getCurrentItem()) + 1;
                             if (index < adapter1.mFragmentList.size()) {
                                 adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
                                 adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                                 adapter1.notifyDataSetChanged();
-
-
-                            }
-                            adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
-                            adapter1.notifyDataSetChanged();
-                            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                            pb.setProgress(90);
-                            progress.setText(String.valueOf(90));
-                        }
-                        else{
-                            int index = (viewPager.getCurrentItem()) + 1;
-                            if (index < adapter1.mFragmentList.size()) {
-                                adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                                adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                                adapter1.notifyDataSetChanged();
-
 
 
                             }
                             adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
                             adapter1.notifyDataSetChanged();
-                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                             pb.setProgress(70);
                             progress.setText(String.valueOf(70));
                         }
-                    }
 
+
+                    } else {
+                        if (loantype.equals("Home")) {
+                            pb = ((HomeLoan) getActivity()).getPb();
+                            progress = ((HomeLoan) getActivity()).getprogresstv();
+                            adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+                            viewPager = ((HomeLoan) getActivity()).getViewPager();
+                            if (adapter.mFragmentList.size() > 10) {
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter.mFragmentList.size()) {
+                                    adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                    adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                    adapter.notifyDataSetChanged();
+
+
+                                }
+                                adapter.addFragment(new Requested_Loan(), "Requested_Loan");
+                                adapter.notifyDataSetChanged();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                                pb.setProgress(90);
+                                progress.setText(String.valueOf(90));
+                            } else {
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter.mFragmentList.size()) {
+                                    adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                    adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                    adapter.notifyDataSetChanged();
+
+
+                                }
+                                adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                                adapter.notifyDataSetChanged();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                                pb.setProgress(70);
+                                progress.setText(String.valueOf(70));
+                            }
+                        } else {
+                            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+                            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+                            pb = ((CarLoanActivity) getActivity()).getPb();
+                            progress = ((CarLoanActivity) getActivity()).getprogresstv();
+                            if (adapter1.mFragmentList.size() > 10) {
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter1.mFragmentList.size()) {
+                                    adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                                    adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                                    adapter1.notifyDataSetChanged();
+
+
+                                }
+                                adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                                adapter1.notifyDataSetChanged();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                                pb.setProgress(90);
+                                progress.setText(String.valueOf(90));
+                            } else {
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter1.mFragmentList.size()) {
+                                    adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                                    adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                                    adapter1.notifyDataSetChanged();
+
+
+                                }
+                                adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                                adapter1.notifyDataSetChanged();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                                pb.setProgress(70);
+                                progress.setText(String.valueOf(70));
+                            }
+                        }
+
+                    }
+                }
+                else{
+                    Toast.makeText(getActivity(),"Please enter all the fields",Toast.LENGTH_SHORT).show();
                 }
 
             }

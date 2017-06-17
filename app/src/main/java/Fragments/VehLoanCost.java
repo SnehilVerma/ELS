@@ -111,32 +111,32 @@ public class VehLoanCost extends Fragment{
 
             @Override
             public void onClick(View view) {
+                if((!cost.getText().toString().equals(""))&&(Integer.parseInt(cost.getText().toString())<10000000)) {
 
-                final String cos=cost.getText().toString();
-                sessionManager.putStringInPreferences(getContext(),cos,"cost_of_entity");
-                Log.d("cost:",cos+" rs");
+                    final String cos = cost.getText().toString();
+                    sessionManager.putStringInPreferences(getContext(), cos, "cost_of_entity");
+                    Log.d("cost:", cos + " rs");
 
-                int index=(viewPager.getCurrentItem())+1;
-                if(index<ad.mFragmentList.size()) {
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
 
-                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+                    }
+
+                    ad.mFragmentList.add(new Select_Category());
+                    ad.mFragmentTitleList.add("Select_Category");
+                    SessionManager.putStringInPreferences(getActivity(), "0", "flaggy");
                     ad.notifyDataSetChanged();
 
+
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    pb.setProgress(50);
+
+                    progress.setText(String.valueOf(50));
                 }
-
-                ad.mFragmentList.add(new Select_Category());
-                ad.mFragmentTitleList.add("Select_Category");
-                SessionManager.putStringInPreferences(getActivity(),"0","flaggy");
-                ad.notifyDataSetChanged();
-
-
-
-
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                pb.setProgress(50);
-
-                progress.setText(String.valueOf(50));
 
 
             }
