@@ -156,6 +156,9 @@ public class Salaried extends Fragment{
 
             @Override
             public void onClick(View view) {
+
+
+
                 String gross=gmincome.getText().toString();
                 String takeaway=msalary.getText().toString();
                 String existing_emi=emi.getText().toString();
