@@ -48,7 +48,7 @@ public class Self_Employed extends Fragment {
             public void onClick(View view) {
                 if((!taxamount.getText().toString().equals(""))&&(!emiammount.getText().toString().equals(""))) {
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
-                        if (loantype.equals("HomeLoan")) {
+                        if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
                             progress = ((HomeLoan) getActivity()).getprogresstv();
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
@@ -88,7 +88,7 @@ public class Self_Employed extends Fragment {
 
 
                     } else {
-                        if (loantype.equals("HomeLoan")) {
+                        if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
                             progress = ((HomeLoan) getActivity()).getprogresstv();
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();

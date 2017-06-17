@@ -48,7 +48,7 @@ public class Retired_NP extends Fragment {
                 if((!mincome.getText().toString().equals(""))&&(!emi.getText().toString().equals(""))) {
 
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
-                        if (loantype.equals("HomeLoan")) {
+                        if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
                             progress = ((HomeLoan) getActivity()).getprogresstv();
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
@@ -88,7 +88,7 @@ public class Retired_NP extends Fragment {
 
 
                     } else {
-                        if (loantype.equals("HomeLoan")) {
+                        if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
                             progress = ((HomeLoan) getActivity()).getprogresstv();
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();

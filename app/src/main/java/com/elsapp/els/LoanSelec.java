@@ -53,7 +53,7 @@ public class LoanSelec extends AppCompatActivity
                 if(position==1){
                     Intent i=new Intent(LoanSelec.this,CarLoanActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    loantype = "CarLoanActivity";
+                    loantype = "Vehicle";
                     SessionManager.putStringInPreferences(getApplicationContext(),loantype,"loantype");
                     SessionManager.putStringInPreferences(getApplicationContext(),"0","flaggy");
                     startActivity(i);
@@ -61,7 +61,7 @@ public class LoanSelec extends AppCompatActivity
                 else if(position==0){
                     Intent i=new Intent(LoanSelec.this,HomeLoan.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    loantype = "HomeLoan";
+                    loantype = "Home";
                     SessionManager.putStringInPreferences(getApplicationContext(),loantype,"loantype");
                     SessionManager.putStringInPreferences(getApplicationContext(),"0","flaggy");
                     startActivity(i);

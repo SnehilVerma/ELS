@@ -172,10 +172,18 @@ public class Salaried extends Fragment{
                     SessionManager.putStringInPreferences(getContext(), takeaway, "net_salary");
                     SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
 
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_existing_emi");
+
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
-                        if (loantype.equals("HomeLoan")) {
+
+                        if (loantype.equals("Home")) {
+
+
                             pb = ((HomeLoan)getActivity()).getPb();
                             progress = ((HomeLoan)getActivity()).getprogresstv();
+
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                             viewPager = ((HomeLoan) getActivity()).getViewPager();
                             int index = (viewPager.getCurrentItem()) + 1;
@@ -215,10 +223,20 @@ public class Salaried extends Fragment{
 
 
                     }
-                    else {
-                        if (loantype.equals("HomeLoan")) {
+
+                    else{
+
+                        SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
+                        SessionManager.putStringInPreferences(getContext(), takeaway, "coap_net_salary");
+                        SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+
+
+                        if (loantype.equals("Home")) {
+
+
                             pb = ((HomeLoan)getActivity()).getPb();
                             progress = ((HomeLoan)getActivity()).getprogresstv();
+
                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                             viewPager = ((HomeLoan) getActivity()).getViewPager();
                             if(adapter.mFragmentList.size()>10) {

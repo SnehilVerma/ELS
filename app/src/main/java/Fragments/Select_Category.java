@@ -61,7 +61,7 @@ public class Select_Category extends Fragment {
         tv1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
@@ -108,7 +108,7 @@ public class Select_Category extends Fragment {
         tv2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
@@ -154,7 +154,7 @@ public class Select_Category extends Fragment {
         tv3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
@@ -204,7 +204,7 @@ public class Select_Category extends Fragment {
         tv7.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
@@ -254,7 +254,7 @@ public class Select_Category extends Fragment {
         tv4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
@@ -300,7 +300,7 @@ public class Select_Category extends Fragment {
         tv5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
@@ -347,7 +347,7 @@ public class Select_Category extends Fragment {
         tv6.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
                     pb = ((CarLoanActivity)getActivity()).getPb();
