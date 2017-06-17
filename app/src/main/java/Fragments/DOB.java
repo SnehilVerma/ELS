@@ -1,8 +1,6 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -20,9 +18,14 @@ import android.widget.TextView;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 import Utility.SessionManager;
+
+//import android.icu.text.SimpleDateFormat;
+//import android.icu.util.Calendar;
 
 
 @RequiresApi(api = Build.VERSION_CODES.N)
