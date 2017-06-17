@@ -36,6 +36,7 @@
                 android:hint="Cost"
                 android:id="@+id/cost"
                 android:textColor="#ffffff"
+                android:inputType="number"
                 android:textColorHint="@android:color/darker_gray"/>
 
         </LinearLayout>

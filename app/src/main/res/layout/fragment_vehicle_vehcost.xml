@@ -36,7 +36,8 @@
                 android:hint="Cost"
                 android:id="@+id/cost"
                 android:textColor="#ffffff"
-                android:textColorHint="@android:color/darker_gray"/>
+                android:textColorHint="@android:color/darker_gray"
+                android:inputType="number"/>
 
             <Button
                 android:layout_width="150dp"

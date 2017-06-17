@@ -153,8 +153,6 @@ public class Requested_Loan extends Fragment {
         //String requested_loan_amount=SessionManager.getStringFromPreferences(getContext(),"requested_loan_amount");
 
 //        String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
-
-        try {
             String loan = et.getText().toString();
             Float val = Float.parseFloat(loan);
 
@@ -222,10 +220,6 @@ public class Requested_Loan extends Fragment {
 
 
             }
-        }catch(Exception e){
-            Toast.makeText(getActivity(),"Error",Toast.LENGTH_SHORT).show();
-        }
-
 
 
 

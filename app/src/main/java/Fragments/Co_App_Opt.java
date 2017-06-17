@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ public class Co_App_Opt extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_co_app_opt, container, false);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radiogroup);
+        //final RadioButton yes = (RadioButton) view.findViewById(R.id.yes);
+        //final RadioButton no = (RadioButton) view.findViewById(R.id.no);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override
@@ -48,7 +51,8 @@ public class Co_App_Opt extends Fragment {
                 int idx = radioGroup.indexOfChild(radiobutton);
                 //Toast.makeText(getActivity(), String.valueOf(idx),Toast.LENGTH_SHORT).show();
                 if(idx == 0){
-                    if(loantype.equals("HomeLoan")){
+                    //yes.setChecked(true);
+                    if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                         pb = ((HomeLoan)getActivity()).getPb();
@@ -88,7 +92,8 @@ public class Co_App_Opt extends Fragment {
                     progress.setText(75+"");
                 }
                 else{
-                    if(loantype.equals("HomeLoan")){
+                    //no.setChecked(true);
+                    if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                         pb = ((HomeLoan)getActivity()).getPb();
