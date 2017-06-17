@@ -40,13 +40,11 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/yes"
                 android:text="YES" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NO"
-                android:id="@+id/no"
                 android:layout_marginLeft="200dp"/>
 
         </RadioGroup>
