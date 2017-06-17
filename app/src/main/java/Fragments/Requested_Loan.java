@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +32,18 @@ public class Requested_Loan extends Fragment {
 
     int count=0;
     int breakflag=0;
+    int checkflag=0;
 
     String cost;
     String gross;
     String net_salary;
     String existing_emi;
+    String coap_gross;
+    String coap_existing_emi;
+    String coap_net_salary;
+
+    float eligible_loan_amount;
+
 
     EditText et;
     @Nullable
@@ -46,26 +54,37 @@ public class Requested_Loan extends Fragment {
 
         et=(EditText)view.findViewById(R.id.loan);
         et.setText("00.00");
-        //et.setFocusable(false);
-        //et.setKeyListener(null);
+
 
         String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");
         String city=SessionManager.getStringFromPreferences(getContext(),"city");
         String vehicle_type=SessionManager.getStringFromPreferences(getContext(),"vehicle_type");
         String car_condition=SessionManager.getStringFromPreferences(getContext(),"car_type");
+
+
         cost=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
         gross=SessionManager.getStringFromPreferences(getContext(),"gross_salary");
         net_salary=SessionManager.getStringFromPreferences(getContext(),"net_salary");
         existing_emi=SessionManager.getStringFromPreferences(getContext(),"existing_emi");
 
 
+        coap_gross=SessionManager.getStringFromPreferences(getContext(),"coap_gross_salary");
+        coap_net_salary=SessionManager.getStringFromPreferences(getContext(),"coap_net_salary");
+        coap_existing_emi=SessionManager.getStringFromPreferences(getContext(),"coap_existing_emi");
+
+
+
+
         Toast.makeText(getContext(),loan_type+ "  "+ city+ "   "+vehicle_type+ "  "+cost+" "+ car_condition+'\n'
                 +gross+'\n'+ net_salary+'\n'+ existing_emi,Toast.LENGTH_LONG).show();
 
-        //view.setFocusableInTouchMode(true);
-        //view.requestFocus();
 
 
+        if(loan_type.equals("Home")){
+            //TODO: to check another extra condition in home loans.
+            checkflag=1;
+
+        };
 
 
         et.setOnKeyListener(new OnKeyListener() {
@@ -133,80 +152,129 @@ public class Requested_Loan extends Fragment {
 
 
     //PROCESS TO CHECK ELGIBILITY
-    public void exec_process(){
+    public void exec_process() {
 
         //String requested_loan_amount=SessionManager.getStringFromPreferences(getContext(),"requested_loan_amount");
 
 //        String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
 
-        String loan=et.getText().toString();
-        Float val=Float.parseFloat(loan);
-
+        String loan = et.getText().toString();
+        Float val = Float.parseFloat(loan);
 
 
         //float rla=Float.parseFloat(requested_loan_amount);
-        float rla=val;
-        float coe=Float.parseFloat(cost);
-        if(rla>0.9*coe){        //CHECK RLA AND COE CONDITION
-            breakflag=1;
-            exitprocess();
+        float rla = val;
+        float coe = Float.parseFloat(cost);
 
-        }else {
+        if (checkflag == 0) {           //TODO: for car loan
+            if (rla > 0.9 * coe) {        //CHECK RLA AND COE CONDITION
+                breakflag = 1;
+                exitprocess();
+            } else {
 
-            float pemi=(float)rla/60;      //PROJECTED EMI
-            float inc=Float.parseFloat(net_salary);         //ANY INCOME SOURCE
+                float pemi = (float) rla / 60;      //PROJECTED EMI
+                float inc = Float.parseFloat(gross);         //ANY INCOME SOURCE
 
-            String emp_type=SessionManager.getStringFromPreferences(getContext(),"employment_type");
+                String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
 
-
-            float emi=Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
-
-
-            if(emp_type.equals("Salaried")){
-
-                //String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                //inc = Float.parseFloat(income);
+                float emi = Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
 
 
-            }else if(emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")){
+                if (emp_type.equals("Salaried")) {
+
+                    //String income=SessionManager.getStringFromPreferences(getContext(),"income");
+                    //inc = Float.parseFloat(income);
+
+
+                } else if (emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")) {
 //                String income=SessionManager.getStringFromPreferences(getContext(),"income");
- //               inc = Float.parseFloat(income);
+                    //               inc = Float.parseFloat(income);
 
 
-            }else if(emp_type.equals("Retired_P")){
+                } else if (emp_type.equals("Retired_P")) {
 //                String income= SessionManager.getStringFromPreferences(getContext(),"income");
- //               inc = Float.parseFloat(income);
+                    //               inc = Float.parseFloat(income);
 
 
-            }
-            else if(emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")){
+                } else if (emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")) {
 //                String income=SessionManager.getStringFromPreferences(getContext(),"income");
- //               inc = Float.parseFloat(income);
+                    //               inc = Float.parseFloat(income);
+
+
+                } else {
+
+                    Toast.makeText(getContext(), "Something is wrong in e_type", Toast.LENGTH_SHORT).show();
+                    exitprocess();
+
+                }
+
+
+                float net_inc = inc - (emi + pemi);
+
+
+                //        TODO: CHECK ELIGIBLE_LOAN_AMOUNT .
+                //            eligible_loan_amount=net_inc*5*12;
+
+
+                if (net_inc >= 0.4 * inc) {
+
+                    launchCongrats();
+
+                } else {
+
+                    breakflag = 2;
+                    //Eligible Loan Amount=GTI * 5 *12
+
+                    exitprocess();
+                    //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
+
+
+                }
 
 
             }
-            else{
 
-                Toast.makeText(getContext(), "Something is wrong in e_type", Toast.LENGTH_SHORT).show();
-                exitprocess();
+
+        }
+        else if(checkflag==1){               // TODO:HOME LOAN
+
+            Log.d("loantype","HOME");
+
+           // String h_loan = et.getText().toString();
+            //Float h_rla = Float.parseFloat(h_loan);
+
+            float inc = Float.parseFloat(gross);         //ANY INCOME SOURCE
+            float coap_inc=Float.parseFloat(coap_gross);
+
+            String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
+
+            float emi = Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
+            float coap_emi=Float.parseFloat(coap_existing_emi);
+
+            float gti=(inc+coap_inc);   // GROSS TOTAL OF APPLICANT AND COAPPLICANT.
+            float net_emi=(emi+coap_emi);   //NET EMI OF APP. AND COAPP.
+
+            float net_total_inc=gti-(net_emi);      // NET TOTAL INCOME.
+
+            eligible_loan_amount= gti*5*12;       //ELIGIBLE LOAN AMOUNT.
+
+            if(rla>eligible_loan_amount){
+
+                //AUKAT SE ZAADA MAANG RAHA.
+
+                homeloanexit();
+
+            }else{
+
+
+                homeLaunchCongrats();
+
+
+
 
             }
 
 
-            float net_inc=inc-(emi+pemi);
-            if(net_inc<0.4*inc){
-
-                breakflag=2;
-                exitprocess();
-
-            }
-            else{
-
-                //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
-                launchCongrats();
-
-
-            }
 
 
 
@@ -214,6 +282,75 @@ public class Requested_Loan extends Fragment {
 
 
         }
+    }
+
+    public void homeLaunchCongrats(){
+
+        Toast.makeText(getContext(),"congrats",Toast.LENGTH_SHORT).show();
+
+        Intent i=new Intent(getActivity(),Eligibility_Result.class);
+        i.putExtra("eligible_loan_amount",String.valueOf(eligible_loan_amount));   //TODO send the eligible loan to be displayed.
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+
+
+
+    }
+
+
+    public void homeloanexit(){
+
+        Toast.makeText(getContext(),"home_shame",Toast.LENGTH_SHORT).show();
+
+        final Dialog dialog=new Dialog(getContext());
+        dialog.setContentView(R.layout.custom_home_eligible);
+        Button lb=(Button)dialog.findViewById(R.id.b1);
+        Button rb=(Button)dialog.findViewById(R.id.b2);
+        TextView tv=(TextView)dialog.findViewById(R.id.tv1);
+        tv.setText(String.valueOf(eligible_loan_amount));
+
+        rb.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                et.setText("");
+                dialog.dismiss();
+
+
+            }
+        });
+
+        lb.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                float coe = Float.parseFloat(cost);
+
+                if(eligible_loan_amount<=0.8*coe){
+
+
+                    Intent i=new Intent(getActivity(), Eligibility_Result.class);
+                    //i.putExtra("message","Sorry you are not eligible");
+                    i.putExtra("message","Eligible!!!");
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+
+                }else if(eligible_loan_amount>0.8*coe){
+
+                    Intent i=new Intent(getActivity(), Eligibility_Result.class);
+                    i.putExtra("message","Sorry you are not eligible");
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+
+
+
+
+
+                }
+
+            }
+        });
 
 
 
@@ -226,11 +363,20 @@ public class Requested_Loan extends Fragment {
 
         Toast.makeText(getContext(),"shame",Toast.LENGTH_SHORT).show();
 
+
+
         final Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.custom_eligibile_dialog);
 
         Button lb=(Button)dialog.findViewById(R.id.b1);
         Button rb=(Button)dialog.findViewById(R.id.b2);
+        TextView tv=(TextView)dialog.findViewById(R.id.tv1);
+
+        if(breakflag==1){
+         tv.setText("Cannot furnish more than 90 percent\n of cost as loan");
+        }else if(breakflag==2) {
+            tv.setText(String.valueOf(eligible_loan_amount));
+        }
 
         lb.setOnClickListener(new OnClickListener() {
             @Override
@@ -259,9 +405,7 @@ public class Requested_Loan extends Fragment {
         dialog.show();
 
 
-//        Intent i=new Intent(getContext(),Failure_Result.class);
- //       i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-  //      startActivity(i);
+
 
     }
 
@@ -271,6 +415,7 @@ public class Requested_Loan extends Fragment {
         Toast.makeText(getContext(),"congrats",Toast.LENGTH_SHORT).show();
 
         Intent i=new Intent(getActivity(),Eligibility_Result.class);
+
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
 

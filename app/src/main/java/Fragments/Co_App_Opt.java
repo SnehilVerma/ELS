@@ -44,7 +44,7 @@ public class Co_App_Opt extends Fragment {
                 int idx = radioGroup.indexOfChild(radiobutton);
                 //Toast.makeText(getActivity(), String.valueOf(idx),Toast.LENGTH_SHORT).show();
                 if(idx == 0){
-                    if(loantype.equals("HomeLoan")){
+                    if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                             int index = (viewPager.getCurrentItem()) + 1;
@@ -78,7 +78,7 @@ public class Co_App_Opt extends Fragment {
                     }
                 }
                 else{
-                    if(loantype.equals("HomeLoan")){
+                    if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                                 int index = (viewPager.getCurrentItem()) + 1;

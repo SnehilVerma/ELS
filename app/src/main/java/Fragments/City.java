@@ -64,11 +64,11 @@ public class City extends Fragment {
 
 
         final String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
-        if(type.equals("CarLoanActivity")) {
+        if(type.equals("Vehicle")) {
             ad = ((CarLoanActivity) getActivity()).getCurrAdapter();
             viewPager = ((CarLoanActivity) getActivity()).getViewPager();
         }
-        else if(type.equals("HomeLoan")){
+        else if(type.equals("Home")){
             ad2 = ((HomeLoan)getActivity()).getCurrAdapter();
             viewPager = ((HomeLoan)getActivity()).getViewPager();
 
@@ -93,7 +93,7 @@ public class City extends Fragment {
                 SessionManager.putStringInPreferences(getContext(),city,"city");
 
 
-                if(type.equals("CarLoanActivity")) {
+                if(type.equals("Vehicle")) {
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad.mFragmentList.size()) {
@@ -149,7 +149,7 @@ public class City extends Fragment {
                 SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
 
 
-                if(type.equals("CarLoanActivity")) {
+                if(type.equals("Vehicle")) {
 
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < ad.mFragmentList.size()) {
@@ -200,7 +200,7 @@ public class City extends Fragment {
 
                 SessionManager.putStringInPreferences(getContext(),"Delhi","city");
 
-                if(type.equals("CarLoanActivity")) {
+                if(type.equals("Vehicle")) {
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad.mFragmentList.size()) {

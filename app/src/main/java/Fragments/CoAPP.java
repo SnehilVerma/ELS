@@ -66,7 +66,7 @@ public class CoAPP extends Fragment {
             @Override
             public void onClick(View view) {
 
-                    if(loantype.equals("HomeLoan")){
+                    if(loantype.equals("Home")){
                         adapter = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
                         int index = (viewPager.getCurrentItem()) + 1;
