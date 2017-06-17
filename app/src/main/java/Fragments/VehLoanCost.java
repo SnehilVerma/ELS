@@ -14,6 +14,7 @@ import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,8 @@ public class VehLoanCost extends Fragment{
 
         final View view=inflater.inflate(R.layout.fragment_vehicle_vehcost, container, false);
 
+        final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
+        final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
         final EditText cost = (EditText) view.findViewById(R.id.cost);
         final SessionManager sessionManager=new SessionManager();
 
@@ -124,12 +127,16 @@ public class VehLoanCost extends Fragment{
 
                 ad.mFragmentList.add(new Select_Category());
                 ad.mFragmentTitleList.add("Select_Category");
+                SessionManager.putStringInPreferences(getActivity(),"0","flaggy");
                 ad.notifyDataSetChanged();
 
 
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(50);
+
+                progress.setText(String.valueOf(50));
 
 
             }

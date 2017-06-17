@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
@@ -28,6 +30,8 @@ public class HomeLoanPurpose extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home_loanpurpose,container,false);
 
+        final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
+        final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
         Button ib1 = (Button) view.findViewById(R.id.ib1);
         Button ib2 = (Button) view.findViewById(R.id.ib2);
         Button ib3 = (Button) view.findViewById(R.id.ib3);
@@ -52,6 +56,9 @@ public class HomeLoanPurpose extends Fragment {
                 ad.notifyDataSetChanged();
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(40);
+
+                progress.setText(String.valueOf(40));
             }
         });
         ib2.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +81,9 @@ public class HomeLoanPurpose extends Fragment {
                 ad.notifyDataSetChanged();
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(40);
+
+                progress.setText(String.valueOf(40));
             }
         });
         ib3.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +106,9 @@ public class HomeLoanPurpose extends Fragment {
                 ad.notifyDataSetChanged();
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(40);
+
+                progress.setText(String.valueOf(40));
             }
         });
         ib4.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +132,9 @@ public class HomeLoanPurpose extends Fragment {
                 ad.notifyDataSetChanged();
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(40);
+
+                progress.setText(String.valueOf(40));
             }
         });
 

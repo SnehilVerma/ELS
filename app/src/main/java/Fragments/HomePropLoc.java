@@ -15,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.HomeLoan;
@@ -52,6 +54,8 @@ public class HomePropLoc extends Fragment {
         mumbai = (ImageView) view.findViewById(R.id.mumbai);
         delhi= (ImageView) view.findViewById(R.id.delhi);
         others=(ImageView)view.findViewById(R.id.others);
+        final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
+        final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
 
         city_names =new ArrayList<>(Arrays.asList("Kanpur","Lucknow","Bengaluru","Patna","Surat","Kota","Jaipur","Pune","Panaji"));
 
@@ -108,6 +112,10 @@ public class HomePropLoc extends Fragment {
 
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
 
 
 
@@ -146,7 +154,10 @@ public class HomePropLoc extends Fragment {
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(30);
 
+                progress.setText(String.valueOf(30));
 
             }
         });
@@ -179,6 +190,10 @@ public class HomePropLoc extends Fragment {
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
 
 
 

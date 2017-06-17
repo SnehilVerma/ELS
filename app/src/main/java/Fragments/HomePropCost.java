@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,8 @@ public class HomePropCost extends Fragment {
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         cost = (EditText) view.findViewById(R.id.cost);
 
+        final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
+        final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
 
@@ -72,6 +75,9 @@ public class HomePropCost extends Fragment {
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(50);
+
+                progress.setText(String.valueOf(50));
 
 
 

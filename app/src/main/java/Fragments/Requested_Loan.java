@@ -15,10 +15,13 @@ import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.Eligibility_Result;
+import com.elsapp.els.HomeLoan;
 import com.elsapp.els.LoanSelec;
 import com.elsapp.els.R;
 
@@ -38,11 +41,16 @@ public class Requested_Loan extends Fragment {
     String gross;
     String net_salary;
     String existing_emi;
+
     String coap_gross;
     String coap_existing_emi;
     String coap_net_salary;
 
     float eligible_loan_amount;
+
+
+    ProgressBar pb;
+    TextView progress;
 
 
     EditText et;
@@ -56,7 +64,7 @@ public class Requested_Loan extends Fragment {
         et.setText("00.00");
 
 
-        String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");
+        final String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");
         String city=SessionManager.getStringFromPreferences(getContext(),"city");
         String vehicle_type=SessionManager.getStringFromPreferences(getContext(),"vehicle_type");
         String car_condition=SessionManager.getStringFromPreferences(getContext(),"car_type");
@@ -99,6 +107,7 @@ public class Requested_Loan extends Fragment {
 
                         Toast.makeText(getContext(),"Loan amount should not exceed Rs. 999999.99",Toast.LENGTH_SHORT).show();
                         return true;
+
                     }else {
                         final Dialog dialog = new Dialog(getContext());
                         dialog.setContentView(R.layout.custom_dialog);
@@ -135,6 +144,16 @@ public class Requested_Loan extends Fragment {
             @Override
             public void onClick(View view) {
 
+                if(loan_type.equals("Vehicle")){
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                }
+                else{
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                }
+                pb.setProgress(100);
+                progress.setText(String.valueOf(100));
                 exec_process();
             }
         });
@@ -158,131 +177,125 @@ public class Requested_Loan extends Fragment {
 
 //        String cost_of_entity=SessionManager.getStringFromPreferences(getContext(),"cost_of_entity");
 
-        String loan = et.getText().toString();
-        Float val = Float.parseFloat(loan);
+
+            String loan = et.getText().toString();
+            Float val = Float.parseFloat(loan);
 
 
-        //float rla=Float.parseFloat(requested_loan_amount);
-        float rla = val;
-        float coe = Float.parseFloat(cost);
-
-        if (checkflag == 0) {           //TODO: for car loan
-            if (rla > 0.9 * coe) {        //CHECK RLA AND COE CONDITION
-                breakflag = 1;
-                exitprocess();
-            } else {
-
-                float pemi = (float) rla / 60;      //PROJECTED EMI
-                float inc = Float.parseFloat(gross);         //ANY INCOME SOURCE
-
-                String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
-
-                float emi = Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
+            //float rla=Float.parseFloat(requested_loan_amount);
+            float rla = val;
+            float coe = Float.parseFloat(cost);
 
 
-                if (emp_type.equals("Salaried")) {
+            if(checkflag==0) {
+                if (rla > 0.9 * coe) {        //CHECK RLA AND COE CONDITION
+                    breakflag = 1;
+                    exitprocess();
 
-                    //String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                    //inc = Float.parseFloat(income);
+                } else {
+
+                    float pemi = (float) rla / 60;      //PROJECTED EMI
+                    float inc = Float.parseFloat(net_salary);         //ANY INCOME SOURCE
 
 
-                } else if (emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")) {
+                    String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
+
+                    float emi = Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
+
+
+                    if (emp_type.equals("Salaried")) {
+                        //String income=SessionManager.getStringFromPreferences(getContext(),"income");
+                        //inc = Float.parseFloat(income);
+
+                    } else if (emp_type.equals("Self_Employed") || emp_type.equals("Self_Employed_P")) {
 //                String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                    //               inc = Float.parseFloat(income);
+                        //               inc = Float.parseFloat(income);
 
 
-                } else if (emp_type.equals("Retired_P")) {
+                    } else if (emp_type.equals("Retired_P")) {
 //                String income= SessionManager.getStringFromPreferences(getContext(),"income");
-                    //               inc = Float.parseFloat(income);
+                        //               inc = Float.parseFloat(income);
 
 
-                } else if (emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")) {
+                    } else if (emp_type.equals("Retired_NP") || emp_type.equals("Homemaker")) {
 //                String income=SessionManager.getStringFromPreferences(getContext(),"income");
-                    //               inc = Float.parseFloat(income);
+                        //               inc = Float.parseFloat(income);
+                    } else {
+
+                        Toast.makeText(getContext(), "Something is wrong in e_type", Toast.LENGTH_SHORT).show();
+                        exitprocess();
+
+                    }
 
 
-                } else {
+                    float net_inc = inc - (emi + pemi);
 
-                    Toast.makeText(getContext(), "Something is wrong in e_type", Toast.LENGTH_SHORT).show();
-                    exitprocess();
+
+                    //        TODO: CHECK ELIGIBLE_LOAN_AMOUNT .
+                    //            eligible_loan_amount=net_inc*5*12;
+
+
+                    if (net_inc >= 0.4 * inc) {
+
+                        launchCongrats();
+
+                    } else {
+
+                        breakflag = 2;
+                        //Eligible Loan Amount=GTI * 5 *12
+
+                        exitprocess();
+                        //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
+
+
+                    }
+
 
                 }
-
-
-                float net_inc = inc - (emi + pemi);
-
-
-                //        TODO: CHECK ELIGIBLE_LOAN_AMOUNT .
-                //            eligible_loan_amount=net_inc*5*12;
-
-
-                if (net_inc >= 0.4 * inc) {
-
-                    launchCongrats();
-
-                } else {
-
-                    breakflag = 2;
-                    //Eligible Loan Amount=GTI * 5 *12
-
-                    exitprocess();
-                    //Toast.makeText(getContext(),"hurray!",Toast.LENGTH_SHORT).show();
-
-
-                }
-
 
             }
+        else if (checkflag == 1) {               // TODO:HOME LOAN
 
+            Log.d("loantype", "HOME");
 
-        }
-        else if(checkflag==1){               // TODO:HOME LOAN
-
-            Log.d("loantype","HOME");
-
-           // String h_loan = et.getText().toString();
+            // String h_loan = et.getText().toString();
             //Float h_rla = Float.parseFloat(h_loan);
 
             float inc = Float.parseFloat(gross);         //ANY INCOME SOURCE
-            float coap_inc=Float.parseFloat(coap_gross);
+            float coap_inc = Float.parseFloat(coap_gross);
 
             String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
 
             float emi = Float.parseFloat(existing_emi);       //EXISTING EMI IF ANY.
-            float coap_emi=Float.parseFloat(coap_existing_emi);
+            float coap_emi = Float.parseFloat(coap_existing_emi);
 
-            float gti=(inc+coap_inc);   // GROSS TOTAL OF APPLICANT AND COAPPLICANT.
-            float net_emi=(emi+coap_emi);   //NET EMI OF APP. AND COAPP.
+            float gti = (inc + coap_inc);   // GROSS TOTAL OF APPLICANT AND COAPPLICANT.
+            float net_emi = (emi + coap_emi);   //NET EMI OF APP. AND COAPP.
 
-            float net_total_inc=gti-(net_emi);      // NET TOTAL INCOME.
+            float net_total_inc = gti - (net_emi);      // NET TOTAL INCOME.
 
-            eligible_loan_amount= gti*5*12;       //ELIGIBLE LOAN AMOUNT.
+            eligible_loan_amount = gti * 5 * 12;       //ELIGIBLE LOAN AMOUNT.
 
-            if(rla>eligible_loan_amount){
+            if (rla > eligible_loan_amount) {
 
                 //AUKAT SE ZAADA MAANG RAHA.
 
                 homeloanexit();
 
-            }else{
+            } else {
 
 
                 homeLaunchCongrats();
 
 
-
-
             }
 
 
-
-
-
-
-
-
+            }
         }
-    }
+
+
+
 
     public void homeLaunchCongrats(){
 

@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
@@ -29,6 +31,8 @@ public class DOB extends Fragment {
     ViewPager viewPager;
     HomeLoan.ViewPagerAdapter ad;
     Calendar myCalendar = Calendar.getInstance();
+    ProgressBar pb;
+    TextView progress ;
 
 
 
@@ -66,7 +70,9 @@ public class DOB extends Fragment {
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
         text = (EditText) y.findViewById(R.id.editText);
+        pb = ((HomeLoan)getActivity()).getPb();
 
+        progress = ((HomeLoan)getActivity()).getprogresstv();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,8 +94,11 @@ public class DOB extends Fragment {
 
                 ad.addFragment(new HomePropLoc(), "HomePropLoc");
                 ad.notifyDataSetChanged();
-
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(20);
+
+                progress.setText(String.valueOf(20));
             }
         });
 

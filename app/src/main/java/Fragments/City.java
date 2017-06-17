@@ -15,6 +15,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
@@ -36,6 +38,8 @@ public class City extends Fragment {
     ImageView delhi;
     ImageView mumbai;
     ImageView others;
+    private ProgressBar pb;
+    private TextView progress;
 
     private CarLoanActivity.ViewPagerAdapter ad;
     private HomeLoan.ViewPagerAdapter ad2;
@@ -95,6 +99,8 @@ public class City extends Fragment {
 
                 if(type.equals("Vehicle")) {
 
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad.mFragmentList.size()) {
                         ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -113,7 +119,8 @@ public class City extends Fragment {
                 else {
 
 
-
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    pb = ((HomeLoan)getActivity()).getPb();
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad2.mFragmentList.size()) {
@@ -133,6 +140,10 @@ public class City extends Fragment {
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(10);
+
+                progress.setText(String.valueOf(10));
 
 
 
@@ -149,7 +160,13 @@ public class City extends Fragment {
                 SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
 
 
+
                 if(type.equals("Vehicle")) {
+
+
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
 
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < ad.mFragmentList.size()) {
@@ -169,6 +186,8 @@ public class City extends Fragment {
                 else {
 
 
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    pb = ((HomeLoan)getActivity()).getPb();
 
 
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -188,6 +207,10 @@ public class City extends Fragment {
                 }
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(10);
+
+                progress.setText(String.valueOf(10));
 
 
 
@@ -200,7 +223,13 @@ public class City extends Fragment {
 
                 SessionManager.putStringInPreferences(getContext(),"Delhi","city");
 
+
                 if(type.equals("Vehicle")) {
+
+
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad.mFragmentList.size()) {
@@ -220,6 +249,8 @@ public class City extends Fragment {
                 else {
 
 
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    pb = ((HomeLoan)getActivity()).getPb();
 
 
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -241,6 +272,10 @@ public class City extends Fragment {
 
                 }
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(10);
+
+                progress.setText(String.valueOf(10));
 
 
 

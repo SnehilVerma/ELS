@@ -12,6 +12,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
@@ -38,6 +40,8 @@ public class Gender extends Fragment {
 
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
+        final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
+        final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
 
 
         male.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +68,9 @@ public class Gender extends Fragment {
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
+                pb.setProgress(15);
+
+                progress.setText(String.valueOf(15));
             }
         });
 
@@ -86,9 +93,12 @@ public class Gender extends Fragment {
 
                 ad.addFragment(new DOB(), "DOB");
                 ad.notifyDataSetChanged();
-                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"gender").toString());
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                int p = Integer.parseInt(progress.getText().toString());
+                pb.setProgress(15);
 
+                progress.setText(String.valueOf(15));
+                //Log.d("1", editothers.getText().toString());
             }
         });
 
@@ -117,6 +127,9 @@ public class Gender extends Fragment {
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
+                pb.setProgress(15);
+
+                progress.setText(String.valueOf(15));
             }
 
 
