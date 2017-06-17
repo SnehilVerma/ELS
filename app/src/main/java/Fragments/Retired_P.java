@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -36,16 +37,39 @@ public class Retired_P extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_retired, container, false);
 
 
-        EditText mpension = (EditText) view.findViewById(R.id.mpension);
-        EditText emiamount = (EditText) view.findViewById(R.id.emiamount);
+        final EditText mpension = (EditText) view.findViewById(R.id.mpension);
+        final EditText emiamount = (EditText) view.findViewById(R.id.emiamount);
         Button b1 = (Button) view.findViewById(R.id.button);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                String gross=mpension.getText().toString();
+                //String takeaway=msalary.getText().toString();
+                String existing_emi=emiamount.getText().toString();
+
+
+                if(gross.equals("00")||  existing_emi.equals("00")||gross.equals("")||  existing_emi.equals("")){
+                    Toast.makeText(getContext(),"Please fill all details",Toast.LENGTH_SHORT).show();
+
+                }else{
+
+
+                    SessionManager.putStringInPreferences(getContext(), gross, "gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "net_salary");
+                    SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
+
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_existing_emi");
+
+                }
+
+
                 if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
-                    if (loantype.equals("HomeLoan")) {
+                    if (loantype.equals("Home")) {
                         pb = ((HomeLoan)getActivity()).getPb();
                         progress = ((HomeLoan)getActivity()).getprogresstv();
                         adapter = ((HomeLoan) getActivity()).getCurrAdapter();
@@ -88,7 +112,7 @@ public class Retired_P extends Fragment {
 
                 }
                 else{
-                    if (loantype.equals("HomeLoan")) {
+                    if (loantype.equals("Home")) {
                         pb = ((HomeLoan)getActivity()).getPb();
                         progress = ((HomeLoan)getActivity()).getprogresstv();
                         adapter = ((HomeLoan) getActivity()).getCurrAdapter();

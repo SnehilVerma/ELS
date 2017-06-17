@@ -37,6 +37,8 @@ public class Co_App_Opt extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_co_app_opt, container, false);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radiogroup);
+
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override

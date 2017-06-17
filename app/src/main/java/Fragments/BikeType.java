@@ -17,6 +17,10 @@ import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
+import static Utility.SessionManager.putStringInPreferences;
+
 /**
  * Created by snehil on 13/6/17.
  */
@@ -52,18 +56,27 @@ public class BikeType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //TESTING
-
-                //ad.addFragment(new Gender(), "Gender");
-                //ad.notifyDataSetChanged();
+                SessionManager.putStringInPreferences(getActivity(),"MotorCycle","bike_type");
 
 
-                ad.mFragmentList.add(new DOB());
-                ad.mFragmentTitleList.add("DOB");
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
+
+
+                ad.addFragment(new PrefBike(), "PrefBike");
                 ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 pb.setProgress(30);
 
                 progress.setText(String.valueOf(30));
+
 
 
 
@@ -74,13 +87,24 @@ public class BikeType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                ad.mFragmentTitleList.remove("DOB");
+                putStringInPreferences(getActivity(),"Scooter","bike_type");
 
 
-                ad.mFragmentList.add(new Gender());
-                ad.mFragmentTitleList.add("Gender");
-                // ad.notifyDataSetChanged();
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
+
+
+                ad.addFragment(new PrefBike(), "PrefBike");
+                ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
                 pb.setProgress(30);
 
                 progress.setText(String.valueOf(30));
