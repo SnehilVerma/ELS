@@ -32,7 +32,9 @@
             android:layout_marginLeft="70dp"/>
         <EditText
             android:layout_width="220dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/income"
+            android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +43,9 @@
             android:layout_marginLeft="70dp"/>
         <EditText
             android:layout_width="220dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/emi"
+            android:inputType="number"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

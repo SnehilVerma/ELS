@@ -66,6 +66,8 @@ public class CoAPP extends Fragment {
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         EditText relationship = (EditText) x.findViewById(R.id.relationship);
         Button b1 = (Button) x.findViewById(R.id.button);
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,8 +76,8 @@ public class CoAPP extends Fragment {
                     if(loantype.equals("Home")){
 
 
-                        pb = ((HomeLoan)getActivity()).getPb();
-                        progress = ((HomeLoan)getActivity()).getprogresstv();
+                        //pb = ((HomeLoan)getActivity()).getPb();
+                        //progress = ((HomeLoan)getActivity()).getprogresstv();
 
                         adapter = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
@@ -113,8 +115,8 @@ public class CoAPP extends Fragment {
                             adapter1.notifyDataSetChanged();
                         viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     }
-                pb.setProgress(80);
-                progress.setText(80+"");
+//                pb.setProgress(80);
+  //              progress.setText(80+"");
             }
         });
 

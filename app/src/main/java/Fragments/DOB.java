@@ -79,28 +79,29 @@ public class DOB extends Fragment {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!text.getText().toString().equals("")) {
 
-                //SESSION MANAGER
-                SessionManager.putStringInPreferences(getContext(),text.getText().toString(),"DOB");
+                    //SESSION MANAGER
+                    SessionManager.putStringInPreferences(getContext(), text.getText().toString(), "DOB");
 
-                int index = (viewPager.getCurrentItem()) + 1;
-                if (index < ad.mFragmentList.size()) {
-                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad.addFragment(new HomePropLoc(), "HomePropLoc");
                     ad.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(20);
 
-
-
+                    progress.setText(String.valueOf(20));
                 }
-
-
-                ad.addFragment(new HomePropLoc(), "HomePropLoc");
-                ad.notifyDataSetChanged();
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                int p = Integer.parseInt(progress.getText().toString());
-                pb.setProgress(20);
-
-                progress.setText(String.valueOf(20));
             }
         });
 
@@ -115,7 +116,7 @@ public class DOB extends Fragment {
                 dialog=new DatePickerDialog(getActivity(),date , myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH));
-                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis()-(long)5.676e+11-(long)3.456e+8);
                 dialog.show();
             }
         });
