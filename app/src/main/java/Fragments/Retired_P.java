@@ -52,7 +52,7 @@ public class Retired_P extends Fragment {
                 String existing_emi=emiamount.getText().toString();
 
 
-                if(gross.equals("00")||  existing_emi.equals("00")||gross.equals("")||  existing_emi.equals("")){
+                if(gross.equals("00")||  existing_emi.equals("00")||gross.equals("")){
                     Toast.makeText(getContext(),"Please fill all details",Toast.LENGTH_SHORT).show();
 
                 }else{

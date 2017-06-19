@@ -45,7 +45,7 @@ public class Retired_NP extends Fragment {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if((!mincome.getText().toString().equals(""))&&(!emi.getText().toString().equals(""))) {
+                if((!mincome.getText().toString().equals(""))) {
 
 
 
