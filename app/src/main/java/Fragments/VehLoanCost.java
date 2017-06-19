@@ -108,9 +108,9 @@ public class VehLoanCost extends Fragment{
 
 
 
-        b1.setOnClickListener(new OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if((!cost.getText().toString().equals(""))&&(Integer.parseInt(cost.getText().toString())<10000000)) {
 
                     final String cos = cost.getText().toString();

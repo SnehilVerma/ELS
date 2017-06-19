@@ -60,7 +60,7 @@ public class HomePropCost extends Fragment {
 
                     if(val>999999999){
 
-                        Toast.makeText(getContext(),"Cost of vehicle should not exceed 999999.99",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Cost of home should not exceed 999999.99",Toast.LENGTH_SHORT).show();
                         return true;
                     }else {
                         final Dialog dialog = new Dialog(getContext());

@@ -34,6 +34,7 @@
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:hint="Cost"
+                android:digits="0123456789"
                 android:id="@+id/cost"
                 android:textColor="#ffffff"
                 android:textColorHint="@android:color/darker_gray"
