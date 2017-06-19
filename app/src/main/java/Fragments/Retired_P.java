@@ -113,6 +113,12 @@ public class Retired_P extends Fragment {
 
                 }
                 else {
+
+                    SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
+                    SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+
+
                     if (loantype.equals("Home")) {
                         pb = ((HomeLoan) getActivity()).getPb();
                         progress = ((HomeLoan) getActivity()).getprogresstv();

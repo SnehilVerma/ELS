@@ -103,7 +103,7 @@ public class Requested_Loan extends Fragment {
                     String loan=et.getText().toString();
                     Float val=Float.parseFloat(loan);
 
-                    if(val>999999.99){
+                    if(val>99999999){       //TODO: change this value
 
                         Toast.makeText(getContext(),"Loan amount should not exceed Rs. 999999.99",Toast.LENGTH_SHORT).show();
                         return true;
@@ -193,7 +193,7 @@ public class Requested_Loan extends Fragment {
                 } else {
 
                     float pemi = (float) rla / 60;      //PROJECTED EMI
-                    float inc = Float.parseFloat(net_salary);         //ANY INCOME SOURCE
+                    float inc = Float.parseFloat(gross);         //ANY INCOME SOURCE
 
 
                     String emp_type = SessionManager.getStringFromPreferences(getContext(), "employment_type");
@@ -229,9 +229,7 @@ public class Requested_Loan extends Fragment {
                     float net_inc = inc - (emi + pemi);
 
 
-                    //        TODO: CHECK ELIGIBLE_LOAN_AMOUNT .
-                    //            eligible_loan_amount=net_inc*5*12;
-
+                    // TODO:
 
                     if (net_inc >= 0.4 * inc) {
 

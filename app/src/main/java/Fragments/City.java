@@ -29,9 +29,7 @@ import java.util.Arrays;
 import Adapter.City_Adapter;
 import Utility.SessionManager;
 
-/**
- * Created by sibby on 9/6/17.
- */
+
 
 public class City extends Fragment {
 
@@ -157,6 +155,9 @@ public class City extends Fragment {
             @Override
             public void onClick(View view) {
 
+
+                mumbai.setBackgroundResource(R.drawable.background_style);
+
                 SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
 
 
@@ -220,6 +221,9 @@ public class City extends Fragment {
         delhi.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                delhi.setBackgroundResource(R.drawable.background_style);
 
                 SessionManager.putStringInPreferences(getContext(),"Delhi","city");
 
