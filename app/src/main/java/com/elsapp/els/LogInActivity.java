@@ -53,7 +53,7 @@ LogInActivity extends AppCompatActivity {
         btnnosign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LogInActivity.this,WelcomeActivity.class);
+                Intent i = new Intent(LogInActivity.this,LoanSelec.class);
                 startActivity(i);
             }
         });
@@ -133,7 +133,7 @@ LogInActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponseModel>call, Response<LoginResponseModel> response) {
                 if(!(response.body().equals(null))){
-                    Intent intent=new Intent(LogInActivity.this,WelcomeActivity.class);
+                    Intent intent=new Intent(LogInActivity.this,LoanSelec.class);
                     startActivity(intent);
                 }
 

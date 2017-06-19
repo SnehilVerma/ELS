@@ -30,7 +30,7 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:src="@drawable/cloud"
+            android:src="@drawable/rupee_symbol_floating"
             android:id="@+id/im1"
             android:layout_marginTop="50dp"/>
 
@@ -39,6 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/im1"
             android:maxWidth="150dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:text="Welcome to Easy Loan Solutions"
             android:layout_marginTop="100dp"
