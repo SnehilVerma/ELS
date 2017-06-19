@@ -85,6 +85,7 @@
             android:layout_marginLeft="130dp"
             android:hint="Mobie No."/>
 
+
         <EditText
             android:layout_width="220dp"
             android:layout_centerHorizontal="true"

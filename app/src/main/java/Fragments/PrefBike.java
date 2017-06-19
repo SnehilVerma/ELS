@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
-import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
 import Adapter.GridAdapter;
@@ -31,8 +30,7 @@ import Utility.SessionManager;
 public class PrefBike extends Fragment {
 
 
-    ViewPagerAdapter ad;
-    ViewPager viewPager;
+
 
 
     public Integer[] thumbs = {
@@ -46,6 +44,9 @@ public class PrefBike extends Fragment {
 
 
     };
+
+    CarLoanActivity.ViewPagerAdapter ad;
+    ViewPager viewPager;
 
     @Nullable
     @Override
@@ -64,6 +65,14 @@ public class PrefBike extends Fragment {
 
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+
+
+
+
+
+
+
+
 
         gridView.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -85,6 +94,7 @@ public class PrefBike extends Fragment {
                 ad.notifyDataSetChanged();
 
 
+
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 pb.setProgress(40);
 
@@ -94,7 +104,6 @@ public class PrefBike extends Fragment {
 
             }
         });
-
 
 
         return view;

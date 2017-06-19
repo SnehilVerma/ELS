@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="400dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/cs2"
+            android:src="@drawable/cs1"
             />
 
 
@@ -30,7 +30,7 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:src="@drawable/paisa"
+            android:src="@drawable/cloud"
             android:id="@+id/im1"
             android:layout_marginTop="50dp"/>
 
@@ -39,10 +39,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/im1"
             android:maxWidth="150dp"
+            android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:layout_centerHorizontal="true"
-            android:text="I am your easy loan solutions buddy"
+            android:text="Choose the type of loan from the following screen"
             android:layout_marginTop="100dp"
             />
 

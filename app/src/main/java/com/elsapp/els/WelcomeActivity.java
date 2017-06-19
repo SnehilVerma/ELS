@@ -57,6 +57,8 @@ public class WelcomeActivity extends AppCompatActivity {
         layouts = new int[]{
                R.layout.welcome_slide1,
                 R.layout.welcome_slide2,
+                R.layout.welcome_slide3,
+                R.layout.welcome_slide4
                 };
 
         // adding bottom dots
@@ -117,7 +119,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, LoanSelec.class));
+        startActivity(new Intent(WelcomeActivity.this, LogInActivity.class));
         finish();
     }
 

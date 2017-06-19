@@ -12,6 +12,7 @@
         android:icon="@drawable/iconm"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
@@ -23,7 +24,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
             android:name=".CarLoanActivity"

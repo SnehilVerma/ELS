@@ -110,9 +110,8 @@ public class HomePropCost extends Fragment {
                     pb.setProgress(50);
 
                     progress.setText(String.valueOf(50));
-
-
                 }
+
 
             }
         });

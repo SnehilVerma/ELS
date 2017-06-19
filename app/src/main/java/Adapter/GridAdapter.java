@@ -7,8 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.elsapp.els.R;
-
 /**
  * Created by snehil on 9/6/17.
  */
@@ -41,7 +39,7 @@ public class GridAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             imageView = new ImageView(context);
-            imageView.setLayoutParams(new GridView.LayoutParams(400, 400));
+            imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(5, 5, 5, 5);
         }

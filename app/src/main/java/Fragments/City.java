@@ -155,9 +155,6 @@ public class City extends Fragment {
             @Override
             public void onClick(View view) {
 
-
-                mumbai.setBackgroundResource(R.drawable.background_style);
-
                 SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
 
 

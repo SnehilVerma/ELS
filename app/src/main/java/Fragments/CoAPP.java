@@ -1,8 +1,5 @@
 package Fragments;
 
-import android.app.DatePickerDialog;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -11,17 +8,19 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 
 import Utility.SessionManager;
 
@@ -33,17 +32,6 @@ public class CoAPP extends Fragment {
     EditText Name,Phone,Age;
     ProgressBar pb;
     TextView progress;
-    Calendar calendar = Calendar.getInstance();
-    DatePickerDialog.OnDateSetListener dates = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-            calendar.set(Calendar.YEAR, i);
-            calendar.set(Calendar.MONTH, i1);
-            calendar.set(Calendar.DAY_OF_MONTH, i2);
-            mylabel();
-
-        }
-    };
 
 
 
@@ -64,7 +52,17 @@ public class CoAPP extends Fragment {
 
         final View x = inflater.inflate(R.layout.fragment_co_ap, container, false);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
-        EditText relationship = (EditText) x.findViewById(R.id.relationship);
+        //EditText relationship = (EditText) x.findViewById(R.id.relationship);
+        Spinner spinner = (Spinner) x.findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("Father");
+        list.add("Mother");
+        list.add("Spouse");
+        list.add("Children");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
         Button b1 = (Button) x.findViewById(R.id.button);
 
 
@@ -123,13 +121,6 @@ public class CoAPP extends Fragment {
         return x;
     }
 
-    private void mylabel() {
-
-        String myFormat = "MM/dd/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-        Age.setText(sdf.format(calendar.getTime()));
-    }
     }
 
 

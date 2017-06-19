@@ -32,6 +32,7 @@ public class VehLoanCost extends Fragment{
 
     ViewPager viewPager;
     ViewPagerAdapter ad;
+    EditText cost;
 
     @Nullable
     @Override
@@ -41,7 +42,7 @@ public class VehLoanCost extends Fragment{
 
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
-        final EditText cost = (EditText) view.findViewById(R.id.cost);
+        cost = (EditText) view.findViewById(R.id.cost);
         final SessionManager sessionManager=new SessionManager();
 
         TextView t1 = (TextView) view.findViewById(R.id.prev);
@@ -108,13 +109,12 @@ public class VehLoanCost extends Fragment{
 
 
         b1.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 if((!cost.getText().toString().equals(""))&&(Integer.parseInt(cost.getText().toString())<10000000)) {
 
                     final String cos = cost.getText().toString();
-                    sessionManager.putStringInPreferences(getContext(), cos, "cost_of_entity");
+                    SessionManager.putStringInPreferences(getContext(), cos, "cost_of_entity");
                     Log.d("cost:", cos + " rs");
 
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -128,7 +128,6 @@ public class VehLoanCost extends Fragment{
 
                     ad.mFragmentList.add(new Select_Category());
                     ad.mFragmentTitleList.add("Select_Category");
-                    SessionManager.putStringInPreferences(getActivity(), "0", "flaggy");
                     ad.notifyDataSetChanged();
 
 

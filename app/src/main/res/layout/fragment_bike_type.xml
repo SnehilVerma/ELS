@@ -34,9 +34,9 @@
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:layout_marginLeft="20dp"
+            android:background="@drawable/background_style"
             android:src="@drawable/motorcycle"
             android:id="@+id/im1"
-            android:background="@android:color/holo_green_light"
             android:clickable="true"
             android:layout_marginTop="150dp">
 
@@ -47,9 +47,10 @@
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:id="@+id/im2"
+            android:background="@drawable/background_style"
             android:clickable="true"
             android:layout_marginLeft="220dp"
-            android:src="@drawable/motorcycle"
+            android:src="@drawable/motorcycle2"
             android:layout_marginTop="150dp">
 
 
