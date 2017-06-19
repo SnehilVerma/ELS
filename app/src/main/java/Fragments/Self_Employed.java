@@ -90,7 +90,7 @@ public class Self_Employed extends Fragment {
 
 
                             }
-                            adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                            adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
                             adapter1.notifyDataSetChanged();
                             viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                             pb.setProgress(70);

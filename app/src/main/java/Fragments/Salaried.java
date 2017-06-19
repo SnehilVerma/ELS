@@ -67,7 +67,7 @@ public class Salaried extends Fragment{
         gmincome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if ((Float.parseFloat(gmincome.getText().toString()) > 999999.99) || ((Float.parseFloat(gmincome.getText().toString()) < 0))) {
+                if ((Float.parseFloat(gmincome.getText().toString()) > 999999999) || ((Float.parseFloat(gmincome.getText().toString()) < 0))) {
                     gmincome.setError("entered value not accepted");
                 } else {
                     Snackbar snackbar = Snackbar
@@ -116,7 +116,7 @@ public class Salaried extends Fragment{
         emi.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if ((Float.parseFloat(msalary.getText().toString()) > 999999.99) || ((Float.parseFloat(msalary.getText().toString()) < 0))) {
+                if ((Float.parseFloat(msalary.getText().toString()) > 999999999) || ((Float.parseFloat(msalary.getText().toString()) < 0))) {
                     msalary.setError("entered value not accepted");
                 }
                 if(!hasFocus){
@@ -217,7 +217,7 @@ public class Salaried extends Fragment{
 
 
                             }
-                                adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                                adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
                                 adapter1.notifyDataSetChanged();
                             viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                             pb.setProgress(70);
@@ -270,42 +270,6 @@ public class Salaried extends Fragment{
                                 }
                                 adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
                                 adapter.notifyDataSetChanged();
-                                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                                pb.setProgress(70);
-                                progress.setText(String.valueOf(70));
-                            }
-                        } else {
-                            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
-                            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                            pb = ((CarLoanActivity)getActivity()).getPb();
-                            progress = ((CarLoanActivity)getActivity()).getprogresstv();
-                            if(adapter1.mFragmentList.size()>10) {
-                                int index = (viewPager.getCurrentItem()) + 1;
-                                if (index < adapter1.mFragmentList.size()) {
-                                    adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                                    adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                                    adapter1.notifyDataSetChanged();
-
-
-                                }
-                                adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
-                                adapter1.notifyDataSetChanged();
-                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                                pb.setProgress(90);
-                                progress.setText(String.valueOf(90));
-                            }
-                            else{
-                                int index = (viewPager.getCurrentItem()) + 1;
-                                if (index < adapter1.mFragmentList.size()) {
-                                    adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                                    adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                                    adapter1.notifyDataSetChanged();
-
-
-
-                                }
-                                adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
-                                adapter1.notifyDataSetChanged();
                                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                                 pb.setProgress(70);
                                 progress.setText(String.valueOf(70));

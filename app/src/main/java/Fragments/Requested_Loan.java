@@ -229,7 +229,7 @@ public class Requested_Loan extends Fragment {
                     float net_inc = inc - (emi + pemi);
 
 
-                    // TODO:
+                    // TODO: Eligible loan not to be showed.
 
                     if (net_inc >= 0.4 * inc) {
 
