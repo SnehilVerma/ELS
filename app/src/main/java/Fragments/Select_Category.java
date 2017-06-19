@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -29,102 +29,77 @@ public class Select_Category extends Fragment {
     private CarLoanActivity.ViewPagerAdapter adapter;
     private HomeLoan.ViewPagerAdapter adapter1;
     private ViewPager viewPager;
+    ProgressBar pb;
+    TextView progress;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view=inflater.inflate(R.layout.fragment_select_cat, container, false);
 
 
+
+        // CHHUTIYA TEST . REMOVE AFTER CHECIKING
+        //String[] s=new String[4];
+        //s[0]=SessionManager.getStringFromPreferences(getContext(),"loan_type");
+        //s[1]=SessionManager.getStringFromPreferences(getContext(),"car_type");
+        //s[2]=SessionManager.getStringFromPreferences(getContext(),"city_car");
+
+       // Toast.makeText(getContext(),""+s[0]+" "+s[1]+ " "+ s[2],Toast.LENGTH_SHORT).show();
+
+
+
         TextView tv1=(TextView)view.findViewById(R.id.retired_np);
         TextView tv2=(TextView)view.findViewById(R.id.self_pro);
         TextView tv3=(TextView)view.findViewById(R.id.salary);
+        TextView tv7=(TextView)view.findViewById(R.id.salaryprof);
         TextView tv4=(TextView)view.findViewById(R.id.self);
         TextView tv5=(TextView)view.findViewById(R.id.retired_pensioner);
         TextView tv6=(TextView)view.findViewById(R.id.homemaker);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
+        SessionManager.putStringInPreferences(getActivity(),"0","flaggy");
 
         tv1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
-                    int flag=0;
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-
-                    for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("Retired NonPensioner")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter.addFragment(new Retired_NP(), "Retired NonPensioner");
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                         adapter.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter.addFragment(new Retired_NP(), "Retired_NP");
+                        adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter1.mFragmentTitleList){
-                        if(x.equals("Retired NonPensioner")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter1.addFragment(new Retired_NP(), "Retired NonPensioner");
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                         adapter1.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter1.addFragment(new Retired_NP(), "Retired_NP");
+                        adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }
@@ -133,85 +108,45 @@ public class Select_Category extends Fragment {
         tv2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("Self Employed Professional")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter.addFragment(new Self_Employed(), "Self Employed Professional");
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                         adapter.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter1.mFragmentTitleList){
-                        if(x.equals("Self Employed Professional")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter1.addFragment(new Self_Employed(), "Self Employed Professional");
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                         adapter1.notifyDataSetChanged();
+
+
+
                     }
-                    else {
-                        Toast.makeText(getContext(), "Already added next fragment", Toast.LENGTH_SHORT).show();
-                    }
+                        adapter1.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
             }
         });
@@ -219,85 +154,98 @@ public class Select_Category extends Fragment {
         tv3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                    int flag=0;
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    SessionManager.putStringInPreferences(getContext(),"Salaried","employment_type");
+                    //SET EMPLOYEMENT TYPE.
 
-                    for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("Salaried")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Homemaker");
-                        }
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
 
                     }
-                    if(flag==0) {
                         adapter.addFragment(new Salaried(), "Salaried");
                         adapter.notifyDataSetChanged();
-                    }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
-                    int flag=0;
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                        adapter1.notifyDataSetChanged();
 
-                    for(String x : adapter1.mFragmentTitleList){
-                        if(x.equals("Salaried")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Homemaker");
-                        }
+
 
                     }
-                    if(flag==0) {
                         adapter1.addFragment(new Salaried(), "Salaried");
                         adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
+                }
+
+            }
+        });
+
+        tv7.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(loantype.equals("Vehicle")) {
+                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                    viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    SessionManager.putStringInPreferences(getContext(),"SalariedProf","employment_type");
+                    //SET EMPLOYEMENT TYPE.
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
+                        adapter.addFragment(new Salaried(), "Salaried");
+                        adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
+                }
+                else {
+                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                    viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                        adapter1.notifyDataSetChanged();
+
+
+
                     }
+                        adapter1.addFragment(new Salaried(), "Salaried");
+                        adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }
@@ -306,85 +254,45 @@ public class Select_Category extends Fragment {
         tv4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("Self Employed")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter.addFragment(new Self_Employed(), "Self Employed");
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                         adapter.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter1.mFragmentTitleList){
-                        if(x.equals("Self Employed")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter1.addFragment(new Self_Employed(), "Self Employed");
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                         adapter1.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter1.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
             }
         });
@@ -392,85 +300,45 @@ public class Select_Category extends Fragment {
         tv5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("Retired Pensioner")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter.addFragment(new Retired_P(), "Retired Pensioner");
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                         adapter.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter.addFragment(new Retired_P(), "Retired_P");
+                        adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
-                    int flag=0;
-
-                    for(String x : adapter1.mFragmentTitleList){
-                        if(x.equals("Retired Pensioner")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
-                        else if(x.equals(("Homemaker"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Homemaker");
-                        }
-
-                    }
-                    if(flag==0) {
-                        adapter1.addFragment(new Retired_P(), "Retired Pensioner");
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                         adapter1.notifyDataSetChanged();
+
+
+
                     }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                        adapter1.addFragment(new Retired_P(), "Retired_P");
+                        adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
             }
         });
@@ -479,86 +347,46 @@ public class Select_Category extends Fragment {
         tv6.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(loantype.equals("CarLoanActivity")) {
+                if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
-                    int flag=0;
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
 
-                    for(String x : adapter.mFragmentTitleList){
-                        if(x.equals("Homemaker")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
+
 
                     }
-                    if(flag==0) {
                         adapter.addFragment(new Homemaker(), "Homemaker");
                         adapter.notifyDataSetChanged();
-                    }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                     viewPager = ((HomeLoan)getActivity()).getViewPager();
-                    int flag=0;
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                        adapter1.notifyDataSetChanged();
 
-                    for(String x : adapter1.mFragmentTitleList){
-                        if(x.equals("Homemaker")){
-                            flag=1;
-                            break;
-                        }
-                        else if(x.equals(("Self Employed Professional"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed Professional");
-                        }
-                        else if(x.equals(("Salaried"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Salaried");
-                        }
-                        else if(x.equals(("Self Employed"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Self Employed");
-                        }
-                        else if(x.equals(("Retired Pensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired Pensioner");
-                        }
-                        else if(x.equals(("Retired NonPensioner"))){
-                            adapter1.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                            adapter1.mFragmentTitleList.remove("Retired NonPensioner");
-                        }
+
 
                     }
-                    if(flag==0) {
                         adapter1.addFragment(new Homemaker(), "Homemaker");
                         adapter1.notifyDataSetChanged();
-                    }
-                    else{
-                        Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                    }
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(60);
+                    progress.setText(60+"");
                 }
 
             }

@@ -54,7 +54,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/imageView6"
             android:layout_marginBottom="54dp"
             android:layout_marginStart="28dp"
             android:text="SignIn" />
@@ -68,6 +67,20 @@
             android:layout_alignBaseline="@+id/signin"
             android:layout_alignBottom="@+id/signin"
             android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nosign"
+            android:layout_alignEnd="@+id/user"
+            android:layout_alignStart="@+id/signin"
+            android:layout_alignRight="@+id/signin"
+            android:layout_alignLeft="@+id/user"
+           android:layout_alignParentBottom="true"
+            android:layout_alignBottom="@+id/signin"
+            android:layout_marginTop="47dp"
+            android:text="Continue Without SignIn"
+            />
 
         <ImageView
             android:id="@+id/imageView7"

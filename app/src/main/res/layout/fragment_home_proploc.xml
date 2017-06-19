@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp">
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#2a81c9"
-        android:layout_gravity="center"
-        android:gravity="center">
+
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Property location"
+            android:text="Where is your \n property located"
             android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="20dp"
+            android:layout_marginTop="50dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_location_on_black_24dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/property"
-            android:tint="#ffffff"/>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,15 +44,23 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:src="@drawable/mumbai"
-                    android:id="@+id/mumbai"
+                    style="?android:borderlessButtonStyle"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+                    android:id="@+id/mumbai"
                     android:elevation="12dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mumbai"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"/>
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mumbai"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"/>
+
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -64,38 +71,64 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:src="@drawable/delhi"
+                    style="?android:borderlessButtonStyle"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/delhi"
                     android:clickable="true"
-                    android:layout_marginLeft="20dp"
                     android:elevation="12dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Delhi"
-                    android:layout_marginLeft="20dp"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"/>
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Delhi"
+                        android:layout_marginLeft="20dp"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"/>
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+
+            >
             <ImageView
-                android:layout_width="130dp"
+                android:layout_width="200dp"
                 android:layout_height="130dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/others"
-                android:id="@+id/others"
-                android:clickable="true"
                 android:elevation="12dp"
-                android:layout_gravity="center" />
-            <TextView
-                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:id="@+id/others"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Others"
-                android:textStyle="bold"
-                android:textAllCaps="true"/>
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:textStyle="bold"
+                    android:id="@+id/editothers"
+
+
+                    android:textAllCaps="true"/>
+
+
+
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -127,5 +160,6 @@
             android:src="@drawable/forwardarrow"
             android:id="@+id/forw"/>
     </LinearLayout>
+
 
 </android.support.v7.widget.CardView>

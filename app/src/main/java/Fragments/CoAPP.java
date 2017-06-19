@@ -1,27 +1,38 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.elsapp.els.CarLoanActivity;
+import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
 import java.util.Locale;
 
+import Utility.SessionManager;
+
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CoAPP extends Fragment {
+    CarLoanActivity.ViewPagerAdapter adapter1;
+    HomeLoan.ViewPagerAdapter adapter;
+    ViewPager viewPager;
     EditText Name,Phone,Age;
+    ProgressBar pb;
+    TextView progress;
     Calendar calendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener dates = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -52,18 +63,63 @@ public class CoAPP extends Fragment {
         // Inflate the layout for this fragment
 
         final View x = inflater.inflate(R.layout.fragment_co_ap, container, false);
-        Name = (EditText) x.findViewById(R.id.name);
-        Phone = (EditText) x.findViewById(R.id.phone);
-        Age = (EditText) x.findViewById(R.id.age);
+        final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
+        EditText relationship = (EditText) x.findViewById(R.id.relationship);
+        Button b1 = (Button) x.findViewById(R.id.button);
 
-        Age.setOnClickListener(new View.OnClickListener() {
+
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DatePickerDialog(getActivity(), dates, calendar
-                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+
+                    if(loantype.equals("Home")){
+
+
+                        //pb = ((HomeLoan)getActivity()).getPb();
+                        //progress = ((HomeLoan)getActivity()).getprogresstv();
+
+                        adapter = ((HomeLoan)getActivity()).getCurrAdapter();
+                        viewPager = ((HomeLoan)getActivity()).getViewPager();
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter.mFragmentList.size()) {
+                            adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                            adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                            adapter.notifyDataSetChanged();
+
+
+
+                        }
+                            adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                            SessionManager.putStringInPreferences(getActivity(),"1","flaggy");
+                            adapter.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    }
+                    else
+                    {
+                        adapter1 = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                        viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                        pb = ((CarLoanActivity)getActivity()).getPb();
+                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < adapter1.mFragmentList.size()) {
+                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                            adapter1.notifyDataSetChanged();
+
+
+
+                        }
+                            adapter1.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                            SessionManager.putStringInPreferences(getActivity(),"1","flaggy");
+                            adapter1.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    }
+//                pb.setProgress(80);
+  //              progress.setText(80+"");
             }
         });
+
         return x;
     }
 
