@@ -28,7 +28,7 @@ LogInActivity extends AppCompatActivity {
     EditText etpassword,etemail;
     TextView tvForgotPassword,tvRegister;
 
-    Button btnSign,btnRegister;
+    Button btnSign,btnRegister,btnnosign;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,14 @@ LogInActivity extends AppCompatActivity {
                     userLogin();
                 }
 
+            }
+        });
+        btnnosign = (Button)findViewById(R.id.btnnosign);
+        btnnosign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LogInActivity.this,WelcomeActivity.class);
+                startActivity(i);
             }
         });
         tvRegister = (TextView) findViewById(R.id.tvRegister);
