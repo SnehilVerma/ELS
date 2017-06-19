@@ -35,7 +35,7 @@
             android:layout_marginLeft="20dp"
             android:src="@drawable/motorcycle"
             android:id="@+id/im1"
-            android:background="@android:color/white"
+            android:background="@drawable/background_style"
             android:layout_marginTop="150dp">
         </ImageButton>
 
@@ -45,7 +45,8 @@
             android:layout_below="@+id/tv1"
             android:id="@+id/im2"
             android:layout_marginLeft="220dp"
-            android:background="@drawable/car1"
+            android:src="@drawable/car1"
+            android:background="@drawable/background_style"
             android:layout_marginTop="150dp">
 
         </ImageButton>

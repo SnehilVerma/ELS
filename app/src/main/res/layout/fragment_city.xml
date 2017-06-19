@@ -70,8 +70,8 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:src="@drawable/delhi"
-                style="?android:borderlessButtonStyle"
-                android:background="?attr/selectableItemBackgroundBorderless"
+
+                android:background="@drawable/background_style"
                 android:layout_marginLeft="20dp"
                 android:id="@+id/delhi"
                 android:clickable="true"

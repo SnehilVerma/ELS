@@ -37,9 +37,9 @@
         android:layout_height="100dp"
         android:layout_below="@+id/tv1"
         android:layout_marginLeft="20dp"
+        android:background="@drawable/background_style"
         android:src="@drawable/car1"
         android:id="@+id/im1"
-        android:background="@android:color/white"
         android:clickable="true"
         android:layout_marginTop="150dp">
 
@@ -49,11 +49,12 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_below="@+id/tv1"
+        android:background="@drawable/background_style"
         android:id="@+id/im2"
         android:clickable="true"
         android:elevation="5dp"
         android:layout_marginLeft="220dp"
-        android:background="@drawable/car2"
+        android:src="@drawable/car2"
         android:layout_marginTop="150dp">
 
 

@@ -38,6 +38,7 @@
             android:src="@drawable/male"
             android:id="@+id/malecheck"
             android:clickable="true"
+            android:background="@drawable/background_style"
             android:layout_marginTop="150dp">
 
         </ImageView>
@@ -59,7 +60,8 @@
             android:id="@+id/femalecheck"
             android:clickable="true"
             android:layout_marginLeft="220dp"
-            android:background="@drawable/female"
+            android:src="@drawable/female"
+            android:background="@drawable/background_style"
             android:layout_marginTop="150dp">
 
         </ImageView>
