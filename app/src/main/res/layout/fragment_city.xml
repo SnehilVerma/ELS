@@ -43,11 +43,11 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:src="@drawable/mumbai"
-                style="?android:borderlessButtonStyle"
-                android:background="?attr/selectableItemBackgroundBorderless"
+                android:background="@drawable/background_style"
                 android:clickable="true"
                 android:id="@+id/mumbai"
                 android:elevation="12dp"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

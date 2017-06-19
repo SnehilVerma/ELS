@@ -58,7 +58,7 @@ public class HomePropCost extends Fragment {
                     String loan=cost.getText().toString();
                     Float val=Float.parseFloat(loan);
 
-                    if(val>999999.99){
+                    if(val>999999999){
 
                         Toast.makeText(getContext(),"Cost of vehicle should not exceed 999999.99",Toast.LENGTH_SHORT).show();
                         return true;

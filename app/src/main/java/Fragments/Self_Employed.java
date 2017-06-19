@@ -47,6 +47,17 @@ public class Self_Employed extends Fragment {
             @Override
             public void onClick(View view) {
                 if((!taxamount.getText().toString().equals(""))&&(!emiammount.getText().toString().equals(""))) {
+
+
+                    SessionManager.putStringInPreferences(getContext(), taxamount.getText().toString(), "gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "net_salary");
+                    SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "existing_emi");
+
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_gross_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
+                    SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_existing_emi");
+
+
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
                         if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
@@ -88,6 +99,14 @@ public class Self_Employed extends Fragment {
 
 
                     } else {
+
+
+                        SessionManager.putStringInPreferences(getContext(),taxamount.getText().toString(), "coap_gross_salary");
+                        SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
+                        SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "coap_existing_emi");
+
+
+
                         if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
                             progress = ((HomeLoan) getActivity()).getprogresstv();
