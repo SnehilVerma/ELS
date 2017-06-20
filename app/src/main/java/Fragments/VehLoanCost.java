@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -132,9 +131,9 @@ public class VehLoanCost extends Fragment{
 
 
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                    pb.setProgress(50);
+                    pb.setProgress(70);
 
-                    progress.setText(String.valueOf(50));
+                    progress.setText(String.valueOf(70));
                 }
 
 

@@ -96,9 +96,9 @@ public class PrefBike extends Fragment {
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                pb.setProgress(40);
+                pb.setProgress(50);
 
-                progress.setText(String.valueOf(40));
+                progress.setText(String.valueOf(50));
 
 
 

@@ -78,8 +78,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Retired_NP(), "Retired_NP");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -125,8 +125,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Self_Employed(), "Self_Employed");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -174,8 +174,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Salaried(), "Salaried");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -224,8 +224,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Salaried(), "Salaried");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -271,8 +271,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Self_Employed(), "Self_Employed");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -317,8 +317,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Retired_P(), "Retired_P");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -367,8 +367,8 @@ public class Select_Category extends Fragment {
                         adapter.addFragment(new Homemaker(), "Homemaker");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    pb.setProgress(60);
-                    progress.setText(60+"");
+                    pb.setProgress(80);
+                    progress.setText(80+"");
                 }
                 else {
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
