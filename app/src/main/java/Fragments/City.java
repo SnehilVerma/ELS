@@ -42,7 +42,9 @@ public class City extends Fragment {
 
     private CarLoanActivity.ViewPagerAdapter ad;
     private HomeLoan.ViewPagerAdapter ad2;
+
     private ViewPager viewPager;
+
     ArrayList<String> city_names;
 
 
@@ -61,8 +63,6 @@ public class City extends Fragment {
 
 
         Button b1=(Button)view.findViewById(R.id.b1);
-
-
         final SessionManager sessionManager=new SessionManager();
 
 
@@ -122,10 +122,14 @@ public class City extends Fragment {
                     }
 
 
-
+                    ad.addFragment(new Gender(),"Gender");
+                    ad.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    /*
                     ad.addFragment(new VehSelect(), "VehSelect");
                     ad.notifyDataSetChanged();
                     Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    */
 
 
                 }
@@ -190,7 +194,7 @@ public class City extends Fragment {
 
 
 
-                        ad.addFragment(new VehSelect(), "VehSelect");
+                        ad.addFragment(new Gender(), "Gender");
                         ad.notifyDataSetChanged();
                         Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
