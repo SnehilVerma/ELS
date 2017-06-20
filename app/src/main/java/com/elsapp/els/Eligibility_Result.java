@@ -1,5 +1,6 @@
 package com.elsapp.els;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,7 @@ import rest.ApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 /**
  * Created by snehil on 14/6/17.
@@ -46,10 +48,10 @@ public class Eligibility_Result extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
+
                 //Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
                 //startActivity(intent);
-=======
+
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                 String city = SessionManager.getStringFromPreferences(getApplicationContext(),"city");
                 String dob = SessionManager.getStringFromPreferences(getApplicationContext(),"DOB");
@@ -84,9 +86,10 @@ public class Eligibility_Result extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_SHORT).show();
                     }
                 });
-                Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
+
+                Intent intent = new Intent(Eligibility_Result.this,Details_Loan.class);
                 startActivity(intent);
->>>>>>> 84f54e72c6811625ad6bb389b0a74828cd298f95
+
             }
         });
         
