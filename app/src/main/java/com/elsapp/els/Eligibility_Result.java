@@ -9,6 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Model.Register;
+import Model.RegisterRequestModel;
+import Utility.SessionManager;
+import rest.ApiClient;
+import rest.ApiInterface;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Created by snehil on 14/6/17.
  */
@@ -25,18 +34,41 @@ public class Eligibility_Result extends AppCompatActivity {
 
 
         Toast.makeText(getApplicationContext(),"here", Toast.LENGTH_LONG).show();
-        String ela=getIntent().getStringExtra("eligible_loan_amount");
+        String ela= SessionManager.getStringFromPreferences(getApplicationContext(),"eligible_loan_amount");
         //Float amount=Float.parseFloat(ela);
 
         tv.setText(ela);
-
-        EditText name=(EditText)findViewById(R.id.name);
-        EditText mob=(EditText)findViewById(R.id.mob);
-        EditText email=(EditText)findViewById(R.id.email);
+        final EditText mob=(EditText)findViewById(R.id.mob);
+        final EditText email=(EditText)findViewById(R.id.email);
+        final EditText firstname = (EditText) findViewById(R.id.firstname);
+        final EditText middlename = (EditText) findViewById(R.id.middlename);
+        final EditText lastname = (EditText) findViewById(R.id.lastname);
         Button submit = (Button) findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+                String city = SessionManager.getStringFromPreferences(getApplicationContext(),"city");
+                String dob = SessionManager.getStringFromPreferences(getApplicationContext(),"DOB");
+                String contactnumber = mob.getText().toString();
+                String username = email.getText().toString();
+                String fname = firstname.getText().toString();
+                String mname = middlename.getText().toString();
+                String lname = lastname.getText().toString();
+                String gender = SessionManager.getStringFromPreferences(getApplicationContext(),"gender");
+                RegisterRequestModel registerRequestModel = new RegisterRequestModel(username,fname,mname,lname,gender,String.valueOf("1"),city,contactnumber,dob,contactnumber);
+                Call<Register> call = apiService.IRegistration(registerRequestModel);
+                call.enqueue(new Callback<Register>() {
+                    @Override
+                    public void onResponse(Call<Register> call, Response<Register> response) {
+                        
+                    }
+
+                    @Override
+                    public void onFailure(Call<Register> call, Throwable t) {
+
+                    }
+                });
                 Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
                 startActivity(intent);
             }
