@@ -35,4 +35,32 @@
     <string name="ValidateEmail">Enter Valid Email ID</string>
     <string name="title_activity_overall__qec">Overall_Qec</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_home_loan_details1">HomeLoanDetails</string>
+    <string name="radio_YES">Yes</string>
+    <string name="radio_NO">No</string>
+    <string name="credai_member">Credai member?</string>
+
+
+    <string-array name="SelectProperty">
+        <!--  <item>Select Property</item>-->
+        <item>Completed Project</item>
+        <item>Under construction Project</item>
+    </string-array>
+
+    <string-array name="SelectBuilderName">
+        <!-- <item>Select Builder</item>-->
+        <item>Jay</item>
+        <item>Abhishek</item>
+        <item>Arvind</item>
+    </string-array>
+
+    <string-array name="SelectConstitution">
+        <!--     <item>Select Constitution</item>-->
+        <item>Constitution A</item>
+        <item>Constitution B</item>
+        <item>Constitution C</item>
+        <item>Constitution D</item>
+    </string-array>
+    <string name="title_activity_home_loan_details2">HomeLoanDetails2</string>
+    <string name="title_activity_home_loan_details3">HomeLoanDetails3</string>
 </resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/LayoutAppend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        >
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/spinnerProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select Property"
+            android:textColorHint="#05ab9a"
+            app:met_floatingLabel="highlight" />
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/spinnerBuilder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select Builder Name"
+            android:textColorHint="#05ab9a"
+            app:met_floatingLabel="highlight" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+            <EditText
+                android:id="@+id/etBuilderAddress"
+                android:inputType="textFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address of Builder " />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/spinnerConstitution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Constitution of Builder"
+            android:textColorHint="#05ab9a"
+            app:met_floatingLabel="highlight"
+            />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credai_member" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupCredai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RadioButton
+                    android:id="@+id/radioYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_YES"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:id="@+id/radioNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_NO" />
+            </RadioGroup>
+            <!-- <Button
+                 android:id="@+id/btnDisplay"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/btn_display" />-->
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linLayYesNo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                <EditText
+                    android:inputType="textFilter"
+                    android:id="@+id/etMemberShipNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Membership Number" />
+            </android.support.design.widget.TextInputLayout>
+
+
+           <!-- <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                <EditText
+                    android:inputType="textFilter"
+                    android:id="@+id/etDateOfMemberShip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date of Membership" />
+            </android.support.design.widget.TextInputLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:text="Date of Membership :"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="8">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:textSize="18dp"
+                        android:id="@+id/etDateOfMemberShip"
+                        android:hint="DD/MM/YYYY"
+                        android:focusable="false"
+                        android:editable="false"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edit_text"
+                        android:textColor="@color/finaltextColour" />
+                    <Button
+                        android:id="@+id/btnDtofMembership"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="X"
+                        android:textSize="18dp"
+                        android:onClick="clearSelectedDate"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <Button
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:id="@+id/btnNext" />
+
+    </LinearLayout>
+
+</LinearLayout>
