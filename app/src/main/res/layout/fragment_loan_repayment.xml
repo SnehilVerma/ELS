@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/l1"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="On Road Price"
+        android:id="@+id/tv1"
+        android:layout_marginLeft="10dp"
+        android:textSize="16dp"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="amount in rs."
+        android:id="@+id/tv2"
+        android:layout_marginLeft="30dp"
+        android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/l2"
+        android:layout_below="@+id/l1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="DownPayment"
+            android:id="@+id/tv3"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="amount in rs."
+            android:id="@+id/tv4"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/l3"
+        android:layout_below="@+id/l2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Requested Loan Amount"
+            android:id="@+id/tv5"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="amount in rs."
+            android:id="@+id/tv6"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:id="@+id/l4"
+        android:layout_below="@+id/l3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_red_dark"
+            android:text="Please select a repayment period from the following\nto repay your loan amount"
+            />
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Tenure"
+            android:id="@+id/tenure"
+            />
+
+        <Spinner
+            android:layout_width="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="100dp"
+            android:layout_toRightOf="@+id/tenure"
+            android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="Rate Of Interest"
+                android:id="@+id/rate"
+                />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_toRightOf="@+id/rate"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="EMI"
+                android:id="@+id/emi"
+                />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_toRightOf="@+id/emi"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/l4"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/l5"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12dp"
+            android:layout_height="wrap_content"
+            android:text="I hereby authorize the Bank and its representatives to call me, email me or SMS me with reference to my loan application. This consent will supersede any registration for any Do Not Call (DNC) / National Do Not Call (NDNC). I am aware that credit approval is at the sole discretion of the bank. *"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l5"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

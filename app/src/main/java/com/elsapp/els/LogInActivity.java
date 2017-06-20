@@ -53,7 +53,9 @@ LogInActivity extends AppCompatActivity {
         btnnosign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LogInActivity.this,LoanSelec.class);
+                //TODO: testing phase
+                //Intent i = new Intent(LogInActivity.this,LoanSelec.class);
+                Intent i = new Intent(LogInActivity.this,Details_Loan.class);
                 startActivity(i);
             }
         });
