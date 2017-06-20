@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
 /**
  * Created by sibby on 9/6/17.
  */
@@ -23,6 +25,8 @@ public class City extends Fragment {
         ImageView mumbai = (ImageView) view.findViewById(R.id.mumbai);
         ImageView delhi = (ImageView) view.findViewById(R.id.delhi);
         ImageView others = (ImageView) view.findViewById(R.id.others);
+
+        //SessionManager.putStringInPreferences()
         /*TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
         final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();

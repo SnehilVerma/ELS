@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.City;
+import Fragments.CoAPP;
 import Fragments.DOB;
 import Fragments.Gender;
 import Fragments.HomeInto;
@@ -61,6 +62,7 @@ public class HomeLoan extends AppCompatActivity {
         adapter.addFragment(new HomeLoanPurpose(), "Purpose of Loan");
         adapter.addFragment(new HomePropCost(), "Property Cost");
         adapter.addFragment(new Select_Category(), "Select Category");
+        adapter.addFragment(new CoAPP(), "Co-Applicant");
         viewPager.setAdapter(adapter);
     }
     public HomeLoan.ViewPagerAdapter getCurrAdapter(){
