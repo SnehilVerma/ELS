@@ -52,7 +52,8 @@
             android:label="@string/title_activity_overall__qec"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".Details_Loan"></activity>
+        <activity android:name=".Details_Loan"
+                  android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
