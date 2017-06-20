@@ -1,7 +1,10 @@
 package com.elsapp.els;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,8 +33,14 @@ public class Eligibility_Result extends AppCompatActivity {
         EditText name=(EditText)findViewById(R.id.name);
         EditText mob=(EditText)findViewById(R.id.mob);
         EditText email=(EditText)findViewById(R.id.email);
-
-
+        Button submit = (Button) findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
+                startActivity(intent);
+            }
+        });
         
 
 

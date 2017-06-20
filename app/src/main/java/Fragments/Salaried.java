@@ -162,7 +162,7 @@ public class Salaried extends Fragment{
                 String gross=gmincome.getText().toString();
                 String takeaway=msalary.getText().toString();
                 String existing_emi=emi.getText().toString();
-                if(gross.equals("00")|| takeaway.equals("00")|| existing_emi.equals("00")||gross.equals("")|| takeaway.equals("")|| existing_emi.equals("")){
+                if(gross.equals("00")|| takeaway.equals("00")|| existing_emi.equals("00")||gross.equals("")|| takeaway.equals("")){
                     Snackbar snackbar = Snackbar
                             .make(cl, "Please fill all details", Snackbar.LENGTH_LONG);
 

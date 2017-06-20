@@ -24,7 +24,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:textColor="@android:color/holo_red_dark"
-            android:text="What type of car do you want to buy?"
+            android:text="Choose your gender"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"
             />

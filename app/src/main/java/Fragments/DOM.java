@@ -1,6 +1,5 @@
 package Fragments;
 
-import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -38,7 +37,7 @@ public class DOM extends Fragment {
     ViewPager viewPager;
     ViewPagerAdapter ad;
 
-    Calendar myCalender = Calendar.getInstance();
+//    Calendar myCalender = Calendar.getInstance();
 
 
     @Nullable

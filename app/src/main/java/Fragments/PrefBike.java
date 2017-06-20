@@ -11,17 +11,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import android.widget.AdapterView;
-
 import android.widget.AdapterView.OnItemClickListener;
-
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
-
-import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
 import Adapter.GridAdapter;
@@ -85,6 +81,14 @@ public class PrefBike extends Fragment {
 
                 SessionManager.putStringInPreferences(getContext(),String.valueOf(i),"bike_option");
                 Toast.makeText(getContext(),i+"",Toast.LENGTH_SHORT).show();
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
                 ad.mFragmentList.add(new VehLoanCost());
                 ad.mFragmentTitleList.add("VehLoanCost");
                 ad.notifyDataSetChanged();

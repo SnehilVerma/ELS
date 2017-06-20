@@ -37,6 +37,7 @@
                 android:id="@+id/cost"
                 android:textColor="#ffffff"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:textColorHint="@android:color/darker_gray"/>
 
         </LinearLayout>

@@ -11,38 +11,41 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2a81c9">
+        android:layout_gravity="center"
+        android:background="#2a81c9"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp"
-            android:text="Enter the details of your Co-Applicant"
-            android:textSize="20dp"
+            android:text="Your Relationship \nwith Co-Applicant"
             android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-
-        <EditText
-            android:id="@+id/relationship"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:ems="10"
-            android:hint="Relationship with CoApplicant"
-            android:layout_below="@+id/textView3"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:backgroundTint="#ffffff">
+        </Spinner>
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:layout_below="@+id/spinner"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="SAVE" />
+            android:layout_marginTop="80dp" />
 
 
     </RelativeLayout>

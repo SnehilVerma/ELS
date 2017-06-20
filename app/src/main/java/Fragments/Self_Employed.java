@@ -46,7 +46,7 @@ public class Self_Employed extends Fragment {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if((!taxamount.getText().toString().equals(""))&&(!emiammount.getText().toString().equals(""))) {
+                if((!taxamount.getText().toString().equals(""))) {
 
 
                     SessionManager.putStringInPreferences(getContext(), taxamount.getText().toString(), "gross_salary");

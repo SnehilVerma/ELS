@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.elsapp.els">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -9,6 +10,7 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/iconm"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -22,10 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".WelcomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CarLoanActivity"
             android:label="@string/title_activity_car_loan"
@@ -33,27 +34,23 @@
         <activity
             android:name=".VehicleSelect"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeLoan"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".HomeLoan"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoanSelec"
             android:label="@string/title_activity_loan_selec"
-
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".login"></activity>
-        <activity android:name=".LogInActivity">
-
-        </activity>
-
-        <activity android:name=".RegistrationActivity"></activity>
-
-        <activity android:name=".ForgetPasswordActivity"></activity>
-
-        <activity android:name=".Eligibility_Result"></activity>
-
-        <activity android:name=".Failure_Result"></activity>
-
+        <activity android:name=".login" />
+        <activity android:name=".LogInActivity"></activity>
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".ForgetPasswordActivity" />
+        <activity android:name=".Eligibility_Result" />
+        <activity android:name=".Failure_Result" />
+        <activity
+            android:name=".Overall_Qec"
+            android:label="@string/title_activity_overall__qec"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
