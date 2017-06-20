@@ -55,20 +55,30 @@ public class Eligibility_Result extends AppCompatActivity {
                 String fname = firstname.getText().toString();
                 String mname = middlename.getText().toString();
                 String lname = lastname.getText().toString();
-                String gender = SessionManager.getStringFromPreferences(getApplicationContext(),"gender");
+                String g = SessionManager.getStringFromPreferences(getApplicationContext(),"gender");
+                String gender;
+                if(g.equals("Male")){
+                    gender = "M";
+                }
+                else{
+                    gender = "F";
+                }
                 RegisterRequestModel registerRequestModel = new RegisterRequestModel(username,fname,mname,lname,gender,String.valueOf("1"),city,contactnumber,dob,contactnumber);
                 Call<Register> call = apiService.IRegistration(registerRequestModel);
                 call.enqueue(new Callback<Register>() {
                     @Override
                     public void onResponse(Call<Register> call, Response<Register> response) {
                         if(response.body() != null){
-
+                            Toast.makeText(getApplicationContext(),response.body().getToken().toString(),Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "empty", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Register> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_SHORT).show();
                     }
                 });
                 Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
