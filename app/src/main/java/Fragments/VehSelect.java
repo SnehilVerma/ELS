@@ -4,16 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
+
+import Utility.SessionManager;
 
 import static com.elsapp.els.R.id.im1;
 
@@ -26,12 +30,15 @@ public class VehSelect extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    int tflag=0;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View view=inflater.inflate(R.layout.fragment_veh_type, container, false);
-
+        final SessionManager sessionManager=new SessionManager();
+        final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
+        final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
         ImageButton ib1=(ImageButton)view.findViewById(im1);
         ImageButton ib2=(ImageButton)view.findViewById(R.id.im2);
@@ -43,29 +50,29 @@ public class VehSelect extends Fragment {
         ib1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                int flag=0;
 
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("BikeType")){
-                        flag=1;
-                        break;
-                    }
-                    else if(x.equals(("CarType"))){
-                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                        ad.mFragmentTitleList.remove("CarType");
-
-
-                    }
-
+                sessionManager.putStringInPreferences(getActivity(),"Bike","vehicle_type");
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
                 }
-                if(flag==0){
-                ad.mFragmentList.add(new BikeType());
-                ad.mFragmentTitleList.add("BikeType");
-                ad.notifyDataSetChanged();}
-                else{
 
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
+
+
+                ad.addFragment(new BikeType(), "BikeType");
+                ad.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"vehicle_type"));
+
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(20);
+
+                progress.setText(String.valueOf(20));
+
+
+
 
             }
         });
@@ -75,32 +82,27 @@ public class VehSelect extends Fragment {
             @Override
             public void onClick(View view) {
 
-                int flag=0;
-
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("CarType")){
-                        flag=1;
-                        break;
-                    }
-
-                    else if(x.equals(("BikeType"))){
-                        ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                        ad.mFragmentTitleList.remove("BikeType");
-
-
-                    }
-
-                }
-                if(flag==0) {
-
-                    ad.mFragmentList.add(new CarType());
-                    ad.mFragmentTitleList.add("CarType");
+                sessionManager.putStringInPreferences(getActivity(),"Car","vehicle_type");
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                     ad.notifyDataSetChanged();
                 }
-                else{
 
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
+
+
+                ad.addFragment(new CarType(), "CarType");
+                ad.notifyDataSetChanged();
+                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"vehicle_type"));
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                pb.setProgress(20);
+
+                progress.setText(String.valueOf(20));
+
+
 
             }
         });
@@ -109,4 +111,5 @@ public class VehSelect extends Fragment {
 
         return view;
     }
+
 }

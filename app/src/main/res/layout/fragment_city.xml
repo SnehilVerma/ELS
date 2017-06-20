@@ -8,29 +8,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#2a81c9"
-        android:layout_gravity="center"
-        android:gravity="center">
+
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Where do you currently live?"
             android:textColor="#ffffff"
+            android:layout_gravity="center_horizontal"
             android:textSize="20dp"
+            android:layout_marginTop="50dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_location_on_black_24dp" />
+            android:src="@drawable/home" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,15 +43,23 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:src="@drawable/mumbai"
+                android:background="@drawable/background_style"
                 android:clickable="true"
                 android:id="@+id/mumbai"
                 android:elevation="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mumbai"
                     android:textStyle="bold"
                     android:textAllCaps="true"/>
+
+                </LinearLayout>
                 </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -59,10 +70,17 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:src="@drawable/delhi"
+
+                android:background="@drawable/background_style"
                 android:layout_marginLeft="20dp"
                 android:id="@+id/delhi"
                 android:clickable="true"
                 android:elevation="12dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,27 +88,46 @@
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold"
                     android:textAllCaps="true"/>
+
             </LinearLayout>
+                </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+
+            >
             <ImageView
-                android:layout_width="130dp"
+                android:layout_width="200dp"
                 android:layout_height="130dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/others"
                 android:elevation="12dp"
-                android:layout_gravity="center"
                 android:clickable="true"
                 android:id="@+id/others"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Others"
                 android:textStyle="bold"
+                android:id="@+id/editothers"
+
+
                 android:textAllCaps="true"/>
+
+
+
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

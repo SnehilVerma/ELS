@@ -9,7 +9,8 @@
         android:orientation="vertical"
         android:background="#3CB371"
         android:layout_gravity="center"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/layout">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,37 +24,78 @@
             android:layout_height="wrap_content"
             android:src="@drawable/dollar"
             android:tint="#ffffff"/>
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/cl">
+        </android.support.design.widget.CoordinatorLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gross Monthly Income :"
             android:layout_gravity="left"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="70dp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/info"
+                android:id="@+id/i1"/>
+            </LinearLayout>
             <EditText
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/gmincome"/>
-        <TextView
-            android:layout_width="wrap_content"
+                android:id="@+id/gmincome"
+                android:inputType="number"/>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Monthly Take-home Salary :"
-            android:layout_gravity="left"
-            android:layout_marginLeft="70dp"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly Take-home Salary :"
+                android:layout_gravity="left"
+                android:layout_marginLeft="70dp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/info"
+                android:id="@+id/i2"/>
+        </LinearLayout>
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:id="@+id/msalary"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/msalary"
+            android:inputType="number"/>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Existing EMI :"
-            android:layout_gravity="left"
-            android:layout_marginLeft="70dp"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Existing EMI :"
+                android:layout_gravity="left"
+                android:layout_marginLeft="70dp"/>
+        </LinearLayout>
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:id="@+id/emi"/>
+            android:id="@+id/emi"
+            android:inputType="number"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@color/cardview_light_background"
+            android:elevation="10dp"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal"
+            android:text="Submit"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

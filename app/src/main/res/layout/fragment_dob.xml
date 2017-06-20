@@ -40,12 +40,25 @@
             android:focusable="false"
             android:layout_weight="0.63" />
     </LinearLayout>
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@color/cardview_light_background"
+        android:elevation="10dp"
+        android:text="SAVE"
+        android:textColor="@color/black"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="350dp"
+        android:id="@+id/button"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="bottom"
         android:gravity="center">
+
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -68,6 +81,7 @@
             android:layout_height="20dp"
             android:src="@drawable/forwardarrow"
             android:id="@+id/forw"/>
+
     </LinearLayout>
 
 

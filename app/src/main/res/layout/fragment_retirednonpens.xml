@@ -23,17 +23,21 @@
             android:layout_height="wrap_content"
             android:src="@drawable/dollar"
             android:tint="#ffffff"/>
+
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monthly Income \nfrom regular source :"
             android:layout_gravity="left"
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="60dp"
-            android:layout_marginLeft="70dp"/>
+            android:text="Monthly Income \nfrom regular source :"/>
+
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:id="@+id/mincome"/>
+            android:id="@+id/mincome"
+            android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +47,13 @@
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:id="@+id/emi"/>
+            android:id="@+id/emi"
+            android:inputType="number"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/button"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

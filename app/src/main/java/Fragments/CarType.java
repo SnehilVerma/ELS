@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
+
+import Utility.SessionManager;
 
 /**
  * Created by snehil on 8/6/17.
@@ -24,6 +27,7 @@ public class CarType extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    int tflag=0;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -31,10 +35,15 @@ public class CarType extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_car_type, container, false);
 
 
+        final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
+        final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
         ImageButton im1=(ImageButton) view.findViewById(R.id.im1);
         ImageButton im2=(ImageButton)view.findViewById(R.id.im2);
 
+
+
+        final SessionManager sessionManager=new SessionManager();
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
 
@@ -45,32 +54,26 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //TESTING
-
-                //ad.addFragment(new Gender(), "Gender");
-                //ad.notifyDataSetChanged();
-
-                int flag=0;
-
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("PurposeC")){
-                        flag=1;
-                        break;
-                    }
-
-                }
-                if(flag==0) {
+            sessionManager.putStringInPreferences(getActivity(),"New","car_type");
 
 
-                    ad.mFragmentList.add(new PurposeC());
-                    ad.mFragmentTitleList.add("PurposeC");
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                     ad.notifyDataSetChanged();
 
                 }
-                else{
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
 
+
+                ad.addFragment(new PrefCar(), "PrefCar");
+                ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
 
 
             }
@@ -80,34 +83,36 @@ public class CarType extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //ad.mFragmentList.remove(viewPager.getCurrentItem()+1);
-                //ad.mFragmentTitleList.remove("DOB");
-                int flag=0;
 
-                for(String x : ad.mFragmentTitleList){
-                    if(x.equals("PurposeC")){
-                        flag=1;
-                        break;
-                    }
-
-                }
-                if(flag==0) {
+                sessionManager.putStringInPreferences(getActivity(),"Old","car_type");
 
 
-                    ad.mFragmentList.add(new PurposeC());
-                    ad.mFragmentTitleList.add("PurposeC");
+                int index=(viewPager.getCurrentItem())+1;
+                if(index<ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                     ad.notifyDataSetChanged();
 
                 }
-                else{
-                    Toast.makeText(getContext(),"Already added next fragment",Toast.LENGTH_SHORT).show();
-                }
 
+
+                ad.addFragment(new DOM(), "DOM");
+                ad.notifyDataSetChanged();
+
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                pb.setProgress(30);
+
+                progress.setText(String.valueOf(30));
 
 
 
             }
         });
+
+
+
 
         return view;
 

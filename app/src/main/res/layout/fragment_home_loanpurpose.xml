@@ -26,8 +26,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp">
+            android:layout_gravity="center">
             <Button
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
@@ -35,7 +34,7 @@
                 android:textColor="#ffffff"
                 android:layout_margin="5dp"
                 android:layout_alignParentLeft="true"
-                android:id="@+id/identified"
+                android:id="@+id/ib1"
                 android:background="@drawable/btn_round"/>
 
             <Button
@@ -43,9 +42,8 @@
                 android:layout_height="wrap_content"
                 android:text="Renovate/repair flat"
                 android:textColor="#ffffff"
-                android:layout_marginLeft="10dp"
                 android:layout_alignParentRight="true"
-                android:id="@+id/renovate"
+                android:id="@+id/ib2"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_round"/>
 
@@ -56,8 +54,8 @@
                 android:textColor="#ffffff"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@+id/identified"
-                android:id="@+id/construct"
+                android:layout_below="@+id/ib1"
+                android:id="@+id/ib3"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_round"/>
 
@@ -68,8 +66,8 @@
                 android:textColor="#ffffff"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/renovate"
-                android:id="@+id/transfer"
+                android:layout_below="@+id/ib2"
+                android:id="@+id/ib4"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_round"/>
         </RelativeLayout>

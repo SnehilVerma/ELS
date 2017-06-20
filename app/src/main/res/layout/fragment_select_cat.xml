@@ -20,6 +20,14 @@
                                         card_view:cardMaxElevation="5dp">
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your income source"
+            android:textSize="18dp"
+
+            android:layout_marginLeft="70dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,6 +50,17 @@
             android:id="@+id/salary"
             android:textColor="@android:color/white"
             android:layout_marginTop="150dp"
+            android:layout_marginLeft="20dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salaried Professional"
+            android:textSize="20dp"
+            android:id="@+id/salaryprof"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="200dp"
             android:layout_marginLeft="20dp"
 
             />
@@ -89,6 +108,7 @@
             android:layout_marginLeft="200dp"
 
             />
+
 
         <ImageView
             android:layout_width="wrap_content"
