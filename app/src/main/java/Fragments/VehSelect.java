@@ -67,9 +67,9 @@ public class VehSelect extends Fragment {
 
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                pb.setProgress(20);
+                pb.setProgress(30);
 
-                progress.setText(String.valueOf(20));
+                progress.setText(String.valueOf(30));
 
 
 
@@ -98,9 +98,9 @@ public class VehSelect extends Fragment {
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
-                pb.setProgress(20);
+                pb.setProgress(30);
 
-                progress.setText(String.valueOf(20));
+                progress.setText(String.valueOf(30));
 
 
 

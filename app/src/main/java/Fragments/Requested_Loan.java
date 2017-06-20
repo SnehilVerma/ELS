@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -47,6 +48,10 @@ public class Requested_Loan extends Fragment {
     String coap_net_salary;
 
     float eligible_loan_amount;
+
+    CarLoanActivity.ViewPagerAdapter adapter1;
+    HomeLoan.ViewPagerAdapter adapter;
+    ViewPager viewPager;
 
 
     ProgressBar pb;
@@ -298,10 +303,44 @@ public class Requested_Loan extends Fragment {
 
         Toast.makeText(getContext(),"congrats",Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(getActivity(),Eligibility_Result.class);
+        String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
+        SessionManager.putStringInPreferences(getActivity(),String.valueOf(eligible_loan_amount),"eligible_loan_amount");
+        if (loantype.equals("Home")) {
+
+            adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+            viewPager = ((HomeLoan) getActivity()).getViewPager();
+            int index = (viewPager.getCurrentItem()) + 1;
+            if (index < adapter.mFragmentList.size()) {
+                adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                adapter.notifyDataSetChanged();
+
+
+
+            }
+            adapter.addFragment(new Summary(), "Summary");
+            adapter.notifyDataSetChanged();
+            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+        } else {
+            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+            int index = (viewPager.getCurrentItem()) + 1;
+            if (index < adapter1.mFragmentList.size()) {
+                adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                adapter1.notifyDataSetChanged();
+
+
+
+            }
+            adapter1.addFragment(new Summary(), "Summary");
+            adapter1.notifyDataSetChanged();
+            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+        }
+        /*Intent i=new Intent(getActivity(),Eligibility_Result.class);
         i.putExtra("eligible_loan_amount",String.valueOf(eligible_loan_amount));   //TODO send the eligible loan to be displayed.
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
+        startActivity(i);*/
 
 
 
@@ -423,11 +462,45 @@ public class Requested_Loan extends Fragment {
     public void launchCongrats(){
 
         Toast.makeText(getContext(),"congrats",Toast.LENGTH_SHORT).show();
+        String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
+        SessionManager.putStringInPreferences(getActivity(),String.valueOf(eligible_loan_amount),"eligible_loan_amount");
+        if (loantype.equals("Home")) {
 
-        Intent i=new Intent(getActivity(),Eligibility_Result.class);
+            adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+            viewPager = ((HomeLoan) getActivity()).getViewPager();
+            int index = (viewPager.getCurrentItem()) + 1;
+            if (index < adapter.mFragmentList.size()) {
+                adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                adapter.notifyDataSetChanged();
+
+
+
+            }
+            adapter.addFragment(new Summary(), "Summary");
+            adapter.notifyDataSetChanged();
+            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+        } else {
+            adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
+            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+            int index = (viewPager.getCurrentItem()) + 1;
+            if (index < adapter1.mFragmentList.size()) {
+                adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                adapter1.notifyDataSetChanged();
+
+
+
+            }
+            adapter1.addFragment(new Summary(), "Summary");
+            adapter1.notifyDataSetChanged();
+            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+        }
+
+        /*Intent i=new Intent(getActivity(),Eligibility_Result.class);
 
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
+        startActivity(i);*/
 
     }
 

@@ -71,9 +71,9 @@ public class CarType extends Fragment {
                 ad.notifyDataSetChanged();
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                pb.setProgress(30);
+                pb.setProgress(40);
 
-                progress.setText(String.valueOf(30));
+                progress.setText(String.valueOf(40));
 
 
             }
@@ -102,9 +102,9 @@ public class CarType extends Fragment {
 
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
-                pb.setProgress(30);
+                pb.setProgress(40);
 
-                progress.setText(String.valueOf(30));
+                progress.setText(String.valueOf(40));
 
 
 
