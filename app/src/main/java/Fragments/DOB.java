@@ -1,11 +1,6 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -20,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
@@ -37,7 +33,8 @@ import Utility.SessionManager;
 public class DOB extends Fragment {
     EditText text;
     ViewPager viewPager;
-    HomeLoan.ViewPagerAdapter ad;
+    private CarLoanActivity.ViewPagerAdapter ad;
+    private HomeLoan.ViewPagerAdapter ad2;
     Calendar myCalendar = Calendar.getInstance();
     ProgressBar pb;
     TextView progress ;
@@ -75,41 +72,91 @@ public class DOB extends Fragment {
                              Bundle savedInstanceState) {
         final View y = inflater.inflate(R.layout.fragment_dob, container, false);
         Button b1 = (Button) y.findViewById(R.id.button);
-        ad = ((HomeLoan)getActivity()).getCurrAdapter();
-        viewPager = ((HomeLoan)getActivity()).getViewPager();
         text = (EditText) y.findViewById(R.id.editText);
-        pb = ((HomeLoan)getActivity()).getPb();
 
-        progress = ((HomeLoan)getActivity()).getprogresstv();
+
+        final String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
+
+
+
+        if(type.equals("Vehicle")) {
+            ad = ((CarLoanActivity) getActivity()).getCurrAdapter();
+            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+            pb = ((CarLoanActivity)getActivity()).getPb();
+            progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
+        }
+        else if(type.equals("Home")){
+            ad2 = ((HomeLoan)getActivity()).getCurrAdapter();
+            viewPager = ((HomeLoan)getActivity()).getViewPager();
+            progress = ((HomeLoan)getActivity()).getprogresstv();
+            pb = ((HomeLoan)getActivity()).getPb();
+
+        }
+
+
+
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!text.getText().toString().equals("")) {
 
-                    //SESSION MANAGER
-                    SessionManager.putStringInPreferences(getContext(), text.getText().toString(), "DOB");
 
-                    int index = (viewPager.getCurrentItem()) + 1;
-                    if (index < ad.mFragmentList.size()) {
-                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    if (type.equals("Vehicle")) {
+
+                        //SESSION MANAGER
+                        SessionManager.putStringInPreferences(getContext(), text.getText().toString(), "DOB");
+
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < ad.mFragmentList.size()) {
+                            ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                            ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                            ad.notifyDataSetChanged();
+
+
+                        }
+
+
+                        ad.addFragment(new VehSelect(), "VehSelect");
                         ad.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                        int p = Integer.parseInt(progress.getText().toString());
+                        pb.setProgress(20);
+
+                        progress.setText(String.valueOf(20));
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                    } else if (type.equals("Home")) {
+
+
+                        SessionManager.putStringInPreferences(getContext(), text.getText().toString(), "DOB");
+
+                        int index = (viewPager.getCurrentItem()) + 1;
+                        if (index < ad2.mFragmentList.size()) {
+                            ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                            ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                            ad2.notifyDataSetChanged();
+
+
+                        }
+
+
+                        ad2.addFragment(new HomePropLoc(), "HomePropLoc");
+                        ad2.notifyDataSetChanged();
+                        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                        int p = Integer.parseInt(progress.getText().toString());
+                        pb.setProgress(20);
+
+                        progress.setText(String.valueOf(20));
+                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
                     }
-
-
-                    ad.addFragment(new HomePropLoc(), "HomePropLoc");
-                    ad.notifyDataSetChanged();
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                    int p = Integer.parseInt(progress.getText().toString());
-                    pb.setProgress(20);
-
-                    progress.setText(String.valueOf(20));
                 }
             }
         });
+
 
 
         text.setOnClickListener(new View.OnClickListener() {

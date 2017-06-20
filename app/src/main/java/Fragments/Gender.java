@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
@@ -25,7 +26,11 @@ import Utility.SessionManager;
  */
 
 public class Gender extends Fragment {
-    HomeLoan.ViewPagerAdapter ad;
+    HomeLoan.ViewPagerAdapter ad2;
+    CarLoanActivity.ViewPagerAdapter ad;
+    private ProgressBar pb;
+    private TextView progress;
+
     ViewPager viewPager;
     @Nullable
     @Override
@@ -38,10 +43,24 @@ public class Gender extends Fragment {
         ImageView female = (ImageView) view.findViewById(R.id.femalecheck);
         Button others=(Button) view.findViewById(R.id.others);
 
-        ad = ((HomeLoan)getActivity()).getCurrAdapter();
-        viewPager = ((HomeLoan)getActivity()).getViewPager();
-        final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
-        final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
+
+
+
+
+        final String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
+
+
+
+        if(type.equals("Vehicle")) {
+            ad = ((CarLoanActivity) getActivity()).getCurrAdapter();
+            viewPager = ((CarLoanActivity) getActivity()).getViewPager();
+        }
+        else if(type.equals("Home")){
+            ad2 = ((HomeLoan)getActivity()).getCurrAdapter();
+            viewPager = ((HomeLoan)getActivity()).getViewPager();
+
+        }
+
 
 
         male.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +68,61 @@ public class Gender extends Fragment {
             public void onClick(View v) {
 
                 SessionManager.putStringInPreferences(getActivity(),"Male","gender");
+
+                if (type.equals("Vehicle")) {
+
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad.addFragment(new DOB(), "DOB");
+                    ad.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(15);
+
+                    progress.setText(String.valueOf(15));
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                } else if (type.equals("Home")) {
+
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    pb = ((HomeLoan)getActivity()).getPb();
+
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad2.addFragment(new DOB(), "DOB");
+                    ad2.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(15);
+
+                    progress.setText(String.valueOf(15));
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+                }
+
+                /*
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -71,6 +145,8 @@ public class Gender extends Fragment {
                 pb.setProgress(15);
 
                 progress.setText(String.valueOf(15));
+                */
+
             }
         });
 
@@ -79,26 +155,60 @@ public class Gender extends Fragment {
             @Override
             public void onClick(View view) {
                 SessionManager.putStringInPreferences(getActivity(),"Female","gender");
-                int index = (viewPager.getCurrentItem()) + 1;
-                if (index < ad.mFragmentList.size()) {
-                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+
+                if (type.equals("Vehicle")) {
+
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad.addFragment(new DOB(), "DOB");
                     ad.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(15);
+
+                    progress.setText(String.valueOf(15));
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                } else if (type.equals("Home")) {
+
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    pb = ((HomeLoan)getActivity()).getPb();
 
 
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad2.addFragment(new DOB(), "DOB");
+                    ad2.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(15);
+
+                    progress.setText(String.valueOf(15));
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
                 }
 
-
-                ad.addFragment(new DOB(), "DOB");
-                ad.notifyDataSetChanged();
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                int p = Integer.parseInt(progress.getText().toString());
-                pb.setProgress(15);
-
-                progress.setText(String.valueOf(15));
-                //Log.d("1", editothers.getText().toString());
             }
         });
 
@@ -108,28 +218,60 @@ public class Gender extends Fragment {
             public void onClick(View view) {
 
                 SessionManager.putStringInPreferences(getActivity(),"Others","gender");
+                if (type.equals("Vehicle")) {
 
-                int index = (viewPager.getCurrentItem()) + 1;
-                if (index < ad.mFragmentList.size()) {
-                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
+
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                        ad.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad.addFragment(new DOB(), "DOB");
                     ad.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(15);
+
+                    progress.setText(String.valueOf(15));
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+                } else if (type.equals("Home")) {
+
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    pb = ((HomeLoan)getActivity()).getPb();
 
 
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad2.mFragmentList.size()) {
+                        ad2.mFragmentList.subList(index, ad2.mFragmentList.size()).clear();
+                        ad2.mFragmentTitleList.subList(index, ad2.mFragmentTitleList.size()).clear();
+                        ad2.notifyDataSetChanged();
+
+
+                    }
+
+
+                    ad2.addFragment(new DOB(), "DOB");
+                    ad2.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    int p = Integer.parseInt(progress.getText().toString());
+                    pb.setProgress(15);
+
+                    progress.setText(String.valueOf(15));
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
 
 
                 }
 
 
-                ad.addFragment(new DOB(), "DOB");
-                ad.notifyDataSetChanged();
-                Log.d("1", SessionManager.getStringFromPreferences(getContext(),"gender").toString());
-
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-
-                pb.setProgress(15);
-
-                progress.setText(String.valueOf(15));
             }
 
 
