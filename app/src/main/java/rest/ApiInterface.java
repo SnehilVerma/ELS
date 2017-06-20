@@ -9,6 +9,8 @@ import Model.RegisterRequestModel;
 
 import java.util.Map;
 
+import Model.SendOtpForLoginRequest;
+import Model.SendOtpForLoginResponse;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -32,4 +34,7 @@ public interface ApiInterface {
 
     @POST("api/v1/forgotpassword/")
     Call<ForgotPasswordResponseModel> IForgotPassword(@Body ForgotPasswordRequestModel forgotPasswordRequest);
+
+    @POST("api/v1/send/otp/")
+    Call<SendOtpForLoginResponse> SendOtp(@Body SendOtpForLoginRequest sendOtpForLoginRequest);
 }
