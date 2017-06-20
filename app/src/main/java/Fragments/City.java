@@ -260,7 +260,7 @@ public class City extends Fragment {
 
 
 
-                        ad.addFragment(new VehSelect(), "VehSelect");
+                        ad.addFragment(new Gender(), "Gender");
                         ad.notifyDataSetChanged();
                         Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 

@@ -111,7 +111,7 @@ public class HomeLoan extends AppCompatActivity
 
         int id = item.getItemId();
         if(id==R.id.nav_login){
-            Intent intent = new Intent(HomeLoan.this,login.class);
+            Intent intent = new Intent(HomeLoan.this,LogInActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 

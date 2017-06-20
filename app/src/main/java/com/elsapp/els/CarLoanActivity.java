@@ -136,7 +136,7 @@ public class CarLoanActivity extends AppCompatActivity
 
         int id = item.getItemId();
         if(id==R.id.nav_login){
-            Intent intent = new Intent(CarLoanActivity.this,login.class);
+            Intent intent = new Intent(CarLoanActivity.this,LogInActivity.class);
             startActivity(intent);
 
         }

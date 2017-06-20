@@ -41,7 +41,7 @@
             android:name=".LoanSelec"
             android:label="@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".login" />
+
         <activity android:name=".LogInActivity"></activity>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".ForgetPasswordActivity" />
@@ -51,6 +51,8 @@
             android:name=".Overall_Qec"
             android:label="@string/title_activity_overall__qec"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity android:name=".Details_Loan"></activity>
     </application>
 
 </manifest>
