@@ -15,7 +15,9 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
@@ -36,6 +38,8 @@ public class DOM extends Fragment {
 
     ViewPager viewPager;
     ViewPagerAdapter ad;
+    ProgressBar pb;
+    TextView progress;
 
 //    Calendar myCalender = Calendar.getInstance();
 
@@ -54,6 +58,8 @@ public class DOM extends Fragment {
 
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+        progress = ((CarLoanActivity)getActivity()).getprogresstv();
+        pb = ((CarLoanActivity)getActivity()).getPb();
 
 
         String[] items = new String[]{"No Selection","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
@@ -136,6 +142,9 @@ public class DOM extends Fragment {
                     ad.notifyDataSetChanged();
 
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                    pb.setProgress(45);
+
+                    progress.setText(String.valueOf(45));
 
                 }
                 else{
