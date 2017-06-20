@@ -61,7 +61,9 @@ public class Eligibility_Result extends AppCompatActivity {
                 call.enqueue(new Callback<Register>() {
                     @Override
                     public void onResponse(Call<Register> call, Response<Register> response) {
-                        
+                        if(response.body() != null){
+
+                        }
                     }
 
                     @Override
