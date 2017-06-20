@@ -41,8 +41,8 @@
             android:name=".LoanSelec"
             android:label= "@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LogInActivity" />
 
-        <activity android:name=".LogInActivity"/>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".Eligibility_Result" />
@@ -52,13 +52,36 @@
             android:name=".Overall_Qec"
             android:label="@string/title_activity_overall__qec"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Details_Loan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.HomeLoanDetails1"
+            android:label="@string/title_activity_home_loan_details1"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".Details_Loan"
-                  android:theme="@style/AppTheme.NoActionBar"/>
-
+        <activity
+            android:name=".Activities.HomeLoanDetails2"
+            android:label="@string/title_activity_home_loan_details2"
 
         <activity android:name=".TestVertical"
-                  android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.HomeLoanDetails3"
+            android:label="@string/title_activity_home_loan_details3"
+            android:theme="@style/AppTheme.NoActionBar">
+            <!-- <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
+        </activity>
     </application>
 
 </manifest>
