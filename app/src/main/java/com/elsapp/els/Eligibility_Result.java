@@ -1,6 +1,5 @@
 package com.elsapp.els;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -37,8 +36,8 @@ public class Eligibility_Result extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
-                startActivity(intent);
+                //Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
+                //startActivity(intent);
             }
         });
         

@@ -39,7 +39,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoanSelec"
-            android:label="@string/title_activity_loan_selec"
+            android:label= "@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".LogInActivity"/>
