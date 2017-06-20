@@ -13,6 +13,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -25,7 +27,6 @@ import com.elsapp.els.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import Adapter.City_Adapter;
 import Utility.SessionManager;
 
 /**
@@ -77,8 +78,13 @@ public class HomePropLoc extends Fragment {
         dialog.setContentView(R.layout.custom_city_dialog);
         dialog.setTitle("Choose a city");
         ListView cities=(ListView)dialog.findViewById(R.id.List);
-        final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
-        cities.setAdapter(adapter);
+        final AutoCompleteTextView city = (AutoCompleteTextView) dialog.findViewById(R.id.cityedit);
+        ArrayAdapter<String> adapterone = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, city_names);
+        city.setDropDownHeight(0);
+        //final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
+        cities.setAdapter(adapterone);
+        city.setAdapter(adapterone);
+        //final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
 
 
         cities.setOnItemClickListener(new OnItemClickListener() {

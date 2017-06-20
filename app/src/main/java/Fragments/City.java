@@ -12,6 +12,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,7 +28,6 @@ import com.elsapp.els.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import Adapter.City_Adapter;
 import Utility.SessionManager;
 
 
@@ -41,7 +42,9 @@ public class City extends Fragment {
 
     private CarLoanActivity.ViewPagerAdapter ad;
     private HomeLoan.ViewPagerAdapter ad2;
+
     private ViewPager viewPager;
+
     ArrayList<String> city_names;
 
 
@@ -60,8 +63,6 @@ public class City extends Fragment {
 
 
         Button b1=(Button)view.findViewById(R.id.b1);
-
-
         final SessionManager sessionManager=new SessionManager();
 
 
@@ -81,10 +82,24 @@ public class City extends Fragment {
         final Dialog dialog=new Dialog(getContext());
         dialog.setContentView(R.layout.custom_city_dialog);
         dialog.setTitle("Choose a city");
+        final AutoCompleteTextView city = (AutoCompleteTextView) dialog.findViewById(R.id.cityedit);
+        ArrayAdapter<String> adapterone = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, city_names);
         ListView cities=(ListView)dialog.findViewById(R.id.List);
-        final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
-        cities.setAdapter(adapter);
+        city.setDropDownHeight(0);
+        //final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
+        cities.setAdapter(adapterone);
+        city.setAdapter(adapterone);
+        /*city.setOnItemClickListener(new OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                //Student selected = (Student) arg0.getAdapter().getItem(arg2);
+                Toast.makeText(getActivity(),
+                        arg0.getAdapter().getItem(arg2).toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });*/
 
         cities.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -107,10 +122,14 @@ public class City extends Fragment {
                     }
 
 
-
+                    ad.addFragment(new Gender(),"Gender");
+                    ad.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    /*
                     ad.addFragment(new VehSelect(), "VehSelect");
                     ad.notifyDataSetChanged();
                     Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    */
 
 
                 }
@@ -175,7 +194,7 @@ public class City extends Fragment {
 
 
 
-                        ad.addFragment(new VehSelect(), "VehSelect");
+                        ad.addFragment(new Gender(), "Gender");
                         ad.notifyDataSetChanged();
                         Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
@@ -241,7 +260,7 @@ public class City extends Fragment {
 
 
 
-                        ad.addFragment(new VehSelect(), "VehSelect");
+                        ad.addFragment(new Gender(), "Gender");
                         ad.notifyDataSetChanged();
                         Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 

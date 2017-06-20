@@ -54,6 +54,7 @@ public class Co_App_Opt extends Fragment {
                 int idx = radioGroup.indexOfChild(radiobutton);
                 //Toast.makeText(getActivity(), String.valueOf(idx),Toast.LENGTH_SHORT).show();
                 if(idx == 0){
+                    
                     //yes.setChecked(true);
                     if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();

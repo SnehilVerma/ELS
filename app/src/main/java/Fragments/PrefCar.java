@@ -77,6 +77,14 @@ public class PrefCar extends Fragment {
 
                 SessionManager.putStringInPreferences(getContext(),String.valueOf(i),"car_option");
                 Toast.makeText(getContext(),i+"",Toast.LENGTH_SHORT).show();
+                int index = (viewPager.getCurrentItem()) + 1;
+                if (index < ad.mFragmentList.size()) {
+
+                    ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                    ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
+                    ad.notifyDataSetChanged();
+
+                }
                 ad.mFragmentList.add(new VehLoanCost());
                 ad.mFragmentTitleList.add("VehLoanCost");
                 ad.notifyDataSetChanged();

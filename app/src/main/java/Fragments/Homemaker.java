@@ -41,7 +41,7 @@ public class Homemaker extends Fragment {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if((!income.getText().toString().equals(""))&&(!emi.getText().toString().equals(""))) {
+                if((!income.getText().toString().equals(""))) {
 
 
                     SessionManager.putStringInPreferences(getContext(), income.getText().toString(), "gross_salary");
