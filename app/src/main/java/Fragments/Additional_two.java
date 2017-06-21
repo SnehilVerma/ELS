@@ -30,7 +30,6 @@ public class Additional_two extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        Toast.makeText(getActivity(),"additional2",Toast.LENGTH_LONG).show();
         final View view = inflater.inflate(R.layout.fragment_additional_2, container, false);
         arrspin1 = new String[]{
                   "Immovable Asset","Movable Asset"

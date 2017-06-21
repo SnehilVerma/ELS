@@ -23,7 +23,7 @@ public class Add_Pager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pager);
-        Toast.makeText(getApplicationContext(),"After Intent",Toast.LENGTH_SHORT).show();
+        getSupportActionBar().hide();
         verticalViewPager = (VerticalViewPager)findViewById(R.id.viewpager);
         setupViewPager(verticalViewPager);
 
