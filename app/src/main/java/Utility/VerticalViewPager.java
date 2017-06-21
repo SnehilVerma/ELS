@@ -29,6 +29,18 @@ public class VerticalViewPager extends ViewPager {
         setOverScrollMode(OVER_SCROLL_NEVER);
     }
 
+
+    // TODO: BC TESTING.
+
+
+
+    @Override
+    public boolean canScrollHorizontally(int direction) {
+        return false;
+    }
+
+
+
     private class VerticalPageTransformer implements ViewPager.PageTransformer {
 
         @Override

@@ -53,6 +53,10 @@
         <activity
             android:name=".Details_Loan_Vehicle"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Details_Loan_Home"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.HomeLoanDetails1"
             android:label="@string/title_activity_home_loan_details1"
