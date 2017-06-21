@@ -9,20 +9,16 @@ import android.view.ViewGroup;
 
 import com.elsapp.els.R;
 
-
 /**
- * Created by snehil on 20/6/17.
+ * Created by snehil on 21/6/17.
  */
 
-public class Personal extends Fragment {
+public class Fragment_Comm_One extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        final View view=inflater.inflate(R.layout.fragment_personal, container, false);
+        View view = inflater.inflate(R.layout.fragment_comm_one,container,false);
         return view;
-
-
     }
 }
