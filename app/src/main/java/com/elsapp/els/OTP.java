@@ -24,8 +24,7 @@ public class OTP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
-        EditText otpone = (EditText) findViewById(R.id.otp);
-        final String otp = otpone.getText().toString();
+        final EditText otpone = (EditText) findViewById(R.id.otp);
         final Button verify = (Button) findViewById(R.id.verify);
         final LinearLayout lemail = (LinearLayout) findViewById(R.id.lemailid);
         final LinearLayout lpass = (LinearLayout) findViewById(R.id.lpass);
@@ -37,6 +36,7 @@ public class OTP extends AppCompatActivity {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                 VerifyOTPRequestModel verifyOTPRequestModel = new VerifyOTPRequestModel();
                 verifyOTPRequestModel.setContact_no(SessionManager.getStringFromPreferences(getApplicationContext(),"contact_no"));
+                final String otp = otpone.getText().toString();
                 verifyOTPRequestModel.setOtp(otp);
                 Call<VerifyOTP> call = apiService.IVerify(verifyOTPRequestModel);
                 call.enqueue(new Callback<VerifyOTP>() {
