@@ -1,59 +1,66 @@
-package com.elsapp.els;
+package Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.elsapp.els.Comm_Pager;
+import com.elsapp.els.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.LoanRepayment;
-import Fragments.LoanSpecific;
-import Fragments.Communication;
 
 /**
  * Created by snehil on 20/6/17.
  */
 
-public class Details_Loan extends BaseActivity {
-
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+public class Communication extends Fragment {
 
 
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_details_loan);
+        final View view=inflater.inflate(R.layout.fragment_communication, container, false);
 
+        Button b1=(Button)view.findViewById(R.id.b1);
+        b1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getContext(),Comm_Pager.class);
+                startActivity(i);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+            }
+        });
 
+//        verticalViewPager=(VerticalViewPager)view.findViewById(R.id.viewpager);
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+  //      setupViewPager(verticalViewPager);
+
+        return view;
 
 
     }
 
-
-
     private void setupViewPager(ViewPager viewPager) {
-        Details_Loan.ViewPagerAdapter adapter=new Details_Loan.ViewPagerAdapter(getSupportFragmentManager());
+        Communication.ViewPagerAdapter adapter=new Communication.ViewPagerAdapter(getFragmentManager());
 
-        adapter.addFragment(new Communication(), "Communication");
+        //adapter.addFragment(new Communication(), "Communication");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
 
     }
-
-
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
