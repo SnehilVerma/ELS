@@ -1,15 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView5"
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Applicant's Name"
+                android:layout_toStartOf="@+id/appname"
+                android:layout_marginEnd="13dp"
+                android:layout_alignBottom="@+id/appname"
+                android:layout_alignTop="@+id/appname" />
+
+        <EditText
+            android:id="@+id/appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="personal"/>
+        android:background="@drawable/shape"
+        android:layout_below="@+id/appname"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginTop="12dp"
+        android:id="@+id/linearLayout3">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Type"
+            android:id="@+id/statustext"
+            android:textSize="15dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type">
+
+        </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:id="@+id/linear1"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignStart="@+id/linearLayout3"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Relation"
+
+            android:textSize="15dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type2">
+
+        </Spinner>
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/linear1"
+            android:layout_alignTop="@+id/linear1"
+            android:background="@drawable/shape"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text="Relation"
+                android:textSize="15dp" />
+
+            <Spinner
+                android:id="@+id/type3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:id="@+id/linear3"
+        android:visibility="invisible"
+        android:layout_below="@+id/linear1"
+        android:layout_alignStart="@+id/linear1"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text=" Relation"
+            android:textSize="15dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type4">
+
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:id="@+id/linear4"
+        android:visibility="invisible"
+        android:layout_below="@+id/linear1"
+        android:layout_alignStart="@+id/linear1"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text=" Relation"
+            android:textSize="15dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type5">
+
+        </Spinner>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/namerel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="invisible"
+        android:hint="Name of Relation"
+        android:inputType="textPersonName"
+        android:layout_alignBottom="@+id/linear3"
+        android:layout_alignStart="@+id/linear3" />
+
+    <EditText
+        android:id="@+id/namerel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:ems="10"
+        android:hint="Name of Relation"
+        android:inputType="textPersonName"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/linear3"
+        android:layout_alignStart="@+id/linear3" />
+
+
+
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:text="Date of Birth"
+                android:layout_alignBaseline="@+id/dob"
+                android:layout_alignBottom="@+id/dob"
+                android:layout_alignEnd="@+id/textView6" />
+        <EditText
+            android:id="@+id/dob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/namerel2"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/textView6"
+            android:ems="10"
+            android:hint="DD/MM/YYYY"
+            android:inputType="date" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:id="@+id/marry"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/dob"
+        android:layout_alignStart="@+id/textView9">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="36dp"
+            android:text="Marital \nStatus"
+            android:textSize="15dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/marital">
+
+        </Spinner>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
