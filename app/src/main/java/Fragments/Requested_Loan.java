@@ -352,7 +352,7 @@ public class Requested_Loan extends Fragment {
 
         final Dialog dialog=new Dialog(getContext());
         dialog.setContentView(R.layout.custom_home_eligible);
-        Button lb=(Button)dialog.findViewById(R.id.b1);
+        Button lb=(Button)dialog.findViewById(R.id.b2);
         Button rb=(Button)dialog.findViewById(R.id.b2);
         TextView tv=(TextView)dialog.findViewById(R.id.tv1);
         tv.setText(String.valueOf(eligible_loan_amount));
@@ -416,7 +416,7 @@ public class Requested_Loan extends Fragment {
         final Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.custom_eligibile_dialog);
 
-        Button lb=(Button)dialog.findViewById(R.id.b1);
+        Button lb=(Button)dialog.findViewById(R.id.b2);
         Button rb=(Button)dialog.findViewById(R.id.b2);
         TextView tv=(TextView)dialog.findViewById(R.id.tv1);
 

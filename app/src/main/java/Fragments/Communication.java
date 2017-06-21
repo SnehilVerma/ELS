@@ -33,7 +33,7 @@ public class Communication extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_communication, container, false);
 
-        Button b1=(Button)view.findViewById(R.id.b1);
+        Button b1=(Button)view.findViewById(R.id.b2);
         b1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

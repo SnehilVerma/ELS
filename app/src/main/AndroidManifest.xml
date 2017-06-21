@@ -73,7 +73,10 @@
         <activity
             android:name=".Comm_Pager"
             android:theme="@style/AppTheme.NoAction" />
+
+        <activity android:name=".personal_pager"></activity>
         <activity android:name=".Add_Pager"></activity>
+
     </application>
 
 </manifest>
