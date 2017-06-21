@@ -14,10 +14,10 @@ import android.widget.Spinner;
 import com.elsapp.els.R;
 
 
-public class personal1 extends Fragment {
+public class personl_2 extends Fragment {
     EditText gender,number,mail;
-    Spinner religion,soi;
-    private String[] arrrel,arrsoi;
+    Spinner religion,soi,caste;
+    private String[] arrrel,arrsoi,arrcas;
     LinearLayout castlin;
 
     @Override
@@ -31,6 +31,7 @@ public class personal1 extends Fragment {
         number = (EditText) x.findViewById(R.id.mob);
         mail= (EditText) x.findViewById(R.id.mail);
         soi = (Spinner) x.findViewById(R.id.soi);
+        caste = (Spinner) x.findViewById(R.id.caste);
 
         this.arrrel = new String[]{
                 "Hindu","Muslim","Cristian","Sikh","Buddhist","Zoroastrian","Jain","No Religion"
@@ -43,13 +44,20 @@ public class personal1 extends Fragment {
         };
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrsoi);
         soi.setAdapter(adapter1);
+        this.arrcas = new String[]{
+                "General","SC","ST","OBC"
+        };
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrcas);
+        caste.setAdapter(adapter2);
+
 
         religion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(i==0||i==4){
                     castlin.setVisibility(View.VISIBLE);
-
+                }else{
+                    castlin.setVisibility(View.INVISIBLE);
                 }
             }
 

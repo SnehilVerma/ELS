@@ -62,7 +62,7 @@ public class City extends Fragment {
 
 
 
-        Button b1=(Button)view.findViewById(R.id.b1);
+        Button b1=(Button)view.findViewById(R.id.b2);
         final SessionManager sessionManager=new SessionManager();
 
 

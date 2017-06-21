@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.Fragment_Comm_One;
-import Fragments.personal;
+import Fragments.personal_1;
 import Utility.VerticalViewPager;
 
 /**
@@ -43,7 +43,7 @@ public class Comm_Pager extends BaseActivity {
         Comm_Pager.ViewPagerAdapter adapter=new Comm_Pager.ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new Fragment_Comm_One(), "Fragment_Comm_One");
-        adapter.addFragment(new personal(), "Fragment_Comm_Two");
+        adapter.addFragment(new personal_1(), "Fragment_Comm_Two");
         //adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
 
