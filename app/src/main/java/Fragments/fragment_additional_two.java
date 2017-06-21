@@ -13,10 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.elsapp.els.R;
 
-public class additional_two extends Fragment {
+public class fragment_additional_two extends Fragment {
 
 
     LinearLayout ptype,atype;
@@ -29,7 +30,7 @@ public class additional_two extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
+        Toast.makeText(getActivity(),"additional2",Toast.LENGTH_LONG).show();
         final View view = inflater.inflate(R.layout.fragment_additional_2, container, false);
         arrspin1 = new String[]{
                   "Immovable Asset","Movable Asset"
@@ -48,14 +49,14 @@ public class additional_two extends Fragment {
         snature = (Spinner)view.findViewById(R.id.snature);
         adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin1);
         snature.setAdapter(adapter);
-        simmovable = (Spinner)view.findViewById(R.id.snature);
+        simmovable = (Spinner)view.findViewById(R.id.simmovable);
         adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin2);
         simmovable.setAdapter(adapter);
-        smovable = (Spinner)view.findViewById(R.id.snature);
-        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin2);
+        smovable = (Spinner)view.findViewById(R.id.smovable);
+        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin3);
         smovable.setAdapter(adapter);
 
-        snature.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*snature.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position==0){
@@ -65,21 +66,71 @@ public class additional_two extends Fragment {
                     lmovable.setVisibility(view.VISIBLE);
                 }
             }
+        });*/
+        snature.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position==0){
+                    lImmovable.setVisibility(view.VISIBLE);
+                    lmovable.setVisibility(view.GONE);
+                    ptype.setVisibility(view.GONE);
+                    atype.setVisibility(view.GONE);
+                }
+                else{
+                    lmovable.setVisibility(view.VISIBLE);
+                    lImmovable.setVisibility(view.GONE);
+                    ptype.setVisibility(view.GONE);
+                    atype.setVisibility(view.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
 
-        simmovable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* simmovable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ptype.setVisibility(view.VISIBLE);
             }
-        });
+        });*/
 
-        smovable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       simmovable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               ptype.setVisibility(view.VISIBLE);
+               atype.setVisibility(view.GONE);
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+
+           }
+       });
+
+       /* smovable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 atype.setVisibility(view.VISIBLE);
             }
-        });
+        });*/
+
+
+       smovable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               atype.setVisibility(view.VISIBLE);
+               ptype.setVisibility(view.GONE);
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+
+           }
+       });
+
         return view;
     }
 }

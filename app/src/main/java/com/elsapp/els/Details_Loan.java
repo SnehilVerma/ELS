@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragments.Additional;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
 import Fragments.Communication;
@@ -49,6 +50,7 @@ public class Details_Loan extends BaseActivity {
         adapter.addFragment(new Communication(), "Communication");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
+        adapter.addFragment(new Additional(), "Additional");
         viewPager.setAdapter(adapter);
 
     }

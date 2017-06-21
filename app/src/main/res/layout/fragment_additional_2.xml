@@ -30,7 +30,8 @@
     android:layout_height="wrap_content"
     android:layout_below="@+id/lnature"
     android:id="@+id/limmovable"
-    android:visibility="invisible">
+    android:gravity="center"
+    android:visibility="gone">
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,7 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/lnature"
         android:id="@+id/lmovable"
-        android:visibility="invisible">
+        android:gravity="center"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,7 +81,7 @@
         android:layout_marginTop="50dp"
         android:id="@+id/ptype"
         android:gravity="center"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -131,7 +133,7 @@
         android:layout_below="@+id/limmovable"
         android:layout_marginTop="50dp"
         android:gravity="center"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -143,13 +145,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name Of Bank : "/>
+                android:text="Name of \n Bank/Investment : "/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
-                android:hint="Bank Name"/>
+                android:hint="Name"/>
 
 
         </LinearLayout>

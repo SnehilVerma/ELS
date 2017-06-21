@@ -52,44 +52,5 @@ public class Communication extends Fragment {
 
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        Communication.ViewPagerAdapter adapter=new Communication.ViewPagerAdapter(getFragmentManager());
 
-        //adapter.addFragment(new Communication(), "Communication");
-        adapter.addFragment(new LoanSpecific(), "LoanSpecific");
-        adapter.addFragment(new LoanRepayment(), "LoanRepayment");
-        viewPager.setAdapter(adapter);
-
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-
-            return mFragmentTitleList.get(position);
-
-        }
-    }
 }
