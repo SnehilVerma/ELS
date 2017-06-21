@@ -66,7 +66,6 @@ public class Requested_Loan extends Fragment {
 
 
         et=(EditText)view.findViewById(R.id.loan);
-        et.setText("00.00");
 
 
         final String loan_type=SessionManager.getStringFromPreferences(getContext(),"loantype");

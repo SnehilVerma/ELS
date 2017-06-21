@@ -69,32 +69,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv2"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-            android:id="@+id/firstname"
+            android:id="@+id/name"
             android:maxLength="50"
-            android:hint="First Name"/>
-        <EditText
-            android:layout_width="220dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/firstname"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-            android:id="@+id/middlename"
-            android:maxLength="50"
-            android:hint="Middle Name"/>
-        <EditText
-            android:layout_width="220dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/middlename"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-            android:id="@+id/lastname"
-            android:maxLength="50"
-            android:hint="Last Name"/>
+            android:hint="Name"/>
 
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lastname"
+            android:layout_below="@+id/name"
             android:layout_centerHorizontal="true"
             android:id="@+id/mob"
             android:digits="0123456789"
