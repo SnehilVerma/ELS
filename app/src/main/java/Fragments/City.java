@@ -62,7 +62,7 @@ public class City extends Fragment {
 
 
 
-        Button b1=(Button)view.findViewById(R.id.b1);
+        Button b1=(Button)view.findViewById(R.id.b2);
         final SessionManager sessionManager=new SessionManager();
 
 
@@ -185,18 +185,18 @@ public class City extends Fragment {
                     progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
 
-                        int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < ad.mFragmentList.size()) {
-                            ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
-                            ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
-                            ad.notifyDataSetChanged();
-                        }
-
-
-
-                        ad.addFragment(new Gender(), "Gender");
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < ad.mFragmentList.size()) {
+                        ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
+                        ad.mFragmentTitleList.subList(index, ad.mFragmentTitleList.size()).clear();
                         ad.notifyDataSetChanged();
-                        Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    }
+
+
+
+                    ad.addFragment(new Gender(), "Gender");
+                    ad.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
 
                 }
@@ -260,11 +260,11 @@ public class City extends Fragment {
 
 
 
-                        ad.addFragment(new Gender(), "Gender");
-                        ad.notifyDataSetChanged();
-                        Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    ad.addFragment(new Gender(), "Gender");
+                    ad.notifyDataSetChanged();
+                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
-                    }
+                }
 
                 else {
 

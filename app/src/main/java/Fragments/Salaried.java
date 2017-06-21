@@ -48,9 +48,6 @@ public class Salaried extends Fragment{
         final EditText gmincome = (EditText) view.findViewById(R.id.gmincome);
         final EditText msalary = (EditText) view.findViewById(R.id.msalary);
         final EditText emi = (EditText) view.findViewById(R.id.emi);
-        gmincome.setText("00");
-        msalary.setText("00");
-        emi.setText("00");
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
@@ -162,7 +159,7 @@ public class Salaried extends Fragment{
                 String gross=gmincome.getText().toString();
                 String takeaway=msalary.getText().toString();
                 String existing_emi=emi.getText().toString();
-                if(gross.equals("00")|| takeaway.equals("00")|| existing_emi.equals("00")||gross.equals("")|| takeaway.equals("")){
+                if(gross.equals("")|| takeaway.equals("")|| existing_emi.equals("")||gross.equals("")|| takeaway.equals("")){
                     Snackbar snackbar = Snackbar
                             .make(cl, "Please fill all details", Snackbar.LENGTH_LONG);
 

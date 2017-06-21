@@ -118,7 +118,7 @@ public class DOM extends Fragment {
         });
 
 
-        Button b1=(Button)view.findViewById(R.id.b1);
+        Button b1=(Button)view.findViewById(R.id.b2);
         b1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

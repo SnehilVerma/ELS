@@ -173,7 +173,7 @@ public class DOB extends Fragment {
                 dialog=new DatePickerDialog(getActivity(),date , myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH));
-                dialog.getDatePicker().setMaxDate(System.currentTimeMillis()-(long)5.676e+11-(long)3.456e+8);
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis()-(long)5.676e+11-(long)3.456e+8-(long)8.64e+7);
                 dialog.show();
             }
         });

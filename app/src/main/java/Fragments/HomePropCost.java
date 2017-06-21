@@ -49,7 +49,7 @@ public class HomePropCost extends Fragment {
 
 
 
-        Button b1 = (Button) view.findViewById(R.id.b1);
+        Button b1 = (Button) view.findViewById(R.id.b2);
         cost.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {

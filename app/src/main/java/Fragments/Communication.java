@@ -33,19 +33,9 @@ public class Communication extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_communication, container, false);
 
+
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.viewpager);
 
-        /*
-        Button b1=(Button)view.findViewById(R.id.b1);
-        b1.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(getContext(),Comm_Pager.class);
-                startActivity(i);
-
-            }
-        });
-        */
         setupViewPager(verticalViewPager);
 
 
@@ -53,6 +43,7 @@ public class Communication extends Fragment {
 
 
     }
+
 
 
     private void setupViewPager(ViewPager viewPager) {
