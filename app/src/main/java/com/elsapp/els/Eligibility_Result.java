@@ -46,10 +46,10 @@ public class Eligibility_Result extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
+
                 //Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
                 //startActivity(intent);
-=======
+
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                 String city = SessionManager.getStringFromPreferences(getApplicationContext(),"city");
                 String dob = SessionManager.getStringFromPreferences(getApplicationContext(),"DOB");
@@ -84,9 +84,9 @@ public class Eligibility_Result extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_SHORT).show();
                     }
                 });
-                Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
-                startActivity(intent);
->>>>>>> 84f54e72c6811625ad6bb389b0a74828cd298f95
+             /*   Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
+                startActivity(intent);*/
+
             }
         });
         
