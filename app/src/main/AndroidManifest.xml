@@ -48,10 +48,7 @@
         <activity android:name=".Eligibility_Result" />
         <activity android:name=".Failure_Result" />
 
-        <activity
-            android:name=".Overall_Qec"
-            android:label="@string/title_activity_overall__qec"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".Details_Loan"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -65,13 +62,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Details_Loan"
+
         <activity
             android:name=".Activities.HomeLoanDetails2"
-            android:label="@string/title_activity_home_loan_details2"
+            android:label="@string/title_activity_home_loan_details2"/>
 
         <activity android:name=".TestVertical"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Activities.HomeLoanDetails3"
             android:label="@string/title_activity_home_loan_details3"
