@@ -21,7 +21,7 @@ import Fragments.personal_1;
  * Created by snehil on 20/6/17.
  */
 
-public class Details_Loan extends BaseActivity {
+public class Details_Loan_Vehicle extends BaseActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -47,7 +47,7 @@ public class Details_Loan extends BaseActivity {
 
 
     private void setupViewPager(ViewPager viewPager) {
-        Details_Loan.ViewPagerAdapter adapter=new Details_Loan.ViewPagerAdapter(getSupportFragmentManager());
+        Details_Loan_Vehicle.ViewPagerAdapter adapter=new Details_Loan_Vehicle.ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new Personal(), "Personal");
         adapter.addFragment(new Communication(), "Communication");
