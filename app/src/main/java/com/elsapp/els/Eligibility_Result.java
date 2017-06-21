@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import Model.Register;
 import Model.RegisterRequestModel;
+import Model.SendOtpForLoginRequest;
+import Model.SendOtpForLoginResponse;
 import Utility.SessionManager;
 import rest.ApiClient;
 import rest.ApiInterface;
@@ -71,14 +73,39 @@ public class Eligibility_Result extends AppCompatActivity {
 
                     }
                 });
-                Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
-                startActivity(intent);
+
+
+
+                String contact = "7045747795";
+                ApiInterface apiInterface = new ApiClient().getClient().create(ApiInterface.class);
+                SendOtpForLoginRequest sendOtpForLoginRequest = new SendOtpForLoginRequest();
+                sendOtpForLoginRequest.setContactNo(contact);
+                Call<SendOtpForLoginResponse> otpcall = apiInterface.SendOtp(sendOtpForLoginRequest);
+                otpcall.enqueue(new Callback<SendOtpForLoginResponse>() {
+                    @Override
+                    public void onResponse(Call<SendOtpForLoginResponse> call, Response<SendOtpForLoginResponse> response) {
+                        if (response.body()!=null)
+                            Toast.makeText(getApplicationContext(),"Hello OTP",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<SendOtpForLoginResponse> call, Throwable t) {
+
+                    }
+                });
+
+
+
+                /*Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
+                startActivity(intent);*/
             }
+
+
         });
         
 
-
-
-
     }
+
+
+
 }
