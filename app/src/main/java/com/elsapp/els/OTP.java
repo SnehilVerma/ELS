@@ -36,8 +36,7 @@ public class OTP extends AppCompatActivity {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                 VerifyOTPRequestModel verifyOTPRequestModel = new VerifyOTPRequestModel();
                 verifyOTPRequestModel.setContact_no(SessionManager.getStringFromPreferences(getApplicationContext(),"contact_no"));
-                final String otp = otpone.getText().toString();
-                verifyOTPRequestModel.setOtp(otp);
+                verifyOTPRequestModel.setOtp(otpone.getText().toString());
                 Call<VerifyOTP> call = apiService.IVerify(verifyOTPRequestModel);
                 call.enqueue(new Callback<VerifyOTP>() {
                     @Override
