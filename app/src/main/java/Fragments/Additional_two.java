@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.elsapp.els.R;
 
-public class fragment_additional_two extends Fragment {
+public class Additional_two extends Fragment {
 
 
     LinearLayout ptype,atype;

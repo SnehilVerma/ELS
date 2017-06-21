@@ -32,10 +32,15 @@ public class Additional_one extends Fragment{
         String[] branches = new String[]{"No Selection"};
         ArrayAdapter<String > b_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,branches);
         branchname.setAdapter(b_adapter);
-        bankname.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        bankname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 branchname.setEnabled(true);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         String[] accounts = new String[]{"No Selection","Saving Bank","Current Account","Fixed Deposit","Loan Account","Recurring Deposit"};

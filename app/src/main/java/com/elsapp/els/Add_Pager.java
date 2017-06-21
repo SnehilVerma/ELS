@@ -10,7 +10,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.fragment_additional_two;
+import Fragments.Additional_one;
+import Fragments.Additional_three;
+import Fragments.Additional_two;
 import Utility.VerticalViewPager;
 
 public class Add_Pager extends AppCompatActivity {
@@ -29,7 +31,9 @@ public class Add_Pager extends AppCompatActivity {
 
     public void setupViewPager(VerticalViewPager upViewPager) {
         Add_Pager.ViewPagerAdapter adapter = new Add_Pager.ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new fragment_additional_two(),"additionaltwo");
+        adapter.addFragment(new Additional_one(),"additionalone");
+        adapter.addFragment(new Additional_two(),"additionaltwo");
+        adapter.addFragment(new Additional_three(),"additionalthree");
         upViewPager.setAdapter(adapter);
     }
 
