@@ -7,17 +7,18 @@ import Model.LoginResponseModel;
 import Model.Register;
 import Model.RegisterRequestModel;
 
+
 import java.util.Map;
 
 import Model.SendOtpForLoginRequest;
 import Model.SendOtpForLoginResponse;
 import okhttp3.RequestBody;
+
+import Model.VerifyOTP;
+import Model.VerifyOTPRequestModel;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 
 /**
@@ -31,6 +32,9 @@ public interface ApiInterface {
 
     @POST("api/v1/register/")
     Call<Register> IRegistration(@Body RegisterRequestModel registerRequest);
+
+    @POST("api/v1/send/otp")
+    Call<VerifyOTP> IVerify(@Body VerifyOTPRequestModel verifyOTPRequestModel);
 
     @POST("api/v1/forgotpassword/")
     Call<ForgotPasswordResponseModel> IForgotPassword(@Body ForgotPasswordRequestModel forgotPasswordRequest);
