@@ -51,7 +51,7 @@
         <activity android:name=".Eligibility_Result" />
         <activity android:name=".Failure_Result" />
         <activity
-            android:name=".Details_Loan"
+            android:name=".Details_Loan_Vehicle"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.HomeLoanDetails1"

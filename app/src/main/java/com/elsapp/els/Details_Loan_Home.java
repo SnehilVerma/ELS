@@ -10,15 +10,15 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragments.Communication;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
-import Fragments.Communication;
 
 /**
- * Created by snehil on 20/6/17.
+ * Created by snehil on 21/6/17.
  */
 
-public class Details_Loan extends BaseActivity {
+public class Details_Loan_Home extends BaseActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -44,7 +44,7 @@ public class Details_Loan extends BaseActivity {
 
 
     private void setupViewPager(ViewPager viewPager) {
-        Details_Loan.ViewPagerAdapter adapter=new Details_Loan.ViewPagerAdapter(getSupportFragmentManager());
+        Details_Loan_Home.ViewPagerAdapter adapter=new Details_Loan_Home.ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new Communication(), "Communication");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
