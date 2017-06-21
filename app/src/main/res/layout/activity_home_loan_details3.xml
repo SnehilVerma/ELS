@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/linLayOccupancyStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Occupancy status of building"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupOccupancyStatusOfBuilding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="4"
+            >
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="&lt;5 %" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="&gt;5 to 20 %" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="&gt;20 to 50 %" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="&gt;50 %" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linLayLandType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Occupancy certificate issued"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupOccCertIssued"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:textSize="18dp"
+            android:text="Occupancy certificate issued Date :"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="8">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:textSize="18dp"
+                android:id="@+id/etOccupancyCertIssuedDate"
+                android:hint="DD/MM/YYYY"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:background="@drawable/edit_text"
+                android:textColor="@color/finaltextColour" />
+            <Button
+                android:onClick="clearSelectedDate"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:id="@+id/btnOccupancyCertIssuedDate"
+                android:text="X"
+                android:gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+        <EditText
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:inputType="textFilter"
+            android:id="@+id/etOccupancyLetterIssuingAuthority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Occupancy letter issuing authority"
+            android:maxLength="30"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+        <EditText
+            android:inputType="textFilter"
+            android:id="@+id/etOccupancyLetterReferenceNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Occupancy letter reference No."
+            android:maxLength="30"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/linLayTypeOfTrans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Society/RWA creation status"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRWACreationStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/radioButton7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:checked="false" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                android:checked="false" />
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>
