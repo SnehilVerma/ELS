@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import Model.Register;
 import Model.RegisterRequestModel;
+import Model.SendOtpForLoginRequest;
+import Model.SendOtpForLoginResponse;
 import Utility.SessionManager;
 import rest.ApiClient;
 import rest.ApiInterface;
@@ -87,13 +89,42 @@ public class Eligibility_Result extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
+
+                String contact = "7045747795";
+                ApiInterface apiInterface = new ApiClient().getClient().create(ApiInterface.class);
+                SendOtpForLoginRequest sendOtpForLoginRequest = new SendOtpForLoginRequest();
+                sendOtpForLoginRequest.setContactNo(contactnumber);
+                Call<SendOtpForLoginResponse> otpcall = apiInterface.SendOtp(sendOtpForLoginRequest);
+                otpcall.enqueue(new Callback<SendOtpForLoginResponse>() {
+                    @Override
+                    public void onResponse(Call<SendOtpForLoginResponse> call, Response<SendOtpForLoginResponse> response) {
+                        if (response.body()!=null)
+                            Toast.makeText(getApplicationContext(),response.body().getResponse(),Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(getApplicationContext(),"Hello",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<SendOtpForLoginResponse> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                    Intent intent = new Intent(getApplicationContext(),OTP.class);
+                    startActivity(intent);
+
             }
+
+
         });
         
 
-        Intent intent = new Intent(Eligibility_Result.this,OTP.class);
-        startActivity(intent);
-
 
     }
+
+
+
 }
