@@ -1,4 +1,4 @@
-package Fragments;
+package com.elsapp.els;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,47 +6,45 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.elsapp.els.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragments.Fragment_Comm_One;
+import Fragments.Fragment_Comm_Two;
 import Utility.VerticalViewPager;
 
-
 /**
- * Created by snehil on 20/6/17.
+ * Created by snehil on 21/6/17.
  */
 
-public class Personal extends Fragment {
+public class Comm_Pager extends BaseActivity {
+
 
     VerticalViewPager verticalViewPager;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_comm_pager);
 
-        final View view=inflater.inflate(R.layout.fragment_personal_one, container, false);
 
-//        verticalViewPager=(VerticalViewPager)view.findViewById(R.id.viewpager);
+        verticalViewPager=(VerticalViewPager)findViewById(R.id.viewpager);
 
-  //      setupViewPager(verticalViewPager);
+        setupViewPager(verticalViewPager);
 
-        return view;
+
+
 
 
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        Personal.ViewPagerAdapter adapter=new Personal.ViewPagerAdapter(getFragmentManager());
+        Comm_Pager.ViewPagerAdapter adapter=new Comm_Pager.ViewPagerAdapter(getSupportFragmentManager());
 
-        //adapter.addFragment(new Personal(), "Personal");
-        adapter.addFragment(new LoanSpecific(), "LoanSpecific");
-        adapter.addFragment(new LoanRepayment(), "LoanRepayment");
+        adapter.addFragment(new Fragment_Comm_One(), "Fragment_Comm_One");
+        adapter.addFragment(new Fragment_Comm_Two(), "Fragment_Comm_Two");
+        //adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
 
     }

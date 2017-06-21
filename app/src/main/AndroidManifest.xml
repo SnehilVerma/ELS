@@ -79,6 +79,9 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity android:name=".Comm_Pager"
+            android:theme="@style/AppTheme.NoAction"/>
+
     </application>
 
 </manifest>

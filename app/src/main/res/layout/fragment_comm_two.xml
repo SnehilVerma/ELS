@@ -1,58 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-
-
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:layout_width="wrap_content"
         android:id="@+id/layer1"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/layer4"
+        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address Type"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:text="Choose office address type"
             />
 
-        <Spinner
+        <android.support.v7.widget.AppCompatSpinner
             android:layout_width="150dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
 
 
-
-        </Spinner>
-
-
-
-
-
+        </android.support.v7.widget.AppCompatSpinner>
 
 
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:background="@color/black"
-        android:layout_below="@+id/layer1"
-        android:layout_height="1dp"/>
-
-    
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layer2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:layout_below="@+id/layer1"
         >
@@ -102,61 +87,30 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:id="@+id/layer3"
-        android:layout_marginLeft="10dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_below="@+id/layer2">
 
-        <android.support.v7.widget.AppCompatCheckBox
-            android:layout_width="wrap_content"
-            android:enabled="false"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-
-            android:text="Current Residential same as permanent"/>
-
-
     </LinearLayout>
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/layer4"
-        android:layout_marginTop="10dp"
-        android:enabled="false"
         android:orientation="vertical"
-        android:layout_below="@+id/layer3"
-        >
+        android:layout_below="@+id/layer2">
+
+
 
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
             android:layout_marginRight="10dp"
-            android:hint="Enter Current Residential address line 1"
-            />
-        <android.support.v7.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="40"
-            android:layout_marginRight="10dp"
-            android:hint="Enter Current Residential address line 1"
-            />
-        <android.support.v7.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="40"
-            android:layout_marginRight="10dp"
-            android:hint="Enter Current Residential address line 1"
+            android:enabled="false"
+            android:hint="Personal landline no."
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
@@ -164,47 +118,40 @@
             android:maxLength="40"
             android:layout_marginRight="10dp"
             android:enabled="false"
-            android:hint="Residing since?"
+            android:hint="Current address landline no."
             />
 
-        <Spinner
+        <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"/>
-
-
-
-
-    </LinearLayout>
-
-
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:id="@+id/layer5"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/layer4"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Choose office address type"
+            android:maxLength="40"
+            android:layout_marginRight="10dp"
+            android:enabled="false"
+            android:hint="Office landline"
             />
 
-        <android.support.v7.widget.AppCompatSpinner
-            android:layout_width="150dp"
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp">
+            android:maxLength="40"
+            android:layout_marginRight="10dp"
+            android:enabled="false"
+            android:hint="Office extension (if any)"
+            />
 
 
-        </android.support.v7.widget.AppCompatSpinner>
 
 
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
 
 </RelativeLayout>

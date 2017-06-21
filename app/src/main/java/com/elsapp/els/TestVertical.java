@@ -9,9 +9,9 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragments.Communication;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
-import Fragments.Personal;
 import Utility.VerticalViewPager;
 
 /**
@@ -47,7 +47,7 @@ public class TestVertical extends BaseActivity {
     private void setupViewPager(ViewPager viewPager) {
         TestVertical.ViewPagerAdapter adapter=new TestVertical.ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new Personal(), "Personal");
+        adapter.addFragment(new Communication(), "Communication");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
