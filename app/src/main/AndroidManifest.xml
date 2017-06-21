@@ -50,8 +50,6 @@
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".Eligibility_Result" />
         <activity android:name=".Failure_Result" />
-
-
         <activity
             android:name=".Details_Loan"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -64,11 +62,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".Activities.HomeLoanDetails2"
-            android:label="@string/title_activity_home_loan_details2"/>
+            android:label="@string/title_activity_home_loan_details2"
+            />
+        <activity android:name=".OTP"/>
 
         <activity android:name=".TestVertical"
             android:theme="@style/AppTheme.NoActionBar" />

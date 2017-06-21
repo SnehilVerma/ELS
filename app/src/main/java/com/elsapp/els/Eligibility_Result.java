@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import Model.Register;
 import Model.RegisterRequestModel;
+import Model.SendOtpForLoginRequest;
+import Model.SendOtpForLoginResponse;
 import Utility.SessionManager;
 import rest.ApiClient;
 import rest.ApiInterface;
@@ -48,10 +50,6 @@ public class Eligibility_Result extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
-                //startActivity(intent);
-
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                 String city = SessionManager.getStringFromPreferences(getApplicationContext(),"city");
                 String dob = SessionManager.getStringFromPreferences(getApplicationContext(),"DOB");
@@ -68,6 +66,11 @@ public class Eligibility_Result extends AppCompatActivity {
                 else{
                     gender = "F";
                 }
+                SessionManager.putStringInPreferences(getApplicationContext(),contactnumber,"contact_no");
+                SessionManager.putStringInPreferences(getApplicationContext(),fname,"fname");
+                SessionManager.putStringInPreferences(getApplicationContext(),mname,"mname");
+                SessionManager.putStringInPreferences(getApplicationContext(),lname,"lname");
+                SessionManager.putStringInPreferences(getApplicationContext(),username,"username");
                 RegisterRequestModel registerRequestModel = new RegisterRequestModel(username,fname,mname,lname,gender,String.valueOf("1"),city,contactnumber,dob,contactnumber);
                 Call<Register> call = apiService.IRegistration(registerRequestModel);
                 call.enqueue(new Callback<Register>() {
@@ -87,15 +90,41 @@ public class Eligibility_Result extends AppCompatActivity {
                     }
                 });
 
-                Intent intent = new Intent(Eligibility_Result.this,Details_Loan.class);
-                startActivity(intent);
+
+
+                String contact = "7045747795";
+                ApiInterface apiInterface = new ApiClient().getClient().create(ApiInterface.class);
+                SendOtpForLoginRequest sendOtpForLoginRequest = new SendOtpForLoginRequest();
+                sendOtpForLoginRequest.setContactNo(contactnumber);
+                Call<SendOtpForLoginResponse> otpcall = apiInterface.SendOtp(sendOtpForLoginRequest);
+                otpcall.enqueue(new Callback<SendOtpForLoginResponse>() {
+                    @Override
+                    public void onResponse(Call<SendOtpForLoginResponse> call, Response<SendOtpForLoginResponse> response) {
+                        if (response.body()!=null)
+                            Toast.makeText(getApplicationContext(),response.body().getResponse(),Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(getApplicationContext(),"Hello",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<SendOtpForLoginResponse> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                    Intent intent = new Intent(getApplicationContext(),OTP.class);
+                    startActivity(intent);
 
             }
+
+
         });
         
 
 
-
-
     }
+
+
+
 }
