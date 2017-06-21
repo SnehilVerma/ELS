@@ -20,13 +20,27 @@
             android:layout_height="wrap_content"
             android:id="@+id/otp"/>
         </LinearLayout>
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:text="VERIFY"
-        android:id="@+id/verify"/>
+        android:id="@+id/lresend">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="VERIFY"
+            android:id="@+id/verify"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resend OTP"
+            android:id="@+id/resendotp"
+            android:layout_marginLeft="50dp"/>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
