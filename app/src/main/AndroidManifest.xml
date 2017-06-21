@@ -47,10 +47,6 @@
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".Eligibility_Result" />
         <activity android:name=".Failure_Result" />
-        <activity
-            android:name=".Overall_Qec"
-            android:label="@string/title_activity_overall__qec"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity android:name=".Details_Loan"
                   android:theme="@style/AppTheme.NoActionBar"/>

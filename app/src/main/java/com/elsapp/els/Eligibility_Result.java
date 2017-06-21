@@ -63,6 +63,11 @@ public class Eligibility_Result extends AppCompatActivity {
                 else{
                     gender = "F";
                 }
+                SessionManager.putStringInPreferences(getApplicationContext(),contactnumber,"contact_no");
+                SessionManager.putStringInPreferences(getApplicationContext(),fname,"fname");
+                SessionManager.putStringInPreferences(getApplicationContext(),mname,"mname");
+                SessionManager.putStringInPreferences(getApplicationContext(),lname,"lname");
+                SessionManager.putStringInPreferences(getApplicationContext(),username,"username");
                 RegisterRequestModel registerRequestModel = new RegisterRequestModel(username,fname,mname,lname,gender,String.valueOf("1"),city,contactnumber,dob,contactnumber);
                 Call<Register> call = apiService.IRegistration(registerRequestModel);
                 call.enqueue(new Callback<Register>() {
@@ -81,13 +86,12 @@ public class Eligibility_Result extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_SHORT).show();
                     }
                 });
-                Intent intent = new Intent(Eligibility_Result.this,Overall_Qec.class);
-                startActivity(intent);
             }
         });
         
 
-
+        Intent intent = new Intent(Eligibility_Result.this,OTP.class);
+        startActivity(intent);
 
 
     }
