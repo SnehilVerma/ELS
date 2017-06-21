@@ -15,6 +15,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoAction">
@@ -24,9 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".CarLoanActivity"
             android:label="@string/title_activity_car_loan"
@@ -74,11 +77,7 @@
             android:name=".Activities.HomeLoanDetails3"
             android:label="@string/title_activity_home_loan_details3"
             android:theme="@style/AppTheme.NoActionBar">
-            <!-- <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
         </activity>
     </application>
 
