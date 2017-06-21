@@ -25,6 +25,7 @@
             android:layout_width="150dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
+            android:id="@+id/spinner"
             android:layout_height="wrap_content">
 
 
@@ -63,6 +64,7 @@
             android:layout_marginRight="10dp"
             android:maxLength="40"
             android:enabled="false"
+            android:id="@+id/p_line1"
             android:hint="Enter permanent address line 1"
             />
         <android.support.v7.widget.AppCompatEditText
@@ -71,6 +73,7 @@
             android:maxLength="40"
             android:layout_marginRight="10dp"
             android:enabled="false"
+            android:id="@+id/p_line2"
             android:hint="Enter permanent address line 2"
             />
         <android.support.v7.widget.AppCompatEditText
@@ -79,6 +82,7 @@
             android:maxLength="40"
             android:layout_marginRight="10dp"
             android:enabled="false"
+            android:id="@+id/p_line3"
             android:hint="Enter permanent address line 3"
             />
 
@@ -88,12 +92,14 @@
             android:maxLength="40"
             android:layout_marginRight="10dp"
             android:enabled="false"
+            android:id="@+id/date_res"
             android:hint="Residing since?"
             />
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
+            android:id="@+id/res_category"
             android:layout_height="wrap_content"/>
 
 
@@ -142,12 +148,14 @@
             android:layout_height="wrap_content"
             android:maxLength="40"
             android:layout_marginRight="10dp"
+            android:id="@+id/c_line1"
             android:hint="Enter Current Residential address line 1"
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
+            android:id="@+id/c_line2"
             android:layout_marginRight="10dp"
             android:hint="Enter Current Residential address line 1"
             />
@@ -155,6 +163,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
+            android:id="@+id/c_line3"
             android:layout_marginRight="10dp"
             android:hint="Enter Current Residential address line 1"
             />
@@ -162,6 +171,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
+            android:id="@+id/date_res2"
             android:layout_marginRight="10dp"
             android:enabled="false"
             android:hint="Residing since?"
@@ -169,7 +179,8 @@
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/res_category2"
             android:layout_height="wrap_content"/>
 
 
