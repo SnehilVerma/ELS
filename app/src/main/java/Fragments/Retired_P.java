@@ -164,8 +164,8 @@ public class Retired_P extends Fragment {
                                         adapter1.addFragment(new Co_App_Opt(), "Co_App_Opt");
                                         adapter1.notifyDataSetChanged();
                                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                                        pb.setProgress(70);
-                                        progress.setText(String.valueOf(70));
+                                        pb.setProgress(90);
+                                        progress.setText(String.valueOf(90));
                                     }
 
 

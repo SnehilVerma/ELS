@@ -13,9 +13,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginTop="20dp"
             android:id="@+id/im1"
-            android:src="@drawable/cs2"/>
+            android:src="@drawable/cs2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,7 +57,6 @@
             android:layout_height="wrap_content"
             android:text="Please enter following details:"
             android:layout_below="@+id/im1"
-            android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
             android:textColor="@color/black"
             android:layout_gravity="left"
@@ -69,14 +69,32 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv2"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-            android:id="@+id/name"
+            android:id="@+id/firstname"
             android:maxLength="50"
-            android:hint="Name"/>
+            android:hint="First Name"/>
+        <EditText
+            android:layout_width="220dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstname"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+            android:id="@+id/middlename"
+            android:maxLength="50"
+            android:hint="Middle Name"/>
+        <EditText
+            android:layout_width="220dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlename"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+            android:id="@+id/lastname"
+            android:maxLength="50"
+            android:hint="Last Name"/>
 
         <EditText
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
+            android:layout_below="@+id/lastname"
             android:layout_centerHorizontal="true"
             android:id="@+id/mob"
             android:digits="0123456789"

@@ -1,7 +1,6 @@
 package com.elsapp.els;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,33 +9,35 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragments.Communication;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
-import Fragments.Communication;
+import Utility.VerticalViewPager;
 
 /**
  * Created by snehil on 20/6/17.
  */
 
-public class Details_Loan extends BaseActivity {
+public class TestVertical extends BaseActivity {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
 
+    VerticalViewPager verticalViewPager;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test_vertical);
 
-        setContentView(R.layout.activity_details_loan);
+        verticalViewPager=(VerticalViewPager)findViewById(R.id.viewpager);
+
+        setupViewPager(verticalViewPager);
 
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
 
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+
+
+
 
 
     }
@@ -44,7 +45,7 @@ public class Details_Loan extends BaseActivity {
 
 
     private void setupViewPager(ViewPager viewPager) {
-        Details_Loan.ViewPagerAdapter adapter=new Details_Loan.ViewPagerAdapter(getSupportFragmentManager());
+        TestVertical.ViewPagerAdapter adapter=new TestVertical.ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new Communication(), "Communication");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
@@ -52,8 +53,6 @@ public class Details_Loan extends BaseActivity {
         viewPager.setAdapter(adapter);
 
     }
-
-
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();

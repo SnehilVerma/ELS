@@ -35,7 +35,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Cost"
                 android:digits="0123456789"
+                android:inputType="number"
                 android:id="@+id/cost"
+                android:maxLength="10"
                 android:textColor="#ffffff"
                 android:textColorHint="@android:color/darker_gray"
                 />

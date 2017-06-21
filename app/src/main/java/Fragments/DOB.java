@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -153,6 +154,9 @@ public class DOB extends Fragment {
 
 
                     }
+                }else{
+                    Toast.makeText(getContext(),"Please select your DOB",Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -182,7 +186,7 @@ public class DOB extends Fragment {
         @RequiresApi(api = Build.VERSION_CODES.N)
         private void updateLabel() {
 
-            String myFormat = "MM/dd/yy"; //In which you need put here
+            String myFormat = "yyyy-MM-dd"; //In which you need put here
             SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
             text.setText(sdf.format(myCalendar.getTime()));

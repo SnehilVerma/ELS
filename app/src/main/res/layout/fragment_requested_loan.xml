@@ -34,6 +34,8 @@
         <EditText
             android:layout_width="220dp"
             android:textColor="@color/white"
+            android:maxLength="10"
+            android:digits="0123456789"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:id="@+id/loan"/>

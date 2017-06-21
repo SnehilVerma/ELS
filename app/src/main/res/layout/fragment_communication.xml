@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@drawable/background"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/tv1"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:text="Please enter \n communication details"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv1"
+        android:id="@+id/b1"
+        android:layout_centerHorizontal="true"
+        android:text="Fill"
+        android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>
