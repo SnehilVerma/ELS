@@ -116,20 +116,20 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         android:id="@+id/layer3"
         android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         android:layout_below="@+id/layer2">
 
-        <android.support.v7.widget.AppCompatCheckBox
+        <CheckBox
             android:layout_width="wrap_content"
-            android:enabled="false"
+            android:id="@+id/checkbox"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/textfinal"
             android:layout_marginLeft="30dp"
 
             android:text="Current Residential same as permanent"/>

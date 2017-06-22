@@ -1,20 +1,15 @@
 package Fragments;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.elsapp.els.Add_Pager;
-import com.elsapp.els.Comm_Pager;
 import com.elsapp.els.R;
 
 import java.util.ArrayList;
@@ -26,6 +21,8 @@ import Utility.VerticalViewPager;
 public class Additional extends Fragment {
 
     VerticalViewPager verticalViewPager;
+    TextView textView;
+    Additional.ViewPagerAdapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,13 +41,37 @@ public class Additional extends Fragment {
 
         verticalViewPager = (VerticalViewPager)view.findViewById(R.id.viewpager);
         setupViewPager(verticalViewPager);
+        textView=(TextView)view.findViewById(R.id.page_number);
+        textView.setText(String.valueOf(1)+"/"+String.valueOf(adapter.getCount()));
+
+
+        verticalViewPager.addOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                //textView.setText(String.valueOf(verticalViewPager.getCurrentItem()+1)+"/"+"3");
+                textView.setText(String.valueOf(position+1)+"/"+String.valueOf(adapter.getCount()));
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+
         return view;
     }
 
 
 
     public void setupViewPager(VerticalViewPager upViewPager) {
-        Additional.ViewPagerAdapter adapter = new Additional.ViewPagerAdapter(getChildFragmentManager());
+        adapter= new Additional.ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new Additional_one(),"additionalone");
         adapter.addFragment(new Additional_two(),"additionaltwo");
         adapter.addFragment(new Additional_three(),"additionalthree");
