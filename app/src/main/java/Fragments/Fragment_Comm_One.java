@@ -1,11 +1,15 @@
 package Fragments;
 
+import android.app.DatePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -13,15 +17,43 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 
 import com.elsapp.els.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by snehil on 21/6/17.
  */
 
 public class Fragment_Comm_One extends Fragment {
+
+    AppCompatEditText et4;
+    AppCompatEditText et8;
+    int flag=0;
+
+    Calendar myCalendar = Calendar.getInstance();
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+            updateLabel();
+        }
+
+    };
+
+
 
 
 
@@ -49,14 +81,14 @@ public class Fragment_Comm_One extends Fragment {
         final AppCompatEditText et1=(AppCompatEditText)view.findViewById(R.id.p_line1);
         final AppCompatEditText et2=(AppCompatEditText)view.findViewById(R.id.p_line2);
         final AppCompatEditText et3=(AppCompatEditText)view.findViewById(R.id.p_line3);
-        final AppCompatEditText et4=(AppCompatEditText)view.findViewById(R.id.date_res);
+        et4=(AppCompatEditText)view.findViewById(R.id.date_res);
 
 
 
         final AppCompatEditText et5=(AppCompatEditText)view.findViewById(R.id.c_line1);
         final AppCompatEditText et6=(AppCompatEditText)view.findViewById(R.id.c_line2);
         final AppCompatEditText et7=(AppCompatEditText)view.findViewById(R.id.c_line3);
-        final AppCompatEditText et8=(AppCompatEditText)view.findViewById(R.id.date_res2);
+        et8=(AppCompatEditText)view.findViewById(R.id.date_res2);
 
 
 
@@ -78,6 +110,7 @@ public class Fragment_Comm_One extends Fragment {
                     et8.setEnabled(true);
 
                 }
+
             }
 
             @Override
@@ -138,6 +171,37 @@ public class Fragment_Comm_One extends Fragment {
 
 
 
+        et4.setOnClickListener(new View.OnClickListener() {
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View v) {
+
+                flag=1;
+
+                DatePickerDialog dialog;
+                dialog=new DatePickerDialog(getActivity(),date , myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                dialog.show();
+            }
+        });
+
+        et8.setOnClickListener(new OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                flag=2;
+                DatePickerDialog dialog;
+                dialog=new DatePickerDialog(getActivity(),date , myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                dialog.show();
+            }
+        });
 
 
 
@@ -145,5 +209,18 @@ public class Fragment_Comm_One extends Fragment {
 
 
         return view;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void updateLabel() {
+
+        String myFormat = "ddMMyyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        if(flag==1)
+        et4.setText(sdf.format(myCalendar.getTime()));
+        else if(flag==2)
+        et8.setText(sdf.format(myCalendar.getTime()));
+
     }
 }

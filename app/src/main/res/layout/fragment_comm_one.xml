@@ -24,7 +24,7 @@
         <Spinner
             android:layout_width="150dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:id="@+id/spinner"
             android:layout_height="wrap_content">
 
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layer2"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical"
         android:layout_below="@+id/layer1"
         >
@@ -71,7 +71,7 @@
             android:maxLength="40"
             android:enabled="false"
             android:id="@+id/p_line1"
-            android:hint="Enter permanent address line 1"
+            android:hint="Enter city and location"
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
@@ -80,16 +80,17 @@
             android:layout_marginRight="10dp"
             android:enabled="false"
             android:id="@+id/p_line2"
-            android:hint="Enter permanent address line 2"
+            android:hint="Enter state"
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="40"
+            android:maxLength="6"
+            android:inputType="number"
             android:layout_marginRight="10dp"
             android:enabled="false"
             android:id="@+id/p_line3"
-            android:hint="Enter permanent address line 3"
+            android:hint="Enter pincode"
             />
 
         <android.support.v7.widget.AppCompatEditText
@@ -98,6 +99,7 @@
             android:maxLength="40"
             android:layout_marginRight="10dp"
             android:enabled="false"
+            android:focusable="false"
             android:id="@+id/date_res"
             android:hint="Residing since?"
             />
@@ -143,7 +145,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layer4"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:enabled="false"
         android:orientation="vertical"
         android:layout_below="@+id/layer3"
@@ -160,25 +162,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
+            android:enabled="false"
             android:layout_marginRight="10dp"
             android:id="@+id/c_line1"
-            android:hint="Enter Current Residential address line 1"
+            android:hint="Enter location and city"
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
+            android:enabled="false"
             android:id="@+id/c_line2"
             android:layout_marginRight="10dp"
-            android:hint="Enter Current Residential address line 1"
+            android:hint="Enter state"
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="40"
+            android:enabled="false"
+            android:maxLength="6"
+            android:inputType="number"
             android:id="@+id/c_line3"
             android:layout_marginRight="10dp"
-            android:hint="Enter Current Residential address line 1"
+            android:hint="Enter pincode"
             />
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
@@ -187,6 +193,7 @@
             android:id="@+id/date_res2"
             android:layout_marginRight="10dp"
             android:enabled="false"
+            android:focusable="false"
             android:hint="Residing since?"
             />
 
