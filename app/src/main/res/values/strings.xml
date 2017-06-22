@@ -6,6 +6,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="plz_enter_your_correct_pan_num">Invalid Pan </string>
 
     <string name="title_activity_car_loan">Vehicle Loan</string>
     <string name="title_activity_loan_selec">Loan Selection</string>

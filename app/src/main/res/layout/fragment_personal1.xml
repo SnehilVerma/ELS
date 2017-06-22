@@ -118,9 +118,9 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Source of \nIncome"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:text="Designation/Profession/ \nNature of busines"
             android:textSize="18dp" />
 
         <Spinner

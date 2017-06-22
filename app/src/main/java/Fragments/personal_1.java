@@ -81,17 +81,17 @@ public class personal_1 extends Fragment {
         spin4 = (Spinner) x.findViewById(R.id.type4);
         spin5 = (Spinner) x.findViewById(R.id.type5);
         marital = (Spinner) x.findViewById(R.id.marital);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, arrspinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner);
         spin.setAdapter(adapter);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, arrspinner2);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner2);
         spin2.setAdapter(adapter2);
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, arrspinner3);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner3);
         spin3.setAdapter(adapter3);
-        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, arrspinner4);
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner4);
         spin4.setAdapter(adapter4);
-        ArrayAdapter<String> adapter5 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, arrspinner5);
+        ArrayAdapter<String> adapter5 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner5);
         spin5.setAdapter(adapter5);
-        ArrayAdapter<String> adapter6 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, arrspinner6);
+        ArrayAdapter<String> adapter6 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner6);
         marital.setAdapter(adapter6);
 
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
