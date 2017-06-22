@@ -31,8 +31,8 @@ import java.util.regex.Pattern;
 public class personal_3 extends Fragment {
     String[] arrqual,arriden;
     Spinner qual,iden;
-    EditText panc,liscense,passport,adhaar;
-    Button submit,submit1;
+    EditText panc,liscense,passport,adhaar,vote;
+    Button submit,submit1,submit2,submit3;
     Calendar mycalender = Calendar.getInstance();
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -66,15 +66,18 @@ public class personal_3 extends Fragment {
         panc =(EditText) x.findViewById(R.id.pan);
         submit = (Button) x.findViewById(R.id.sub);
         submit1 = (Button) x.findViewById(R.id.sub1);
+        submit2 = (Button) x.findViewById(R.id.sub2);
+        submit3 = (Button) x.findViewById(R.id.sub3);
         liscense =(EditText)x.findViewById(R.id.lics);
         passport = (EditText)x.findViewById(R.id.pas);
         adhaar = (EditText) x.findViewById(R.id.adhaar);
+        vote = (EditText) x.findViewById(R.id.vote);
         this.arrqual = new String[]{
-                "10th","12th","Graduate","Post Graduate","Doctarate","Others"
+               "None Selected" ,"10th","12th","Graduate","Post Graduate","Doctarate","Others"
 
         };
         this.arriden = new String []{
-                "Voter Card","Driving License","Passport Number", "Adhaar Card No."
+               "None Selected", "Voter Card","Driving License","Passport Number", "Adhaar Card No."
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrqual);
         qual.setAdapter(adapter);
@@ -84,19 +87,29 @@ public class personal_3 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(i==1){
+                    vote.setVisibility(View.VISIBLE);
+                    adhaar.setVisibility(View.INVISIBLE);
+                    passport.setVisibility(View.INVISIBLE);
+                    liscense.setVisibility(View.INVISIBLE);
+                }
+
+                if(i==2){
                     liscense.setVisibility(View.VISIBLE);
                     passport.setVisibility(View.INVISIBLE);
                     adhaar.setVisibility(View.INVISIBLE);
+                    vote.setVisibility(View.INVISIBLE);
 
-                }else if(i==2){
+                }else if(i==3){
                     liscense.setVisibility(View.INVISIBLE);
                     passport.setVisibility(View.VISIBLE);
                     adhaar.setVisibility(View.INVISIBLE);
-                }else if(i==3){
+                    vote.setVisibility(View.INVISIBLE);
+                }else if(i==4){
                     passport.setVisibility(View.INVISIBLE);
                     liscense.setVisibility(View.INVISIBLE);
                     adhaar.setVisibility(View.VISIBLE);
                     submit1.setVisibility(View.VISIBLE);
+                    vote.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -160,6 +173,8 @@ public class personal_3 extends Fragment {
                 dialog.getDatePicker().setMinDate(System.currentTimeMillis());
                 dialog.show();
                 submit1.setVisibility(View.VISIBLE);
+                submit2.setVisibility(View.INVISIBLE);
+                submit3.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -171,14 +186,16 @@ public class personal_3 extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                submit1.setVisibility(View.VISIBLE);
+                submit2.setVisibility(View.VISIBLE);
+                submit1.setVisibility(View.INVISIBLE);
+                submit3.setVisibility(View.INVISIBLE);
 
             }
 
             @Override
             public void afterTextChanged(final Editable editable) {
                 final String p = editable.toString();
-                submit.setOnClickListener(new View.OnClickListener() {
+                submit2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Pattern pattern = Pattern.compile("[a-z]{1}[-]{1}[0-9]{18}");
@@ -192,6 +209,41 @@ public class personal_3 extends Fragment {
                         }
                     }
                 });
+            }
+        });
+
+        vote.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                submit3.setVisibility(View.VISIBLE);
+                submit1.setVisibility(View.INVISIBLE);
+                submit2.setVisibility(View.INVISIBLE);
+
+            }
+
+            @Override
+            public void afterTextChanged(final Editable editable) {
+                final String v = editable.toString();
+                submit3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pattern pattern = Pattern.compile("[a-z]{3}[/][1][0-9]{6}[/]{1}[0-9]{1}||[a-z]{2}[/]{1}[0-9]{3}[/]{1}[0-9]{7}");
+                        /*Pattern patterns = Pattern.compile("[a-z]{2}[/]{1}[0-9]{3}[/]{1}[0-9]{7}");*/
+                        Matcher matcher = pattern.matcher(v);
+                        if(matcher.matches()){
+                            vote.setText(editable.toString());
+                        }
+                        else{
+                            Toast.makeText(getActivity(),"Invalid Voter ID",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
             }
         });
 
