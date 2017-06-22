@@ -56,7 +56,7 @@ public class personal_1 extends Fragment {
         linear3 = (LinearLayout) x.findViewById(R.id.linear3);
         linear4 = (LinearLayout) x.findViewById(R.id.linear4);
         relname = (EditText) x.findViewById(R.id.namerel);
-        relname = (EditText) x.findViewById(R.id.namerel2);
+        relname2 = (EditText) x.findViewById(R.id.namerel2);
         dob = (EditText) x.findViewById(R.id.dob);
         this.arrspinner = new String[]{
                "Not Selected", "Single", "Joint"
@@ -109,6 +109,7 @@ public class personal_1 extends Fragment {
                         linear1.setVisibility(View.INVISIBLE);
                         linear3.setVisibility(View.INVISIBLE);
                         linear4.setVisibility(View.INVISIBLE);
+                        relname2.setVisibility(View.INVISIBLE);
 
 
                     }
@@ -149,6 +150,7 @@ public class personal_1 extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 1 || i == 2 || i == 3) {
                     relname.setVisibility(View.VISIBLE);
+                    relname2.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -161,8 +163,8 @@ public class personal_1 extends Fragment {
         spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 1) {
-                    //relname2.setVisibility(View.VISIBLE);
+                if (i == 1||i==2) {
+                    relname2.setVisibility(View.VISIBLE);
                 }
 
             }
