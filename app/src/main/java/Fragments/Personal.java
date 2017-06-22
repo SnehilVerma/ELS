@@ -67,6 +67,7 @@ public class Personal extends Fragment {
 
         adapter.addFragment(new personal_1(), "Personal_One");
         adapter.addFragment(new personl_2(), "Personal_Two");
+        adapter.addFragment(new personal_3(), "Personal_Three");
         //adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
 

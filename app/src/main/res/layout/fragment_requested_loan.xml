@@ -38,7 +38,9 @@
             android:digits="0123456789"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:id="@+id/loan"/>
+            android:id="@+id/loan"
+            android:imeOptions="actionDone"
+            android:maxLines="1"/>
 
 
         <Button

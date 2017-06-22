@@ -70,6 +70,7 @@ public class Retired_P extends Fragment {
 
 
                 if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
+                    SessionManager.putStringInPreferences(getActivity(),"Retired_P","incometype");
                     if (loantype.equals("Home")) {
                         pb = ((HomeLoan)getActivity()).getPb();
                         progress = ((HomeLoan)getActivity()).getprogresstv();
@@ -117,6 +118,8 @@ public class Retired_P extends Fragment {
                     SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
                     SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+                    SessionManager.putStringInPreferences(getActivity(),"Retired_P","incometypecoapp");
+
 
 
                     if (loantype.equals("Home")) {

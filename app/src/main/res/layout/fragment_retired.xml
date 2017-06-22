@@ -56,6 +56,8 @@
                 android:id="@+id/mpension"
                 android:hint="Enter amount"
                 android:inputType="number"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
                 android:background="@drawable/round_background1"/>
 
             <TextView
@@ -86,6 +88,8 @@
                 android:paddingRight="10dp"
                 android:gravity="center_vertical"
                 android:inputType="number"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
                 android:background="@drawable/round_background1"/>
 
 

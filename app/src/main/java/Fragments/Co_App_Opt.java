@@ -54,6 +54,7 @@ public class Co_App_Opt extends Fragment {
                 int idx = radioGroup.indexOfChild(radiobutton);
                 //Toast.makeText(getActivity(), String.valueOf(idx),Toast.LENGTH_SHORT).show();
                 if(idx == 0){
+                    SessionManager.putStringInPreferences(getActivity(),"Yes","coapp");
                     
                     //yes.setChecked(true);
                     if(loantype.equals("Home")){
@@ -105,6 +106,7 @@ public class Co_App_Opt extends Fragment {
                     progress.setText(75+"");
                 }
                 else{
+                    SessionManager.putStringInPreferences(getActivity(),"No","coapp");
                     if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();
