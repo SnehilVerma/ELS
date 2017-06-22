@@ -37,17 +37,17 @@ public class personl_2 extends Fragment {
                 "Hindu","Muslim","Cristian","Sikh","Buddhist","Zoroastrian","Jain","No Religion"
         };
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrrel);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrrel);
         religion.setAdapter(adapter);
         this.arrsoi = new String[]{
                 "Salaried", "Retired Pensioner","Retired non-Pensioner", "Self-Employed","Businessman","Homemaker"
         };
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrsoi);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrsoi);
         soi.setAdapter(adapter1);
         this.arrcas = new String[]{
                 "General","SC","ST","OBC"
         };
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrcas);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrcas);
         caste.setAdapter(adapter2);
 
 
