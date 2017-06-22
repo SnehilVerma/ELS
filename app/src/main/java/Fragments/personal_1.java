@@ -163,7 +163,8 @@ public class personal_1 extends Fragment {
         spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 1||i==2) {
+                if ((i == 1)||(i == 2)) {
+
                     relname2.setVisibility(View.VISIBLE);
                 }
 

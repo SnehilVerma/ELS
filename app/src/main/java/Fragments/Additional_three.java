@@ -21,7 +21,7 @@ public class Additional_three extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        final View view=inflater.inflate(R.layout.fragment_additional_one, container, false);
+        final View view=inflater.inflate(R.layout.fragment_additional_three, container, false);
         Spinner creditor = (Spinner) view.findViewById(R.id.creditor);
         EditText loan = (EditText) view.findViewById(R.id.loan);
         EditText outstanding = (EditText) view.findViewById(R.id.outstanding);
