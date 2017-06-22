@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 public class personal_3 extends Fragment {
     String[] arrqual,arriden;
     Spinner qual,iden;
-    EditText panc,liscense,passport,adhaar,vote;
+    EditText panc,liscense,passport,adhaar,votes;
     Button submit,submit1,submit2,submit3;
     Calendar mycalender = Calendar.getInstance();
 
@@ -71,7 +71,7 @@ public class personal_3 extends Fragment {
         liscense =(EditText)x.findViewById(R.id.lics);
         passport = (EditText)x.findViewById(R.id.pas);
         adhaar = (EditText) x.findViewById(R.id.adhaar);
-        vote = (EditText) x.findViewById(R.id.vote);
+        votes = (EditText) x.findViewById(R.id.vote);
         this.arrqual = new String[]{
                "None Selected" ,"10th","12th","Graduate","Post Graduate","Doctarate","Others"
 
@@ -87,7 +87,7 @@ public class personal_3 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(i==1){
-                    vote.setVisibility(View.VISIBLE);
+                    votes.setVisibility(View.VISIBLE);
                     adhaar.setVisibility(View.INVISIBLE);
                     passport.setVisibility(View.INVISIBLE);
                     liscense.setVisibility(View.INVISIBLE);
@@ -97,19 +97,21 @@ public class personal_3 extends Fragment {
                     liscense.setVisibility(View.VISIBLE);
                     passport.setVisibility(View.INVISIBLE);
                     adhaar.setVisibility(View.INVISIBLE);
-                    vote.setVisibility(View.INVISIBLE);
+                    votes.setVisibility(View.INVISIBLE);
 
                 }else if(i==3){
                     liscense.setVisibility(View.INVISIBLE);
                     passport.setVisibility(View.VISIBLE);
                     adhaar.setVisibility(View.INVISIBLE);
-                    vote.setVisibility(View.INVISIBLE);
+                    votes.setVisibility(View.INVISIBLE);
                 }else if(i==4){
                     passport.setVisibility(View.INVISIBLE);
                     liscense.setVisibility(View.INVISIBLE);
                     adhaar.setVisibility(View.VISIBLE);
                     submit1.setVisibility(View.VISIBLE);
-                    vote.setVisibility(View.INVISIBLE);
+                    submit2.setVisibility(View.INVISIBLE);
+                    submit3.setVisibility(View.INVISIBLE);
+                    votes.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -181,14 +183,15 @@ public class personal_3 extends Fragment {
         passport.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                submit1.setVisibility(View.INVISIBLE);
+                submit3.setVisibility(View.INVISIBLE);
 
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 submit2.setVisibility(View.VISIBLE);
-                submit1.setVisibility(View.INVISIBLE);
-                submit3.setVisibility(View.INVISIBLE);
+
 
             }
 
@@ -212,17 +215,18 @@ public class personal_3 extends Fragment {
             }
         });
 
-        vote.addTextChangedListener(new TextWatcher() {
+        votes.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                submit1.setVisibility(View.INVISIBLE);
+                submit2.setVisibility(View.INVISIBLE);
 
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 submit3.setVisibility(View.VISIBLE);
-                submit1.setVisibility(View.INVISIBLE);
-                submit2.setVisibility(View.INVISIBLE);
+
 
             }
 
@@ -232,11 +236,11 @@ public class personal_3 extends Fragment {
                 submit3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Pattern pattern = Pattern.compile("[a-z]{3}[/][1][0-9]{6}[/]{1}[0-9]{1}||[a-z]{2}[/]{1}[0-9]{3}[/]{1}[0-9]{7}");
+                        Pattern pattern = Pattern.compile("[a-z]{3}/[0-9]{6}/1[0-9]{1}");
                         /*Pattern patterns = Pattern.compile("[a-z]{2}[/]{1}[0-9]{3}[/]{1}[0-9]{7}");*/
                         Matcher matcher = pattern.matcher(v);
                         if(matcher.matches()){
-                            vote.setText(editable.toString());
+                            votes.setText(editable.toString());
                         }
                         else{
                             Toast.makeText(getActivity(),"Invalid Voter ID",Toast.LENGTH_SHORT).show();
