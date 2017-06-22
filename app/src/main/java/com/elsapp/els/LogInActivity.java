@@ -130,7 +130,10 @@ LogInActivity extends AppCompatActivity {
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<LoginResponseModel> call = apiService.IAuthenticate(new LoginRequest(etemail.getText().toString(),etpassword.getText().toString()));
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setPassword(etpassword.getText().toString());
+        loginRequest.setUsername(etemail.getText().toString());
+        Call<LoginResponseModel> call = apiService.IAuthenticate(loginRequest);
 
         call.enqueue(new Callback<LoginResponseModel>() {
             @Override

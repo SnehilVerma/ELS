@@ -59,6 +59,7 @@ public class Self_Employed extends Fragment {
 
 
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
+                        SessionManager.putStringInPreferences(getActivity(),"Self_Employed","incometype");
                         if (loantype.equals("Home")) {
                             pb = ((HomeLoan) getActivity()).getPb();
                             progress = ((HomeLoan) getActivity()).getprogresstv();
@@ -104,6 +105,7 @@ public class Self_Employed extends Fragment {
                         SessionManager.putStringInPreferences(getContext(),taxamount.getText().toString(), "coap_gross_salary");
                         SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
                         SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "coap_existing_emi");
+                        SessionManager.putStringInPreferences(getActivity(),"Self_Employed","incometypecoapp");
 
 
 

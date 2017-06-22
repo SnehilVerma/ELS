@@ -64,16 +64,18 @@ public class Salaried extends Fragment{
         gmincome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if ((Float.parseFloat(gmincome.getText().toString()) > 999999999) || ((Float.parseFloat(gmincome.getText().toString()) < 0))) {
-                    gmincome.setError("entered value not accepted");
-                } else {
-                    Snackbar snackbar = Snackbar
-                            .make(cl, "You have stated gross salary as " + gmincome.getText().toString(), Snackbar.LENGTH_LONG);
+                if(!gmincome.getText().toString().equals("")) {
+                    if ((Float.parseFloat(gmincome.getText().toString()) > 999999999) || ((Float.parseFloat(gmincome.getText().toString()) < 0))) {
+                        gmincome.setError("entered value not accepted");
+                    } else {
+                        Snackbar snackbar = Snackbar
+                                .make(cl, "You have stated gross salary as " + gmincome.getText().toString(), Snackbar.LENGTH_LONG);
 
-                    snackbar.show();
-                }
-                if(!hasFocus){
-                    hideKeyboard();
+                        snackbar.show();
+                    }
+                    if (!hasFocus) {
+                        hideKeyboard();
+                    }
                 }
             }
 
@@ -90,17 +92,18 @@ public class Salaried extends Fragment{
         msalary.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if ((Float.parseFloat(msalary.getText().toString()) > 999999.99) || ((Float.parseFloat(msalary.getText().toString()) < 0))) {
-                    msalary.setError("entered value not accepted");
-                }
-                else{
-                    Snackbar snackbar = Snackbar
-                            .make(cl, "You have stated gross salary as "+msalary.getText().toString(), Snackbar.LENGTH_LONG);
+                if(!(msalary.getText().toString().equals(""))) {
+                    if ((Float.parseFloat(msalary.getText().toString()) > 999999.99) || ((Float.parseFloat(msalary.getText().toString()) < 0))) {
+                        msalary.setError("entered value not accepted");
+                    } else {
+                        Snackbar snackbar = Snackbar
+                                .make(cl, "You have stated gross salary as " + msalary.getText().toString(), Snackbar.LENGTH_LONG);
 
-                    snackbar.show();
-                }
-                if(!hasFocus){
-                    hideKeyboard();
+                        snackbar.show();
+                    }
+                    if (!hasFocus) {
+                        hideKeyboard();
+                    }
                 }
             }
             private void hideKeyboard() {
@@ -110,9 +113,10 @@ public class Salaried extends Fragment{
         });
 
 
-        emi.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        /*emi.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+
                 if ((Float.parseFloat(msalary.getText().toString()) > 999999999) || ((Float.parseFloat(msalary.getText().toString()) < 0))) {
                     msalary.setError("entered value not accepted");
                 }
@@ -124,7 +128,7 @@ public class Salaried extends Fragment{
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(gmincome.getWindowToken(), 0);
             }
-        });
+        });*/
         /*if((Float.parseFloat(gmincome.getText().toString())>999999.99)||((Float.parseFloat(gmincome.getText().toString())<0))){
             gmincome.setError("entered value not accepted");
         }*/
@@ -177,6 +181,7 @@ public class Salaried extends Fragment{
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_existing_emi");
 
                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
+                        SessionManager.putStringInPreferences(getActivity(),"Salaried","incometype");
 
                         if (loantype.equals("Home")) {
 
@@ -229,6 +234,7 @@ public class Salaried extends Fragment{
                         SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
                         SessionManager.putStringInPreferences(getContext(), takeaway, "coap_net_salary");
                         SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+                        SessionManager.putStringInPreferences(getActivity(),"Salaried","incometypecoapp");
 
 
                         if (loantype.equals("Home")) {

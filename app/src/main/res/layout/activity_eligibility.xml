@@ -71,7 +71,9 @@
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
             android:id="@+id/name"
             android:maxLength="50"
-            android:hint="Name"/>
+            android:hint="Name"
+            android:singleLine="true"
+            android:imeOptions="actionNext" />
 
         <EditText
             android:layout_width="220dp"
@@ -83,7 +85,8 @@
             android:inputType="number"
             android:maxLength="10"
             android:layout_marginLeft="130dp"
-            android:hint="Mobie No."/>
+            android:hint="Mobie No."
+            android:imeOptions="actionNext"/>
 
 
         <EditText
@@ -92,7 +95,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mob"
             android:id="@+id/email"
-            android:hint="Email id"/>
+            android:hint="Email id"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
