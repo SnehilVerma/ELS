@@ -52,6 +52,11 @@ public class Communication extends Fragment {
         //adapter.addFragment(new Communication(), "Communication");
         adapter.addFragment(new Fragment_Comm_One(), "Fragment_Comm_One");
         adapter.addFragment(new Fragment_Comm_Two(), "Fragment_Comm_Two");
+        //TODO: UNcomment the below line when in full production flow.
+      //if(SessionManager.getStringFromPreferences(getContext(),"employment_type").equals("Self_Employed")){
+            adapter.addFragment(new Fragment_Comm_Three(),"Fragment_Comm_Three");
+
+        //}
         viewPager.setAdapter(adapter);
 
     }
