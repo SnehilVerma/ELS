@@ -37,19 +37,19 @@ public class OTP extends AppCompatActivity {
                 VerifyOTPRequestModel verifyOTPRequestModel = new VerifyOTPRequestModel();
                 verifyOTPRequestModel.setContact_no(SessionManager.getStringFromPreferences(getApplicationContext(),"contact_no"));
                 verifyOTPRequestModel.setOtp(otpone.getText().toString());
-                Call<VerifyOTP> call = apiService.IVerify(verifyOTPRequestModel);
+                Call<VerifyOTP> call = apiService.getOTP(verifyOTPRequestModel);
                 call.enqueue(new Callback<VerifyOTP>() {
                     @Override
                     public void onResponse(Call<VerifyOTP> call, Response<VerifyOTP> response) {
-                        if(response.body() != null){
+                        if (response.body() != null){
                             Toast.makeText(getApplicationContext(),response.body().getResponse(),Toast.LENGTH_SHORT).show();
                             lemail.setVisibility(View.VISIBLE);
                             lpass.setVisibility(View.VISIBLE);
                             emailid.setText(SessionManager.getStringFromPreferences(getApplicationContext(),"username"));
                             pass.setText(SessionManager.getStringFromPreferences(getApplicationContext(),"contact_no"));
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(),"empty",Toast.LENGTH_SHORT).show();
+                        else if(response.code() == 400){
+                            Toast.makeText(getApplicationContext(),response.errorBody().toString(),Toast.LENGTH_SHORT).show();
                         }
                     }
 

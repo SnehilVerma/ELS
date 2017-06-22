@@ -61,6 +61,8 @@ public class Select_Category extends Fragment {
         tv1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getContext(),"Retired_NP","employment_type");
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -108,6 +110,9 @@ public class Select_Category extends Fragment {
         tv2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getContext(),"Self_Employed","employment_type");
+
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -254,6 +259,9 @@ public class Select_Category extends Fragment {
         tv4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                SessionManager.putStringInPreferences(getContext(),"Self_Employed","employment_type");
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -300,6 +308,9 @@ public class Select_Category extends Fragment {
         tv5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SessionManager.putStringInPreferences(getContext(),"Retired_P","employment_type");
+
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -347,6 +358,9 @@ public class Select_Category extends Fragment {
         tv6.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
 
                 SessionManager.putStringInPreferences(getContext(),"Homemaker","employment_type");
                 if(loantype.equals("Vehicle")) {

@@ -158,6 +158,7 @@ public class Requested_Loan extends Fragment {
                 }
                 pb.setProgress(100);
                 progress.setText(String.valueOf(100));
+                SessionManager.putStringInPreferences(getActivity(),et.getText().toString(),"rla");
                 exec_process();
             }
         });

@@ -34,6 +34,8 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:id="@+id/income"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
             android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
@@ -45,6 +47,8 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:id="@+id/emi"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
             android:inputType="number"/>
         <Button
             android:layout_width="wrap_content"
