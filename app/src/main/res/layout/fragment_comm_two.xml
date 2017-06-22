@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:id="@+id/layer1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:layout_below="@+id/layer4"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layer2"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical"
         android:layout_below="@+id/layer1"
         >
@@ -82,7 +82,7 @@
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:id="@+id/res_category"
             android:layout_height="wrap_content"/>
 
@@ -106,6 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/layer3"
         android:layout_below="@+id/layer2">
 
 
@@ -153,6 +154,49 @@
 
 
 
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layer3"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            android:text="Choose address for communication"/>
+
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="permanent"
+                android:layout_height="wrap_content"/>
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="current"
+                android:layout_height="wrap_content"/>
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="office"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
 
     </LinearLayout>
 

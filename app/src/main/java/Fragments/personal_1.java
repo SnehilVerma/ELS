@@ -109,6 +109,7 @@ public class personal_1 extends Fragment {
                         linear1.setVisibility(View.INVISIBLE);
                         linear3.setVisibility(View.INVISIBLE);
                         linear4.setVisibility(View.INVISIBLE);
+                        relname2.setVisibility(View.INVISIBLE);
 
 
                     }
@@ -148,7 +149,8 @@ public class personal_1 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 1 || i == 2 || i == 3) {
-                    relname.setVisibility(View.INVISIBLE);
+                    relname.setVisibility(View.VISIBLE);
+                    relname2.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -162,6 +164,7 @@ public class personal_1 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if ((i == 1)||(i == 2)) {
+
                     relname2.setVisibility(View.VISIBLE);
                 }
 
