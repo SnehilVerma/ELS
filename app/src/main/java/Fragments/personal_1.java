@@ -59,22 +59,22 @@ public class personal_1 extends Fragment {
         relname = (EditText) x.findViewById(R.id.namerel2);
         dob = (EditText) x.findViewById(R.id.dob);
         this.arrspinner = new String[]{
-                "Single", "Joint"
+               "Not Selected", "Single", "Joint"
         };
         this.arrspinner2 = new String[]{
-                "Business", "Personal"
+              "Not Selected",  "Business", "Personal"
         };
         this.arrspinner3 = new String[]{
-                "Father", "Mother", "Husband"
+              "Not Selected",  "Father", "Mother", "Husband"
         };
         this.arrspinner4 = new String[]{
-                "Co-Applicant", "Guarantor"
+              "Not Selected" , "Co-Applicant", "Guarantor"
         };
         this.arrspinner5 = new String[]{
-                "Husband", "Wife", "Son", "Daughter"
+               "Not Selected" ,"Husband", "Wife", "Son", "Daughter"
         };
         this.arrspinner6 = new String[]{
-                "Married", "Unmarried", "Widow"
+              "Not Selected" , "Married", "Unmarried", "Widow"
         };
         spin2 = (Spinner) x.findViewById(R.id.type2);
         spin3 = (Spinner) x.findViewById(R.id.type3);
@@ -97,14 +97,14 @@ public class personal_1 extends Fragment {
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 1) {
+                if (i == 2) {
                     linear1.setVisibility(View.VISIBLE);
                     linear2.setVisibility(View.INVISIBLE);
                     linear3.setVisibility(View.INVISIBLE);
                     linear4.setVisibility(View.INVISIBLE);
                     relname.setVisibility(View.INVISIBLE);
                 } else {
-                    if (i == 0) {
+                    if (i == 1) {
                         linear2.setVisibility(View.VISIBLE);
                         linear1.setVisibility(View.INVISIBLE);
                         linear3.setVisibility(View.INVISIBLE);
@@ -125,12 +125,12 @@ public class personal_1 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i == 0) {
+                if (i == 1) {
                     linear3.setVisibility(View.VISIBLE);
                     linear4.setVisibility(View.INVISIBLE);
                     //relname.setVisibility(View.VISIBLE);
                 } else {
-                    if (i == 1) {
+                    if (i == 2) {
 
                     }
                     linear3.setVisibility(View.INVISIBLE);
@@ -147,7 +147,7 @@ public class personal_1 extends Fragment {
         spin3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0 || i == 1 || i == 2) {
+                if (i == 1 || i == 2 || i == 3) {
                     relname.setVisibility(View.VISIBLE);
                 }
             }
@@ -161,7 +161,7 @@ public class personal_1 extends Fragment {
         spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) {
+                if (i == 1) {
                     //relname2.setVisibility(View.VISIBLE);
                 }
 

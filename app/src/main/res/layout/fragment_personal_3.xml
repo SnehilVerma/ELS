@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:visibility="invisible"
         android:maxLength="20"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890-"
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_alignTop="@+id/sub1"
@@ -111,6 +111,34 @@
         android:maxLength="16"
         android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10" />
+
+    <EditText
+        android:id="@+id/vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890/"
+        android:layout_alignStart="@+id/lics"
+        android:layout_alignTop="@+id/lics"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/sub2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sub1"
+        android:visibility="invisible"
+        android:text="Submit"
+        android:layout_alignTop="@+id/lics" />
+
+    <Button
+        android:id="@+id/sub3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sub1"
+        android:visibility="invisible"
+        android:text="Submit"
+        android:layout_alignTop="@+id/sub1" />
 
 
 </RelativeLayout>

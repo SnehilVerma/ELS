@@ -34,18 +34,18 @@ public class personl_2 extends Fragment {
         caste = (Spinner) x.findViewById(R.id.caste);
 
         this.arrrel = new String[]{
-                "Hindu","Muslim","Cristian","Sikh","Buddhist","Zoroastrian","Jain","No Religion"
+              "Not Selected" , "Hindu","Muslim","Cristian","Sikh","Buddhist","Zoroastrian","Jain","No Religion"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrrel);
         religion.setAdapter(adapter);
         this.arrsoi = new String[]{
-                "Salaried", "Retired Pensioner","Retired non-Pensioner", "Self-Employed","Businessman","Homemaker"
+             "Not Selected" ,  "Salaried", "Retired Pensioner","Retired non-Pensioner", "Self-Employed","Businessman","Homemaker"
         };
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrsoi);
         soi.setAdapter(adapter1);
         this.arrcas = new String[]{
-                "General","SC","ST","OBC"
+             "Not Selected",   "General","SC","ST","OBC"
         };
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrcas);
         caste.setAdapter(adapter2);
@@ -54,7 +54,7 @@ public class personl_2 extends Fragment {
         religion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i==0||i==4){
+                if(i==1||i==5){
                     castlin.setVisibility(View.VISIBLE);
                 }else{
                     castlin.setVisibility(View.INVISIBLE);
