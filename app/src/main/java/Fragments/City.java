@@ -62,7 +62,7 @@ public class City extends Fragment {
 
 
 
-        Button b1=(Button)view.findViewById(R.id.b1);
+        Button b1=(Button)view.findViewById(R.id.b2);
         final SessionManager sessionManager=new SessionManager();
 
 
@@ -114,6 +114,10 @@ public class City extends Fragment {
 
                     pb = ((CarLoanActivity)getActivity()).getPb();
                     progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
+                    // MAIN LOGIC FOR DYNAMIC FRAGMENTS ADDITION.
+
+
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad.mFragmentList.size()) {
                         ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();

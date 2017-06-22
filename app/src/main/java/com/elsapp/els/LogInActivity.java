@@ -33,6 +33,7 @@ LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        getSupportActionBar().hide();
         textLayout_Email = (TextInputLayout) findViewById(R.id.textLayout_Email);
         textLayout_Passowrd = (TextInputLayout) findViewById(R.id.textLayout_Passowrd);
         etpassword = (EditText) findViewById(R.id.etpassword);
@@ -55,8 +56,8 @@ LogInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO: testing phase
                 //Intent i = new Intent(LogInActivity.this,LoanSelec.class);
-                //Intent i = new Intent(LogInActivity.this,Details_Loan.class);
-                Intent i = new Intent(LogInActivity.this,Details_Loan.class);
+                //Intent i = new Intent(LogInActivity.this,Details_Loan_Vehicle.class);
+                Intent i = new Intent(LogInActivity.this,Details_Loan_Vehicle.class);
                 startActivity(i);
             }
         });

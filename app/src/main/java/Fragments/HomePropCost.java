@@ -55,6 +55,8 @@ public class HomePropCost extends Fragment implements TextView.OnEditorActionLis
         cost.setOnEditorActionListener(this);
         Button b1 = (Button) view.findViewById(R.id.b1);
         /*cost.setOnKeyListener(new View.OnKeyListener() {
+        Button b1 = (Button) view.findViewById(R.id.b2);
+        cost.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
 

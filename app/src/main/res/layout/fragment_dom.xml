@@ -117,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="350dp"
-        android:id="@+id/b1"
+        android:id="@+id/b2"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"

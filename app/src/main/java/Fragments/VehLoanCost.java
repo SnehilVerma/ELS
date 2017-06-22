@@ -50,7 +50,7 @@ public class VehLoanCost extends Fragment implements TextView.OnEditorActionList
 
         TextView t1 = (TextView) view.findViewById(R.id.prev);
         TextView t2 = (TextView) view.findViewById(R.id.next);
-        Button b1=(Button)view.findViewById(R.id.b1);
+        Button b1=(Button)view.findViewById(R.id.b2);
 
 
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();

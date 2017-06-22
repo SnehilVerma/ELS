@@ -1,55 +1,45 @@
 package com.elsapp.els;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.Fragment_Comm_One;
-import Fragments.personal_1;
+import Fragments.Additional_one;
+import Fragments.Additional_three;
+import Fragments.Additional_two;
 import Utility.VerticalViewPager;
 
-/**
- * Created by snehil on 21/6/17.
- */
-
-public class Comm_Pager extends BaseActivity {
-
+public class Add_Pager extends AppCompatActivity {
 
     VerticalViewPager verticalViewPager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comm_pager);
-
-
-        verticalViewPager=(VerticalViewPager)findViewById(R.id.viewpager);
-
+        setContentView(R.layout.activity_add_pager);
+        getSupportActionBar().hide();
+        verticalViewPager = (VerticalViewPager)findViewById(R.id.viewpager);
         setupViewPager(verticalViewPager);
 
-
-
-
-
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        Comm_Pager.ViewPagerAdapter adapter=new Comm_Pager.ViewPagerAdapter(getSupportFragmentManager());
-
-        adapter.addFragment(new Fragment_Comm_One(), "Fragment_Comm_One");
-        adapter.addFragment(new personal_1(), "Fragment_Comm_Two");
-        //adapter.addFragment(new LoanRepayment(), "LoanRepayment");
-        viewPager.setAdapter(adapter);
-
+    public void setupViewPager(VerticalViewPager upViewPager) {
+        Add_Pager.ViewPagerAdapter adapter = new Add_Pager.ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Additional_one(),"additionalone");
+        adapter.addFragment(new Additional_two(),"additionaltwo");
+        adapter.addFragment(new Additional_three(),"additionalthree");
+        upViewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
+
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 

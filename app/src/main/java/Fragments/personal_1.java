@@ -23,7 +23,7 @@ import java.util.Calendar;
  * Created by snehil on 21/6/17.
  */
 
-public class personal extends Fragment {
+public class personal_1 extends Fragment {
     EditText appname,relname,relname2,dob;
     Spinner spin,spin2,spin3,spin4,spin5,marital;
     private String [] arrspinner,arrspinner2,arrspinner3,arrspinner4,arrspinner5,arrspinner6;

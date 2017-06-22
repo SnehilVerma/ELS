@@ -1,5 +1,8 @@
 package Fragments;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,32 +12,33 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.elsapp.els.R;
+import com.elsapp.els.personal_pager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import Utility.VerticalViewPager;
 
-
-/**
- * Created by snehil on 20/6/17.
- */
-
-public class Communication extends Fragment {
-
-
+public class Personal extends Fragment {
     VerticalViewPager verticalViewPager;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+       final View view = inflater.inflate(R.layout.activity_personal_pager,container,false);
+     /*Button   b2 = (Button) view.findViewById(R.id.b2);
+       b2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent i = new Intent(getActivity(),personal_pager.class);
+               startActivity(i);
 
-        final View view=inflater.inflate(R.layout.fragment_communication, container, false);
-
-
-        verticalViewPager=(VerticalViewPager)view.findViewById(R.id.viewpager);
+           }
+       });*/ verticalViewPager=(VerticalViewPager)view.findViewById(R.id.viewpager);
 
         setupViewPager(verticalViewPager);
 
@@ -44,19 +48,12 @@ public class Communication extends Fragment {
 
     }
 
-
-
     private void setupViewPager(ViewPager viewPager) {
-        Communication.ViewPagerAdapter adapter=new Communication.ViewPagerAdapter(getChildFragmentManager());
+        Personal.ViewPagerAdapter adapter=new Personal.ViewPagerAdapter(getChildFragmentManager());
 
-        //adapter.addFragment(new Communication(), "Communication");
-        adapter.addFragment(new Fragment_Comm_One(), "Fragment_Comm_One");
-        adapter.addFragment(new Fragment_Comm_Two(), "Fragment_Comm_Two");
-        //TODO: UNcomment the below line when in full production flow.
-      //if(SessionManager.getStringFromPreferences(getContext(),"employment_type").equals("Self_Employed")){
-            adapter.addFragment(new Fragment_Comm_Three(),"Fragment_Comm_Three");
-
-        //}
+        adapter.addFragment(new personal_1(), "Personal_One");
+        adapter.addFragment(new personl_2(), "Personal_Two");
+        //adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
 
     }
@@ -91,6 +88,4 @@ public class Communication extends Fragment {
 
         }
     }
-
-
 }

@@ -1,7 +1,7 @@
 package com.elsapp.els;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,44 +10,50 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.Fragment_Comm_One;
-import Fragments.personal_1;
-import Utility.VerticalViewPager;
+import Fragments.Communication;
+import Fragments.LoanRepayment;
+import Fragments.LoanSpecific;
 
 /**
  * Created by snehil on 21/6/17.
  */
 
-public class Comm_Pager extends BaseActivity {
+public class Details_Loan_Home extends BaseActivity {
 
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
-    VerticalViewPager verticalViewPager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comm_pager);
+
+        setContentView(R.layout.activity_details_loan);
 
 
-        verticalViewPager=(VerticalViewPager)findViewById(R.id.viewpager);
-
-        setupViewPager(verticalViewPager);
-
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
 
 
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
 
 
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        Comm_Pager.ViewPagerAdapter adapter=new Comm_Pager.ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new Fragment_Comm_One(), "Fragment_Comm_One");
-        adapter.addFragment(new personal_1(), "Fragment_Comm_Two");
-        //adapter.addFragment(new LoanRepayment(), "LoanRepayment");
+
+    private void setupViewPager(ViewPager viewPager) {
+        Details_Loan_Home.ViewPagerAdapter adapter=new Details_Loan_Home.ViewPagerAdapter(getSupportFragmentManager());
+
+        adapter.addFragment(new Communication(), "Communication");
+        adapter.addFragment(new LoanSpecific(), "LoanSpecific");
+        adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
 
     }
+
+
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
