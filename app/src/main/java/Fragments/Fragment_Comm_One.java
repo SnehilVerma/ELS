@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -23,8 +24,13 @@ import android.widget.Spinner;
 import com.elsapp.els.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
+
+import static com.elsapp.els.R.id.city;
+import static com.elsapp.els.R.id.res_category;
 
 /**
  * Created by snehil on 21/6/17.
@@ -35,6 +41,8 @@ public class Fragment_Comm_One extends Fragment {
     AppCompatEditText et4;
     AppCompatEditText et8;
     int flag=0;
+
+    ArrayList<String> states;
 
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -71,6 +79,14 @@ public class Fragment_Comm_One extends Fragment {
         spinner.setAdapter(d_adapter);
 
 
+        states=new ArrayList<>(Arrays.asList("Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh",
+                "Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka",
+                "Kerala","Madya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Orissa" +
+                        "Punjab","Rajasthan","Sikkim","Tamil Nadu","Tripura","Uttaranchal","Uttar Pradesh","West Bengal"
+                ,"Andaman and Nicobar Islands","Chandigarh","Dadar and Nagar Haveli","Daman and Diu",
+                "Delhi","Lakshadeep","Pondicherry"));
+
+
 
         Spinner res_category=(Spinner)view.findViewById(R.id.res_category);
 
@@ -79,14 +95,22 @@ public class Fragment_Comm_One extends Fragment {
         res_category.setAdapter(d_adapter2);
 
         final AppCompatEditText et1=(AppCompatEditText)view.findViewById(R.id.p_line1);
-        final AppCompatEditText et2=(AppCompatEditText)view.findViewById(R.id.p_line2);
+        final AutoCompleteTextView et2=(AutoCompleteTextView) view.findViewById(R.id.p_line2);
+
+        final ArrayAdapter<String> adapterone = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, states);
+        et2.setAdapter(adapterone);
+
         final AppCompatEditText et3=(AppCompatEditText)view.findViewById(R.id.p_line3);
         et4=(AppCompatEditText)view.findViewById(R.id.date_res);
 
 
 
         final AppCompatEditText et5=(AppCompatEditText)view.findViewById(R.id.c_line1);
-        final AppCompatEditText et6=(AppCompatEditText)view.findViewById(R.id.c_line2);
+
+        final AutoCompleteTextView et6=(AutoCompleteTextView) view.findViewById(R.id.c_line2);
+        et6.setAdapter(adapterone);
+
+
         final AppCompatEditText et7=(AppCompatEditText)view.findViewById(R.id.c_line3);
         et8=(AppCompatEditText)view.findViewById(R.id.date_res2);
 
@@ -203,6 +227,37 @@ public class Fragment_Comm_One extends Fragment {
             }
         });
 
+
+
+
+        et2.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String state=adapterView.getItemAtPosition(i).toString();
+                et2.setText(state);
+                et2.setFocusable(false);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        et6.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String state=adapterView.getItemAtPosition(i).toString();
+                et6.setText(state);
+                et6.setFocusable(false);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
 

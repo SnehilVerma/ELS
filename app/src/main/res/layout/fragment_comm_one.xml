@@ -73,7 +73,7 @@
             android:id="@+id/p_line1"
             android:hint="Enter city and location"
             />
-        <android.support.v7.widget.AppCompatEditText
+        <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
@@ -167,7 +167,7 @@
             android:id="@+id/c_line1"
             android:hint="Enter location and city"
             />
-        <android.support.v7.widget.AppCompatEditText
+        <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="40"
@@ -176,6 +176,7 @@
             android:layout_marginRight="10dp"
             android:hint="Enter state"
             />
+
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
