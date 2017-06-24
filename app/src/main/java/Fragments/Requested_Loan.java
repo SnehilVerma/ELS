@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -159,7 +160,17 @@ public class Requested_Loan extends Fragment {
                 pb.setProgress(100);
                 progress.setText(String.valueOf(100));
                 SessionManager.putStringInPreferences(getActivity(),et.getText().toString(),"rla");
-                exec_process();
+                if(!et.getText().toString().equals("")) {
+                    exec_process();
+                }
+                else{
+                    AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+
+                    dlgAlert.setMessage("Please enter the requested loan amount");
+                    dlgAlert.setTitle("Error Message");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.create().show();
+                }
             }
         });
 
