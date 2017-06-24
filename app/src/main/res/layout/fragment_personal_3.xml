@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Fragments.personal_3">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout4">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qualification"
+            android:textSize="18dp"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qual"></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:id="@+id/linearLayout5"
+        android:layout_below="@+id/pan"
+        android:layout_alignStart="@+id/linearLayout4"
+        android:layout_marginTop="22dp">
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:text="Identity \nDetails"
+            android:textSize="18dp" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iden"></Spinner>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/pan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/linearLayout5"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_marginTop="27dp"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890 "
+        android:ems="10"
+        android:hint="PAN Card Number" />
+
+    <Button
+        android:id="@+id/sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/pan"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"
+        android:layout_marginEnd="16dp"
+        android:text="Submit" />
+
+    <EditText
+        android:id="@+id/lics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890/ "
+        android:maxLength="20"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_alignBaseline="@+id/sub1"
+        android:layout_alignBottom="@+id/sub1"
+        android:layout_alignStart="@+id/linearLayout5" />
+
+    <EditText
+        android:id="@+id/pas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:maxLength="20"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890-"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/sub1"
+        android:layout_alignStart="@+id/lics" />
+
+    <Button
+        android:id="@+id/sub1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="Submit"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignStart="@+id/sub"
+        android:layout_marginTop="23dp" />
+
+    <EditText
+        android:id="@+id/adhaar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/sub1"
+        android:layout_alignStart="@+id/lics"
+        android:visibility="invisible"
+        android:maxLength="16"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890/"
+        android:layout_alignStart="@+id/lics"
+        android:layout_alignTop="@+id/lics"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/sub2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sub1"
+        android:visibility="invisible"
+        android:text="Submit"
+        android:layout_alignTop="@+id/lics" />
+
+    <Button
+        android:id="@+id/sub3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sub1"
+        android:visibility="invisible"
+        android:text="Submit"
+        android:layout_alignTop="@+id/sub1" />
+
+
+</RelativeLayout>

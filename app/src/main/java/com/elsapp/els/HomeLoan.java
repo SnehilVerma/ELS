@@ -3,6 +3,7 @@ package com.elsapp.els;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ public class HomeLoan extends AppCompatActivity
     private HomeLoan.ViewPagerAdapter adapter;
     private ProgressBar pb;
     private TextView progress;
+    Boolean doublebackpresstoexit;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -66,6 +69,7 @@ public class HomeLoan extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        doublebackpresstoexit = false;
 
         setUpViewPager(viewPager);
     }
@@ -75,7 +79,25 @@ public class HomeLoan extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if(doublebackpresstoexit){
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                System.exit(0);
+                return;
+            }
+            this.doublebackpresstoexit = true;
+            Toast.makeText(this,"Press BACK again to exit",Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doublebackpresstoexit = false;
+                }
+            },2000);
+            //super.onBackPressed();
         }
     }
 
@@ -188,5 +210,6 @@ public class HomeLoan extends AppCompatActivity
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+
     }
 }

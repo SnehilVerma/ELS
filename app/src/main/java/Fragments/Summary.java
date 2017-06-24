@@ -51,11 +51,22 @@ public class Summary extends Fragment {
             proploc.setText(SessionManager.getStringFromPreferences(getActivity(),"property_location"));
             purpose.setText(SessionManager.getStringFromPreferences(getActivity(),"homepurpose"));
             costprop.setText(SessionManager.getStringFromPreferences(getActivity(),"cost_of_entity"));
-            incometype.setText(SessionManager.getStringFromPreferences(getActivity(),"employement_type"));
+            incometype.setText(SessionManager.getStringFromPreferences(getActivity(),"incometype"));
             gmincome.setText(SessionManager.getStringFromPreferences(getActivity(),"gross_salary"));
             emi.setText(SessionManager.getStringFromPreferences(getActivity(),"existing_emi"));
-            coappgmincome.setText(SessionManager.getStringFromPreferences(getActivity(),"coap_gross_salary"));
-            coappemi.setText(SessionManager.getStringFromPreferences(getActivity(),"coap_existing_emi"));
+            rla.setText(SessionManager.getStringFromPreferences(getActivity(),"rla"));
+            if(SessionManager.getStringFromPreferences(getActivity(),"coapp").equals("Yes")) {
+                coappincome.setText(SessionManager.getStringFromPreferences(getActivity(),"incometypecoapp"));
+                coappgmincome.setText(SessionManager.getStringFromPreferences(getActivity(), "coap_gross_salary"));
+                coappemi.setText(SessionManager.getStringFromPreferences(getActivity(), "coap_existing_emi"));
+                relation.setText(SessionManager.getStringFromPreferences(getActivity(),"relation"));
+            }
+            else{
+                coappincome.setText("-");
+                coappgmincome.setText("-");
+                coappemi.setText("-");
+                relation.setText("-");
+            }
 
 
 
@@ -95,6 +106,7 @@ public class Summary extends Fragment {
             vehcost.setText(SessionManager.getStringFromPreferences(getActivity(),"cost_of_entity"));
             gmincome.setText(SessionManager.getStringFromPreferences(getActivity(),"gross_salary"));
             emi.setText(SessionManager.getStringFromPreferences(getActivity(),"existing_emi"));
+            rla.setText(SessionManager.getStringFromPreferences(getActivity(),"rla"));
         }
         Button done = (Button) view.findViewById(R.id.done);
         done.setOnClickListener(new View.OnClickListener() {

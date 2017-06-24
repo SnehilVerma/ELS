@@ -114,6 +114,10 @@ public class City extends Fragment {
 
                     pb = ((CarLoanActivity)getActivity()).getPb();
                     progress = ((CarLoanActivity)getActivity()).getprogresstv();
+
+                    // MAIN LOGIC FOR DYNAMIC FRAGMENTS ADDITION.
+
+
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad.mFragmentList.size()) {
                         ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();

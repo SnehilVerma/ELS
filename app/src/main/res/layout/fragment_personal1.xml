@@ -15,9 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="38dp"
-        android:text="TextView"
         android:textSize="20dp"
-        tools:text="Gender" />
+        android:text="Gender" />
 
     <EditText
         android:id="@+id/gen"
@@ -118,9 +117,9 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Source of \nIncome"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:text="Designation/Profession/ \nNature of busines"
             android:textSize="18dp" />
 
         <Spinner
