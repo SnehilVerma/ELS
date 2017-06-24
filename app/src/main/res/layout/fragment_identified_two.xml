@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+
+
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/layer1"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Area of Flat"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Cost of Home/Flat"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_below="@+id/layer1"
+        android:id="@+id/layer2"
+        android:layout_height="1dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/layer2"
+        android:id="@+id/layer3"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Who is Seller?"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="0dp"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Original Allotee"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Builder/Developer"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/layer3"
+        android:id="@+id/layer4"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Type of Transaction"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="0dp"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Direct Allotment"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Re-Sale"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layer5"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/layer4"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:inputType="number"
+                android:layout_marginRight="10dp"
+                android:enabled="false"
+                android:id="@+id/p_line3"
+                android:hint="Location Of Property"
+                />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Land Type"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free Hold"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lease Hold"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:maxLength="40"
+            android:enabled="false"
+            android:hint="Expected Date of Construction"
+            />
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:maxLength="40"
+            android:enabled="false"
+            android:id="@+id/builder_line1"
+            android:hint="Expected Date of Possession"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:inputType="number"
+                android:layout_marginRight="10dp"
+                android:enabled="false"
+                android:hint="Occupancy Status of Building"
+                />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
