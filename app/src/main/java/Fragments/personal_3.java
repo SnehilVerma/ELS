@@ -234,6 +234,7 @@ public class personal_3 extends Fragment {
                     @Override
                     public void onClick(View view) {
 
+
                         Pattern pattern = Pattern.compile("[a-z]{3}[\\/][0-9]{6}[\\/][0-9]{1}");
                         //||[a-z]{2}[\/]{1}[0-9]{3}[/]{1}[0-9]{7}");
 
