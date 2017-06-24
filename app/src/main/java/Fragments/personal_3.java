@@ -1,10 +1,7 @@
 package Fragments;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
-import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -236,11 +233,24 @@ public class personal_3 extends Fragment {
                 submit3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        
+
+
+                        Pattern pattern = Pattern.compile("[a-z]{3}[\\/][0-9]{6}[\\/][0-9]{1}");
+                        //||[a-z]{2}[\/]{1}[0-9]{3}[/]{1}[0-9]{7}");
+
+
                         /*Pattern patterns = Pattern.compile("[a-z]{2}[/]{1}[0-9]{3}[/]{1}[0-9]{7}");*/
                         Matcher matcher = pattern.matcher(v);
+
+                        Pattern pattern1=Pattern.compile("[a-z]{2}[\\/][0-9]{2}[\\/][0-9]{3}[\\/][0-9]{7}");
+                        Matcher matcher1=pattern1.matcher(v);
+
                         if(matcher.matches()){
                             votes.setText(editable.toString());
+                        }
+                        else if(matcher1.matches()){
+                            votes.setText(editable.toString());
+
                         }
                         else{
                             Toast.makeText(getActivity(),"Invalid Voter ID",Toast.LENGTH_SHORT).show();
