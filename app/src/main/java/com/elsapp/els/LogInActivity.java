@@ -55,9 +55,9 @@ LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: testing phase
-                //Intent i = new Intent(LogInActivity.this,LoanSelec.class);
-                //Intent i = new Intent(LogInActivity.this,Details_Loan_Vehicle.class);
-                Intent i = new Intent(LogInActivity.this,Details_Loan_Home.class);
+
+                //Intent i = new Intent(LogInActivity.this,Details_Loan_Home.class);
+                Intent i = new Intent(LogInActivity.this,Home_Root_Page.class);
                 startActivity(i);
             }
         });
