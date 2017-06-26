@@ -83,6 +83,7 @@
         android:id="@+id/pas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="A-1234567890123456"
         android:visibility="invisible"
         android:maxLength="20"
         android:digits="abcdefghijklmnopqrstuvwxyz1234567890-"
@@ -108,6 +109,7 @@
         android:layout_alignBottom="@+id/sub1"
         android:layout_alignStart="@+id/lics"
         android:visibility="invisible"
+        android:hint="16 digit alphanumeric no."
         android:maxLength="16"
         android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10" />

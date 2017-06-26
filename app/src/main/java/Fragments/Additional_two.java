@@ -46,13 +46,13 @@ public class Additional_two extends Fragment {
         atype = (LinearLayout)view.findViewById(R.id.atype);
 
         snature = (Spinner)view.findViewById(R.id.snature);
-        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin1);
+        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrspin1);
         snature.setAdapter(adapter);
         simmovable = (Spinner)view.findViewById(R.id.simmovable);
-        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin2);
+        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrspin2);
         simmovable.setAdapter(adapter);
         smovable = (Spinner)view.findViewById(R.id.smovable);
-        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,arrspin3);
+        adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,arrspin3);
         smovable.setAdapter(adapter);
 
         /*snature.setOnItemClickListener(new AdapterView.OnItemClickListener() {
