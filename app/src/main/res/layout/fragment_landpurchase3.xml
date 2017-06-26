@@ -53,10 +53,11 @@
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="14dp"
+        android:textAlignment="center"
         android:textStyle="bold"
         android:text="Building plan approved?"
         android:layout_below="@+id/memdate"
@@ -65,18 +66,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radgrp5"
+        android:orientation="horizontal"
         android:layout_below="@+id/textView25"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp">
+        android:layout_marginTop="0dp">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yes"
+            android:layout_marginLeft="50dp"
             android:id="@+id/pyes"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No"
+            android:layout_marginLeft="150dp"
             android:id="@+id/pno"/>
     </RadioGroup>
 
@@ -272,6 +276,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:textSize="10dp"
+            android:lines="5"
             android:layout_height="wrap_content"
             android:text="I hereby authorize the Bank and its representatives to call me, email me or SMS me with reference to my loan application. This consent will supersede any registration for any Do Not Call (DNC) / National Do Not Call (NDNC). I am aware that credit approval is at the sole discretion of the bank. *"/>
 

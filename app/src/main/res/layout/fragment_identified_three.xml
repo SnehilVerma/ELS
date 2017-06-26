@@ -140,6 +140,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:textSize="12dp"
+            android:lines="6"
             android:layout_height="wrap_content"
             android:text="I hereby authorize the Bank and its representatives to call me, email me or SMS me with reference to my loan application. This consent will supersede any registration for any Do Not Call (DNC) / National Do Not Call (NDNC). I am aware that credit approval is at the sole discretion of the bank. *"/>
 
