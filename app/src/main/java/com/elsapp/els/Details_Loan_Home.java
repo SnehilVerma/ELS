@@ -10,7 +10,8 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragments.Communication;
+import Fragments.Identified_Home;
+import Fragments.Land_Purchase;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
 
@@ -46,7 +47,8 @@ public class Details_Loan_Home extends BaseActivity {
     private void setupViewPager(ViewPager viewPager) {
         Details_Loan_Home.ViewPagerAdapter adapter=new Details_Loan_Home.ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new Communication(), "Communication");
+        adapter.addFragment(new Identified_Home(), "Identified_Home");
+        adapter.addFragment(new Land_Purchase(),"Land_Purchase");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         viewPager.setAdapter(adapter);
