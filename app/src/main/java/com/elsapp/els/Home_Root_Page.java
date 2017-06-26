@@ -76,7 +76,7 @@ public class Home_Root_Page extends BaseActivity {
         continue_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(SessionManager.getStringFromPreferences(context,"hompurpose").equals("pidentifiedprop")){
+                if(SessionManager.getStringFromPreferences(context,"homepurpose").equals("pidentifiedprop")){
                     Intent i=new Intent(context,Details_Loan_Home.class);
                     i.putExtra("purpose","1");
                     startActivity(i);

@@ -42,7 +42,7 @@
             android:label="@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LogInActivity" />
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".RegistrationActivity" />o
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".Eligibility_Result" />
         <activity android:name=".Failure_Result" />
@@ -81,6 +81,7 @@
         <activity android:name=".personal_pager"></activity>
         <activity android:name=".Add_Pager"></activity>
 
+        <activity android:name=".Home_Root_Page"></activity>
     </application>
 
 </manifest>
