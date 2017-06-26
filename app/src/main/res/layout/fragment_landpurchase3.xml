@@ -75,13 +75,13 @@
             android:layout_height="wrap_content"
             android:text="Yes"
             android:layout_marginLeft="50dp"
-            android:id="@+id/pyes"/>
+            android:id="@+id/yes"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No"
             android:layout_marginLeft="150dp"
-            android:id="@+id/pno"/>
+            android:id="@+id/no"/>
     </RadioGroup>
 
 

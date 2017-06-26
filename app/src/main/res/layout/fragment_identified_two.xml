@@ -60,7 +60,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="Who is Seller?"
+            android:text="Type of Transaction"
             android:textSize="18dp"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"/>
@@ -68,18 +68,21 @@
         <RadioGroup
             android:layout_width="wrap_content"
             android:orientation="horizontal"
+            android:id="@id/radiogroup"
             android:layout_marginLeft="0dp"
             android:layout_height="wrap_content">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Original Allotee"/>
+                android:id="@+id/direct"
+                android:text="Direct Allotment"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
+                android:id="@+id/resale"
                 android:layout_height="wrap_content"
-                android:text="Builder/Developer"/>
+                android:text="Re-sale"/>
 
         </RadioGroup>
 
@@ -96,7 +99,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="Type of Transaction"
+            android:text="Who is seller?"
             android:textSize="18dp"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"/>
@@ -110,12 +113,12 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Direct Allotment"/>
+                android:text="Orginal Allotee"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Re-Sale"/>
+                android:text="Builder/Developer"/>
 
         </RadioGroup>
 
