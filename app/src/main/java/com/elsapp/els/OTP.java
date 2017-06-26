@@ -1,5 +1,6 @@
 package com.elsapp.els;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,7 +31,22 @@ public class OTP extends AppCompatActivity {
         final LinearLayout lpass = (LinearLayout) findViewById(R.id.lpass);
         final TextView emailid = (TextView) findViewById(R.id.emailid);
         final TextView pass = (TextView) findViewById(R.id.pass);
+        final String loan = SessionManager.getStringFromPreferences(getApplicationContext(),"loantype");
         verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(loan.equals("Home")){
+                    Intent intent = new Intent(OTP.this,Details_Loan_Home.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(OTP.this,Details_Loan_Vehicle.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        // comment out to use the atp
+        /*verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -59,6 +75,6 @@ public class OTP extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
     }
 }

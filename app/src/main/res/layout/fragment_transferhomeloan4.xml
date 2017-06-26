@@ -36,12 +36,14 @@
             android:layout_height="wrap_content"
             android:text="Date of\nDeposition:"
             android:gravity="center"
-            android:inputType="date"
             android:layout_marginLeft="20dp"/>
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:inputType="number"
+            android:hint="MMYYYY"
+            android:maxLength="6"
+            android:textSize="16dp"
             android:id="@+id/datedep"/>
     </LinearLayout>
     <TextView
@@ -71,12 +73,14 @@
             android:layout_height="wrap_content"
             android:text="Date of\nMortgage:"
             android:gravity="center"
-            android:inputType="date"
             android:layout_marginLeft="20dp"/>
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:inputType="number"
+            android:hint="MMYYYY"
+            android:maxLength="6"
+            android:textSize="16dp"
             android:id="@+id/datemort"/>
     </LinearLayout>
     <LinearLayout
