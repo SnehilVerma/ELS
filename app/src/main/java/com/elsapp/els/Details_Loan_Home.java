@@ -14,6 +14,7 @@ import Fragments.Identified_Home;
 import Fragments.Land_Purchase;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
+import Fragments.Transfer_Home_loan;
 
 /**
  * Created by snehil on 21/6/17.
@@ -51,6 +52,7 @@ public class Details_Loan_Home extends BaseActivity {
         adapter.addFragment(new Land_Purchase(),"Land_Purchase");
         adapter.addFragment(new LoanSpecific(), "LoanSpecific");
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
+        adapter.addFragment(new Transfer_Home_loan(), "TransferHomeLoan");
         viewPager.setAdapter(adapter);
 
     }
