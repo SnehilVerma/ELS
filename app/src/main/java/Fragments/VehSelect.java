@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,12 @@ public class VehSelect extends Fragment {
 
         ImageButton ib1=(ImageButton)view.findViewById(im1);
         ImageButton ib2=(ImageButton)view.findViewById(R.id.im2);
+        if(sessionManager.getStringFromPreferences(getActivity(),"vehicle_type").equals("Bike")){
+            ib1.setBackgroundColor(Color.GREEN);
+        }
+        else if(sessionManager.getStringFromPreferences(getActivity(),"vehicle_type").equals("Car")){
+            ib2.setBackgroundColor(Color.GREEN);
+        }
 
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();

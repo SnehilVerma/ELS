@@ -1,53 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/white">
+    android:background="#3f8f98"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rl1"
-        android:layout_centerVertical="true">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/cs1"
-        />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/rl1"
-        android:layout_marginLeft="10dp"
-        >
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#349999"
+        android:gravity="center"
+        android:elevation="4dp">
         <ImageView
             android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:src="@drawable/rupee_symbol_floating"
-            android:id="@+id/im1"
-            android:layout_marginTop="50dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/welcome"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="270dp"
+            android:src="@drawable/guy"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/im1"
-            android:maxWidth="150dp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:layout_centerHorizontal="true"
-            android:text="Welcome to Easy Loan Solutions"
-            android:layout_marginTop="100dp"
-            />
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/els"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A Complete and "
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Easy Solution"
+                android:textSize="18dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="to get Loan"
+                android:textColor="#ffffff"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="NEXT"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/button"
+        android:layout_marginTop="20dp"/>
 
 
-    </RelativeLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

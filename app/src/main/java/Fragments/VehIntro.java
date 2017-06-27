@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
 /**
  * Created by sibby on 12/6/17.
  */
@@ -19,6 +21,7 @@ public class VehIntro extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         final View view=inflater.inflate(R.layout.fragment_vehicle_intro, container, false);
+        SessionManager.putStringInPreferences(getActivity(),"null","vehicle_type");
 
         /*TextView t2 = (TextView) view.findViewById(R.id.next);
         final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();

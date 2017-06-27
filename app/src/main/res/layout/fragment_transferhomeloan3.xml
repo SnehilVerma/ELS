@@ -11,164 +11,126 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <TextView
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amount of original loan(₹):"/>
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:hint="Amount of original loan(₹)"
+            android:textSize="14dp"
             android:maxLength="19"
             android:id="@+id/loan"/>
+        </android.support.design.widget.TextInputLayout>
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Existing Rate\nof Interest:"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="50dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:inputType="number"
+            android:textSize="14dp"
+            android:hint="Existing Rate of Interest:"
             android:id="@+id/rateofint"/>
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Date of\nLoan availed\n(in years):"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="100dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="DDMMYYYY"
+            android:hint="Date of Loan availed(in years)"
             android:maxLength="8"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:id="@+id/loandate"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
-            android:layout_width="150dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:text="Present Tenure:"/>
+    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:hint="Present Tenure"
+            android:textSize="14dp"
             android:inputType="number"
             android:maxLength="2"
             android:id="@+id/tenure"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
-            android:layout_width="150dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:text="Loan repayment period(in years):"/>
+    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:inputType="number"
+            android:hint="Loan repayment period(in years)"
+            android:textSize="14dp"
             android:maxLength="2"
             android:id="@+id/loanrepay"/>
-    </LinearLayout>
+    </android.support.design.widget.TextInputLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Existing EMI:"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
         <EditText
-            android:layout_width="70dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:hint="Existing EMI"
+            android:textSize="14dp"
             android:inputType="number"
             android:maxLength="19"
             android:id="@+id/emi"/>
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Outstanding Balance:"
-            android:gravity="center" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:hint="Outstanding Balance"
+            android:textSize="14dp"
+            android:layout_marginLeft="10dp"
             android:maxLength="19"
             android:id="@+id/outbal"/>
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Loan Amount Sought"
         android:textStyle="bold"
-        android:textSize="16dp"
-        android:layout_marginTop="50dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="20dp">
-        <TextView
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"/>
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:text="Takeover Balance:"
-            android:layout_marginRight="25dp"/>
+            android:layout_height="wrap_content">
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:hint="Takeover Balance"
+            android:textSize="14dp"
             android:inputType="number"
             android:maxLength="2"
             android:id="@+id/takeoverbal"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:text="Additional amount:"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/info"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/info"/>
+            android:layout_height="wrap_content"/>
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:inputType="number"
             android:maxLength="2"
+            android:hint="Additional amount"
+            android:textSize="14dp"
             android:id="@+id/addamount"/>
-    </LinearLayout>
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
