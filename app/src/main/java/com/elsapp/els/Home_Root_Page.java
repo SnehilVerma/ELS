@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 import Utility.SessionManager;
 
@@ -37,8 +36,9 @@ public class Home_Root_Page extends BaseActivity {
         continue_btn=(Button)findViewById(R.id.continue_btn);
         context=this;
 
-        String purpose=SessionManager.getStringFromPreferences(this,"homepurpose");
-        Toast.makeText(getApplicationContext(),purpose,Toast.LENGTH_SHORT).show();
+        //String purpose=SessionManager.getStringFromPreferences(this,"homepurpose");
+        //Toast.makeText(getApplicationContext(),purpose,Toast.LENGTH_SHORT).show();
+
 
 
 
@@ -46,6 +46,7 @@ public class Home_Root_Page extends BaseActivity {
             @Override
             public void onClick(View view) {
                 ib1.setHighlightColor(Color.RED);
+                SessionManager.putStringInPreferences(context,"pidentifiedprop","homepurpose");
             }
         });
 
@@ -53,7 +54,8 @@ public class Home_Root_Page extends BaseActivity {
         ib2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ib1.setHighlightColor(Color.RED);
+                ib2.setHighlightColor(Color.RED);
+                SessionManager.putStringInPreferences(context,"renovateflat","homepurpose");
             }
         });
 
@@ -61,7 +63,8 @@ public class Home_Root_Page extends BaseActivity {
         ib3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ib1.setHighlightColor(Color.RED);
+                ib4.setHighlightColor(Color.RED);
+                SessionManager.putStringInPreferences(context,"constructhouse","homepurpose");
             }
         });
 
@@ -69,31 +72,33 @@ public class Home_Root_Page extends BaseActivity {
         ib4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ib1.setHighlightColor(Color.RED);
+                ib4.setHighlightColor(Color.RED);
+                SessionManager.putStringInPreferences(context,"transferloan","homepurpose");
             }
         });
 
         continue_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(SessionManager.getStringFromPreferences(context,"homepurpose").equals("pidentifiedprop")){
-                    Intent i=new Intent(context,Details_Loan_Home.class);
-                    i.putExtra("purpose","1");
+                if(SessionManager.getStringFromPreferences(context,"homepurpose").equals("pidentifiedprop")) {
+                    Intent i = new Intent(context, Details_Loan_Home.class);
+                    i.putExtra("purpose", "1");
                     startActivity(i);
 
-                }else if(SessionManager.getStringFromPreferences(context,"hompurpose").equals("renovateflat")){
+
+                }else if(SessionManager.getStringFromPreferences(context,"homepurpose").equals("renovateflat")){
                     Intent i=new Intent(context,Details_Loan_Home.class);
                     i.putExtra("purpose","2");
                     startActivity(i);
 
 
-                }else if(SessionManager.getStringFromPreferences(context,"hompurpose").equals("constructhouse")){
+                }else if(SessionManager.getStringFromPreferences(context,"homepurpose").equals("constructhouse")){
                     Intent i=new Intent(context,Details_Loan_Home.class);
                     i.putExtra("purpose","3");
                     startActivity(i);
 
 
-                }else if(SessionManager.getStringFromPreferences(context,"hompurpose").equals("transferloan")){
+                }else if(SessionManager.getStringFromPreferences(context,"homepurpose").equals("transferloan")){
                     Intent i=new Intent(context,Details_Loan_Home.class);
                     i.putExtra("purpose","4");
                     startActivity(i);

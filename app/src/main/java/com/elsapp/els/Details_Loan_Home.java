@@ -14,11 +14,8 @@ import Fragments.Communication;
 import Fragments.Identified_Home;
 import Fragments.Land_Purchase;
 import Fragments.LoanRepayment;
-
 import Fragments.Personal;
 import Fragments.Repair_Renov;
-
-import Fragments.LoanSpecific;
 import Fragments.Transfer_Home_loan;
 
 
@@ -40,12 +37,13 @@ public class Details_Loan_Home extends BaseActivity {
 
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+        purpose=getIntent().getStringExtra("purpose");
         setupViewPager(viewPager);
 
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
-        purpose=getIntent().getStringExtra("purpose");
+
 
 
     }
@@ -64,14 +62,12 @@ public class Details_Loan_Home extends BaseActivity {
             adapter.addFragment(new Land_Purchase(),"Land_Purchase");
 
         }else{
-            //adapter.addFragment();
-
+            adapter.addFragment(new Transfer_Home_loan(),"Transfer_Home_Loan");
         }
 
         adapter.addFragment(new Personal(),"Personal");
         adapter.addFragment(new Communication(),"Communication");
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
-        adapter.addFragment(new Transfer_Home_loan(), "TransferHomeLoan");
         viewPager.setAdapter(adapter);
 
     }
