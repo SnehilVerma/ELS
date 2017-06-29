@@ -23,6 +23,7 @@ import Utility.VerticalViewPager;
  */
 
 public class Transfer_Home_loan extends Fragment{
+
     VerticalViewPager verticalViewPager;
     TextView textView;
     Transfer_Home_loan.ViewPagerAdapter adapter;
@@ -36,6 +37,8 @@ public class Transfer_Home_loan extends Fragment{
 
         textView=(TextView)view.findViewById(R.id.page_number);
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.viewpager);
+
+
 
         setupViewPager(verticalViewPager);
         textView.setText(String.valueOf(1)+"/"+String.valueOf(adapter.getCount()));
@@ -110,5 +113,11 @@ public class Transfer_Home_loan extends Fragment{
             return mFragmentTitleList.get(position);
 
         }
+    }
+
+    //return viewpager instance.
+    public VerticalViewPager getVerticalViewPager(){
+        return verticalViewPager;
+
     }
 }

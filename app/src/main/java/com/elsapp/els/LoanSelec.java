@@ -24,11 +24,13 @@ public class LoanSelec extends AppCompatActivity
 
     private String loantype;
     GridView grid;
-    String[] loans = {"Home","vehicle"};
+    String[] loans = {"vehicle","education","Home","gold"};
     int[] pic_loans = {
 
-            R.drawable.house,
-            R.drawable.car,
+            R.drawable.vehicleloan,
+            R.drawable.education,
+            R.drawable.homeloan,
+            R.drawable.goldloan
 
 
 
@@ -42,7 +44,7 @@ public class LoanSelec extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        CustomGrid adapter = new CustomGrid(LoanSelec.this, loans, pic_loans);
+        CustomGrid adapter = new CustomGrid(LoanSelec.this, pic_loans);
         grid=(GridView)findViewById(R.id.grid);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
