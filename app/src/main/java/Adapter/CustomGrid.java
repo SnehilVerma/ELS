@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.elsapp.els.R;
 
@@ -25,9 +24,15 @@ public class CustomGrid extends BaseAdapter {
         this.ints = ints;
     }
 
+    public CustomGrid(Context context,int[] ints){
+        this.context=context;
+        this.ints=ints;
+
+    }
+
     @Override
     public int getCount() {
-        return strings.length;
+        return ints.length;
     }
 
     @Override
@@ -50,9 +55,9 @@ public class CustomGrid extends BaseAdapter {
 
             view = new View(context);
             view = inflater.inflate(R.layout.grid_single,null);
-            TextView textView = (TextView) view.findViewById(R.id.grid_text);
+            //TextView textView = (TextView) view.findViewById(R.id.grid_text);
             ImageView imageView = (ImageView)view.findViewById(R.id.grid_image);
-            textView.setText(strings[position]);
+            //textView.setText(strings[position]);
             imageView.setImageResource(ints[position]);
 
         }

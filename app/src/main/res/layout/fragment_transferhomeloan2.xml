@@ -82,6 +82,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Address of Property"
+            android:id="@+id/address"
             android:textSize="14dp"
             android:inputType="textPostalAddress"/>
         </android.support.design.widget.TextInputLayout>

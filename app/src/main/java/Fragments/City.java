@@ -57,6 +57,7 @@ public class City extends Fragment {
         delhi= (ImageView) view.findViewById(R.id.delhi);
         others=(ImageView)view.findViewById(R.id.others);
 
+
         city_names =new ArrayList<>(Arrays.asList("Kanpur","Lucknow","Bengaluru","Patna","Surat","Kota","Jaipur","Pune","Panaji"));
 
 

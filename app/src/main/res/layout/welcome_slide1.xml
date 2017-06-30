@@ -16,6 +16,7 @@
             android:layout_height="200dp"
             android:src="@drawable/welcome"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,16 +63,7 @@
         </LinearLayout>
 
     </LinearLayout>
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="NEXT"
-        android:textColor="#ffffff"
-        android:textSize="18dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:background="@drawable/button"
-        android:layout_marginTop="20dp"/>
+
 
 
 </LinearLayout>

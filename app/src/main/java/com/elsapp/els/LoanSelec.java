@@ -24,11 +24,13 @@ public class LoanSelec extends AppCompatActivity
 
     private String loantype;
     GridView grid;
-    String[] loans = {"Home","vehicle"};
+    String[] loans = {"vehicle","education","Home","gold"};
     int[] pic_loans = {
 
-            R.drawable.house,
-            R.drawable.car,
+            R.drawable.vehicleloan,
+            R.drawable.education,
+            R.drawable.homeloan,
+            R.drawable.goldloan
 
 
 
@@ -42,7 +44,7 @@ public class LoanSelec extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        CustomGrid adapter = new CustomGrid(LoanSelec.this, loans, pic_loans);
+        CustomGrid adapter = new CustomGrid(LoanSelec.this, pic_loans);
         grid=(GridView)findViewById(R.id.grid);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,7 +52,7 @@ public class LoanSelec extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                if(position==1){
+                if(position==0){
                     Intent i=new Intent(LoanSelec.this,CarLoanActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     loantype = "Vehicle";
@@ -58,7 +60,7 @@ public class LoanSelec extends AppCompatActivity
                     SessionManager.putStringInPreferences(getApplicationContext(),"0","flaggy");
                     startActivity(i);
                 }
-                else if(position==0){
+                else if(position==2){
                     Intent i=new Intent(LoanSelec.this,HomeLoan.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     loantype = "Home";

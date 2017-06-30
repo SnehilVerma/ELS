@@ -104,4 +104,8 @@ public class Details_Loan_Home extends BaseActivity {
 
         }
     }
+
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
 }
