@@ -58,7 +58,7 @@
         android:layout_below="@+id/linearLayout3"
         android:layout_alignStart="@+id/linearLayout3"
         android:layout_marginTop="10dp"
-        android:visibility="invisible">
+        android:visibility="gone">
         <TextView
             android:layout_width="60dp"
             android:layout_height="20dp"
@@ -80,7 +80,7 @@
             android:layout_alignStart="@+id/linear1"
             android:layout_alignTop="@+id/linear1"
             android:background="@drawable/shape"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="60dp"
@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
         android:id="@+id/linear3"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:layout_below="@+id/linear1"
         android:layout_alignStart="@+id/linear1"
         android:layout_marginTop="10dp">
@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
         android:id="@+id/linear4"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:layout_below="@+id/linear1"
         android:layout_alignStart="@+id/linear1"
         android:layout_marginTop="10dp">
@@ -147,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:hint="Name of Relation"
         android:inputType="textPersonName"
         android:layout_alignBottom="@+id/linear3"
@@ -157,7 +157,7 @@
         android:id="@+id/namerel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:ems="10"
         android:hint="Name of Relation"
         android:inputType="textPersonName"
@@ -186,6 +186,7 @@
             android:layout_toEndOf="@+id/textView6"
             android:ems="10"
             android:hint="DD/MM/YYYY"
+            android:focusable="false"
             android:inputType="date" />
 
 

@@ -104,17 +104,17 @@ public class personal_1 extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 2) {
                     linear1.setVisibility(View.VISIBLE);
-                    linear2.setVisibility(View.INVISIBLE);
-                    linear3.setVisibility(View.INVISIBLE);
-                    linear4.setVisibility(View.INVISIBLE);
-                    relname.setVisibility(View.INVISIBLE);
+                    linear2.setVisibility(View.GONE);
+                    linear3.setVisibility(View.GONE);
+                    linear4.setVisibility(View.GONE);
+                    relname.setVisibility(View.GONE);
                 } else {
                     if (i == 1) {
                         linear2.setVisibility(View.VISIBLE);
-                        linear1.setVisibility(View.INVISIBLE);
-                        linear3.setVisibility(View.INVISIBLE);
-                        linear4.setVisibility(View.INVISIBLE);
-                        relname2.setVisibility(View.INVISIBLE);
+                        linear1.setVisibility(View.GONE);
+                        linear3.setVisibility(View.GONE);
+                        linear4.setVisibility(View.GONE);
+                        relname2.setVisibility(View.GONE);
 
 
                     }
@@ -133,13 +133,13 @@ public class personal_1 extends Fragment {
 
                 if (i == 1) {
                     linear3.setVisibility(View.VISIBLE);
-                    linear4.setVisibility(View.INVISIBLE);
+                    linear4.setVisibility(View.GONE);
                     //relname.setVisibility(View.VISIBLE);
                 } else {
                     if (i == 2) {
 
                     }
-                    linear3.setVisibility(View.INVISIBLE);
+                    linear3.setVisibility(View.GONE);
                     linear4.setVisibility(View.VISIBLE);
 
                 }
@@ -155,7 +155,7 @@ public class personal_1 extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 1 || i == 2 || i == 3) {
                     relname.setVisibility(View.VISIBLE);
-                    relname2.setVisibility(View.INVISIBLE);
+                    relname2.setVisibility(View.GONE);
                 }
             }
 
