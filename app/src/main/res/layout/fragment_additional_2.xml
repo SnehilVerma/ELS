@@ -10,8 +10,7 @@
         app:contentPadding="5dp">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ff4040">
+            android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -21,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Existing Bank Details"
+        android:text="Asset Details"
         android:textSize="20dp"
         android:textStyle="bold"
         android:id="@+id/tv"/>
@@ -38,7 +37,8 @@
         android:id="@+id/snature"
         android:layout_toEndOf="@+id/tnature"
         android:layout_toRightOf="@+id/tnature"
-        android:layout_marginLeft="5dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="50dp">
     </Spinner>
 
 </RelativeLayout>

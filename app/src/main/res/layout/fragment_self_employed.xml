@@ -11,7 +11,7 @@
                                         android:layout_margin="10dp"
                                         card_view:cardCornerRadius="0dp"
                                         android:elevation="5dp"
-                                        card_view:cardBackgroundColor="@android:color/white"
+                                        card_view:cardBackgroundColor="#E0F2F1"
                                         android:layout_height="match_parent"
                                         card_view:cardMaxElevation="5dp">
 
@@ -24,66 +24,49 @@
             android:src="@drawable/self"/>
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:gravity="center">
+            android:layout_marginTop="180dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:textSize="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:id="@+id/tv1"
-                android:text="Income after Tax"
-
-                />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_below="@+id/tv1"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:id="@+id/taxamount"
-                android:hint="Enter amount"
+                android:hint="Income after Tax"
                 android:inputType="number"
                 android:maxLength="10"
                 android:maxLines="1"
                 android:imeOptions="actionNext"
                 android:background="@drawable/round_background1"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:textSize="20dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Existing EMI"
-                android:id="@+id/tv2"
-
-                />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
 
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
-                android:layout_below="@+id/tv2"
-                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
                 android:paddingLeft="10dp"
-                android:hint="Enter amount"
+                android:hint="Existing EMI"
                 android:id="@+id/emiamount"
                 android:maxLength="10"
                 android:paddingRight="10dp"
@@ -92,19 +75,19 @@
                 android:maxLines="1"
                 android:imeOptions="actionDone"
                 android:background="@drawable/round_background1"/>
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
                 android:text="SAVE"
-                android:layout_marginEnd="19dp"
-                android:layout_below="@+id/emiamount"
-                android:layout_alignEnd="@+id/emiamount"
-                android:layout_marginTop="16dp" />
+                android:textColor="#ffffff"
+                android:background="@drawable/button"
+                android:layout_marginTop="50dp" />
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
 

@@ -40,7 +40,7 @@ public class Eligibility_Result extends AppCompatActivity {
         TextView tv=(TextView)findViewById(R.id.eligible);
 
 
-        Toast.makeText(getApplicationContext(),"here", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"here", Toast.LENGTH_LONG).show();
         String ela= SessionManager.getStringFromPreferences(getApplicationContext(),"eligible_loan_amount");
         //Float amount=Float.parseFloat(ela);
 

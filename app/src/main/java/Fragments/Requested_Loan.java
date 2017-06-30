@@ -88,8 +88,8 @@ public class Requested_Loan extends Fragment {
 
 
 
-        Toast.makeText(getContext(),loan_type+ "  "+ city+ "   "+vehicle_type+ "  "+cost+" "+ car_condition+'\n'
-                +gross+'\n'+ net_salary+'\n'+ existing_emi,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getContext(),loan_type+ "  "+ city+ "   "+vehicle_type+ "  "+cost+" "+ car_condition+'\n'
+          //      +gross+'\n'+ net_salary+'\n'+ existing_emi,Toast.LENGTH_LONG).show();
 
 
 

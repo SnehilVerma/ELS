@@ -37,6 +37,7 @@ public class OTP extends AppCompatActivity {
             public void onClick(View view) {
                 if(loan.equals("Home")){
                     Intent intent = new Intent(OTP.this,Details_Loan_Home.class);
+                    intent.putExtra(SessionManager.getStringFromPreferences(getApplicationContext(),"homepurpose"),"purpose");
                     startActivity(intent);
                 }
                 else{

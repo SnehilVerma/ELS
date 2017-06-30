@@ -14,7 +14,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        app:titleTextColor="#ffffff"
+        app:title="Home Loan"
         android:fitsSystemWindows="true"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
 

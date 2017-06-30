@@ -24,7 +24,7 @@
         app:tabTextColor="#ffffff"
         app:tabIndicatorColor="#ffff"
 
-        app:tabBackground="@color/colorPrimaryDark"
+        app:tabBackground="@color/colorPrimary"
         android:elevation="10dp"
         app:tabSelectedTextColor="#ffff"
         app:tabIndicatorHeight="3dp"
