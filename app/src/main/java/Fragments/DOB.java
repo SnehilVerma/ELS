@@ -191,6 +191,9 @@ public class DOB extends Fragment {
 
             text.setText(sdf.format(myCalendar.getTime()));
         }
+
+
+
     }
 
 

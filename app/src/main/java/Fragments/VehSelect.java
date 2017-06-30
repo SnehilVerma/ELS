@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,8 +41,8 @@ public class VehSelect extends Fragment {
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
-        ImageButton ib1=(ImageButton)view.findViewById(im1);
-        ImageButton ib2=(ImageButton)view.findViewById(R.id.im2);
+        ImageView ib1=(ImageView) view.findViewById(im1);
+        ImageView ib2=(ImageView) view.findViewById(R.id.im2);
         if(sessionManager.getStringFromPreferences(getActivity(),"vehicle_type").equals("Bike")){
             ib1.setBackgroundColor(Color.GREEN);
         }
