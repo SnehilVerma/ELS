@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#E0F2F1"
+        android:background="@color/colorPrimary"
 
         >
         <TextView
@@ -68,7 +68,7 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <ImageView
-                    android:layout_width="130dp"
+                    android:layout_width="150dp"
                     android:layout_height="130dp"
                     android:src="@drawable/newdelhi"
                     style="?android:borderlessButtonStyle"

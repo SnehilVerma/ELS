@@ -31,13 +31,27 @@ public class OTP extends AppCompatActivity {
         final LinearLayout lpass = (LinearLayout) findViewById(R.id.lpass);
         final TextView emailid = (TextView) findViewById(R.id.emailid);
         final TextView pass = (TextView) findViewById(R.id.pass);
+        String pur = SessionManager.getStringFromPreferences(getApplicationContext(),"homepurpose");
+        final String sel;
+        if(pur.equals("pidentifiedprop")){
+            sel = "1";
+        }
+        else if(pur.equals("renovateflat")){
+            sel = "2";
+        }
+        else if(pur.equals("constructhouse")){
+            sel = "3";
+        }
+        else{
+            sel = "4";
+        }
         final String loan = SessionManager.getStringFromPreferences(getApplicationContext(),"loantype");
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(loan.equals("Home")){
                     Intent intent = new Intent(OTP.this,Details_Loan_Home.class);
-                    intent.putExtra(SessionManager.getStringFromPreferences(getApplicationContext(),"homepurpose"),"purpose");
+                    intent.putExtra("purpose",sel);
                     startActivity(intent);
                 }
                 else{

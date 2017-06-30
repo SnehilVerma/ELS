@@ -165,6 +165,11 @@ public class Fragment_Comm_One extends Fragment {
 
 
                 }else if(b==false){
+                    et5.setEnabled(false);
+                    et6.setEnabled(false);
+                    et7.setEnabled(false);
+                    et8.setEnabled(false);
+
                     et5.setText("");
                     et6.setText("");
                     et7.setText("");

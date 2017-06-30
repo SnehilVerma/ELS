@@ -57,7 +57,7 @@ public class personl_2 extends Fragment {
                 if(i==1||i==5){
                     castlin.setVisibility(View.VISIBLE);
                 }else{
-                    castlin.setVisibility(View.INVISIBLE);
+                    castlin.setVisibility(View.GONE);
                 }
             }
 

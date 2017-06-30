@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Asset Details"
         android:textSize="20dp"
+        android:gravity="center"
         android:textStyle="bold"
         android:id="@+id/tv"/>
     <TextView
