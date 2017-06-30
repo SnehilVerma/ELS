@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                         android:orientation="vertical"
 
                                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                         android:layout_width="match_parent"
-                                        android:layout_margin="10dp"
+                                        android:layout_margin="5dp"
                                         card_view:cardCornerRadius="0dp"
-                                        android:elevation="5dp"
 
-                                        card_view:cardBackgroundColor="@android:color/white"
+
+                                        card_view:cardBackgroundColor="#E0F2f1"
                                         android:layout_height="match_parent"
                                         card_view:cardMaxElevation="5dp">
 
@@ -21,7 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
+            android:textAllCaps="true"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:textColor="@android:color/holo_red_dark"
             android:text="What type of bike do you want to buy?"
             android:layout_gravity="center_horizontal"
@@ -29,24 +32,26 @@
             />
 
 
-        <ImageButton
+        <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:layout_marginLeft="20dp"
+            android:tint="@color/colorPrimaryDark"
             android:background="@drawable/background_style"
             android:src="@drawable/motorcycle"
             android:id="@+id/im1"
             android:clickable="true"
             android:layout_marginTop="150dp">
 
-        </ImageButton>
+        </ImageView>
 
-        <ImageButton
+        <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:id="@+id/im2"
+            android:tint="@color/colorPrimaryDark"
             android:background="@drawable/background_style"
             android:clickable="true"
             android:layout_marginLeft="220dp"
@@ -54,37 +59,9 @@
             android:layout_marginTop="150dp">
 
 
-        </ImageButton>
+        </ImageView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="bottom"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/backarrow"
-                android:id="@+id/back"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Previous"
-                android:id="@+id/prev"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Next"
-                android:id="@+id/next"
-                android:layout_marginLeft="200dp"/>
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/forwardarrow"
-                android:id="@+id/forw"/>
-        </LinearLayout>
+
 
 
 

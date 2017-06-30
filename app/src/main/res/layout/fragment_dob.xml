@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    card_view:cardBackgroundColor="#E0F2F1"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     card_view:cardCornerRadius="1dp"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     tools:context="Fragments.DOB">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Select your Date of Birth"
         android:textStyle="bold"
+        android:textAllCaps="true"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"/>
@@ -44,11 +46,11 @@
 
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="@color/cardview_light_background"
+        android:background="@color/colorPrimaryDark"
         android:elevation="10dp"
         android:text="SAVE"
 
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="350dp"
         android:id="@+id/button"/>

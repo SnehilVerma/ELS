@@ -1,6 +1,7 @@
 package Fragments;
 
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -39,9 +40,9 @@ public class Gender extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_gender, container, false);
 
 
-        ImageView male = (ImageView) view.findViewById(R.id.malecheck);
-        ImageView female = (ImageView) view.findViewById(R.id.femalecheck);
-        Button others=(Button) view.findViewById(R.id.others);
+        ImageView male = (ImageView) view.findViewById(R.id.male);
+        ImageView female = (ImageView) view.findViewById(R.id.female);
+        ImageView others=(ImageView) view.findViewById(R.id.others);
 
 
 

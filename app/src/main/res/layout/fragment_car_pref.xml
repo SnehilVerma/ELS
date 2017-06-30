@@ -10,7 +10,7 @@
 
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="wrap_content"
-                                    android:layout_margin="10dp"
+                                    android:layout_margin="5dp"
                                     card_view:cardCornerRadius="0dp"
                                     card_view:cardBackgroundColor="@android:color/white"
                                     android:layout_height="match_parent"
@@ -18,6 +18,7 @@
                                     card_view:cardMaxElevation="5dp">
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="#E0f2f1"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
@@ -26,7 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
         android:text="Your preferred car is"
         android:layout_gravity="center_horizontal"
         android:id="@+id/tv1"
@@ -48,36 +52,6 @@
         </GridView>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-
-        android:gravity="center">
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/backarrow"
-            android:id="@+id/back"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Previous"
-            android:id="@+id/prev"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:id="@+id/next"
-            android:layout_marginLeft="150dp"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/forwardarrow"
-            android:id="@+id/forw"/>
-    </LinearLayout>
 
 
 </android.support.v7.widget.CardView>
