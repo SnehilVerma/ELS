@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2a81c9"
+        android:background="#E0F2F1"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
@@ -24,7 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lets do a quick calculation \nfor eligible amount of Home Loans"
-            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textAllCaps="true"
             android:layout_gravity="center"

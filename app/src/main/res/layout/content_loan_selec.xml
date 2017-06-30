@@ -5,17 +5,19 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               tools:context="com.elsapp.els.LoanSelec"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:background="#E0F2F1">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Which Loan are you Interested In?"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:padding="30dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginBottom="30dp" />
+        android:background="#3f8f98"
+        android:layout_marginBottom="10dp" />
+
     <GridView
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
@@ -25,6 +27,7 @@
         android:stretchMode="columnWidth"
         android:id="@+id/grid"
         android:clickable="true"
+
         ></GridView>
 
 

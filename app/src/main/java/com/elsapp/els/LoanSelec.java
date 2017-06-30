@@ -52,7 +52,7 @@ public class LoanSelec extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                if(position==1){
+                if(position==0){
                     Intent i=new Intent(LoanSelec.this,CarLoanActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     loantype = "Vehicle";
@@ -60,7 +60,7 @@ public class LoanSelec extends AppCompatActivity
                     SessionManager.putStringInPreferences(getApplicationContext(),"0","flaggy");
                     startActivity(i);
                 }
-                else if(position==0){
+                else if(position==2){
                     Intent i=new Intent(LoanSelec.this,HomeLoan.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     loantype = "Home";

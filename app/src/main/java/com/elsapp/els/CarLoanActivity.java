@@ -58,9 +58,8 @@ public class CarLoanActivity extends AppCompatActivity
         pb.setProgress(0);
         SessionManager.putStringInPreferences(CarLoanActivity.this,"0","pos");
         setSupportActionBar(toolbar);
-        TextView tv=(TextView)findViewById(R.id.tv1);
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/roboto.ttf");
-        tv.setTypeface(font);
+
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true,new PagerTransformer());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

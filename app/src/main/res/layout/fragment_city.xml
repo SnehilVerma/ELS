@@ -4,40 +4,11 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/backarrow"
-            android:id="@+id/back"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Previous"
-            android:id="@+id/prev"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:id="@+id/next"
-            android:layout_marginLeft="200dp"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/forwardarrow"
-            android:id="@+id/forw"/>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2a81c9"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
 
         >
@@ -46,18 +17,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:text="Where do you currently live?"
             android:textAllCaps="true"
+            android:layout_marginBottom="10dp"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:textStyle="bold"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/home"/>
+
 
 
         <LinearLayout
@@ -101,7 +69,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+
                 android:orientation="vertical">
 
                 <ImageView

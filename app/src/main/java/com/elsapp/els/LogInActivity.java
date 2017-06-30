@@ -57,7 +57,7 @@ LogInActivity extends AppCompatActivity {
                 //TODO: testing phase
 
                 //Intent i = new Intent(LogInActivity.this,Details_Loan_Home.class);
-                Intent i = new Intent(LogInActivity.this,Home_Root_Page.class);
+                Intent i = new Intent(LogInActivity.this,Details_Loan_Vehicle.class);
                 startActivity(i);
             }
         });
