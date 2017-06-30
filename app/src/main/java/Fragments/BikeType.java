@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,8 +41,8 @@ public class BikeType extends Fragment {
 
 
 
-        ImageButton im1=(ImageButton) view.findViewById(R.id.im1);
-        ImageButton im2=(ImageButton)view.findViewById(R.id.im2);
+        ImageView im1=(ImageView) view.findViewById(R.id.im1);
+        ImageView im2=(ImageView)view.findViewById(R.id.im2);
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 

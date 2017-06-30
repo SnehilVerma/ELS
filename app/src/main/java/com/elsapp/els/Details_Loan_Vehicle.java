@@ -11,11 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fragments.Additional;
+import Fragments.Communication;
 import Fragments.LoanRepayment;
 import Fragments.LoanSpecific;
-import Fragments.Communication;
 import Fragments.Personal;
-import Fragments.personal_1;
 
 /**
  * Created by snehil on 20/6/17.
