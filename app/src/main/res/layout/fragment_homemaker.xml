@@ -7,14 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#3CB371"
+        android:background="#E0F2F1"
         android:layout_gravity="center"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HOMEMAKER"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="20dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
@@ -22,38 +22,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/dollar"
-            android:tint="#ffffff"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:tint="#000000"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Monthly Income \nfrom regular source :"
-            android:layout_gravity="left"
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="70dp"/>
-        <EditText
-            android:layout_width="220dp"
+            android:layout_marginTop="30dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/round_background1"
+                android:hint="Monthly Income from regular source"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+
+                android:id="@+id/income"
+                android:inputType="number"
+                android:maxLines="1"
+                android:imeOptions="actionNext"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/income"
-            android:maxLines="1"
-            android:imeOptions="actionNext"
-            android:inputType="number"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Existing EMI :"
-            android:layout_gravity="left"
-            android:layout_marginLeft="70dp"/>
-        <EditText
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/emi"
-            android:maxLines="1"
-            android:imeOptions="actionDone"
-            android:inputType="number"/>
+            android:layout_marginTop="20dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/emi"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:hint="Existing EMI"
+                android:background="@drawable/round_background1"
+                android:inputType="number"
+                android:maxLines="1"
+                android:imeOptions="actionDone"/>
+        </android.support.design.widget.TextInputLayout>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:text="SAVE"
+            android:textColor="#ffffff"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
             android:id="@+id/button"/>
     </LinearLayout>
     <LinearLayout

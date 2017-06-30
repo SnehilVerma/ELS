@@ -11,11 +11,11 @@
 
               android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <LinearLayout
+    <ImageView
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:background="@drawable/profile_icon">
-    </LinearLayout>
+        android:background="@drawable/usericon">
+    </ImageView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

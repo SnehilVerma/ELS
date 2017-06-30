@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#3CB371"
+        android:background="#E0F2F1"
         android:layout_gravity="center"
         android:gravity="center"
         android:id="@+id/layout">
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Salaried"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="20dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/dollar"
-            android:tint="#ffffff"/>
+            android:tint="#000000"/>
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -33,75 +33,93 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gross Monthly Income :"
-            android:layout_gravity="left"
-            android:layout_marginLeft="70dp"/>
+            </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/gmincome"
+                android:background="@drawable/round_background1"
+                android:maxLines="1"
+                android:hint="Gross Monthly Income"
+                android:imeOptions="actionNext"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:inputType="number"/>
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/info"
-                android:id="@+id/i1"/>
-            </LinearLayout>
-            <EditText
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/gmincome"
-                android:maxLines="1"
-                android:imeOptions="actionNext"
-                android:inputType="number"/>
+                android:id="@+id/i1"
+                android:layout_gravity="center"/>
+        </android.support.design.widget.TextInputLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Monthly Take-home Salary :"
-                android:layout_gravity="left"
-                android:layout_marginLeft="70dp"/>
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/info"
-                android:id="@+id/i2"/>
+
         </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:id="@+id/msalary"
+            android:hint="Monthly Take-home Salary"
+            android:background="@drawable/round_background1"
             android:inputType="number"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:maxLines="1"
             android:imeOptions="actionNext"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/info"
+                android:id="@+id/i2"
+                android:layout_gravity="center"/>
+        </android.support.design.widget.TextInputLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Existing EMI :"
-                android:layout_gravity="left"
-                android:layout_marginLeft="70dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
         </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <EditText
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:id="@+id/emi"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/round_background1"
+            android:hint="Existing EMI"
             android:inputType="number"
             android:maxLines="1"
             android:imeOptions="actionDone"/>
+        </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="@color/cardview_light_background"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
             android:elevation="10dp"
             android:id="@+id/button"
             android:layout_gravity="center_horizontal"
-            android:text="Submit"/>
+            android:text="Submit"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
