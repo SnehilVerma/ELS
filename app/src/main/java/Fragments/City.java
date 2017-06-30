@@ -107,7 +107,7 @@ public class City extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 dialog.dismiss();
                 String city=city_names.get(i);
-                Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
                 SessionManager.putStringInPreferences(getContext(),city,"city");
 
 
