@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:title="Loan Selection"
+            app:titleTextColor="#ffffff"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    </android.support.design.widget.AppBarLayout>
 
 
 <android.support.v4.widget.DrawerLayout
@@ -9,14 +30,13 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
 
 
 
     <include
-        layout="@layout/app_bar_loan_selec"
+        layout="@layout/content_loan_selec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -33,3 +53,4 @@
         app:menu="@menu/activity_loan_selec_drawer"/>
 
 </android.support.v4.widget.DrawerLayout>
+    </LinearLayout>
