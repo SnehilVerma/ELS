@@ -30,7 +30,7 @@ public class LoanSelec extends AppCompatActivity
             R.drawable.vehicleloan,
             R.drawable.education,
             R.drawable.homeloan,
-            R.drawable.goldloan
+            R.drawable.gold
 
 
 
