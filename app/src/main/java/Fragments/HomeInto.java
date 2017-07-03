@@ -29,14 +29,6 @@ public class HomeInto extends Fragment {
         SessionManager.putStringInPreferences(getActivity(),"null","car_type");
         SessionManager.putStringInPreferences(getActivity(),"null","bike_type");
 
-        TextView t2 = (TextView) view.findViewById(R.id.next);
-        final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();
-        t2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-            }
-        });
 
         return view;
 
