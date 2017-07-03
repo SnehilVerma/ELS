@@ -48,8 +48,6 @@ public class Salaried extends Fragment{
         final EditText gmincome = (EditText) view.findViewById(R.id.gmincome);
         final EditText msalary = (EditText) view.findViewById(R.id.msalary);
         final EditText emi = (EditText) view.findViewById(R.id.emi);
-        TextView t1 = (TextView) view.findViewById(R.id.prev);
-        TextView t2 = (TextView) view.findViewById(R.id.next);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         b1=(Button)view.findViewById(R.id.button);
 

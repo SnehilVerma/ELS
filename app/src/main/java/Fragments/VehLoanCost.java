@@ -48,8 +48,6 @@ public class VehLoanCost extends Fragment implements TextView.OnEditorActionList
         cost = (EditText) view.findViewById(R.id.cost);
         final SessionManager sessionManager=new SessionManager();
 
-        TextView t1 = (TextView) view.findViewById(R.id.prev);
-        TextView t2 = (TextView) view.findViewById(R.id.next);
         Button b1=(Button)view.findViewById(R.id.b2);
 
 

@@ -39,8 +39,6 @@ public class Retired_NP extends Fragment {
         final EditText mincome = (EditText) view.findViewById(R.id.mincome);
         final EditText emi = (EditText) view.findViewById(R.id.emi);
 
-        TextView t1 = (TextView) view.findViewById(R.id.prev);
-        TextView t2 = (TextView) view.findViewById(R.id.next);
         Button b1 = (Button) view.findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
