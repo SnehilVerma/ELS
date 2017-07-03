@@ -7,7 +7,6 @@
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">#3f8f98</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
     </style>
 
     <style name="AppTheme.NoAction">
@@ -17,7 +16,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
 
     </style>
 
@@ -39,7 +37,4 @@
         <item name="color">#ffffff</item>
     </style>
 
-    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_action_overflow</item>
-    </style>
 </resources>

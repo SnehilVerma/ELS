@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -213,7 +212,7 @@ public class City extends Fragment {
 
                     ad.addFragment(new Gender(), "Gender");
                     ad.notifyDataSetChanged();
-                    Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
+                    //Log.d("1", SessionManager.getStringFromPreferences(getContext(),"city"));
 
 
                 }
