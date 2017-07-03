@@ -135,6 +135,16 @@ public class CoAPP extends Fragment {
 //                pb.setProgress(80);
                     //              progress.setText(80+"");
                 }
+                else{
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+                }
             }
         });
 

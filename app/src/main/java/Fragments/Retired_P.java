@@ -52,7 +52,7 @@ public class Retired_P extends Fragment {
                 String existing_emi = emiamount.getText().toString();
 
 
-                if (gross.equals("00") || existing_emi.equals("00") || gross.equals("")) {
+                if ( gross.equals("")) {
                     Toast.makeText(getContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
 
                 } else {
@@ -60,7 +60,12 @@ public class Retired_P extends Fragment {
 
                     SessionManager.putStringInPreferences(getContext(), gross, "gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "net_salary");
-                    SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
+                    if(existing_emi.equals("")){
+                        SessionManager.putStringInPreferences(getContext(), "0", "existing_emi");
+                    }
+                    else {
+                        SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
+                    }
 
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
@@ -112,7 +117,12 @@ public class Retired_P extends Fragment {
 
                         SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
                         SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
-                        SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+                        if(existing_emi.equals("")){
+                            SessionManager.putStringInPreferences(getContext(), "0", "coap_existing_emi");
+                        }
+                        else {
+                            SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+                        }
                         SessionManager.putStringInPreferences(getActivity(), "Retired_P", "incometypecoapp");
 
 

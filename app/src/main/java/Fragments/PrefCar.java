@@ -31,12 +31,12 @@ import Utility.SessionManager;
 public class PrefCar extends Fragment {
 
     public Integer[] thumbs = {
+            R.drawable.creta, R.drawable.eon,
+            R.drawable.i30, R.drawable.sonata,
+            R.drawable.xcent, R.drawable.elantra,
+            /*R.drawable.car4, R.drawable.car2,
             R.drawable.car1, R.drawable.car3,
-            R.drawable.car4, R.drawable.car2,
-            R.drawable.car1, R.drawable.car3,
-            R.drawable.car4, R.drawable.car2,
-            R.drawable.car1, R.drawable.car3,
-            R.drawable.car4, R.drawable.car2,
+            R.drawable.car4, R.drawable.car2,*/
 
 
 

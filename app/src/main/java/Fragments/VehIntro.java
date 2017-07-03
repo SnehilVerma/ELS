@@ -22,6 +22,10 @@ public class VehIntro extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_vehicle_intro, container, false);
         SessionManager.putStringInPreferences(getActivity(),"null","vehicle_type");
+        SessionManager.putStringInPreferences(getContext(),"null","city");
+        SessionManager.putStringInPreferences(getContext(),"null","gender");
+        SessionManager.putStringInPreferences(getActivity(),"null","car_type");
+        SessionManager.putStringInPreferences(getActivity(),"null","bike_type");
 
         /*TextView t2 = (TextView) view.findViewById(R.id.next);
         final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();

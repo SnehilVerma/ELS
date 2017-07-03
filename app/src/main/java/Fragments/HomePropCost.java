@@ -148,20 +148,29 @@ public class HomePropCost extends Fragment implements TextView.OnEditorActionLis
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_DONE) {
-            //Handle go key click
-            if((Long.parseLong(v.getText().toString())<10000000)) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.setContentView(R.layout.custom_dialog);
-                TextView tv = (TextView) dialog.findViewById(R.id.amount);
-                String loan2 = cost.getText().toString();
-                tv.setText(loan2);
-                dialog.show();
+            if(!v.getText().toString().equals("")) {
+                //Handle go key click
+                if ((Long.parseLong(v.getText().toString()) < 10000000)) {
+                    final Dialog dialog = new Dialog(getContext());
+                    dialog.setContentView(R.layout.custom_dialog);
+                    TextView tv = (TextView) dialog.findViewById(R.id.amount);
+                    String loan2 = cost.getText().toString();
+                    tv.setText(loan2);
+                    dialog.show();
+                } else {
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+                return true;
             }
             else{
-                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+
+                dlgAlert.setMessage("All fields are mandatory");
+                dlgAlert.setTitle("Error Message");
+                dlgAlert.setCancelable(true);
+                dlgAlert.create().show();
             }
-            return true;
         }
         return false;
     }

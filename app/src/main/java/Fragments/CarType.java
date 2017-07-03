@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,13 @@ public class CarType extends Fragment {
         ImageView im2=(ImageView) view.findViewById(R.id.im2);
 
 
+        String cartype = SessionManager.getStringFromPreferences(getActivity(),"car_type");
+        if(cartype.equals("New")){
+            im1.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
+        else if(cartype.equals("Old")){
+            im2.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
 
         final SessionManager sessionManager=new SessionManager();
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();

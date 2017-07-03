@@ -1,6 +1,7 @@
 package Fragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,11 +43,18 @@ public class BikeType extends Fragment {
 
 
 
-        ImageButton im1=(ImageButton) view.findViewById(R.id.im1);
-        ImageButton im2=(ImageButton)view.findViewById(R.id.im2);
+        ImageView im1=(ImageView) view.findViewById(R.id.im1);
+        ImageView im2=(ImageView) view.findViewById(R.id.im2);
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
+        String biketype = SessionManager.getStringFromPreferences(getActivity(),"bike_type");
+        if(biketype.equals("New")){
+            im1.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
+        else if(biketype.equals("Old")){
+            im2.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();
         viewPager = ((CarLoanActivity)getActivity()).getViewPager();
 

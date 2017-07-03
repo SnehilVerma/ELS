@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.elsapp.els.HomeLoan;
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
 /**
  * Created by sibby on 9/6/17.
  */
@@ -22,6 +24,10 @@ public class HomeInto extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         final View view=inflater.inflate(R.layout.fragment_home_intro, container, false);
+        SessionManager.putStringInPreferences(getContext(),"null","city");
+        SessionManager.putStringInPreferences(getContext(),"null","gender");
+        SessionManager.putStringInPreferences(getActivity(),"null","car_type");
+        SessionManager.putStringInPreferences(getActivity(),"null","bike_type");
 
         TextView t2 = (TextView) view.findViewById(R.id.next);
         final ViewPager viewPager = ((HomeLoan)getActivity()).getViewPager();

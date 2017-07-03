@@ -7,12 +7,6 @@
     tools:context="com.elsapp.els.HomeLoan"
     android:orientation="vertical">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HomeLoan"
-        android:gravity="left"
-        android:layout_gravity="center" />
-    <TextView
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/round_text"

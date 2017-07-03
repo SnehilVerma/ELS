@@ -14,7 +14,7 @@
         card_view:cardCornerRadius="0dp"
         android:elevation="5dp"
 
-        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardBackgroundColor="#E0F2F1"
         android:layout_height="match_parent"
         card_view:cardMaxElevation="5dp">
 
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="#3f8f98"
             android:text="Would you like to add a coapplicant?"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"

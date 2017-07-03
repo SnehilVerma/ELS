@@ -163,7 +163,7 @@ public class Salaried extends Fragment{
                 String gross=gmincome.getText().toString();
                 String takeaway=msalary.getText().toString();
                 String existing_emi=emi.getText().toString();
-                if(gross.equals("")|| takeaway.equals("")|| existing_emi.equals("")||gross.equals("")|| takeaway.equals("")){
+                if(gross.equals("")|| takeaway.equals("")){
                     Snackbar snackbar = Snackbar
                             .make(cl, "Please fill all details", Snackbar.LENGTH_LONG);
 
@@ -174,7 +174,13 @@ public class Salaried extends Fragment{
 
                     SessionManager.putStringInPreferences(getContext(), gross, "gross_salary");
                     SessionManager.putStringInPreferences(getContext(), takeaway, "net_salary");
-                    SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
+                    if(existing_emi.equals("")){
+                        SessionManager.putStringInPreferences(getContext(), "0", "existing_emi");
+
+                    }
+                    else {
+                        SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
+                    }
 
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
@@ -233,7 +239,12 @@ public class Salaried extends Fragment{
 
                         SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
                         SessionManager.putStringInPreferences(getContext(), takeaway, "coap_net_salary");
-                        SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+                        if(existing_emi.equals("")){
+                            SessionManager.putStringInPreferences(getContext(),"0" , "coap_existing_emi");
+                        }
+                        else {
+                            SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
+                        }
                         SessionManager.putStringInPreferences(getActivity(),"Salaried","incometypecoapp");
 
 

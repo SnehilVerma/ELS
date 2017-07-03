@@ -15,6 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
+            app:title="Vehicle Loan"
+            app:titleTextColor="#ffffff"
             android:fitsSystemWindows="true"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
@@ -27,8 +29,7 @@
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start">
+        android:fitsSystemWindows="true">
 
 
 

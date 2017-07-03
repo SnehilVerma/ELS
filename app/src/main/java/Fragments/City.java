@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -56,7 +57,17 @@ public class City extends Fragment {
         mumbai = (ImageView) view.findViewById(R.id.mumbai);
         delhi= (ImageView) view.findViewById(R.id.delhi);
         others=(ImageView)view.findViewById(R.id.others);
+        final SessionManager sessionManager=new SessionManager();
 
+        if(sessionManager.getStringFromPreferences(getActivity(),"city").equals("Mumbai")){
+            mumbai.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
+        else if(sessionManager.getStringFromPreferences(getActivity(),"city").equals("Delhi")){
+            delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
+        else if(!sessionManager.getStringFromPreferences(getActivity(),"city").equals("null")){
+            others.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
 
         city_names =new ArrayList<>(Arrays.asList("Kanpur","Lucknow","Bengaluru","Patna","Surat","Kota","Jaipur","Pune","Panaji"));
 
@@ -64,7 +75,6 @@ public class City extends Fragment {
 
 
         Button b1=(Button)view.findViewById(R.id.b2);
-        final SessionManager sessionManager=new SessionManager();
 
 
         final String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
@@ -109,6 +119,7 @@ public class City extends Fragment {
                 String city=city_names.get(i);
                 //Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
                 SessionManager.putStringInPreferences(getContext(),city,"city");
+                others.setBackgroundColor(Color.parseColor("#3f8f98"));
 
 
                 if(type.equals("Vehicle")) {
@@ -180,6 +191,7 @@ public class City extends Fragment {
             public void onClick(View view) {
 
                 SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
+                mumbai.setBackgroundColor(Color.parseColor("#3f8f98"));
 
 
 
@@ -247,6 +259,7 @@ public class City extends Fragment {
                 delhi.setBackgroundResource(R.drawable.background_style);
 
                 SessionManager.putStringInPreferences(getContext(),"Delhi","city");
+                delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
 
 
                 if(type.equals("Vehicle")) {

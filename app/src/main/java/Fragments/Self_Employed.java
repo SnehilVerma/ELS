@@ -51,7 +51,12 @@ public class Self_Employed extends Fragment {
 
                     SessionManager.putStringInPreferences(getContext(), taxamount.getText().toString(), "gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "net_salary");
-                    SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "existing_emi");
+                    if(emiammount.getText().toString().equals("")){
+                        SessionManager.putStringInPreferences(getContext(), "0", "existing_emi");
+                    }
+                    else {
+                        SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "existing_emi");
+                    }
 
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
@@ -104,7 +109,12 @@ public class Self_Employed extends Fragment {
 
                         SessionManager.putStringInPreferences(getContext(),taxamount.getText().toString(), "coap_gross_salary");
                         SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
-                        SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "coap_existing_emi");
+                        if(emiammount.getText().toString().equals("")){
+                            SessionManager.putStringInPreferences(getContext(), "0", "coap_existing_emi");
+                        }
+                        else {
+                            SessionManager.putStringInPreferences(getContext(), emiammount.getText().toString(), "coap_existing_emi");
+                        }
                         SessionManager.putStringInPreferences(getActivity(),"Self_Employed","incometypecoapp");
 
 

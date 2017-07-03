@@ -44,10 +44,10 @@ public class VehSelect extends Fragment {
         ImageView ib1=(ImageView) view.findViewById(im1);
         ImageView ib2=(ImageView) view.findViewById(R.id.im2);
         if(sessionManager.getStringFromPreferences(getActivity(),"vehicle_type").equals("Bike")){
-            ib1.setBackgroundColor(Color.GREEN);
+            ib1.setBackgroundColor(Color.parseColor("#3f8f98"));
         }
         else if(sessionManager.getStringFromPreferences(getActivity(),"vehicle_type").equals("Car")){
-            ib2.setBackgroundColor(Color.GREEN);
+            ib2.setBackgroundColor(Color.parseColor("#3f8f98"));
         }
 
         ad=((CarLoanActivity)getActivity()).getCurrAdapter();

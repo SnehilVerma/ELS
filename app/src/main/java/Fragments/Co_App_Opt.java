@@ -55,7 +55,7 @@ public class Co_App_Opt extends Fragment {
                 //Toast.makeText(getActivity(), String.valueOf(idx),Toast.LENGTH_SHORT).show();
                 if(idx == 0){
                     SessionManager.putStringInPreferences(getActivity(),"Yes","coapp");
-                    
+                    radiobutton.setSelected(true);
                     //yes.setChecked(true);
                     if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -107,6 +107,7 @@ public class Co_App_Opt extends Fragment {
                 }
                 else{
                     SessionManager.putStringInPreferences(getActivity(),"No","coapp");
+                    radiobutton.setSelected(true);
                     if(loantype.equals("Home")){
                         adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
                         viewPager = ((HomeLoan)getActivity()).getViewPager();

@@ -1,6 +1,7 @@
 package Fragments;
 
 
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -43,9 +44,19 @@ public class Gender extends Fragment {
         ImageView male = (ImageView) view.findViewById(R.id.male);
         ImageView female = (ImageView) view.findViewById(R.id.female);
         ImageView others=(ImageView) view.findViewById(R.id.others);
+        final SessionManager sessionManager=new SessionManager();
 
 
 
+        if(sessionManager.getStringFromPreferences(getActivity(),"gender").equals("Male")){
+            male.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
+        else if(sessionManager.getStringFromPreferences(getActivity(),"gender").equals("Female")){
+            female.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
+        else if(sessionManager.getStringFromPreferences(getActivity(),"gender").equals("Others")){
+            others.setBackgroundColor(Color.parseColor("#3f8f98"));
+        }
 
 
         final String type=SessionManager.getStringFromPreferences(getContext(),"loantype");
