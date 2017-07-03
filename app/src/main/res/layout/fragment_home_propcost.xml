@@ -10,19 +10,24 @@
         android:background="@drawable/border"
         android:layout_gravity="center"
         android:gravity="center">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/propertycost"
+            android:tint="#000000"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cost of the property"
             android:textColor="#000000"
             android:textSize="20dp"
+            android:layout_marginTop="10dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/propertycost"
-            android:tint="#000000"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,41 +49,13 @@
 
         </LinearLayout>
         <Button
-            android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             android:background="@drawable/button"
             android:text="SAVE"
+            android:layout_marginTop="10dp"
             android:textColor="#ffffff"
             android:id="@+id/b1"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/backarrow"
-            android:id="@+id/back"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Previous"
-            android:id="@+id/prev"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:id="@+id/next"
-            android:layout_marginLeft="200dp"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/forwardarrow"
-            android:id="@+id/forw"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
