@@ -3,21 +3,21 @@
 
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
+    android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+                                        android:orientation="vertical"
 
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        card_view:cardCornerRadius="0dp"
-        android:elevation="5dp"
+                                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                        android:layout_width="match_parent"
+                                        card_view:cardCornerRadius="0dp"
+                                        android:elevation="5dp"
 
 
-        card_view:cardBackgroundColor="#E0F2F1"
-        android:layout_height="match_parent"
-        card_view:cardMaxElevation="5dp">
+                                        card_view:cardBackgroundColor="#E0F2F1"
+                                        android:layout_height="match_parent"
+                                        card_view:cardMaxElevation="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,24 +27,27 @@
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose your income source"
+                android:text="Choose Co-Ap's income source"
                 android:textAllCaps="true"
                 android:textSize="18dp"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
-                android:textColor="#000000"/>
+                android:textColor="@color/colorPrimaryDark"/>
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="30dp">
                 <TableRow
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content">
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Retired Non-Pensioner"
-                        android:textSize="20dp"
+                        android:layout_height="60dp"
+                        android:text="Retired \nNon-Pensioner"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/button"
                         android:gravity="center"
                         android:id="@+id/retired_np"
                         android:layout_weight="1"
@@ -53,10 +56,12 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:text="Salaried"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         android:id="@+id/salary"
+                        android:textColor="@color/white"
+                        android:background="@drawable/button"
                         android:gravity="center"
                         android:layout_gravity="center"
 
@@ -69,9 +74,11 @@
                     android:layout_marginTop="10dp">
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:text="Salaried Professional"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
+                        android:background="@drawable/button"
+                        android:textColor="@color/white"
                         android:gravity="center"
                         android:id="@+id/salaryprof"
                         android:layout_weight="1"
@@ -79,10 +86,12 @@
                         />
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:text="Retired Pensioner"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
+                        android:background="@drawable/button"
                         android:id="@+id/retired_pensioner"
+                        android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:gravity="center"
 
@@ -95,9 +104,11 @@
                     android:layout_marginTop="10dp">
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Self Employed Professional"
-                        android:textSize="20dp"
+                        android:layout_height="60dp"
+                        android:text="Self Employed\n Professional"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:background="@drawable/button"
                         android:id="@+id/self_pro"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -106,11 +117,13 @@
                         />
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:text="Self Employed"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         android:id="@+id/self"
+                        android:textColor="@color/white"
                         android:gravity="center"
+                        android:background="@drawable/button"
                         android:layout_weight="1"
                         android:layout_gravity="center"
 
@@ -124,10 +137,13 @@
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="60dp"
                         android:text="Home Maker"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/button"
                         android:id="@+id/homemaker"
 
                         />
@@ -141,13 +157,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/b1"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 />
 
         </LinearLayout>
-
-
-
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>

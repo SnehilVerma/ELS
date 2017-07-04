@@ -61,6 +61,7 @@ public class CarLoanActivity extends AppCompatActivity
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/roboto.ttf");
 
         viewPager=(ViewPager)findViewById(R.id.viewpager);
+        //viewPager.setOffscreenPageLimit(10);
         viewPager.setPageTransformer(true,new PagerTransformer());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

@@ -99,17 +99,14 @@ public class City extends Fragment {
         //final City_Adapter adapter=new City_Adapter(getContext(),R.layout.name_view,city_names);
         cities.setAdapter(adapterone);
         city.setAdapter(adapterone);
-        /*city.setOnItemClickListener(new OnItemClickListener() {
 
+
+        city.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-                                    long arg3) {
-                //Student selected = (Student) arg0.getAdapter().getItem(arg2);
-                Toast.makeText(getActivity(),
-                        arg0.getAdapter().getItem(arg2).toString(),
-                        Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
             }
-        });*/
+        });
 
         cities.setOnItemClickListener(new OnItemClickListener() {
             @Override
