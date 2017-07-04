@@ -115,7 +115,7 @@ public class City extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 dialog.dismiss();
-                String city=city_names.get(i);
+                String city=adapterView.getAdapter().getItem(i).toString();
                 //Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
                 SessionManager.putStringInPreferences(getContext(),city,"city");
                 others.setBackgroundColor(Color.parseColor("#3f8f98"));

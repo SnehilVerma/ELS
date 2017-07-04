@@ -57,6 +57,8 @@ public class CoAPP extends Fragment {
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         //EditText relationship = (EditText) x.findViewById(R.id.relationship);
         final Spinner spinner = (Spinner) x.findViewById(R.id.spinner);
+        adapter = ((HomeLoan) getActivity()).getCurrAdapter();
+        viewPager = ((HomeLoan) getActivity()).getViewPager();
         List<String> list = new ArrayList<String>();
         list.add("None Selected");
         list.add("Father");
@@ -94,14 +96,10 @@ public class CoAPP extends Fragment {
 
 
                 if(flag == 1) {
-                    if (loantype.equals("Home")) {
 
 
                         //pb = ((HomeLoan)getActivity()).getPb();
                         //progress = ((HomeLoan)getActivity()).getprogresstv();
-
-                        adapter = ((HomeLoan) getActivity()).getCurrAdapter();
-                        viewPager = ((HomeLoan) getActivity()).getViewPager();
                         int index = (viewPager.getCurrentItem()) + 1;
                         if (index < adapter.mFragmentList.size()) {
                             adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -114,24 +112,6 @@ public class CoAPP extends Fragment {
                         SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
                         adapter.notifyDataSetChanged();
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                    } else {
-                        adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
-                        viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                        pb = ((CarLoanActivity) getActivity()).getPb();
-                        progress = ((CarLoanActivity) getActivity()).getprogresstv();
-                        int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < adapter1.mFragmentList.size()) {
-                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                            adapter1.notifyDataSetChanged();
-
-
-                        }
-                        adapter1.addFragment(new CoApp_Cat(), "CoApp_Cat");
-                        SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
-                        adapter1.notifyDataSetChanged();
-                        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                    }
 //                pb.setProgress(80);
                     //              progress.setText(80+"");
                 }

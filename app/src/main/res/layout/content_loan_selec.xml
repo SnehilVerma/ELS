@@ -16,7 +16,8 @@
         android:textColor="#ffffff"
         android:padding="30dp"
         android:background="#3f8f98"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:id="@+id/tv"/>
 
     <GridView
         android:layout_marginTop="5dp"

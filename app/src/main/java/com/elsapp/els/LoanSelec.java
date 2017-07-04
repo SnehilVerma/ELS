@@ -1,6 +1,8 @@
 package com.elsapp.els;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,19 +10,28 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
+
+
+
+import java.util.ArrayList;
 
 import Adapter.CustomGrid;
 import Utility.SessionManager;
+
+import static com.elsapp.els.R.id.view;
 
 public class LoanSelec extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
    // FragmentManager mFragmentManager;
 
+    TextView tv;
 
     private String loantype;
     GridView grid;
@@ -44,6 +55,7 @@ public class LoanSelec extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
+        tv = (TextView) findViewById(R.id.tv);
         CustomGrid adapter = new CustomGrid(LoanSelec.this, pic_loans);
         grid=(GridView)findViewById(R.id.grid);
         grid.setAdapter(adapter);
@@ -72,11 +84,6 @@ public class LoanSelec extends AppCompatActivity
 
             }
         });
-
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -85,6 +92,92 @@ public class LoanSelec extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        /*spotlightView = new SpotlightView.Builder(this)
+                .introAnimationDuration(400)
+                .enableRevealAnimation(true)
+                .performClick(true)
+                .fadeinTextDuration(400)
+                .headingTvColor(Color.parseColor("#349999"))
+                .headingTvSize(32)
+                .headingTvText("Drawer")
+                .subHeadingTvColor(Color.parseColor("#ffffff"))
+                .subHeadingTvSize(16)
+                .subHeadingTvText("Open the drawer\nfor extra options")
+                .maskColor(Color.parseColor("#dc000000"))
+                .target(getToolbarNavigationIcon(toolbar))
+                .lineAnimDuration(400)
+                .lineAndArcColor(Color.parseColor("#349999"))
+                .dismissOnTouch(true)
+                .dismissOnBackPress(true)
+                .enableDismissAfterShown(true)
+                .usageId("drawer") //UNIQUE ID
+                .show();*/
+       /* SpotlightConfig config = new SpotlightConfig();
+        config.setLineAndArcColor(Color.parseColor("#349999"));
+        config.setHeadingTvColor(Color.parseColor("#349999"));
+
+
+        SpotlightSequence.getInstance(LoanSelec.this,null)
+                .addSpotlight(getToolbarNavigationIcon(toolbar), "Switch Animation", "Click to swtich the animation", "drawer")
+                .addSpotlight(tv, "Reset ", "Click here to reset preferences", "tv")
+                .startSequence();*/
+    }
+
+   /* @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if(spotlightView.isShown()){
+
+           /* new SpotlightView.Builder(this)
+                    .introAnimationDuration(400)
+                    .enableRevealAnimation(true)
+                    .performClick(true)
+                    .fadeinTextDuration(400)
+                    .headingTvColor(Color.parseColor("#349999"))
+                    .headingTvSize(32)
+                    .headingTvText("Drawer")
+                    .subHeadingTvColor(Color.parseColor("#ffffff"))
+                    .subHeadingTvSize(16)
+                    .subHeadingTvText("Open the drawer\nfor extra options")
+                    .maskColor(Color.parseColor("#dc000000"))
+                    .target(tv)
+                    .lineAnimDuration(400)
+                    .lineAndArcColor(Color.parseColor("#349999"))
+                    .dismissOnTouch(true)
+                    .dismissOnBackPress(true)
+                    .enableDismissAfterShown(true)
+                    .usageId("drawer1") //UNIQUE ID
+                    .show();
+
+            //spotlightView.removeSpotlightView(false);//Remove current spotlight view from parent
+            //resetAndPlay.performClick();//Show it again in new orientation if required.
+        }
+    }*/
+
+    public static View getToolbarNavigationIcon(Toolbar toolbar){
+        //check if contentDescription previously was set
+        String contentDescription;
+        boolean hadContentDescription = TextUtils.isEmpty(toolbar.getNavigationContentDescription());
+        if(!hadContentDescription){
+            contentDescription = toolbar.getNavigationContentDescription().toString();
+        }
+        else {
+            contentDescription =  "navigationIcon";
+        }
+        toolbar.setNavigationContentDescription(contentDescription);
+        ArrayList<View> potentialViews = new ArrayList<View>();
+        //find the view based on it's content description, set programatically or with android:contentDescription
+        toolbar.findViewsWithText(potentialViews,contentDescription, View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
+        //Nav icon is always instantiated at this point because calling setNavigationContentDescription ensures its existence
+        View navIcon = null;
+        if(potentialViews.size() > 0){
+            navIcon = potentialViews.get(0); //navigation icon is ImageButton
+        }
+        //Clear content description if not previously present
+        if(hadContentDescription)
+            toolbar.setNavigationContentDescription(null);
+        return navIcon;
     }
 
     @Override
