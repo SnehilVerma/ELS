@@ -5,6 +5,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     card_view:cardCornerRadius="1dp"
     android:layout_margin="10dp"
+    card_view:cardBackgroundColor="@color/bgcolor"
     tools:context="Fragments.DOB">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Date of Manufacturing"
         android:textStyle="bold"
+        android:textColor="@color/textHeadingColor"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"/>
@@ -25,10 +27,11 @@
 
     <LinearLayout
         android:layout_width="337dp"
-        android:layout_height="110dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:weightSum="1"
-        android:layout_marginLeft="50dp">
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,8 +49,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#000000"
             android:id="@+id/spin_month"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginLeft="20dp">
 
         </Spinner>
     </LinearLayout>
@@ -55,10 +57,11 @@
 
     <LinearLayout
         android:layout_width="337dp"
-        android:layout_height="110dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:weightSum="1"
-        android:layout_marginLeft="50dp">
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,8 +78,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#000000"
             android:id="@+id/spin_year"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginLeft="30dp">
 
         </Spinner>
     </LinearLayout>
@@ -85,13 +87,13 @@
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_marginTop="350dp"
         android:id="@+id/b2"
         android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/button"
         android:textColor="@android:color/white"
-        android:text="Save"/>
+        android:text="@string/buttonnext"/>
 
 </android.support.v7.widget.CardView>

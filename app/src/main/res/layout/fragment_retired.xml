@@ -81,7 +81,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/button"
-                android:text="save"
+                android:text="@string/buttonnext"
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:layout_below="@+id/textInputLayout2"

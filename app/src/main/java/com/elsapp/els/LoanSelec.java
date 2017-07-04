@@ -19,6 +19,8 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 
+import com.wooplr.spotlight.SpotlightConfig;
+import com.wooplr.spotlight.utils.SpotlightSequence;
 
 import java.util.ArrayList;
 
@@ -112,48 +114,16 @@ public class LoanSelec extends AppCompatActivity
                 .enableDismissAfterShown(true)
                 .usageId("drawer") //UNIQUE ID
                 .show();*/
-       /* SpotlightConfig config = new SpotlightConfig();
+        SpotlightConfig config = new SpotlightConfig();
         config.setLineAndArcColor(Color.parseColor("#349999"));
         config.setHeadingTvColor(Color.parseColor("#349999"));
-
 
         SpotlightSequence.getInstance(LoanSelec.this,null)
                 .addSpotlight(getToolbarNavigationIcon(toolbar), "Switch Animation", "Click to swtich the animation", "drawer")
                 .addSpotlight(tv, "Reset ", "Click here to reset preferences", "tv")
-                .startSequence();*/
+                .startSequence();
     }
 
-   /* @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        if(spotlightView.isShown()){
-
-           /* new SpotlightView.Builder(this)
-                    .introAnimationDuration(400)
-                    .enableRevealAnimation(true)
-                    .performClick(true)
-                    .fadeinTextDuration(400)
-                    .headingTvColor(Color.parseColor("#349999"))
-                    .headingTvSize(32)
-                    .headingTvText("Drawer")
-                    .subHeadingTvColor(Color.parseColor("#ffffff"))
-                    .subHeadingTvSize(16)
-                    .subHeadingTvText("Open the drawer\nfor extra options")
-                    .maskColor(Color.parseColor("#dc000000"))
-                    .target(tv)
-                    .lineAnimDuration(400)
-                    .lineAndArcColor(Color.parseColor("#349999"))
-                    .dismissOnTouch(true)
-                    .dismissOnBackPress(true)
-                    .enableDismissAfterShown(true)
-                    .usageId("drawer1") //UNIQUE ID
-                    .show();
-
-            //spotlightView.removeSpotlightView(false);//Remove current spotlight view from parent
-            //resetAndPlay.performClick();//Show it again in new orientation if required.
-        }
-    }*/
 
     public static View getToolbarNavigationIcon(Toolbar toolbar){
         //check if contentDescription previously was set

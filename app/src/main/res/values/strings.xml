@@ -79,4 +79,5 @@
     <string name="title_activity_home_loan_details2">HomeLoanDetails2</string>
     <string name="title_activity_home_loan_details3">HomeLoanDetails3</string>
     <string name="buttonnext">Next</string>
+    <string name="buttonsubmit">Submit</string>
 </resources>

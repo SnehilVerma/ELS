@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/border"
+        android:background="@color/bgcolor"
         android:layout_gravity="center"
         android:gravity="center">
         <TextView
@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="Purpose of Loan"
             android:textSize="20dp"
-            android:textColor="#000000"
+            android:textColor="@color/textHeadingColor"
             android:textAllCaps="true"
             android:textStyle="bold"/>
         <ImageView

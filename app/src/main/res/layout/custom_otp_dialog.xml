@@ -44,9 +44,9 @@
 
         <Button
             android:id="@+id/btn_yes"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn_round"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
             android:clickable="true"
             android:text="Yes"
             android:textColor="#ffffff"
