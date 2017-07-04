@@ -34,15 +34,11 @@ public class PrefBike extends Fragment {
 
 
     public Integer[] thumbs = {
-            R.drawable.motorcycle, R.drawable.car3,
-            R.drawable.car4, R.drawable.motorcycle,
-            R.drawable.motorcycle, R.drawable.car3,
-            R.drawable.car4, R.drawable.motorcycle,
-            R.drawable.motorcycle, R.drawable.car3,
-            R.drawable.car4, R.drawable.motorcycle,
-
-
-
+            R.drawable.activa, R.drawable.avenger,
+            R.drawable.aviator, R.drawable.passion,
+            R.drawable.dio, R.drawable.pleasure,
+            R.drawable.splendor, R.drawable.maestro,
+            R.drawable.scooty_pep, R.drawable.pulsar,
     };
 
     CarLoanActivity.ViewPagerAdapter ad;
