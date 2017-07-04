@@ -42,6 +42,20 @@
     <string name="credai_member">Credai member?</string>
 
 
+
+
+    <string name="qec_vehicle_home">Lets do a quick calculation for eligible amount of vehicle loans</string>
+    <string name="city_title">Where do you currently live</string>
+    <string name="gender">Choose your gender</string>
+    <string name="DOB">Select your date of birth</string>
+    <string name="type_of_vehicle">What type of vehicle do you want to buy</string>
+    <string name="bike_type">What type of bike do you want</string>
+    <string name="car_type">What type of car do you want</string>
+    <string name="pref_car">Your preferred car is </string>
+    <string name="pref_bike">Your preferred bike is </string>
+
+
+
     <string-array name="SelectProperty">
         <!--  <item>Select Property</item>-->
         <item>Completed Project</item>
