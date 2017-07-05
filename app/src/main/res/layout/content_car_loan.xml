@@ -37,7 +37,6 @@
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/pb"
             android:id="@+id/progress"
-            android:layout_below="@id/tv1"
             android:gravity="center"
             android:layout_centerHorizontal="true" />
 

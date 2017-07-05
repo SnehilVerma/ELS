@@ -5,33 +5,20 @@
                                     android:layout_margin="10dp">
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="#e0f2f1"
         android:layout_height="match_parent"
-        android:textColor="#ffffff"
-        android:background="@color/bgcolor"
         >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_width="180dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
             android:id="@+id/im1"
-            android:src="@drawable/cs2"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:src="@drawable/congratulations"
+            android:layout_alignParentTop="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Congratulations!!!"
-            android:textColor="@color/textHeadingColor"
-            android:textSize="20dp"
-            android:layout_marginTop="60dp"
-            android:layout_toRightOf="@+id/im1"
-            android:layout_gravity="right"
-            android:layout_marginLeft="20dp"
-            android:textAllCaps="true"
-            android:id="@+id/tv1"
-            android:textStyle="bold"/>
+
 
 
         <TextView
@@ -40,9 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:textColor="@android:color/background_dark"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:layout_below="@+id/im1"
             android:text="Elgible Loan Amount"/>
 
         <TextView
@@ -50,6 +37,8 @@
             android:layout_below="@+id/textView"
             android:layout_height="wrap_content"
             android:text="60000"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:layout_marginLeft="120dp"
             android:id="@+id/eligible"/>
@@ -57,12 +46,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Please enter following details:"
-            android:layout_below="@+id/im1"
+            android:layout_below="@+id/eligible"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
             android:textColor="@color/black"
             android:layout_gravity="left"
             android:id="@+id/tv2"
             android:layout_marginLeft="130dp"/>
+
+
 
         <EditText
             android:layout_width="220dp"
@@ -89,7 +82,6 @@
             android:hint="Mobie No."
             android:imeOptions="actionNext"/>
 
-
         <EditText
             android:layout_width="220dp"
             android:layout_centerHorizontal="true"
@@ -101,11 +93,14 @@
             android:imeOptions="actionDone"/>
         <Button
             android:layout_width="100dp"
-            android:layout_height="40dp"
+
+            android:layout_height="50dp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
             android:text="@string/buttonsubmit"
             android:id="@+id/submit"
-            android:layout_below="@+id/email"
             android:background="@drawable/button"
+            android:layout_below="@+id/email"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 

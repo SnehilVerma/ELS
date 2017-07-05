@@ -24,6 +24,8 @@ public class Details_Loan_Vehicle extends BaseActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private int icons[]={R.drawable.personal,R.drawable.communication,R.drawable.loanspecific,R.drawable.loanrepay
+    ,R.drawable.additional};
 
 
     @Override
@@ -39,6 +41,8 @@ public class Details_Loan_Vehicle extends BaseActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+        setupIcons(tabLayout);
+
 
 
     }
@@ -54,6 +58,16 @@ public class Details_Loan_Vehicle extends BaseActivity {
         adapter.addFragment(new LoanRepayment(), "LoanRepayment");
         adapter.addFragment(new Additional(), "Additional");
         viewPager.setAdapter(adapter);
+
+    }
+
+    private void setupIcons(TabLayout tabLayout){
+
+        tabLayout.getTabAt(0).setIcon(icons[0]);
+        tabLayout.getTabAt(1).setIcon(icons[1]);
+        tabLayout.getTabAt(2).setIcon(icons[2]);
+        tabLayout.getTabAt(3).setIcon(icons[3]);
+        tabLayout.getTabAt(4).setIcon(icons[4]);
 
     }
 

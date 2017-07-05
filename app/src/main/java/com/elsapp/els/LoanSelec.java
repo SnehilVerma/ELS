@@ -57,11 +57,12 @@ public class LoanSelec extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         tv = (TextView) findViewById(R.id.tv);
         CustomGrid adapter = new CustomGrid(LoanSelec.this, pic_loans);
+
         grid=(GridView)findViewById(R.id.grid);
         grid.setAdapter(adapter);
+
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
