@@ -19,40 +19,54 @@
             android:textAllCaps="true"
             android:textStyle="bold"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/purpose_loan"
-            android:tint="#000000"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/purpose_root"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:text="Purchase Identified Property"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:textColor="#ffffff"
                 android:elevation="12dp"
                 android:layout_margin="5dp"
                 android:layout_alignParentLeft="true"
                 android:id="@+id/ib1"
-                android:background="@drawable/btn_round"/>
+                android:background="@drawable/newproperty"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/ib1"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:text="Purchase Identified\nProperty"
+                android:layout_height="wrap_content"/>
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:text="Renovate/repair flat"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:textColor="#ffffff"
                 android:layout_alignParentRight="true"
                 android:id="@+id/ib2"
                 android:layout_margin="5dp"
                 android:elevation="12dp"
-                android:background="@drawable/btn_round"/>
+                android:background="@drawable/repair"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/ib2"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:text="Purchase Identified\nProperty"
+                android:layout_height="wrap_content"/>
+
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:text="Construction of House"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+
                 android:textColor="#ffffff"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
@@ -60,7 +74,16 @@
                 android:id="@+id/ib3"
                 android:layout_margin="5dp"
                 android:elevation="12dp"
-                android:background="@drawable/btn_round"/>
+                android:background="@drawable/construction"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/ib2"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:text="Purchase Identified\nProperty"
+                android:layout_height="wrap_content"/>
+
 
             <Button
                 android:layout_width="150dp"
@@ -73,7 +96,7 @@
                 android:id="@+id/ib4"
                 android:layout_margin="5dp"
                 android:elevation="12dp"
-                android:background="@drawable/btn_round"/>
+                android:background="@drawable/transfer"/>
         </RelativeLayout>
     </LinearLayout>
 
