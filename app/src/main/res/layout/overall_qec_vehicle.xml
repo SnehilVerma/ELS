@@ -348,10 +348,15 @@
                     android:id="@+id/rla"/>
             </LinearLayout>
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DONE"
-                android:id="@+id/done"/>
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="@string/buttondone"
+                android:textColor="#ffffff"
+                android:id="@+id/done"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button"/>
         </LinearLayout>
     </ScrollView>
 
