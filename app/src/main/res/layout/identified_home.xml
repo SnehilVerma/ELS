@@ -12,14 +12,16 @@
 
         <TextView
             android:layout_width="25dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/round_text"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
             android:id="@+id/page_number"
             android:text=""
             android:textSize="10dp"
             android:layout_height="25dp"/>
+
 
 
     </LinearLayout>

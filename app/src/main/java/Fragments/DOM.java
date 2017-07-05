@@ -49,8 +49,7 @@ public class DOM extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dom,container,false);
 
-        //month = (EditText) view.findViewById(R.id.monthtxt);
-        //year=(EditText)view.findViewById(R.id.yeartxt);
+
 
         Spinner spin_month=(Spinner)view.findViewById(R.id.spin_month);
         Spinner spin_year=(Spinner)view.findViewById(R.id.spin_year);
@@ -89,6 +88,7 @@ public class DOM extends Fragment {
 
             }
         });
+
 
         spin_year.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override

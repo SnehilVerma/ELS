@@ -25,7 +25,7 @@
             android:textAllCaps="true"
             android:textSize="16dp"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@color/colorPrimary"
             android:text="What type of bike do you want to buy?"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"
@@ -37,9 +37,8 @@
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:layout_marginLeft="20dp"
-            android:tint="@color/colorPrimaryDark"
             android:background="@drawable/background_style"
-            android:src="@drawable/motorcycle"
+            android:src="@drawable/newbike"
             android:id="@+id/im1"
             android:clickable="true"
             android:layout_marginTop="150dp">
@@ -51,11 +50,11 @@
             android:layout_height="100dp"
             android:layout_below="@+id/tv1"
             android:id="@+id/im2"
-            android:tint="@color/colorPrimaryDark"
+
             android:background="@drawable/background_style"
             android:clickable="true"
             android:layout_marginLeft="220dp"
-            android:src="@drawable/motorcycle2"
+            android:src="@drawable/oldbike"
             android:layout_marginTop="150dp">
 
 
