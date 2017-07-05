@@ -11,7 +11,7 @@
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="match_parent"
                                     card_view:cardCornerRadius="0dp"
-                                    card_view:cardBackgroundColor="#E0F2F1"
+                                    card_view:cardBackgroundColor="@color/bgcolor"
                                     android:layout_height="match_parent"
                                     android:layout_margin="5dp"
                                     android:layout_centerHorizontal="true">
@@ -24,7 +24,7 @@
         android:textAllCaps="true"
         android:textSize="16dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/textHeadingColor"
         android:text="What type of car do you want to buy?"
         android:layout_gravity="center_horizontal"
         android:id="@+id/tv1"

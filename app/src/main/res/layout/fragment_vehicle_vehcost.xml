@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#E0F2F1"
+        android:background="@color/bgcolor"
         android:layout_gravity="center"
         android:gravity="center">
         <ImageView
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cost of the Vehicle"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/textHeadingColor"
             android:textSize="20dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
@@ -53,7 +53,7 @@
                 android:background="@drawable/button"
                 android:id="@+id/b2"
                 android:textColor="@color/white"
-                android:text="Save"/>
+                android:text="@string/buttonnext"/>
 
         </LinearLayout>
     </LinearLayout>

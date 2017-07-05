@@ -15,7 +15,7 @@
                                         android:elevation="5dp"
 
 
-                                        card_view:cardBackgroundColor="#E0F2F1"
+                                        card_view:cardBackgroundColor="@color/bgcolor"
                                         android:layout_height="match_parent"
                                         card_view:cardMaxElevation="5dp">
 
@@ -32,7 +32,7 @@
                 android:textSize="18dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:textColor="@color/textHeadingColor"/>
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

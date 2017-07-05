@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@color/colorPrimary"
+        android:background="@color/bgcolor"
         android:gravity="center">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Relationship \nwith Co-Applicant"
-            android:textColor="#ffffff"
+            android:textColor="@color/textHeadingColor"
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
@@ -34,16 +34,16 @@
             android:gravity="center"
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:backgroundTint="#ffffff">
+            android:layout_marginTop="100dp">
         </Spinner>
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="@string/buttonnext"
             android:layout_below="@+id/spinner"
+            android:background="@drawable/button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp" />
 

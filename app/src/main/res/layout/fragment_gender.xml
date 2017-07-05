@@ -13,7 +13,7 @@
                                         android:layout_width="match_parent"
                                         card_view:cardCornerRadius="0dp"
 
-                                        card_view:cardBackgroundColor="#E0F2F1"
+                                        card_view:cardBackgroundColor="@color/bgcolor"
                                         android:layout_height="match_parent"
                                         card_view:cardMaxElevation="5dp"
                                         android:layout_marginLeft="5dp"
@@ -29,7 +29,7 @@
             android:textAllCaps="true"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/textHeadingColor"
             android:text="Choose your gender"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"

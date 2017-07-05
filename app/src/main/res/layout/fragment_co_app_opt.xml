@@ -13,7 +13,7 @@
         card_view:cardCornerRadius="0dp"
         android:elevation="5dp"
 
-        card_view:cardBackgroundColor="#E0F2F1"
+        card_view:cardBackgroundColor="@color/bgcolor"
         android:layout_height="match_parent"
         card_view:cardMaxElevation="5dp">
 
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:textColor="#3f8f98"
+            android:textColor="@color/textHeadingColor"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textSize="16dp"
@@ -44,11 +44,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:buttonTint="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
                 android:text="YES" />
             <RadioButton
                 android:layout_width="wrap_content"
+                android:textIsSelectable="true"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:buttonTint="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
                 android:text="NO"
                 android:layout_marginLeft="200dp"/>
 

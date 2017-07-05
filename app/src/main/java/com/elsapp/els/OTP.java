@@ -8,16 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import Model.VerifyOTP;
-import Model.VerifyOTPRequestModel;
 import Utility.SessionManager;
-import rest.ApiClient;
-import rest.ApiInterface;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class OTP extends AppCompatActivity {
 
@@ -61,7 +53,7 @@ public class OTP extends AppCompatActivity {
             }
         });
         // comment out to use the atp
-        verify.setOnClickListener(new View.OnClickListener() {
+        /*verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -86,10 +78,10 @@ public class OTP extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<VerifyOTP> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),"fail", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
-        });
+        });*/
     }
 }

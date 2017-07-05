@@ -3,7 +3,8 @@
     <color name="colorPrimary">#349999</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#3f8f98</color>
-
+    <color name="bgcolor">#E0F2F1</color>
+    <color name="textHeadingColor">#000000</color>
 
     <color name="green">#14a895</color>
     <color name="cyan">#8cf9eb</color>
