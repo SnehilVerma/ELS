@@ -56,13 +56,20 @@ public class HomeInto extends Fragment {
                 .enableDismissAfterShown(true)
                 .usageId("slide") //UNIQUE ID
                 .show();
-
+       /* if(spotlightView.getVisibility() == View.VISIBLE){
+            slide.setVisibility(View.VISIBLE);
+            Toast.makeText(getActivity(),"hi1",Toast.LENGTH_LONG).show();
+        }*/
         spotlightView.setListener(new SpotlightListener() {
             @Override
             public void onUserClicked(String s) {
                 slide.setVisibility(View.INVISIBLE);
             }
         });
+        if(spotlightView.getRootView().isShown()){
+            slide.setVisibility(View.VISIBLE);
+            //Toast.makeText(getActivity(),"hi",Toast.LENGTH_LONG).show();
+        }
         return view;
 
     }

@@ -43,7 +43,6 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
                 android:buttonTint="@color/colorPrimary"
                 android:textColor="@color/colorPrimary"
                 android:text="YES" />
@@ -51,7 +50,6 @@
                 android:layout_width="wrap_content"
                 android:textIsSelectable="true"
                 android:layout_height="wrap_content"
-                android:clickable="true"
                 android:buttonTint="@color/colorPrimary"
                 android:textColor="@color/colorPrimary"
                 android:text="NO"
