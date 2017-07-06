@@ -10,6 +10,11 @@
         android:background="@color/bgcolor"
         android:layout_gravity="center"
         android:gravity="center">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/rla"
+            android:layout_marginBottom="20dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,41 +24,35 @@
             android:layout_marginBottom="10dp"
             android:textAllCaps="true"
             android:textStyle="bold"/>
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/b1"
-            android:tint="@color/colorPrimaryDark"/>
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter the amount"
-            android:layout_gravity="left"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="70dp"/>
+            android:layout_marginTop="20dp">
         <EditText
             android:layout_width="220dp"
-            android:textColor="@color/white"
+            android:textColor="#000000"
             android:maxLength="10"
+            android:layout_gravity="center"
+            android:hint="Enter the amount"
+            android:textColorHint="@color/colorPrimary"
             android:digits="0123456789"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:id="@+id/loan"
             android:imeOptions="actionDone"
             android:maxLines="1"/>
-
+</android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/button"
             android:padding="5dp"
             android:elevation="5dp"
             android:textColor="@color/white"
             android:id="@+id/calculate"
-            android:text="CHECK ELIGIBILITY"/>
+            android:text="CHECK ELIGIBILITY" />
 
     </LinearLayout>
 

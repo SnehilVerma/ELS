@@ -5,20 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,10 +25,10 @@ import com.elsapp.els.R;
 import Utility.SessionManager;
 
 /**
- * Created by sibby on 9/6/17.
+ * Created by sibby on 6/7/17.
  */
 
-public class Salaried extends Fragment{
+public class Salaried_P extends Fragment {
     HomeLoan.ViewPagerAdapter adapter;
     ViewPager viewPager;
     CarLoanActivity.ViewPagerAdapter adapter1;
@@ -46,7 +42,7 @@ public class Salaried extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        final View view=inflater.inflate(R.layout.fragment_salaried, container, false);
+        final View view=inflater.inflate(R.layout.fragment_salaried_prof, container, false);
 
         final EditText gmincome = (EditText) view.findViewById(R.id.gmincome);
         final EditText msalary = (EditText) view.findViewById(R.id.msalary);
@@ -62,6 +58,7 @@ public class Salaried extends Fragment{
         tw1.setError("    Your Total Salary");
         tw2.setError("    Your Salary excluding all deductions");
         tw3.setError("    ");
+        final CoordinatorLayout cl = (CoordinatorLayout) view.findViewById(R.id.cl);
 
 
         gmincome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -76,10 +73,6 @@ public class Salaried extends Fragment{
                         dlgAlert.setMessage("You have stated gross salary as "+ gmincome.getText().toString());
                         dlgAlert.setCancelable(true);
                         dlgAlert.create().show();
-                        /*Snackbar snackbar = Snackbar
-                                .make(cl, "You have stated gross salary as " + gmincome.getText().toString(), Snackbar.LENGTH_LONG);
-
-                        snackbar.show();*/
                     }
                     if (!hasFocus) {
                         //hideKeyboard();
@@ -88,13 +81,13 @@ public class Salaried extends Fragment{
             }
 
 
-    /*private void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(gmincome.getWindowToken(), 0);
+            private void hideKeyboard() {
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(gmincome.getWindowToken(), 0);
 //        Toast.makeText(getContext(),gmincome.getText().toString(),Toast.LENGTH_SHORT).show();
 
-    }
-*/
+            }
+
 
         });
         msalary.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -109,14 +102,9 @@ public class Salaried extends Fragment{
                         dlgAlert.setMessage("You have stated gross salary as "+ msalary.getText().toString());
                         dlgAlert.setCancelable(true);
                         dlgAlert.create().show();
-
-                       /* Snackbar snackbar = Snackbar
-                                .make(cl, "You have stated gross salary as " + msalary.getText().toString(), Snackbar.LENGTH_LONG);
-
-                        snackbar.show();*/
                     }
                     if (!hasFocus) {
-                        hideKeyboard();
+                        //hideKeyboard();
                     }
                 }
             }
@@ -149,7 +137,7 @@ public class Salaried extends Fragment{
 
 
 
-        b1.setOnClickListener(new OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -160,10 +148,10 @@ public class Salaried extends Fragment{
                 String takeaway=msalary.getText().toString();
                 String existing_emi=emi.getText().toString();
                 if(gross.equals("")|| takeaway.equals("")){
-                    /*Snackbar snackbar = Snackbar
+                    Snackbar snackbar = Snackbar
                             .make(cl, "Please fill all details", Snackbar.LENGTH_LONG);
 
-                    snackbar.show();*/
+                    snackbar.show();
 
                 }
                 else {
@@ -202,8 +190,8 @@ public class Salaried extends Fragment{
 
 
                             }
-                                adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
-                                adapter.notifyDataSetChanged();
+                            adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                            adapter.notifyDataSetChanged();
                             viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                             pb.setProgress(70);
                             progress.setText(String.valueOf(70));
@@ -221,8 +209,8 @@ public class Salaried extends Fragment{
 
 
                             }
-                                adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
-                                adapter1.notifyDataSetChanged();
+                            adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                            adapter1.notifyDataSetChanged();
                             viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                             pb.setProgress(90);
                             progress.setText(String.valueOf(90));
@@ -294,4 +282,5 @@ public class Salaried extends Fragment{
         return view;
 
     }
+
 }

@@ -46,7 +46,7 @@ public class HomeInto extends Fragment {
                 .headingTvText("Slide")
                 .subHeadingTvColor(Color.parseColor("#f0f0f0"))
                 .subHeadingTvSize(18)
-                .subHeadingTvText("Open the drawer\nfor extra options")
+                .subHeadingTvText("Slide to open\nthe next page")
                 .maskColor(Color.parseColor("#dc000000"))
                 .target(slide)
                 .lineAnimDuration(400)

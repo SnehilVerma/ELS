@@ -19,33 +19,58 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Relationship \nwith Co-Applicant"
+            android:text="Your Relationship with Co-Applicant"
+            android:gravity="center"
             android:textColor="@color/textHeadingColor"
             android:textSize="20dp"
+            android:textAllCaps="true"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_below="@id/textView3"
+    android:layout_marginTop="50dp"
+    android:id="@+id/ll1">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <ImageView
+                android:layout_height="130dp"
+                android:layout_width="130dp"
+                android:layout_weight="1"
+                android:src="@drawable/fatherone"
+                android:id="@+id/father"/>
+            <ImageView
+                android:layout_height="130dp"
+                android:layout_width="130dp"
+                android:layout_weight="1"
+                android:src="@drawable/mother"
+                android:id="@+id/mother"/>
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_height="130dp"
+                android:layout_width="130dp"
+                android:layout_weight="1"
+                android:src="@drawable/spouse"
+                android:id="@+id/spouse"/>
+            <ImageView
+                android:layout_height="130dp"
+                android:layout_width="130dp"
+                android:layout_weight="1"
+                android:src="@drawable/children"
+                android:id="@+id/children"/>
+        </TableRow>
+    </TableLayout>
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp">
-        </Spinner>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:text="@string/buttonnext"
-            android:layout_below="@+id/spinner"
-            android:background="@drawable/button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp" />
+        </LinearLayout>
 
 
     </RelativeLayout>

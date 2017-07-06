@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -56,48 +57,19 @@ public class CoAPP extends Fragment {
         final View x = inflater.inflate(R.layout.fragment_co_ap, container, false);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         //EditText relationship = (EditText) x.findViewById(R.id.relationship);
-        final Spinner spinner = (Spinner) x.findViewById(R.id.spinner);
+        ImageView father = (ImageView) x.findViewById(R.id.father);
+        ImageView mother = (ImageView) x.findViewById(R.id.mother);
+        ImageView spouse = (ImageView) x.findViewById(R.id.spouse);
+        ImageView children = (ImageView) x.findViewById(R.id.children);
         adapter = ((HomeLoan) getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan) getActivity()).getViewPager();
-        List<String> list = new ArrayList<String>();
-        list.add("None Selected");
-        list.add("Father");
-        list.add("Mother");
-        list.add("Spouse");
-        list.add("Children");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position != 0) {
-                    SessionManager.putStringInPreferences(getActivity(), parent.getItemAtPosition(position).toString(), "relation");
-                    spinner.setSelection(position);
-                    flag = 1;
-                }
-                else{
-                    flag = 0;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         Button b1 = (Button) x.findViewById(R.id.button);
 
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        father.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                if(flag == 1) {
-
-
+                SessionManager.putStringInPreferences(getActivity(),"Father","relation");
                         //pb = ((HomeLoan)getActivity()).getPb();
                         //progress = ((HomeLoan)getActivity()).getprogresstv();
                         int index = (viewPager.getCurrentItem()) + 1;
@@ -114,8 +86,14 @@ public class CoAPP extends Fragment {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
 //                pb.setProgress(80);
                     //              progress.setText(80+"");
-                }
-                else{
+            }
+        });
+        mother.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SessionManager.putStringInPreferences(getActivity(),"mother","relation");
+                    //pb = ((HomeLoan)getActivity()).getPb();
+                    //progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -124,7 +102,58 @@ public class CoAPP extends Fragment {
 
 
                     }
+                    adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                    SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+//                pb.setProgress(80);
+                    //              progress.setText(80+"");
                 }
+
+        });
+        spouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SessionManager.putStringInPreferences(getActivity(),"Spouse","relation");
+
+                    //pb = ((HomeLoan)getActivity()).getPb();
+                    //progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+                    adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                    SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+//                pb.setProgress(80);
+                    //              progress.setText(80+"");
+            }
+        });
+        children.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SessionManager.putStringInPreferences(getActivity(),"Children","relation");
+                    //pb = ((HomeLoan)getActivity()).getPb();
+                    //progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+                    adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                    SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+//                pb.setProgress(80);
+                    //              progress.setText(80+"");
             }
         });
 

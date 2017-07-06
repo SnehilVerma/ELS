@@ -2,50 +2,68 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/bgcolor"
         android:layout_gravity="center"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/layout">
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:text="HOMEMAKER"
-            android:textColor="@color/textHeadingColor"
-            android:textSize="20dp"
-            android:src="@drawable/homemaker"
-            android:textAllCaps="true"
-            android:textStyle="bold"/>
+            android:src="@drawable/salariedp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp">
+            android:id="@+id/tw1"
+            app:errorTextAppearance="@style/error_appearance">
             <EditText
-                android:layout_width="330dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:hint="Monthly Income from regular source"
+                android:id="@+id/gmincome"
+                android:maxLines="1"
+                android:hint="Gross Monthly Income"
+                android:imeOptions="actionNext"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-
-                android:id="@+id/income"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tw2"
+            app:errorTextAppearance="@style/error_appearance">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/msalary"
+                android:hint="Monthly Take-home Salary"
                 android:inputType="number"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:maxLines="1"
                 android:imeOptions="actionNext"/>
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/tw3"
+            app:errorTextAppearance="@style/error_appearance">
             <EditText
-                android:layout_width="330dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
                 android:id="@+id/emi"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -56,14 +74,17 @@
                 android:maxLines="1"
                 android:imeOptions="actionDone"/>
         </android.support.design.widget.TextInputLayout>
+
         <Button
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:background="@drawable/button"
+            android:elevation="10dp"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal"
             android:text="@string/buttonnext"
             android:textColor="#ffffff"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/button"
-            android:id="@+id/button"/>
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

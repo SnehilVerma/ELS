@@ -42,9 +42,10 @@
             android:label="@string/title_activity_loan_selec"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LogInActivity" />
-        <activity android:name=".RegistrationActivity" />o
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".ForgetPasswordActivity" />
-        <activity android:name=".Eligibility_Result" />
+        <activity android:name=".Eligibility_Result"
+            android:theme="@style/AppTheme.NoAction"/>
         <activity android:name=".Failure_Result" />
         <activity
             android:name=".Details_Loan_Vehicle"

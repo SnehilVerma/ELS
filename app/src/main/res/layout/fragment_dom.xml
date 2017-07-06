@@ -14,6 +14,8 @@
         android:layout_height="wrap_content"
         android:text="Date of Manufacturing"
         android:textStyle="bold"
+        android:textAllCaps="true"
+        android:gravity="center"
         android:textColor="@color/textHeadingColor"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
@@ -34,11 +36,10 @@
         android:layout_marginTop="30dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="15dp"
             android:text="Month : " />
 
@@ -64,11 +65,10 @@
         android:layout_marginTop="40dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="15dp"
             android:text="Year : " />
 
@@ -88,7 +88,7 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="350dp"
         android:id="@+id/b2"
         android:layout_gravity="center_horizontal"

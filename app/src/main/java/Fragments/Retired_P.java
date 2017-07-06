@@ -52,7 +52,7 @@ public class Retired_P extends Fragment {
                 String existing_emi = emiamount.getText().toString();
 
 
-                if ( gross.equals("")) {
+                if (gross.equals("")) {
                     Toast.makeText(getContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
 
                 } else {
@@ -60,10 +60,9 @@ public class Retired_P extends Fragment {
 
                     SessionManager.putStringInPreferences(getContext(), gross, "gross_salary");
                     SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "net_salary");
-                    if(existing_emi.equals("")){
+                    if (existing_emi.equals("")) {
                         SessionManager.putStringInPreferences(getContext(), "0", "existing_emi");
-                    }
-                    else {
+                    } else {
                         SessionManager.putStringInPreferences(getContext(), existing_emi, "existing_emi");
                     }
 
@@ -117,10 +116,9 @@ public class Retired_P extends Fragment {
 
                         SessionManager.putStringInPreferences(getContext(), gross, "coap_gross_salary");
                         SessionManager.putStringInPreferences(getContext(), String.valueOf(0), "coap_net_salary");
-                        if(existing_emi.equals("")){
+                        if (existing_emi.equals("")) {
                             SessionManager.putStringInPreferences(getContext(), "0", "coap_existing_emi");
-                        }
-                        else {
+                        } else {
                             SessionManager.putStringInPreferences(getContext(), existing_emi, "coap_existing_emi");
                         }
                         SessionManager.putStringInPreferences(getActivity(), "Retired_P", "incometypecoapp");
@@ -133,7 +131,42 @@ public class Retired_P extends Fragment {
                             viewPager = ((HomeLoan) getActivity()).getViewPager();
                             if (adapter.mFragmentList.size() > 10) {
 
-                                if ((!mpension.getText().toString().equals("")) && (!emiamount.getText().toString().equals(""))) {
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter.mFragmentList.size()) {
+                                    adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                    adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                    adapter.notifyDataSetChanged();
+                                }
+                                adapter.addFragment(new Requested_Loan(), "Requested_Loan");
+                                adapter.notifyDataSetChanged();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                                pb.setProgress(90);
+                                progress.setText(String.valueOf(90));
+                            } else {
+                                int index = (viewPager.getCurrentItem()) + 1;
+                                if (index < adapter.mFragmentList.size()) {
+                                    adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                                    adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                                    adapter.notifyDataSetChanged();
+
+
+                                }
+                                adapter.addFragment(new Co_App_Opt(), "Co_App_Opt");
+                                adapter.notifyDataSetChanged();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                                pb.setProgress(70);
+                                progress.setText(String.valueOf(70));
+                            }
+                        }
+                    }
+                }
+
+
+
+
+
+
+                                /*if ((!mpension.getText().toString().equals("")) && (!emiamount.getText().toString().equals(""))) {
 
                                     if (SessionManager.getStringFromPreferences(getActivity(), "flaggy").equals("0")) {
                                         if (loantype.equals("Home")) {
@@ -142,7 +175,7 @@ public class Retired_P extends Fragment {
                                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                                             viewPager = ((HomeLoan) getActivity()).getViewPager();
 
-                                            int index = (viewPager.getCurrentItem()) + 1;
+                                            index = (viewPager.getCurrentItem()) + 1;
                                             if (index < adapter.mFragmentList.size()) {
                                                 adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
                                                 adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
@@ -160,7 +193,7 @@ public class Retired_P extends Fragment {
                                             progress = ((CarLoanActivity) getActivity()).getprogresstv();
                                             adapter1 = ((CarLoanActivity) getActivity()).getCurrAdapter();
                                             viewPager = ((CarLoanActivity) getActivity()).getViewPager();
-                                            int index = (viewPager.getCurrentItem()) + 1;
+                                            index = (viewPager.getCurrentItem()) + 1;
                                             if (index < adapter1.mFragmentList.size()) {
                                                 adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
                                                 adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
@@ -183,7 +216,7 @@ public class Retired_P extends Fragment {
                                             adapter = ((HomeLoan) getActivity()).getCurrAdapter();
                                             viewPager = ((HomeLoan) getActivity()).getViewPager();
                                             if (adapter.mFragmentList.size() > 10) {
-                                                int index = (viewPager.getCurrentItem()) + 1;
+                                                index = (viewPager.getCurrentItem()) + 1;
                                                 if (index < adapter.mFragmentList.size()) {
                                                     adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
                                                     adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
@@ -197,7 +230,7 @@ public class Retired_P extends Fragment {
                                                 pb.setProgress(90);
                                                 progress.setText(String.valueOf(90));
                                             } else {
-                                                int index = (viewPager.getCurrentItem()) + 1;
+                                                index = (viewPager.getCurrentItem()) + 1;
                                                 if (index < adapter.mFragmentList.size()) {
                                                     adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
                                                     adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
@@ -247,14 +280,8 @@ public class Retired_P extends Fragment {
                                             }
                                         }
 
-                                    }
-                                } else {
-                                    Toast.makeText(getActivity(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-                    }
-                }
+                                    }*/
+
             }
         });
 

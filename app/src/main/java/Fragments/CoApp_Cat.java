@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -36,13 +37,13 @@ public class CoApp_Cat extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_coapp_cat, container, false);
 
 
-        TextView tv1=(TextView)view.findViewById(R.id.retired_np);
-        TextView tv2=(TextView)view.findViewById(R.id.self_pro);
-        TextView tv3=(TextView)view.findViewById(R.id.salary);
-        TextView tv7=(TextView)view.findViewById(R.id.salaryprof);
-        TextView tv4=(TextView)view.findViewById(R.id.self);
-        TextView tv5=(TextView)view.findViewById(R.id.retired_pensioner);
-        TextView tv6=(TextView)view.findViewById(R.id.homemaker);
+        ImageView tv1=(ImageView) view.findViewById(R.id.retired_np);
+        ImageView tv2=(ImageView)view.findViewById(R.id.self_pro);
+        ImageView tv3=(ImageView)view.findViewById(R.id.salary);
+        ImageView tv7=(ImageView)view.findViewById(R.id.salaryprof);
+        ImageView tv4=(ImageView)view.findViewById(R.id.self);
+        ImageView tv5=(ImageView)view.findViewById(R.id.retired_pensioner);
+        ImageView tv6=(ImageView)view.findViewById(R.id.homemaker);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
 
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +109,7 @@ public class CoApp_Cat extends Fragment {
 
 
                     }
-                        adapter.addFragment(new Self_Employed(), "Self_Employedone");
+                        adapter.addFragment(new Self_Employed_P(), "Self_Employedone");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
@@ -125,7 +126,7 @@ public class CoApp_Cat extends Fragment {
 
 
                     }
-                    adapter1.addFragment(new Self_Employed(), "Self_Employedone");
+                    adapter1.addFragment(new Self_Employed_P(), "Self_Employedone");
                     adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
@@ -195,7 +196,7 @@ public class CoApp_Cat extends Fragment {
 
 
                     }
-                        adapter.addFragment(new Salaried(), "Salariedone");
+                        adapter.addFragment(new Salaried_P(), "Salariedone");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
@@ -213,7 +214,7 @@ public class CoApp_Cat extends Fragment {
 
 
                     }
-                        adapter1.addFragment(new Salaried(), "Salariedone");
+                        adapter1.addFragment(new Salaried_P(), "Salariedone");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }

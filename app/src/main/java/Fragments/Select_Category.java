@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -48,13 +49,13 @@ public class Select_Category extends Fragment {
 
 
 
-        TextView tv1=(TextView)view.findViewById(R.id.retired_np);
-        TextView tv2=(TextView)view.findViewById(R.id.self_pro);
-        TextView tv3=(TextView)view.findViewById(R.id.salary);
-        TextView tv7=(TextView)view.findViewById(R.id.salaryprof);
-        TextView tv4=(TextView)view.findViewById(R.id.self);
-        TextView tv5=(TextView)view.findViewById(R.id.retired_pensioner);
-        TextView tv6=(TextView)view.findViewById(R.id.homemaker);
+        ImageView tv1=(ImageView)view.findViewById(R.id.retired_np);
+        ImageView tv2=(ImageView)view.findViewById(R.id.self_pro);
+        ImageView tv3=(ImageView)view.findViewById(R.id.salary);
+        ImageView tv7=(ImageView)view.findViewById(R.id.salaryprof);
+        ImageView tv4=(ImageView)view.findViewById(R.id.self);
+        ImageView tv5=(ImageView)view.findViewById(R.id.retired_pensioner);
+        ImageView tv6=(ImageView)view.findViewById(R.id.homemaker);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         SessionManager.putStringInPreferences(getActivity(),"0","flaggy");
 
@@ -111,7 +112,7 @@ public class Select_Category extends Fragment {
             @Override
             public void onClick(View view) {
 
-                SessionManager.putStringInPreferences(getContext(),"Self_Employed","employment_type");
+                SessionManager.putStringInPreferences(getContext(),"Self_Employed_P","employment_type");
 
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
@@ -127,7 +128,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter.addFragment(new Self_Employed_P(), "Self_Employed");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(80);
@@ -147,7 +148,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter1.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter1.addFragment(new Self_Employed_P(), "Self_Employed");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(60);
@@ -226,7 +227,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter.addFragment(new Salaried(), "Salaried");
+                        adapter.addFragment(new Salaried_P(), "Salaried");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(80);
@@ -246,7 +247,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter1.addFragment(new Salaried(), "Salaried");
+                        adapter1.addFragment(new Salaried_P(), "Salaried");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(60);

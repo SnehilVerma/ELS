@@ -70,7 +70,7 @@ public class personal_1 extends Fragment {
               "Not Selected",  "Business", "Personal"
         };
         this.arrspinner3 = new String[]{
-              "Not Selected",  "Father", "Mother", "Husband"
+              "Not Selected",  "Father", "mother", "Husband"
         };
         this.arrspinner4 = new String[]{
               "Not Selected" , "Co-Applicant", "Guarantor"
