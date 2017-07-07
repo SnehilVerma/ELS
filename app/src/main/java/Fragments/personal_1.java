@@ -3,6 +3,7 @@ package Fragments;
 import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
@@ -10,11 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.elsapp.els.R;
 
@@ -28,10 +33,10 @@ import java.util.Locale;
  */
 
 public class personal_1 extends Fragment {
-    EditText fullname,relname,relname2,dob;
+    EditText fullname,personalrelname,dob;
     Spinner spin,spin2,spin3,spin4,spin5,marital;
     private String [] arrspinner,arrspinner2,arrspinner3,arrspinner4,arrspinner5,arrspinner6;
-    LinearLayout linear1,linear2,linear3,linear4;
+    LinearLayout singletype,jointtype,businesstype,personaltype,singlename,personalname;
     Calendar myCalendar = Calendar.getInstance();
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -53,9 +58,18 @@ public class personal_1 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View x = inflater.inflate(R.layout.fragment_personal, container, false);
-        spin = (Spinner) x.findViewById(R.id.type);
+        final View x = inflater.inflate(R.layout.fragment_personal_1, container, false);
 
+
+
+        spin = (Spinner) x.findViewById(R.id.spin);
+        spin2=(Spinner)x.findViewById(R.id.spin2);
+        spin3=(Spinner)x.findViewById(R.id.spin3);
+        spin4=(Spinner)x.findViewById(R.id.spin4);
+        personalrelname=(EditText)x.findViewById(R.id.personal_relation_name);
+
+
+        /*
         linear1 = (LinearLayout) x.findViewById(R.id.linear1);
         linear2 = (LinearLayout) x.findViewById(R.id.linear2);
         linear3 = (LinearLayout) x.findViewById(R.id.linear3);
@@ -64,16 +78,145 @@ public class personal_1 extends Fragment {
         relname2 = (EditText) x.findViewById(R.id.namerel2);
         dob = (EditText) x.findViewById(R.id.dob);
         fullname=(EditText)x.findViewById(R.id.appname);
-
+        */
+        singletype=(LinearLayout)x.findViewById(R.id.singletype);
+        jointtype=(LinearLayout)x.findViewById(R.id.jointtype);
+        businesstype=(LinearLayout)x.findViewById(R.id.businesstype);
+        personaltype=(LinearLayout)x.findViewById(R.id.personaltype);
+        singlename=(LinearLayout)x.findViewById(R.id.singlename);
+        personalname=(LinearLayout)x.findViewById(R.id.namelayout);
 
         this.arrspinner = new String[]{
                "Not Selected", "Single", "Joint"
         };
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner);
+        spin.setAdapter(adapter);
+        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 2) {
+                    //fullname.setVisibility(View.VISIBLE);
+                    jointtype.setVisibility(View.VISIBLE);
+                    singletype.setVisibility(View.INVISIBLE);
+                    businesstype.setVisibility(View.INVISIBLE);
+                    singlename.setVisibility(View.INVISIBLE);
+                    personaltype.setVisibility(View.INVISIBLE);
+                    personalname.setVisibility(View.INVISIBLE);
+
+
+                } else {
+                    if (i == 1) {
+                    singletype.setVisibility(View.VISIBLE);
+                    jointtype.setVisibility(View.INVISIBLE);
+                    businesstype.setVisibility(View.INVISIBLE);
+                    singlename.setVisibility(View.INVISIBLE);
+                    businesstype.setVisibility(View.INVISIBLE);
+                    personaltype.setVisibility(View.INVISIBLE);
+                    personalname.setVisibility(View.INVISIBLE);
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        this.arrspinner2 = new String[]{
+                "Not Selected",  "Father", "Mother", "Husband"
+        };
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner2);
+        spin2.setAdapter(adapter2);
+        spin2.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i>=1)
+                singlename.setVisibility(View.VISIBLE);
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        this.arrspinner3 = new String[]{
+                "Not Selected",  "Business", "Personal"
+        };
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner3);
+        spin3.setAdapter(adapter3);
+        spin3.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i==1){
+
+                    businesstype.setVisibility(View.VISIBLE);
+                    personaltype.setVisibility(View.INVISIBLE);
+                    personalname.setVisibility(View.INVISIBLE);
+                }
+                else if(i==2){
+                    personaltype.setVisibility(View.VISIBLE);
+                    businesstype.setVisibility(View.INVISIBLE);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        RadioGroup businessgroup=(RadioGroup)x.findViewById(R.id.businessgroup);
+        businessgroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                if(i==R.id.guarantor){
+                    Toast.makeText(getContext(),"Guarantor section added",Toast.LENGTH_SHORT).show();
+
+                }else if(i==R.id.co_ap){
+
+                    Toast.makeText(getContext(),"Co-Applicant section added",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        this.arrspinner4 = new String[]{
+                "Not Selected" ,"Husband", "Wife", "Son", "Daughter"
+        };
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, arrspinner4);
+        spin4.setAdapter(adapter4);
+        spin4.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i>=1){
+
+                    personalname.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
+
+
+
+        /*
         this.arrspinner2 = new String[]{
               "Not Selected",  "Business", "Personal"
         };
         this.arrspinner3 = new String[]{
-              "Not Selected",  "Father", "mother", "Husband"
+              "Not Selected",  "Father", "Mother", "Husband"
         };
         this.arrspinner4 = new String[]{
               "Not Selected" , "Co-Applicant", "Guarantor"
@@ -197,6 +340,8 @@ public class personal_1 extends Fragment {
                 dialog.show();
             }
         });
+
+        */
 
         return x;
 

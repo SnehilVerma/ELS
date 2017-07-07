@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -24,7 +22,9 @@ public class personl_2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final  View x =inflater.inflate(R.layout.fragment_personal1, container, false);
+        final  View x =inflater.inflate(R.layout.fragment_personal_2, container, false);
+
+        /*
         gender = (EditText) x.findViewById(R.id.gen);
         religion =(Spinner) x.findViewById(R.id.rel);
         castlin =(LinearLayout) x.findViewById(R.id.caslin) ;
@@ -66,7 +66,7 @@ public class personl_2 extends Fragment {
 
             }
         });
-
+           */
         return x;
     }
 

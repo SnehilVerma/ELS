@@ -2,6 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
+                android:background="#e0f2f1"
+                android:layout_margin="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
               android:layout_height="match_parent">
 
 
@@ -150,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:text="Choose address for communication"/>
 
