@@ -2,7 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Fragments.Landpurchase3">
+    android:background="#e0f2f1"
+    android:layout_margin="5dp"
+    android:paddingLeft="5dp"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -275,7 +278,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:textSize="10dp"
+            android:textSize="9dp"
             android:lines="5"
             android:layout_height="wrap_content"
             android:text="I hereby authorize the Bank and its representatives to call me, email me or SMS me with reference to my loan application. This consent will supersede any registration for any Do Not Call (DNC) / National Do Not Call (NDNC). I am aware that credit approval is at the sole discretion of the bank. *"/>

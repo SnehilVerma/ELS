@@ -2,7 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Fragments.LandPurchase1">
+    android:layout_margin="5dp"
+    android:background="#e0f2f1"
+    android:padding="5dp">
 
     <!-- TODO: Update blank fragment layout -->
 

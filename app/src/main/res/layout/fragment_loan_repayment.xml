@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
+                android:background="#e0f2f1"
+                android:layout_margin="5dp"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
     
@@ -8,52 +11,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/l1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="On Road Price"
-        android:id="@+id/tv1"
-        android:layout_marginLeft="10dp"
-        android:textSize="16dp"
-        android:layout_height="wrap_content"/>
+   <android.support.design.widget.TextInputLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_marginTop="40dp"
         android:textSize="16dp"
-        android:hint="amount in rs."
+        android:hint="On road price in Rs."
         android:id="@+id/tv2"
-        android:layout_marginLeft="30dp"
         android:layout_height="wrap_content"/>
+   </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/l2"
         android:layout_below="@+id/l1"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="DownPayment"
-            android:id="@+id/tv3"
-            android:layout_marginLeft="10dp"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
         <EditText
-            android:layout_width="wrap_content"
-            android:hint="amount in rs."
+            android:layout_width="match_parent"
+            android:hint="Down payment in Rs."
             android:textSize="16dp"
             android:id="@+id/tv4"
-            android:layout_marginLeft="30dp"
             android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
@@ -64,22 +62,22 @@
         android:layout_below="@+id/l2"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="Requested Loan Amount"
-            android:id="@+id/tv5"
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"/>
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content">
 
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:textSize="16dp"
-            android:hint="amount in rs."
+            android:hint="Requested Loan Amount in Rs."
             android:id="@+id/tv6"
-            android:layout_marginLeft="30dp"
             android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
@@ -95,23 +93,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:textAlignment="textStart"
-            android:textColor="@android:color/holo_red_dark"
-            android:text="Please select a repayment period from the following\nto repay your loan amount"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Please select a repayment period from the following to repay your loan amount"
             />
 
 
 
         <RelativeLayout
             android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:text="Tenure"
+            android:layout_centerVertical="true"
+            android:textSize="16dp"
             android:id="@+id/tenure"
             />
 
@@ -119,6 +122,7 @@
             android:layout_width="100dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="100dp"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/tenure"
             android:layout_height="wrap_content"/>
 
@@ -126,52 +130,42 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="Rate Of Interest"
-                android:id="@+id/rate"
-                />
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content">
+
 
             <EditText
-                android:layout_width="100dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="100dp"
-                android:layout_toRightOf="@+id/rate"
-                android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Rate of Interest %"/>
 
+        </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="EMI"
-                android:id="@+id/emi"
-                />
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content">
+
+
 
             <EditText
-                android:layout_width="100dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="100dp"
-                android:layout_toRightOf="@+id/emi"
+                android:layout_width="match_parent"
+                android:hint="EMI in Rs."
                 android:layout_height="wrap_content"/>
+            </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>
-
-
-
-
-
 
     </LinearLayout>
 
@@ -181,12 +175,20 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"
         android:id="@+id/l5"
+        android:orientation="horizontal"
         android:layout_marginRight="5dp"
         android:layout_height="wrap_content">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:textSize="12dp"
+            android:lines="5"
+            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
             android:text="I hereby authorize the Bank and its representatives to call me, email me or SMS me with reference to my loan application. This consent will supersede any registration for any Do Not Call (DNC) / National Do Not Call (NDNC). I am aware that credit approval is at the sole discretion of the bank. *"/>
 
@@ -202,17 +204,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
             android:text="Edit"/>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
             android:text="Save"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
             android:text="Submit"/>
 
 

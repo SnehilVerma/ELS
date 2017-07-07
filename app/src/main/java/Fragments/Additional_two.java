@@ -1,7 +1,5 @@
 package Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.elsapp.els.R;
 
@@ -30,7 +26,7 @@ public class Additional_two extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_additional_2, container, false);
+        final View view = inflater.inflate(R.layout.fragment_additional_two, container, false);
         arrspin1 = new String[]{
                   "Immovable Asset","Movable Asset"
         };
