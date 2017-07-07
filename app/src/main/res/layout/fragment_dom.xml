@@ -27,61 +27,63 @@
     android:layout_marginTop="120dp"
     >
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="337dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:weightSum="1"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+       >
+        <TableRow>
 
         <TextView
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:layout_gravity="center"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:text="Month : " />
 
 
 
         <Spinner
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:backgroundTint="#000000"
-            android:id="@+id/spin_month"
-            android:layout_marginLeft="20dp">
+            android:id="@+id/spin_month">
 
         </Spinner>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="337dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:weightSum="1"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp">
+        </TableRow>
+    <TableRow
+        android:layout_marginTop="30dp">
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
             android:text="Year : " />
 
 
         <Spinner
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:backgroundTint="#000000"
-            android:id="@+id/spin_year"
-            android:layout_marginLeft="30dp">
+            android:id="@+id/spin_year">
 
         </Spinner>
-    </LinearLayout>
+    </TableRow>
+    </TableLayout>
 
     </LinearLayout>
 

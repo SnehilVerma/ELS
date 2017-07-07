@@ -44,7 +44,6 @@
                     android:id="@+id/mumbai"
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:background="@drawable/background_style"
                     android:clickable="true"
                     android:elevation="12dp"
                     android:src="@drawable/mumbai"/>
@@ -57,7 +56,6 @@
                     android:layout_height="130dp"
 
                     android:layout_marginLeft="30dp"
-                    android:background="@drawable/background_style"
                     android:clickable="true"
                     android:elevation="12dp"
                     android:src="@drawable/newdelhi"/>
@@ -74,9 +72,9 @@
 
             <ImageView
                 android:id="@+id/others"
-                android:layout_width="200dp"
+                android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:clickable="true"
                 android:elevation="12dp"
                 android:src="@drawable/othercities"/>

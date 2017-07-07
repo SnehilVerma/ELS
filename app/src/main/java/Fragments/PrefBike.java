@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -41,16 +42,18 @@ public class PrefBike extends Fragment {
             R.drawable.scooty_pep, R.drawable.pulsar,
     };
 
+    String bik;
     CarLoanActivity.ViewPagerAdapter ad;
     ViewPager viewPager;
+    GridView gridView;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_bike_pref,container,false);
 
-        GridView gridView = (GridView)view.findViewById(R.id.gridview);
+        gridView = (GridView)view.findViewById(R.id.gridview);
         Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.grid_item_anim);
         GridLayoutAnimationController controller = new GridLayoutAnimationController(animation, .2f, .2f);
         gridView.setLayoutAnimation(controller);
@@ -74,6 +77,7 @@ public class PrefBike extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                bik = String.valueOf(i);
 
                 SessionManager.putStringInPreferences(getContext(),String.valueOf(i),"bike_option");
                 Toast.makeText(getContext(),i+"",Toast.LENGTH_SHORT).show();
@@ -96,12 +100,30 @@ public class PrefBike extends Fragment {
 
                 progress.setText(String.valueOf(50));
 
-
-
             }
         });
 
 
         return view;
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("employment_type",bik);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("employment_type");
+            try {
+                int temp = Integer.parseInt(x);
+                //gridView.getChildAt(temp).setBackgroundColor(Color.parseColor("#3f8f98"));
+            }catch(Exception e){
+
+            }
+        }
+
     }
 }

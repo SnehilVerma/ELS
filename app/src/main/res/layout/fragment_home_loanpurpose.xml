@@ -38,26 +38,26 @@
                 android:gravity="center"
                 android:layout_gravity="center">
 
-            <Button
+            <ImageView
                 android:id="@+id/ib1"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/newproperty"
+                android:src="@drawable/newproperty"
                 android:elevation="12dp"
                 android:clickable="true"
                 android:textColor="#ffffff" />
-                <Button
+                <ImageView
                     android:id="@+id/ib2"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/repair"
+                    android:src="@drawable/repair"
                     android:elevation="12dp"
                     android:clickable="true"
                     android:textColor="#ffffff"
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_marginLeft="40dp"/>
 
                 </LinearLayout>
 
@@ -84,7 +84,7 @@
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="40dp"/>
 </LinearLayout>
 
             <LinearLayout
@@ -93,7 +93,7 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_gravity="center">
-            <Button
+            <ImageView
                 android:id="@+id/ib3"
                 android:layout_width="120dp"
 
@@ -101,19 +101,19 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/tv1"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/construction"
+                android:src="@drawable/construction"
                 android:elevation="12dp"
                 android:clickable="true"
                 android:textColor="#ffffff" />
-                <Button
+                <ImageView
                     android:id="@+id/ib4"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/tv2"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/transfer"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/transfer"
                     android:elevation="12dp"
                     android:clickable="true"
                     android:textColor="#ffffff" />
@@ -144,7 +144,7 @@
                 android:text="Transfer Existing\nLoan"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="40dp"
                 android:textColor="@color/colorPrimary" />
                 </LinearLayout>
         </LinearLayout>

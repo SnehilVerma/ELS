@@ -90,6 +90,7 @@ public class Summary extends Fragment {
             TextView gender = (TextView) view.findViewById(R.id.gender);
             TextView dob = (TextView) view.findViewById(R.id.dob);
             TextView loan_type = (TextView) view.findViewById(R.id.loantype);
+            TextView incometype = (TextView) view.findViewById(R.id.incometype);
 
             TextView rla = (TextView) view.findViewById(R.id.rla);
             TextView vehselect = (TextView) view.findViewById(R.id.vehtype);
@@ -109,11 +110,13 @@ public class Summary extends Fragment {
             sv.setMinimumHeight(3*height/4);
 
 
+            dom.setText(SessionManager.getStringFromPreferences(getActivity(),"dom"));
             loan_type.setText(loantype);
-            city.setText(SessionManager.getStringFromPreferences(getActivity(),"city"));
+            city.setText(SessionManager.getStringFromPreferences(getContext(),"city"));
             gender.setText(SessionManager.getStringFromPreferences(getActivity(),"gender"));
             dob.setText(SessionManager.getStringFromPreferences(getActivity(),"DOB"));
             vehselect.setText(SessionManager.getStringFromPreferences(getActivity(),"vehicle_type"));
+            incometype.setText(SessionManager.getStringFromPreferences(getActivity(),"incometype"));
             if(vehselect.getText().equals("Car")) {
                 newold.setText(SessionManager.getStringFromPreferences(getActivity(), "car_type"));
             }

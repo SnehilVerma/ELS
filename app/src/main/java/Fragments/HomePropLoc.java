@@ -2,6 +2,7 @@ package Fragments;
 
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -45,6 +46,7 @@ public class HomePropLoc extends Fragment {
     private ViewPager viewPager;
     ArrayList<String> city_names;
 
+    String hl;
 
     @Nullable
     @Override
@@ -91,13 +93,14 @@ public class HomePropLoc extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 dialog.dismiss();
-                String city=city_names.get(i);
+                String city=adapterView.getAdapter().getItem(i).toString();
                 Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
                 SessionManager.putStringInPreferences(getContext(),city,"property_location");
 
 
 
 
+                hl = "Others";
 
 
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -141,6 +144,7 @@ public class HomePropLoc extends Fragment {
 
 
 
+                hl = "Mumbai";
 
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < ad2.mFragmentList.size()) {
@@ -175,6 +179,7 @@ public class HomePropLoc extends Fragment {
                 SessionManager.putStringInPreferences(getContext(), "Delhi", "property_location");
 
 
+                hl = "Delhi";
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad2.mFragmentList.size()) {
 
@@ -233,4 +238,30 @@ public class HomePropLoc extends Fragment {
         return view;
 
     }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("property_location",hl);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("property_location");
+            try {
+                if (x.equals("Mumbai")) {
+                    mumbai.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Delhi")) {
+                    delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    others.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
+
+    }
+
 }

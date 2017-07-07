@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -36,7 +37,9 @@ public class Co_App_Opt extends Fragment {
     private HomeLoan.ViewPagerAdapter adapter1;
     private String loantype;
     ProgressBar pb;
+    ImageView yes,no;
     TextView progress;
+    String what;
 
     @Nullable
     @Override
@@ -44,11 +47,12 @@ public class Co_App_Opt extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_co_app_opt, container, false);
         loantype = SessionManager.getStringFromPreferences(getContext(),"loantype");
-        ImageView yes = (ImageView) view.findViewById(R.id.yes);
-        ImageView no = (ImageView) view.findViewById(R.id.no);
+        yes = (ImageView) view.findViewById(R.id.yes);
+        no = (ImageView) view.findViewById(R.id.no);
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                what = "Yes";
                 SessionManager.putStringInPreferences(getActivity(), "Yes", "coapp");
                 if (loantype.equals("Home")) {
                     adapter1 = ((HomeLoan) getActivity()).getCurrAdapter();
@@ -101,6 +105,7 @@ public class Co_App_Opt extends Fragment {
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                what = "No";
                 SessionManager.putStringInPreferences(getActivity(),"No","coapp");
                 if(loantype.equals("Home")){
                     adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
@@ -146,6 +151,30 @@ public class Co_App_Opt extends Fragment {
         });
 
         return view;
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("coapp",what);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("coapp");
+            try {
+
+                if (x.equals("Yes")) {
+                    yes.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("No")) {
+                    no.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
 
     }
 }

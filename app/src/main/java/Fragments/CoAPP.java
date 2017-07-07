@@ -1,7 +1,10 @@
 package Fragments;
 
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -34,7 +37,9 @@ public class CoAPP extends Fragment {
     EditText Name,Phone,Age;
     ProgressBar pb;
     TextView progress;
+    ImageView father,mother,spouse,children;
 
+    String relations;
     int flag;
 
 
@@ -57,10 +62,10 @@ public class CoAPP extends Fragment {
         final View x = inflater.inflate(R.layout.fragment_co_ap, container, false);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         //EditText relationship = (EditText) x.findViewById(R.id.relationship);
-        ImageView father = (ImageView) x.findViewById(R.id.father);
-        ImageView mother = (ImageView) x.findViewById(R.id.mother);
-        ImageView spouse = (ImageView) x.findViewById(R.id.spouse);
-        ImageView children = (ImageView) x.findViewById(R.id.children);
+        father = (ImageView) x.findViewById(R.id.father);
+        mother = (ImageView) x.findViewById(R.id.mother);
+        spouse = (ImageView) x.findViewById(R.id.spouse);
+        children = (ImageView) x.findViewById(R.id.children);
         adapter = ((HomeLoan) getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan) getActivity()).getViewPager();
         Button b1 = (Button) x.findViewById(R.id.button);
@@ -69,6 +74,7 @@ public class CoAPP extends Fragment {
         father.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                relations = "Father";
                 SessionManager.putStringInPreferences(getActivity(),"Father","relation");
                         //pb = ((HomeLoan)getActivity()).getPb();
                         //progress = ((HomeLoan)getActivity()).getprogresstv();
@@ -91,7 +97,8 @@ public class CoAPP extends Fragment {
         mother.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SessionManager.putStringInPreferences(getActivity(),"mother","relation");
+                relations = "Mother";
+                SessionManager.putStringInPreferences(getActivity(),"Mother","relation");
                     //pb = ((HomeLoan)getActivity()).getPb();
                     //progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
@@ -114,6 +121,7 @@ public class CoAPP extends Fragment {
         spouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                relations = "Spouse";
                 SessionManager.putStringInPreferences(getActivity(),"Spouse","relation");
 
                     //pb = ((HomeLoan)getActivity()).getPb();
@@ -137,6 +145,7 @@ public class CoAPP extends Fragment {
         children.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                relations = "Children";
                 SessionManager.putStringInPreferences(getActivity(),"Children","relation");
                     //pb = ((HomeLoan)getActivity()).getPb();
                     //progress = ((HomeLoan)getActivity()).getprogresstv();
@@ -158,6 +167,33 @@ public class CoAPP extends Fragment {
         });
 
         return x;
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("relation",relations);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("relation");
+            try {
+                if (x.equals("Father")) {
+                    father.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Mother")) {
+                    mother.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Children")) {
+                    children.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    spouse.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
+
     }
 
     }

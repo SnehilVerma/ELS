@@ -15,6 +15,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:tint="@color/colorPrimary"
             android:src="@drawable/ic_location_on_black_24dp" />
 
         <TextView
@@ -46,54 +47,18 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:src="@drawable/mumbai"
-                    style="?android:borderlessButtonStyle"
-                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:id="@+id/mumbai"
                     android:elevation="12dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mumbai"
-                        android:textStyle="bold"
-                        android:textAllCaps="true"/>
-
-                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:src="@drawable/newdelhi"
-                    style="?android:borderlessButtonStyle"
-                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/delhi"
                     android:clickable="true"
                     android:elevation="12dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Delhi"
-                        android:layout_marginLeft="20dp"
-                        android:textStyle="bold"
-                        android:textAllCaps="true"/>
-
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -103,33 +68,13 @@
 
             >
             <ImageView
-                android:layout_width="200dp"
+                android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/others"
                 android:elevation="12dp"
                 android:clickable="true"
                 android:id="@+id/others"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Others"
-                    android:textStyle="bold"
-                    android:id="@+id/editothers"
-
-
-                    android:textAllCaps="true"/>
-
-
-
-            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

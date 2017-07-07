@@ -73,6 +73,7 @@ public class CarLoanActivity extends AppCompatActivity
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         //viewPager.setOffscreenPageLimit(10);
         viewPager.setPageTransformer(true,new PagerTransformer());
+        //viewPager.setOffscreenPageLimit(15);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

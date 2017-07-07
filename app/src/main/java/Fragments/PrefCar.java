@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -41,9 +42,11 @@ public class PrefCar extends Fragment {
 
 
 };
+String car;
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    GridView gridView;
 
     @Nullable
     @Override
@@ -54,7 +57,7 @@ public class PrefCar extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_car_pref, container, false);
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
-        GridView gridView=(GridView)view.findViewById(R.id.gridview);
+        gridView=(GridView)view.findViewById(R.id.gridview);
         Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.grid_item_anim);
         GridLayoutAnimationController controller = new GridLayoutAnimationController(animation, .2f, .2f);
         gridView.setLayoutAnimation(controller);
@@ -74,6 +77,7 @@ public class PrefCar extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                car =i+"";
 
                 SessionManager.putStringInPreferences(getContext(),String.valueOf(i),"car_option");
                 Toast.makeText(getContext(),i+"",Toast.LENGTH_SHORT).show();
@@ -96,11 +100,29 @@ public class PrefCar extends Fragment {
                 progress.setText(String.valueOf(50));
 
 
-
             }
         });
 
         return view;
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("employment_type",car);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("employment_type");
+            try {
+                //gridView.getChildAt(Integer.parseInt(x)).setBackgroundColor(Color.parseColor("#3f8f98"));
+            }catch (Exception e){
+
+            }
+        }
 
     }
 }
