@@ -15,7 +15,7 @@
 
         card_view:cardBackgroundColor="@color/bgcolor"
         android:layout_height="match_parent"
-        card_view:cardMaxElevation="0dp">
+        card_view:cardElevation="4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,22 +39,21 @@
             android:orientation="horizontal"
             android:layout_marginTop="150dp">
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:padding="5dp"
             android:src="@drawable/bike"
-            android:id="@+id/im1"
-            android:background="@drawable/background_style">
+            android:id="@+id/im1">
         </ImageView>
 
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:padding="5dp"
             android:id="@+id/im2"
-            android:layout_marginLeft="30dp"
-            android:src="@drawable/car"
-            android:background="@drawable/background_style">
+            android:src="@drawable/car">
 
         </ImageView>
         </LinearLayout>

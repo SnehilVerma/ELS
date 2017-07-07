@@ -12,8 +12,9 @@
                                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                         android:layout_width="match_parent"
                                         card_view:cardCornerRadius="0dp"
-                                        android:elevation="5dp"
+                                        android:elevation="4dp"
 
+                                        android:layout_margin="5dp"
 
                                         card_view:cardBackgroundColor="@color/bgcolor"
                                         android:layout_height="match_parent"
@@ -52,12 +53,10 @@
                     android:layout_width="wrap_content">
 
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Retired \nNon-Pensioner"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:src="@drawable/retirednp"
-                        android:textSize="15dp"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:id="@+id/retired_np"
                         android:layout_weight="1"
@@ -65,12 +64,10 @@
                         />
 
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Salaried"
-                        android:textSize="15dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:id="@+id/salary"
-                        android:textColor="@color/white"
                         android:src="@drawable/salaried"
                         android:gravity="center"
                         android:layout_gravity="center"
@@ -83,25 +80,21 @@
                     android:layout_width="wrap_content"
                     android:layout_marginTop="10dp">
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Salaried Professional"
-                        android:textSize="15dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:src="@drawable/salariedp"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:id="@+id/salaryprof"
                         android:layout_weight="1"
 
                         />
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Retired Pensioner"
-                        android:textSize="15dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:src="@drawable/retiredp"
                         android:id="@+id/retired_pensioner"
-                        android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:gravity="center"
 
@@ -113,11 +106,9 @@
                     android:layout_width="wrap_content"
                     android:layout_marginTop="10dp">
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Self Employed\n Professional"
-                        android:textColor="@color/white"
-                        android:textSize="15dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:src="@drawable/selfempp"
                         android:id="@+id/self_pro"
                         android:layout_gravity="center"
@@ -126,13 +117,11 @@
 
                         />
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Self Employed"
-                        android:textSize="15dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:id="@+id/self"
                         android:src="@drawable/selfemp"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:layout_weight="1"
                         android:layout_gravity="center"
@@ -147,11 +136,9 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:text="Home Maker"
-                        android:textSize="15dp"
-                        android:textColor="@color/white"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
                         android:gravity="center_horizontal|center_vertical"
                         android:src="@drawable/homemaker"
                         android:id="@+id/homemaker"

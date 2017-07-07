@@ -6,7 +6,11 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     card_view:cardCornerRadius="1dp"
     android:layout_margin="5dp"
+    card_view:cardElevation="4dp"
     tools:context="Fragments.DOB">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -19,13 +23,20 @@
         android:textAllCaps="true"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:id="@+id/tv1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="110dp"
         android:layout_gravity="center"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:id="@+id/ll1"
+        android:layout_below="@+id/tv1"
+        android:layout_alignStart="@+id/tv1"
+        android:layout_marginTop="70dp">
 
         <ImageView
             android:layout_width="60dp"
@@ -53,8 +64,11 @@
 
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="350dp"
-        android:id="@+id/button"/>
+        android:id="@+id/button"
+        android:layout_below="@+id/ll1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+    </RelativeLayout>
 
 
 

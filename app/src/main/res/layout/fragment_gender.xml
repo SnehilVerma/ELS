@@ -10,16 +10,13 @@
                                         android:orientation="vertical"
 
                                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                                        android:layout_width="match_parent"
-                                        card_view:cardCornerRadius="0dp"
 
-                                        card_view:cardBackgroundColor="@color/bgcolor"
-                                        android:layout_height="match_parent"
-                                        card_view:cardMaxElevation="5dp"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginRight="5dp"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_centerHorizontal="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardBackgroundColor="@color/bgcolor"
+        card_view:cardCornerRadius="1dp"
+        android:layout_margin="5dp"
+        card_view:cardElevation="4dp">
 
 
         <LinearLayout
@@ -47,13 +44,13 @@
             android:gravity="center">
 
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:padding="5dp"
             android:src="@drawable/male"
             android:id="@+id/male"
-            android:clickable="true"
-            android:background="@drawable/background_style">
+            android:clickable="true">
 
         </ImageView>
 
@@ -61,22 +58,21 @@
 
 
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:padding="5dp"
             android:id="@+id/female"
             android:clickable="true"
-            android:layout_marginLeft="30dp"
-            android:src="@drawable/female"
-            android:background="@drawable/background_style">
+            android:src="@drawable/female">
 
         </ImageView>
         </LinearLayout>
 
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:text="Others"
+            android:layout_width="160dp"
+            android:layout_height="140dp"
+            android:padding="5dp"
             android:id="@+id/others"
             android:src="@drawable/others"
             android:layout_gravity="center_horizontal"

@@ -2,6 +2,7 @@ package Fragments;
 
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -311,13 +312,14 @@ public class Gender extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("gender");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
                 if (x.equals("Male")) {
-                    male.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    male.setBackground(xyz);
                 } else if (x.equals("Female")) {
-                    female.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    female.setBackground(xyz);
                 } else {
-                    others.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    others.setBackground(xyz);
                 }
             }
             catch(Exception e){

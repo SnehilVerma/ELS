@@ -2,6 +2,7 @@ package Fragments;
 
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -142,12 +143,13 @@ public class BikeType extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("employment_type");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
 
                 if (x.equals("MotorCycle")) {
-                    im1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    im1.setBackground(xyz);
                 } else {
-                    im2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    im2.setBackground(xyz);
                 }
 
             }catch(Exception e){

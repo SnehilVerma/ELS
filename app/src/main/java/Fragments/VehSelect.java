@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -133,13 +134,14 @@ public class VehSelect extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
         if(savedInstanceState != null) {
             try {
                 String x = savedInstanceState.getString("employment_type");
                 if (x.equals("Bike")) {
-                    ib1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    ib1.setBackground(xyz);
                 } else {
-                    ib2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    ib2.setBackground(xyz);
                 }
             }catch (Exception e){
 

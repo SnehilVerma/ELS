@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
@@ -179,15 +180,16 @@ public class CoAPP extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("relation");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
                 if (x.equals("Father")) {
-                    father.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    father.setBackground(xyz);
                 } else if (x.equals("Mother")) {
-                    mother.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    mother.setBackground(xyz);
                 } else if (x.equals("Children")) {
-                    children.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    children.setBackground(xyz);
                 } else {
-                    spouse.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    spouse.setBackground(xyz);
                 }
             }catch (Exception e){
 

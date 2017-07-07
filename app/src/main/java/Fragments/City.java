@@ -255,7 +255,7 @@ public class City extends Fragment {
             public void onClick(View view) {
 
 
-                delhi.setBackgroundResource(R.drawable.background_style);
+                //delhi.setBackgroundResource(R.drawable.background_style);
 
                 SessionManager.putStringInPreferences(getContext(),"Delhi","city");
                 delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
@@ -370,9 +370,9 @@ public class City extends Fragment {
                 if (x.equals("mumbai")) {
                     mumbai.setBackground(xyz);
                 } else if (x.equals("delhi")) {
-                    delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    delhi.setBackground(xyz);
                 } else {
-                    others.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    others.setBackground(xyz);
                 }
             /*else if(!SessionManager.getStringFromPreferences(getActivity(),"city").equals("null")){
                 others.setBackgroundColor(Color.parseColor("#3f8f98"));
