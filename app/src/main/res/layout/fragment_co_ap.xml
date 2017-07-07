@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     card_view:cardCornerRadius="1dp"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
+    card_view:cardElevation="4dp"
     tools:context="Fragments.CoAPP">
 
     <!-- TODO: Update blank fragment layout -->
@@ -41,14 +42,16 @@
         android:layout_height="wrap_content">
         <TableRow>
             <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:padding="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/fatherone"
                 android:id="@+id/father"/>
             <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:padding="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/mother"
                 android:id="@+id/mother"/>
@@ -56,14 +59,16 @@
         <TableRow
             android:layout_marginTop="20dp">
             <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:padding="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/spouse"
                 android:id="@+id/spouse"/>
             <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:padding="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/children"
                 android:id="@+id/children"/>

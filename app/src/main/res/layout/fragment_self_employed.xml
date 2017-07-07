@@ -12,7 +12,8 @@
                                         android:elevation="5dp"
                                         card_view:cardBackgroundColor="@color/bgcolor"
                                         android:layout_height="match_parent"
-                                        card_view:cardMaxElevation="5dp">
+                                        android:layout_margin="5dp"
+        card_view:cardElevation="4dp">
 
 
         <ImageView

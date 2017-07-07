@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -164,12 +165,13 @@ public class Co_App_Opt extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("coapp");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
 
                 if (x.equals("Yes")) {
-                    yes.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    yes.setBackground(xyz);
                 } else if (x.equals("No")) {
-                    no.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    no.setBackground(xyz);
                 }
             }catch (Exception e){
 

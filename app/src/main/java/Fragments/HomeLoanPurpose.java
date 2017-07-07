@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -162,15 +163,16 @@ public class HomeLoanPurpose extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("homepurpose");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
                 if (x.equals("pidentifiedprop")) {
-                    ib1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    ib1.setBackground(xyz);
                 } else if (x.equals("renovateflat")) {
-                    ib2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    ib2.setBackground(xyz);
                 } else if (x.equals("constructhouse")) {
-                    ib3.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    ib3.setBackground(xyz);
                 } else {
-                    ib4.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    ib4.setBackground(xyz);
                 }
             }catch (Exception e){
 

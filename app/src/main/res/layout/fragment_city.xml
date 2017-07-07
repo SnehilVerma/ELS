@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                    app:cardBackgroundColor="@color/bgcolor"
-                                    android:layout_margin="5dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@color/bgcolor"
+    android:layout_margin="5dp"
+    card_view:cardElevation="4dp">
 
 
     <LinearLayout
@@ -35,29 +37,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:orientation="horizontal"
             >
 
 
                 <ImageView
                     android:id="@+id/mumbai"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
                     android:clickable="true"
-                    android:elevation="12dp"
+                    android:padding="5dp"
                     android:src="@drawable/mumbai"/>
 
 
 
                 <ImageView
                     android:id="@+id/delhi"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
 
-                    android:layout_marginLeft="30dp"
+                    android:padding="5dp"
                     android:clickable="true"
-                    android:elevation="12dp"
                     android:src="@drawable/newdelhi"/>
 
         </LinearLayout>
@@ -72,11 +75,10 @@
 
             <ImageView
                 android:id="@+id/others"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="160dp"
+                android:layout_height="140dp"
+                android:padding="5dp"
                 android:clickable="true"
-                android:elevation="12dp"
                 android:src="@drawable/othercities"/>
 
 

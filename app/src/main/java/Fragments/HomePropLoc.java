@@ -3,6 +3,7 @@ package Fragments;
 
 import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -249,13 +250,14 @@ public class HomePropLoc extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("property_location");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
                 if (x.equals("Mumbai")) {
-                    mumbai.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    mumbai.setBackground(xyz);
                 } else if (x.equals("Delhi")) {
-                    delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    delhi.setBackground(xyz);
                 } else {
-                    others.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    others.setBackground(xyz);
                 }
             }catch (Exception e){
 

@@ -2,6 +2,7 @@ package Fragments;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -393,21 +394,22 @@ public class CoApp_Cat extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             String x = savedInstanceState.getString("employment_type");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
             try {
                 if (x.equals("Retired_NPone")) {
-                    tv1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv1.setBackground(xyz);
                 } else if (x.equals("Self_Employed_Pone")) {
-                    tv2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv2.setBackground(xyz);
                 } else if (x.equals("Salariedone")) {
-                    tv3.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv3.setBackground(xyz);
                 } else if (x.equals("Self_Employedone")) {
-                    tv4.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv4.setBackground(xyz);
                 } else if (x.equals("Retired_Pone")) {
-                    tv5.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv5.setBackground(xyz);
                 } else if (x.equals("Homemaker")) {
-                    tv6.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv6.setBackground(xyz);
                 } else if (x.equals("SalariedProfone")) {
-                    tv7.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv7.setBackground(xyz);
                 }
             }catch (Exception e){
 

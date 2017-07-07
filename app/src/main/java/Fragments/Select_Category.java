@@ -2,6 +2,7 @@ package Fragments;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -435,20 +436,21 @@ public class Select_Category extends Fragment {
         if(savedInstanceState != null) {
             try {
                 String x = savedInstanceState.getString("employment_type");
+                Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
                 if (x.equals("Retired_NP")) {
-                    tv1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv1.setBackground(xyz);
                 } else if (x.equals("Self_Employed_P")) {
-                    tv2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv2.setBackground(xyz);
                 } else if (x.equals("Salaried")) {
-                    tv3.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv3.setBackground(xyz);
                 } else if (x.equals("Self_Employed")) {
-                    tv4.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv4.setBackground(xyz);
                 } else if (x.equals("Retired_P")) {
-                    tv5.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv5.setBackground(xyz);
                 } else if (x.equals("Homemaker")) {
-                    tv6.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv6.setBackground(xyz);
                 } else if (x.equals("SalariedProf")) {
-                    tv7.setBackgroundColor(Color.parseColor("#3f8f98"));
+                    tv7.setBackground(xyz);
                 }
             }catch (Exception e){
 
