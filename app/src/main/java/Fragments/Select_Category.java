@@ -43,16 +43,6 @@ public class Select_Category extends Fragment {
 
 
 
-        // CHHUTIYA TEST . REMOVE AFTER CHECIKING
-        //String[] s=new String[4];
-        //s[0]=SessionManager.getStringFromPreferences(getContext(),"loan_type");
-        //s[1]=SessionManager.getStringFromPreferences(getContext(),"car_type");
-        //s[2]=SessionManager.getStringFromPreferences(getContext(),"city_car");
-
-       // Toast.makeText(getContext(),""+s[0]+" "+s[1]+ " "+ s[2],Toast.LENGTH_SHORT).show();
-
-
-
         tv1=(ImageView)view.findViewById(R.id.retired_np);
         tv2=(ImageView)view.findViewById(R.id.self_pro);
         tv3=(ImageView)view.findViewById(R.id.salary);
