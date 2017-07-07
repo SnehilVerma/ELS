@@ -2,6 +2,7 @@ package Fragments;
 
 import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.HomeLoan;
@@ -44,6 +46,7 @@ public class City extends Fragment {
     private HomeLoan.ViewPagerAdapter ad2;
 
     private ViewPager viewPager;
+    String cityone;
 
     ArrayList<String> city_names;
 
@@ -113,10 +116,10 @@ public class City extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 dialog.dismiss();
                 String city=adapterView.getAdapter().getItem(i).toString();
-                //Toast.makeText(getContext(),city,Toast.LENGTH_SHORT).show();
                 SessionManager.putStringInPreferences(getContext(),city,"city");
+                Toast.makeText(getContext(),SessionManager.getStringFromPreferences(getActivity(),"city").toString(),Toast.LENGTH_SHORT).show();
                 others.setBackgroundColor(Color.parseColor("#3f8f98"));
-
+                cityone = "others";
 
                 if(type.equals("Vehicle")) {
 
@@ -189,7 +192,7 @@ public class City extends Fragment {
                 SessionManager.putStringInPreferences(getContext(),"Mumbai","city");
                 mumbai.setBackgroundColor(Color.parseColor("#3f8f98"));
 
-
+                cityone = "mumbai";
 
                 if(type.equals("Vehicle")) {
 
@@ -257,6 +260,7 @@ public class City extends Fragment {
                 SessionManager.putStringInPreferences(getContext(),"Delhi","city");
                 delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
 
+                cityone = "delhi";
 
                 if(type.equals("Vehicle")) {
 
@@ -347,14 +351,37 @@ public class City extends Fragment {
         return view;
 
     }
+//These two methods are the main way to highlight selected elements.
+    // SessionManager should not be used, othwerwise this wont work.
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //String m = SessionManager.getStringFromPreferences(getActivity(),"city");
+        outState.putString("city",cityone);
+    }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("city");
+            Drawable xyz = getResources().getDrawable(R.drawable.buttonstyle);
+            try {
+                if (x.equals("mumbai")) {
+                    mumbai.setBackground(xyz);
+                } else if (x.equals("delhi")) {
+                    delhi.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    others.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            /*else if(!SessionManager.getStringFromPreferences(getActivity(),"city").equals("null")){
+                others.setBackgroundColor(Color.parseColor("#3f8f98"));
+            }*/
+            }
+            catch(Exception e){
 
+            }
+        }
 
-
-
-
-
-
-
-
+    }
 }

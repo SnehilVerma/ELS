@@ -1,6 +1,8 @@
 package com.elsapp.els;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,8 +18,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +60,12 @@ public class CarLoanActivity extends AppCompatActivity
         progress = (TextView)findViewById(R.id.progress);
         pb = (ProgressBar) findViewById(R.id.pb);
         pb.setProgress(0);
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        progress.setWidth(width);
         SessionManager.putStringInPreferences(CarLoanActivity.this,"0","pos");
         setSupportActionBar(toolbar);
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/roboto.ttf");
@@ -63,6 +73,7 @@ public class CarLoanActivity extends AppCompatActivity
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         //viewPager.setOffscreenPageLimit(10);
         viewPager.setPageTransformer(true,new PagerTransformer());
+        //viewPager.setOffscreenPageLimit(15);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -126,27 +137,6 @@ public class CarLoanActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.loan_selec, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

@@ -28,6 +28,8 @@ public class CarType extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    ImageView im1,im2;
+    String car;
     int tflag=0;
     @Nullable
     @Override
@@ -39,8 +41,8 @@ public class CarType extends Fragment {
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
-        ImageView im1=(ImageView) view.findViewById(R.id.im1);
-        ImageView im2=(ImageView) view.findViewById(R.id.im2);
+        im1=(ImageView) view.findViewById(R.id.im1);
+        im2=(ImageView) view.findViewById(R.id.im2);
 
 
         String cartype = SessionManager.getStringFromPreferences(getActivity(),"car_type");
@@ -61,6 +63,8 @@ public class CarType extends Fragment {
         im1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                car = "New";
+
 
             sessionManager.putStringInPreferences(getActivity(),"New","car_type");
 
@@ -90,6 +94,7 @@ public class CarType extends Fragment {
         im2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                car = "Old";
 
 
                 sessionManager.putStringInPreferences(getActivity(),"Old","car_type");
@@ -123,6 +128,31 @@ public class CarType extends Fragment {
 
 
         return view;
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("employment_type",car);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("employment_type");
+            try {
+
+                if (x.equals("New")) {
+                    im1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    im2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+
+        }
 
     }
 

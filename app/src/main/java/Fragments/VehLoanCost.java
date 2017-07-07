@@ -147,6 +147,15 @@ public class VehLoanCost extends Fragment implements TextView.OnEditorActionList
                     dlgAlert.create().show();
 
                 }
+                else if(Integer.parseInt(cost.getText().toString()) == 0){
+                    AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+
+                    dlgAlert.setMessage("Please enter non zero cost of the vehicle");
+                    dlgAlert.setTitle("Error Message");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.create().show();
+
+                }
                 else{
 
                     AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());

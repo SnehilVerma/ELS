@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bgcolor">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="450dp"
+        android:id="@+id/sv">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,6 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Loan Type : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -53,6 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="City : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -79,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Gender : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -105,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Date of Birth : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -131,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Vehicle Type : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -157,6 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="new/old : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -183,6 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Date of Manufacture: "/>
                 <TextView
                     android:layout_width="170dp"
@@ -209,6 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Preferred vehicle : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -235,6 +245,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Cost of vehicle : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -261,6 +272,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Income Type : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -287,6 +299,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Gross monthly income : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -313,6 +326,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="EMI : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -339,6 +353,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
                     android:text="Required Loan amount : "/>
                 <TextView
                     android:layout_width="170dp"
@@ -347,12 +362,22 @@
                     android:layout_marginLeft="10dp"
                     android:id="@+id/rla"/>
             </LinearLayout>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DONE"
-                android:id="@+id/done"/>
         </LinearLayout>
     </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"></View>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="@string/buttondone"
+        android:textColor="#ffffff"
+        android:id="@+id/done"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button"/>
 
 </LinearLayout>

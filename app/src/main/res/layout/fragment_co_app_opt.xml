@@ -25,41 +25,32 @@
             android:textColor="@color/textHeadingColor"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:textSize="16dp"
+            android:textSize="20dp"
+            android:gravity="center"
             android:text="Would you like to add a coapplicant?"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"
             />
 
 
-        <RadioGroup
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
             android:orientation="horizontal"
-            android:gravity="center"
-
-            android:id="@+id/radiogroup">
-            <RadioButton
+            android:layout_marginTop="200dp"
+            android:gravity="center">
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:buttonTint="@color/colorPrimary"
-                android:textColor="@color/colorPrimary"
-                android:text="YES" />
-            <RadioButton
+                android:src="@drawable/yes"
+                android:id="@+id/yes"/>
+            <ImageView
                 android:layout_width="wrap_content"
-                android:textIsSelectable="true"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:buttonTint="@color/colorPrimary"
-                android:textColor="@color/colorPrimary"
-                android:text="NO"
-                android:layout_marginLeft="200dp"/>
-
-        </RadioGroup>
-
-
+                android:src="@drawable/no"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/no"/>
+        </LinearLayout>
 
 
 

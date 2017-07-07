@@ -2,6 +2,7 @@ package Fragments;
 
 
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,8 @@ public class BikeType extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    ImageView im1,im2;
+    String bik;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class BikeType extends Fragment {
             @Override
             public void onClick(View view) {
 
+                bik = "MotorCycle";
                 SessionManager.putStringInPreferences(getActivity(),"MotorCycle","bike_type");
 
 
@@ -95,6 +99,7 @@ public class BikeType extends Fragment {
             @Override
             public void onClick(View view) {
 
+                bik = "Scooter";
                 putStringInPreferences(getActivity(),"Scooter","bike_type");
 
 
@@ -124,6 +129,31 @@ public class BikeType extends Fragment {
         });
 
         return view;
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("employment_type",bik);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("employment_type");
+            try {
+
+                if (x.equals("MotorCycle")) {
+                    im1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    im2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+
+            }catch(Exception e){
+
+            }
+        }
 
     }
 

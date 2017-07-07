@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,13 +53,15 @@ public class Salaried extends Fragment{
         final EditText emi = (EditText) view.findViewById(R.id.emi);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         b1=(Button)view.findViewById(R.id.button);
-
-
-        final ImageView i1 = (ImageView) view.findViewById(R.id.i1);
-        ImageView i2 = (ImageView) view.findViewById(R.id.i2);
-        //ImageView i3 = (ImageView) view.findViewById(R.id.i3);4
-        final CoordinatorLayout cl = (CoordinatorLayout) view.findViewById(R.id.cl);
-        final LinearLayout layout = (LinearLayout) view.findViewById(R.id.layout);
+        TextInputLayout tw1 = (TextInputLayout) view.findViewById(R.id.tw1);
+        TextInputLayout tw2 = (TextInputLayout) view.findViewById(R.id.tw2);
+        TextInputLayout tw3 = (TextInputLayout) view.findViewById(R.id.tw3);
+        tw1.setErrorEnabled(true);
+        tw2.setErrorEnabled(true);
+        tw3.setErrorEnabled(true);
+        tw1.setError("    Your Total Salary");
+        tw2.setError("    Your Salary excluding all deductions");
+        tw3.setError("    ");
 
 
         gmincome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -66,25 +71,30 @@ public class Salaried extends Fragment{
                     if ((Float.parseFloat(gmincome.getText().toString()) > 999999999) || ((Float.parseFloat(gmincome.getText().toString()) < 0))) {
                         gmincome.setError("entered value not accepted");
                     } else {
-                        Snackbar snackbar = Snackbar
+                        AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+
+                        dlgAlert.setMessage("You have stated gross salary as "+ gmincome.getText().toString());
+                        dlgAlert.setCancelable(true);
+                        dlgAlert.create().show();
+                        /*Snackbar snackbar = Snackbar
                                 .make(cl, "You have stated gross salary as " + gmincome.getText().toString(), Snackbar.LENGTH_LONG);
 
-                        snackbar.show();
+                        snackbar.show();*/
                     }
                     if (!hasFocus) {
-                        hideKeyboard();
+                        //hideKeyboard();
                     }
                 }
             }
 
 
-    private void hideKeyboard() {
+    /*private void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(gmincome.getWindowToken(), 0);
 //        Toast.makeText(getContext(),gmincome.getText().toString(),Toast.LENGTH_SHORT).show();
 
     }
-
+*/
 
         });
         msalary.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -94,10 +104,16 @@ public class Salaried extends Fragment{
                     if ((Float.parseFloat(msalary.getText().toString()) > 999999.99) || ((Float.parseFloat(msalary.getText().toString()) < 0))) {
                         msalary.setError("entered value not accepted");
                     } else {
-                        Snackbar snackbar = Snackbar
+                        AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+
+                        dlgAlert.setMessage("You have stated gross salary as "+ msalary.getText().toString());
+                        dlgAlert.setCancelable(true);
+                        dlgAlert.create().show();
+
+                       /* Snackbar snackbar = Snackbar
                                 .make(cl, "You have stated gross salary as " + msalary.getText().toString(), Snackbar.LENGTH_LONG);
 
-                        snackbar.show();
+                        snackbar.show();*/
                     }
                     if (!hasFocus) {
                         hideKeyboard();
@@ -130,24 +146,6 @@ public class Salaried extends Fragment{
         /*if((Float.parseFloat(gmincome.getText().toString())>999999.99)||((Float.parseFloat(gmincome.getText().toString())<0))){
             gmincome.setError("entered value not accepted");
         }*/
-        i1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar snackbar = Snackbar
-                        .make(cl, "Your Total Salary", Snackbar.LENGTH_LONG);
-
-                snackbar.show();
-            }
-        });
-        i2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar snackbar = Snackbar
-                        .make(cl, "Your Salary excluding all deductions", Snackbar.LENGTH_LONG);
-
-                snackbar.show();
-            }
-        });
 
 
 
@@ -162,10 +160,10 @@ public class Salaried extends Fragment{
                 String takeaway=msalary.getText().toString();
                 String existing_emi=emi.getText().toString();
                 if(gross.equals("")|| takeaway.equals("")){
-                    Snackbar snackbar = Snackbar
+                    /*Snackbar snackbar = Snackbar
                             .make(cl, "Please fill all details", Snackbar.LENGTH_LONG);
 
-                    snackbar.show();
+                    snackbar.show();*/
 
                 }
                 else {

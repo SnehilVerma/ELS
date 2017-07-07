@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -30,6 +32,8 @@ public class Select_Category extends Fragment {
     private HomeLoan.ViewPagerAdapter adapter1;
     private ViewPager viewPager;
     ProgressBar pb;
+    ImageView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
+    String sel;
     TextView progress;
     @Nullable
     @Override
@@ -48,19 +52,20 @@ public class Select_Category extends Fragment {
 
 
 
-        TextView tv1=(TextView)view.findViewById(R.id.retired_np);
-        TextView tv2=(TextView)view.findViewById(R.id.self_pro);
-        TextView tv3=(TextView)view.findViewById(R.id.salary);
-        TextView tv7=(TextView)view.findViewById(R.id.salaryprof);
-        TextView tv4=(TextView)view.findViewById(R.id.self);
-        TextView tv5=(TextView)view.findViewById(R.id.retired_pensioner);
-        TextView tv6=(TextView)view.findViewById(R.id.homemaker);
+        tv1=(ImageView)view.findViewById(R.id.retired_np);
+        tv2=(ImageView)view.findViewById(R.id.self_pro);
+        tv3=(ImageView)view.findViewById(R.id.salary);
+        tv7=(ImageView)view.findViewById(R.id.salaryprof);
+        tv4=(ImageView)view.findViewById(R.id.self);
+        tv5=(ImageView)view.findViewById(R.id.retired_pensioner);
+        tv6=(ImageView)view.findViewById(R.id.homemaker);
         loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         SessionManager.putStringInPreferences(getActivity(),"0","flaggy");
 
         tv1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                sel = "Retired_NP";
 
                 SessionManager.putStringInPreferences(getContext(),"Retired_NP","employment_type");
                 if(loantype.equals("Vehicle")) {
@@ -110,8 +115,9 @@ public class Select_Category extends Fragment {
         tv2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                sel = "Self_Employed_P";
 
-                SessionManager.putStringInPreferences(getContext(),"Self_Employed","employment_type");
+                SessionManager.putStringInPreferences(getContext(),"Self_Employed_P","employment_type");
 
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
@@ -127,7 +133,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter.addFragment(new Self_Employed_P(), "Self_Employed");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(80);
@@ -147,7 +153,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter1.addFragment(new Self_Employed(), "Self_Employed");
+                        adapter1.addFragment(new Self_Employed_P(), "Self_Employed");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(60);
@@ -159,6 +165,7 @@ public class Select_Category extends Fragment {
         tv3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                sel = "Salaried";
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -209,6 +216,7 @@ public class Select_Category extends Fragment {
         tv7.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                 sel = "SalariedProf";
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
                     viewPager = ((CarLoanActivity)getActivity()).getViewPager();
@@ -226,7 +234,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter.addFragment(new Salaried(), "Salaried");
+                        adapter.addFragment(new Salaried_P(), "Salaried");
                         adapter.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(80);
@@ -246,7 +254,7 @@ public class Select_Category extends Fragment {
 
 
                     }
-                        adapter1.addFragment(new Salaried(), "Salaried");
+                        adapter1.addFragment(new Salaried_P(), "Salaried");
                         adapter1.notifyDataSetChanged();
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     pb.setProgress(60);
@@ -261,6 +269,7 @@ public class Select_Category extends Fragment {
             public void onClick(View view) {
 
 
+                sel = "Self_Employed";
                 SessionManager.putStringInPreferences(getContext(),"Self_Employed","employment_type");
                 if(loantype.equals("Vehicle")) {
                     adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
@@ -308,6 +317,7 @@ public class Select_Category extends Fragment {
         tv5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                sel = "Retired_P";
 
                 SessionManager.putStringInPreferences(getContext(),"Retired_P","employment_type");
 
@@ -360,6 +370,7 @@ public class Select_Category extends Fragment {
             public void onClick(View view) {
 
 
+                sel = "Homemaker";
 
 
                 SessionManager.putStringInPreferences(getContext(),"Homemaker","employment_type");
@@ -412,4 +423,39 @@ public class Select_Category extends Fragment {
 
         return view;
     }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("employment_type",sel);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            try {
+                String x = savedInstanceState.getString("employment_type");
+                if (x.equals("Retired_NP")) {
+                    tv1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Self_Employed_P")) {
+                    tv2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Salaried")) {
+                    tv3.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Self_Employed")) {
+                    tv4.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Retired_P")) {
+                    tv5.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Homemaker")) {
+                    tv6.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("SalariedProf")) {
+                    tv7.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+
+        }
+
+    }
+
 }

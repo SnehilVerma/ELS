@@ -10,27 +10,23 @@
         android:background="@color/bgcolor"
         android:layout_gravity="center"
         android:gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:text="HOMEMAKER"
             android:textColor="@color/textHeadingColor"
             android:textSize="20dp"
+            android:src="@drawable/homemaker"
             android:textAllCaps="true"
             android:textStyle="bold"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/dollar"
-            android:tint="#000000"/>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="60dp">
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="330dp"
                 android:layout_height="40dp"
-                android:background="@drawable/round_background1"
+                android:layout_gravity="center"
                 android:hint="Monthly Income from regular source"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -45,25 +41,24 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_height="wrap_content">
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="330dp"
                 android:layout_height="40dp"
+                android:layout_gravity="center"
                 android:id="@+id/emi"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:hint="Existing EMI"
-                android:background="@drawable/round_background1"
                 android:inputType="number"
                 android:maxLines="1"
                 android:imeOptions="actionDone"/>
         </android.support.design.widget.TextInputLayout>
         <Button
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:text="@string/buttonnext"
             android:textColor="#ffffff"
             android:layout_marginTop="30dp"

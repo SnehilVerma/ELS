@@ -46,5 +46,9 @@
         <item name="spinBars">true</item>
         <item name="color">#ffffff</item>
     </style>
+    <style name="error_appearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 
 </resources>

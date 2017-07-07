@@ -1,7 +1,10 @@
 package Fragments;
 
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,7 +37,9 @@ public class CoAPP extends Fragment {
     EditText Name,Phone,Age;
     ProgressBar pb;
     TextView progress;
+    ImageView father,mother,spouse,children;
 
+    String relations;
     int flag;
 
 
@@ -56,48 +62,20 @@ public class CoAPP extends Fragment {
         final View x = inflater.inflate(R.layout.fragment_co_ap, container, false);
         final String loantype = SessionManager.getStringFromPreferences(getActivity(),"loantype");
         //EditText relationship = (EditText) x.findViewById(R.id.relationship);
-        final Spinner spinner = (Spinner) x.findViewById(R.id.spinner);
+        father = (ImageView) x.findViewById(R.id.father);
+        mother = (ImageView) x.findViewById(R.id.mother);
+        spouse = (ImageView) x.findViewById(R.id.spouse);
+        children = (ImageView) x.findViewById(R.id.children);
         adapter = ((HomeLoan) getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan) getActivity()).getViewPager();
-        List<String> list = new ArrayList<String>();
-        list.add("None Selected");
-        list.add("Father");
-        list.add("Mother");
-        list.add("Spouse");
-        list.add("Children");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position != 0) {
-                    SessionManager.putStringInPreferences(getActivity(), parent.getItemAtPosition(position).toString(), "relation");
-                    spinner.setSelection(position);
-                    flag = 1;
-                }
-                else{
-                    flag = 0;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         Button b1 = (Button) x.findViewById(R.id.button);
 
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        father.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                if(flag == 1) {
-
-
+                relations = "Father";
+                SessionManager.putStringInPreferences(getActivity(),"Father","relation");
                         //pb = ((HomeLoan)getActivity()).getPb();
                         //progress = ((HomeLoan)getActivity()).getprogresstv();
                         int index = (viewPager.getCurrentItem()) + 1;
@@ -114,8 +92,15 @@ public class CoAPP extends Fragment {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
 //                pb.setProgress(80);
                     //              progress.setText(80+"");
-                }
-                else{
+            }
+        });
+        mother.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relations = "Mother";
+                SessionManager.putStringInPreferences(getActivity(),"Mother","relation");
+                    //pb = ((HomeLoan)getActivity()).getPb();
+                    //progress = ((HomeLoan)getActivity()).getprogresstv();
                     int index = (viewPager.getCurrentItem()) + 1;
                     if (index < adapter.mFragmentList.size()) {
                         adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
@@ -124,11 +109,91 @@ public class CoAPP extends Fragment {
 
 
                     }
+                    adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                    SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+//                pb.setProgress(80);
+                    //              progress.setText(80+"");
                 }
+
+        });
+        spouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relations = "Spouse";
+                SessionManager.putStringInPreferences(getActivity(),"Spouse","relation");
+
+                    //pb = ((HomeLoan)getActivity()).getPb();
+                    //progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+                    adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                    SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+//                pb.setProgress(80);
+                    //              progress.setText(80+"");
+            }
+        });
+        children.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relations = "Children";
+                SessionManager.putStringInPreferences(getActivity(),"Children","relation");
+                    //pb = ((HomeLoan)getActivity()).getPb();
+                    //progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+                    adapter.addFragment(new CoApp_Cat(), "CoApp_Cat");
+                    SessionManager.putStringInPreferences(getActivity(), "1", "flaggy");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+//                pb.setProgress(80);
+                    //              progress.setText(80+"");
             }
         });
 
         return x;
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("relation",relations);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("relation");
+            try {
+                if (x.equals("Father")) {
+                    father.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Mother")) {
+                    mother.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Children")) {
+                    children.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    spouse.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
+
     }
 
     }

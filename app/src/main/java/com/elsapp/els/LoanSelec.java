@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 
 import com.wooplr.spotlight.SpotlightConfig;
+import com.wooplr.spotlight.SpotlightView;
 import com.wooplr.spotlight.utils.SpotlightSequence;
 
 import java.util.ArrayList;
@@ -117,13 +118,18 @@ public class LoanSelec extends AppCompatActivity
                 .show();*/
         SpotlightConfig config = new SpotlightConfig();
         config.setLineAndArcColor(Color.parseColor("#349999"));
-        config.setHeadingTvColor(Color.parseColor("#349999"));
-
-        SpotlightSequence.getInstance(LoanSelec.this,null)
-                .addSpotlight(getToolbarNavigationIcon(toolbar), "Switch Animation", "Click to swtich the animation", "drawer")
-                .addSpotlight(tv, "Reset ", "Click here to reset preferences", "tv")
+        config.setHeadingTvColor(Color.parseColor("#E0F2F1"));
+        config.setHeadingTvSize(26);
+        config.setSubHeadingTvSize(18);
+        config.setMaskColor(Color.parseColor("#dc000000"));
+        config.setSubHeadingTvColor(Color.parseColor("#f0f0f0"));
+        SpotlightSequence.getInstance(LoanSelec.this,config)
+                .addSpotlight(getToolbarNavigationIcon(toolbar), "Open Drawer", "Click here to open the side drawer", "drawer")
+                .addSpotlight(grid, "Loan Type ", "Click any one option to select the loan type", "gridchild")
                 .startSequence();
+        //SpotlightSequence.resetSpotlights(LoanSelec.this);
     }
+
 
 
     public static View getToolbarNavigationIcon(Toolbar toolbar){
@@ -159,28 +165,6 @@ public class LoanSelec extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.loan_selec, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

@@ -24,6 +24,8 @@ import com.elsapp.els.CarLoanActivity;
 import com.elsapp.els.CarLoanActivity.ViewPagerAdapter;
 import com.elsapp.els.R;
 
+import Utility.SessionManager;
+
 /**
  * Created by Rishi on 6/13/2017.
  */
@@ -36,6 +38,7 @@ public class DOM extends Fragment {
     int flag=0;
     int gflag=0;
 
+    String m,y;
     ViewPager viewPager;
     ViewPagerAdapter ad;
     ProgressBar pb;
@@ -78,6 +81,7 @@ public class DOM extends Fragment {
                 }
                 else{
                     flag=1;
+                    m = check;
 
                 }
 
@@ -104,7 +108,7 @@ public class DOM extends Fragment {
                         Toast.makeText(getContext(), "Choose month first", Toast.LENGTH_SHORT).show();
                     } else {
                         gflag = 1;
-
+                        y = check;
 
                     }
 
@@ -125,6 +129,7 @@ public class DOM extends Fragment {
 
                 if(flag==1 && gflag==1) {
 
+                    SessionManager.putStringInPreferences(getActivity(),m+y,"dom");
 
 
                     //TODO:SET SESSION MANAGER FOR MONTH AND YEAR

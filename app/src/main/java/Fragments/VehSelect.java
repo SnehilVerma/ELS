@@ -20,6 +20,7 @@ import com.elsapp.els.R;
 
 import Utility.SessionManager;
 
+import static com.elsapp.els.R.id.ib1;
 import static com.elsapp.els.R.id.im1;
 
 /**
@@ -31,7 +32,9 @@ public class VehSelect extends Fragment {
 
     ViewPagerAdapter ad;
     ViewPager viewPager;
+    String veh;
     int tflag=0;
+    ImageView ib1,ib2;
 
     @Nullable
     @Override
@@ -41,8 +44,8 @@ public class VehSelect extends Fragment {
         final ProgressBar pb = ((CarLoanActivity)getActivity()).getPb();
         final TextView progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
-        ImageView ib1=(ImageView) view.findViewById(im1);
-        ImageView ib2=(ImageView) view.findViewById(R.id.im2);
+        ib1=(ImageView) view.findViewById(im1);
+        ib2=(ImageView) view.findViewById(R.id.im2);
         if(sessionManager.getStringFromPreferences(getActivity(),"vehicle_type").equals("Bike")){
             ib1.setBackgroundColor(Color.parseColor("#3f8f98"));
         }
@@ -57,6 +60,7 @@ public class VehSelect extends Fragment {
         ib1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                veh = "Bike";
 
                 sessionManager.putStringInPreferences(getActivity(),"Bike","vehicle_type");
                 int index = (viewPager.getCurrentItem()) + 1;
@@ -88,6 +92,7 @@ public class VehSelect extends Fragment {
         ib2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                veh = "Car";
 
                 sessionManager.putStringInPreferences(getActivity(),"Car","vehicle_type");
                 int index = (viewPager.getCurrentItem()) + 1;
@@ -119,4 +124,27 @@ public class VehSelect extends Fragment {
         return view;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("employment_type",veh);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            try {
+                String x = savedInstanceState.getString("employment_type");
+                if (x.equals("Bike")) {
+                    ib1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    ib2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
+
+    }
 }

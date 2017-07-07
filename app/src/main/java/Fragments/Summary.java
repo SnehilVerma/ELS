@@ -1,13 +1,18 @@
 package Fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.elsapp.els.Eligibility_Result;
@@ -42,8 +47,16 @@ public class Summary extends Fragment {
             TextView city = (TextView) view.findViewById(R.id.city);
             TextView gender = (TextView) view.findViewById(R.id.gender);
             TextView dob = (TextView) view.findViewById(R.id.dob);
-
             TextView rla = (TextView) view.findViewById(R.id.rla);
+
+            ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
+            WindowManager wm = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            int height = size.y;
+            sv.setMinimumHeight(3*height/4);
+
             loan_type.setText(loantype);
             city.setText(SessionManager.getStringFromPreferences(getActivity(),"city"));
             gender.setText(SessionManager.getStringFromPreferences(getActivity(),"gender"));
@@ -76,6 +89,8 @@ public class Summary extends Fragment {
             TextView city = (TextView) view.findViewById(R.id.city);
             TextView gender = (TextView) view.findViewById(R.id.gender);
             TextView dob = (TextView) view.findViewById(R.id.dob);
+            TextView loan_type = (TextView) view.findViewById(R.id.loantype);
+            TextView incometype = (TextView) view.findViewById(R.id.incometype);
 
             TextView rla = (TextView) view.findViewById(R.id.rla);
             TextView vehselect = (TextView) view.findViewById(R.id.vehtype);
@@ -86,10 +101,22 @@ public class Summary extends Fragment {
             TextView gmincome = (TextView) view.findViewById(R.id.gmincome);
             TextView emi = (TextView) view.findViewById(R.id.emi);
 
-            city.setText(SessionManager.getStringFromPreferences(getActivity(),"city"));
+            ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
+            WindowManager wm = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            int height = size.y;
+            sv.setMinimumHeight(3*height/4);
+
+
+            dom.setText(SessionManager.getStringFromPreferences(getActivity(),"dom"));
+            loan_type.setText(loantype);
+            city.setText(SessionManager.getStringFromPreferences(getContext(),"city"));
             gender.setText(SessionManager.getStringFromPreferences(getActivity(),"gender"));
             dob.setText(SessionManager.getStringFromPreferences(getActivity(),"DOB"));
             vehselect.setText(SessionManager.getStringFromPreferences(getActivity(),"vehicle_type"));
+            incometype.setText(SessionManager.getStringFromPreferences(getActivity(),"incometype"));
             if(vehselect.getText().equals("Car")) {
                 newold.setText(SessionManager.getStringFromPreferences(getActivity(), "car_type"));
             }

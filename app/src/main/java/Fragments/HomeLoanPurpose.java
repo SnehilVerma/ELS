@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,8 +25,9 @@ import Utility.SessionManager;
 public class HomeLoanPurpose extends Fragment {
     ViewPager viewPager;
     HomeLoan.ViewPagerAdapter ad;
-
-    Button construct,repair,identified,tranfer;
+    ImageView ib1,ib2,ib3,ib4;
+    ImageView construct,repair,identified,tranfer;
+    String pur;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,15 +35,16 @@ public class HomeLoanPurpose extends Fragment {
 
         final ProgressBar pb = ((HomeLoan)getActivity()).getPb();
         final TextView progress = ((HomeLoan)getActivity()).getprogresstv();
-        Button ib1 = (Button) view.findViewById(R.id.ib1);
-        Button ib2 = (Button) view.findViewById(R.id.ib2);
-        Button ib3 = (Button) view.findViewById(R.id.ib3);
-        Button ib4 = (Button) view.findViewById(R.id.ib4);
+        ib1 = (ImageView) view.findViewById(R.id.ib1);
+        ib2 = (ImageView) view.findViewById(R.id.ib2);
+        ib3 = (ImageView) view.findViewById(R.id.ib3);
+        ib4 = (ImageView) view.findViewById(R.id.ib4);
         ad = ((HomeLoan)getActivity()).getCurrAdapter();
         viewPager = ((HomeLoan)getActivity()).getViewPager();
         ib1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pur = "pidentifiedprop";
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -64,6 +68,7 @@ public class HomeLoanPurpose extends Fragment {
         ib2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pur = "renovateflat";
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -89,6 +94,7 @@ public class HomeLoanPurpose extends Fragment {
         ib3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pur = "constructhouse";
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -115,6 +121,7 @@ public class HomeLoanPurpose extends Fragment {
             @Override
             public void onClick(View v) {
 
+                pur = "transferloan";
                 int index = (viewPager.getCurrentItem()) + 1;
                 if (index < ad.mFragmentList.size()) {
                     ad.mFragmentList.subList(index, ad.mFragmentList.size()).clear();
@@ -144,4 +151,32 @@ public class HomeLoanPurpose extends Fragment {
 
         return view;
     }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("homepurpose",pur);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("homepurpose");
+            try {
+                if (x.equals("pidentifiedprop")) {
+                    ib1.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("renovateflat")) {
+                    ib2.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("constructhouse")) {
+                    ib3.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    ib4.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
+
+    }
+
 }

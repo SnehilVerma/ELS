@@ -1,5 +1,7 @@
 package Fragments;
 
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringDef;
@@ -8,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -34,7 +37,9 @@ public class Co_App_Opt extends Fragment {
     private HomeLoan.ViewPagerAdapter adapter1;
     private String loantype;
     ProgressBar pb;
+    ImageView yes,no;
     TextView progress;
+    String what;
 
     @Nullable
     @Override
@@ -42,117 +47,134 @@ public class Co_App_Opt extends Fragment {
 
         final View view=inflater.inflate(R.layout.fragment_co_app_opt, container, false);
         loantype = SessionManager.getStringFromPreferences(getContext(),"loantype");
-        final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radiogroup);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        yes = (ImageView) view.findViewById(R.id.yes);
+        no = (ImageView) view.findViewById(R.id.no);
+        yes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                //Toast.makeText(getActivity(), String.valueOf(checkedId),Toast.LENGTH_SHORT).show();
-                int id1 = radioGroup.getCheckedRadioButtonId();
-                //Toast.makeText(getActivity(), String.valueOf(id1),Toast.LENGTH_SHORT).show();
-                View radiobutton = radioGroup.findViewById(id1);
-                int idx = radioGroup.indexOfChild(radiobutton);
-                //Toast.makeText(getActivity(), String.valueOf(idx),Toast.LENGTH_SHORT).show();
-                if(idx == 0){
-                    SessionManager.putStringInPreferences(getActivity(),"Yes","coapp");
-                    radiobutton.setSelected(true);
-                    //yes.setChecked(true);
-                    if(loantype.equals("Home")){
-                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                        viewPager = ((HomeLoan)getActivity()).getViewPager();
-                        pb = ((HomeLoan)getActivity()).getPb();
-                        progress = ((HomeLoan)getActivity()).getprogresstv();
+            public void onClick(View view) {
+                what = "Yes";
+                SessionManager.putStringInPreferences(getActivity(), "Yes", "coapp");
+                if (loantype.equals("Home")) {
+                    adapter1 = ((HomeLoan) getActivity()).getCurrAdapter();
+                    viewPager = ((HomeLoan) getActivity()).getViewPager();
+                    pb = ((HomeLoan) getActivity()).getPb();
+                    progress = ((HomeLoan) getActivity()).getprogresstv();
 
 
-                        int index = (viewPager.getCurrentItem()) + 1;
+                    int index = (viewPager.getCurrentItem()) + 1;
 
-                        if (index < adapter1.mFragmentList.size()) {
-                            adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                            adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                            adapter1.notifyDataSetChanged();
-
-
-                        }
-
-                        adapter1.addFragment(new CoAPP(), "CoApp");
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
                         adapter1.notifyDataSetChanged();
-                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
 
                     }
 
-                    else {
-                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                        viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                        pb = ((CarLoanActivity)getActivity()).getPb();
-                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    adapter1.addFragment(new CoAPP(), "CoApp");
+                    adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
 
-
-                        int index = (viewPager.getCurrentItem()) + 1;
-                        if (index < adapter.mFragmentList.size()) {
-                            adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
-                            adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
-                            adapter.notifyDataSetChanged();
-
-
-
-
-                            }
-                            adapter.addFragment(new CoAPP(), "CoApp");
-                            adapter.notifyDataSetChanged();
-                            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                    }
-
-                    pb.setProgress(75);
-                    progress.setText(75+"");
                 }
-                else{
-                    SessionManager.putStringInPreferences(getActivity(),"No","coapp");
-                    radiobutton.setSelected(true);
-                    if(loantype.equals("Home")){
-                        adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
-                        viewPager = ((HomeLoan)getActivity()).getViewPager();
-                        pb = ((HomeLoan)getActivity()).getPb();
-                        progress = ((HomeLoan)getActivity()).getprogresstv();
-                                int index = (viewPager.getCurrentItem()) + 1;
-                                if (index < adapter1.mFragmentList.size()) {
-                                    adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
-                                    adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
-                                    adapter1.notifyDataSetChanged();
+                else {
+                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                    viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
 
 
-
-                                }
-                        adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
-                        adapter1.notifyDataSetChanged();
-                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-                            }
-                    else {
-                        adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
-                        viewPager = ((CarLoanActivity)getActivity()).getViewPager();
-                        pb = ((CarLoanActivity)getActivity()).getPb();
-                        progress = ((CarLoanActivity)getActivity()).getprogresstv();
-                                int index = (viewPager.getCurrentItem()) + 1;
-                                if (index < adapter.mFragmentList.size()) {
-                                    adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
-                                    adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
-                                    adapter.notifyDataSetChanged();
-
-
-
-                                }
-                       adapter.mFragmentList.add(new Requested_Loan());
-                        adapter.mFragmentTitleList.add("Requested_Loan");
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
                         adapter.notifyDataSetChanged();
-                        viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+
+
+
+
                     }
-                    pb.setProgress(90);
-                    progress.setText(90+"");
+                    adapter.addFragment(new CoAPP(), "CoApp");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 }
-                // checkedId is the RadioButton selected
+
+                pb.setProgress(75);
+                progress.setText(75+"");
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                what = "No";
+                SessionManager.putStringInPreferences(getActivity(),"No","coapp");
+                if(loantype.equals("Home")){
+                    adapter1 = ((HomeLoan)getActivity()).getCurrAdapter();
+                    viewPager = ((HomeLoan)getActivity()).getViewPager();
+                    pb = ((HomeLoan)getActivity()).getPb();
+                    progress = ((HomeLoan)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter1.mFragmentList.size()) {
+                        adapter1.mFragmentList.subList(index, adapter1.mFragmentList.size()).clear();
+                        adapter1.mFragmentTitleList.subList(index, adapter1.mFragmentTitleList.size()).clear();
+                        adapter1.notifyDataSetChanged();
+
+
+
+                    }
+                    adapter1.addFragment(new Requested_Loan(), "Requested_Loan");
+                    adapter1.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                }
+                else {
+                    adapter = ((CarLoanActivity)getActivity()).getCurrAdapter();
+                    viewPager = ((CarLoanActivity)getActivity()).getViewPager();
+                    pb = ((CarLoanActivity)getActivity()).getPb();
+                    progress = ((CarLoanActivity)getActivity()).getprogresstv();
+                    int index = (viewPager.getCurrentItem()) + 1;
+                    if (index < adapter.mFragmentList.size()) {
+                        adapter.mFragmentList.subList(index, adapter.mFragmentList.size()).clear();
+                        adapter.mFragmentTitleList.subList(index, adapter.mFragmentTitleList.size()).clear();
+                        adapter.notifyDataSetChanged();
+
+
+
+                    }
+                    adapter.mFragmentList.add(new Requested_Loan());
+                    adapter.mFragmentTitleList.add("Requested_Loan");
+                    adapter.notifyDataSetChanged();
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                }
+                pb.setProgress(90);
+                progress.setText(90+"");
+
             }
         });
 
         return view;
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("coapp",what);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("coapp");
+            try {
+
+                if (x.equals("Yes")) {
+                    yes.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("No")) {
+                    no.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }catch (Exception e){
+
+            }
+        }
 
     }
 }

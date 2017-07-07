@@ -80,4 +80,5 @@
     <string name="title_activity_home_loan_details3">HomeLoanDetails3</string>
     <string name="buttonnext">Next</string>
     <string name="buttonsubmit">Submit</string>
+    <string name="buttondone">Done</string>
 </resources>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#3E80B4"
+    android:background="#ffffff"
     android:orientation="vertical" >
 
     <TextView
@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Registration Successsful."
-        android:textColor="@android:color/white"
+        android:text="Registration Successsful"
+        android:textColor="@color/textHeadingColor"
         android:textSize="15dp"
         android:textStyle="bold"/>
     <TextView
@@ -20,27 +20,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
+        android:gravity="center"
         android:text="OTP has been sent to your contact number"
-        android:textColor="@android:color/white"
-        android:textSize="15dp"
-        android:textStyle="bold"/>
+        android:textColor="#000000"
+        android:textSize="15dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:text="Please Verify"
-        android:textColor="@android:color/white"
-        android:textSize="15dp"
-        android:textStyle="bold"/>
+        android:textColor="#000000"
+        android:textSize="15dp" />
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#3E80B4"
-        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btn_yes"
@@ -48,10 +41,10 @@
             android:layout_height="40dp"
             android:background="@drawable/button"
             android:clickable="true"
-            android:text="Yes"
+            android:layout_gravity="center"
+            android:text="Proceed"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
-    </LinearLayout>
 </LinearLayout>

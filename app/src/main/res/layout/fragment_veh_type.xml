@@ -23,23 +23,28 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:textAllCaps="true"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/textHeadingColor"
 
+            android:gravity="center"
             android:text="What type of vehicle do you want to buy?"
             android:layout_gravity="center_horizontal"
             android:id="@+id/tv1"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="150dp">
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_below="@+id/tv1"
-            android:layout_marginLeft="20dp"
             android:src="@drawable/bike"
             android:id="@+id/im1"
-            android:background="@drawable/background_style"
-            android:layout_marginTop="150dp">
+            android:background="@drawable/background_style">
         </ImageView>
 
         <ImageView
@@ -47,12 +52,12 @@
             android:layout_height="130dp"
             android:layout_below="@+id/tv1"
             android:id="@+id/im2"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="30dp"
             android:src="@drawable/car"
-            android:background="@drawable/background_style"
-            android:layout_marginTop="150dp">
+            android:background="@drawable/background_style">
 
         </ImageView>
+        </LinearLayout>
 
 
 

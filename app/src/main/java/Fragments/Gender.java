@@ -31,7 +31,11 @@ public class Gender extends Fragment {
     HomeLoan.ViewPagerAdapter ad2;
     CarLoanActivity.ViewPagerAdapter ad;
     private ProgressBar pb;
+    ImageView male;
+    ImageView female;
+    ImageView others;
     private TextView progress;
+    String genderone;
 
     ViewPager viewPager;
     @Nullable
@@ -41,9 +45,9 @@ public class Gender extends Fragment {
         final View view=inflater.inflate(R.layout.fragment_gender, container, false);
 
 
-        ImageView male = (ImageView) view.findViewById(R.id.male);
-        ImageView female = (ImageView) view.findViewById(R.id.female);
-        ImageView others=(ImageView) view.findViewById(R.id.others);
+        male = (ImageView) view.findViewById(R.id.male);
+        female = (ImageView) view.findViewById(R.id.female);
+        others=(ImageView) view.findViewById(R.id.others);
         final SessionManager sessionManager=new SessionManager();
 
 
@@ -78,6 +82,7 @@ public class Gender extends Fragment {
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                genderone = "Male";
 
                 SessionManager.putStringInPreferences(getActivity(),"Male","gender");
 
@@ -166,6 +171,7 @@ public class Gender extends Fragment {
         female.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                genderone = "Female";
                 SessionManager.putStringInPreferences(getActivity(),"Female","gender");
 
                 if (type.equals("Vehicle")) {
@@ -228,6 +234,7 @@ public class Gender extends Fragment {
         others.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                genderone = "Others";
 
                 SessionManager.putStringInPreferences(getActivity(),"Others","gender");
                 if (type.equals("Vehicle")) {
@@ -291,6 +298,32 @@ public class Gender extends Fragment {
 
 
         return view;
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("gender",genderone);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            String x = savedInstanceState.getString("gender");
+            try {
+                if (x.equals("Male")) {
+                    male.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else if (x.equals("Female")) {
+                    female.setBackgroundColor(Color.parseColor("#3f8f98"));
+                } else {
+                    others.setBackgroundColor(Color.parseColor("#3f8f98"));
+                }
+            }
+            catch(Exception e){
+
+            }
+        }
 
     }
 

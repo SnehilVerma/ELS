@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,8 @@ public class Eligibility_Result extends AppCompatActivity {
         setContentView(R.layout.activity_eligibility);
 
         TextView tv=(TextView)findViewById(R.id.eligible);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         //Toast.makeText(getApplicationContext(),"here", Toast.LENGTH_LONG).show();
