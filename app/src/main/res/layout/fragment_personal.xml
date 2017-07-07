@@ -1,218 +1,402 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+              android:orientation="vertical"
               android:layout_width="match_parent"
-                android:layout_gravity="center"
-
               android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/textView6"
+
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/tip1"
+        android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="Enter applicant's full name"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/tip1"
+        android:id="@+id/apptype"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:text="Applicant type"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spin"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/apptype"
+        android:id="@+id/singletype"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:text="Single type"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spin2"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_below="@+id/apptype"
+        android:id="@+id/jointtype"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:text="Joint Type"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spin3"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/jointtype"
+        android:id="@+id/businesstype"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:text="Business Rel. Type"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Applicant's Name"
-                android:layout_toStartOf="@+id/appname"
-                android:layout_marginEnd="13dp"
-                android:layout_alignBottom="@+id/appname"
-                android:layout_alignTop="@+id/appname" />
+                android:text="Co-Applicant"
+                android:layout_height="wrap_content"/>
 
-        <EditText
-            android:id="@+id/appname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="25dp"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Guarantor"
+                android:layout_height="wrap_content"/>
 
+        </RadioGroup>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:layout_below="@+id/appname"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_marginTop="12dp"
-        android:id="@+id/linearLayout3">
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text="Type"
-            android:id="@+id/statustext"
-            android:textSize="15dp"/>
         <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/type">
+            android:id="@+id/spin4"/>
 
-        </Spinner>
+
+
+
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:id="@+id/linear1"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_alignStart="@+id/linearLayout3"
-        android:layout_marginTop="10dp"
-        android:visibility="gone">
+        android:layout_width="match_parent"
+        android:layout_below="@+id/jointtype"
+        android:id="@+id/personaltype"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+
         <TextView
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text="Relation"
-
-            android:textSize="15dp"/>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/type2">
-
-        </Spinner>
-    </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/linear1"
-            android:layout_alignTop="@+id/linear1"
-            android:background="@drawable/shape"
-            android:visibility="gone">
+            android:textSize="17dp"
+            android:text="Single Relation Type"/>
 
-            <TextView
-                android:layout_width="60dp"
-                android:layout_height="20dp"
-                android:text="Relation"
-                android:textSize="15dp" />
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spin5"/>
 
-            <Spinner
-                android:id="@+id/type3"
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/singletype"
+        android:id="@+id/personalRelationName"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/tip2"
+            android:layout_height="wrap_content">
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-        </LinearLayout>
-
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:id="@+id/linear3"
-        android:visibility="gone"
-        android:layout_below="@+id/linear1"
-        android:layout_alignStart="@+id/linear1"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text=" Relation"
-            android:textSize="15dp"/>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/type4">
-
-        </Spinner>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:id="@+id/linear4"
-        android:visibility="gone"
-        android:layout_below="@+id/linear1"
-        android:layout_alignStart="@+id/linear1"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text=" Relation"
-            android:textSize="15dp"/>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/type5">
-
-        </Spinner>
-
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/namerel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:visibility="gone"
-        android:hint="Name of Relation"
-        android:inputType="textPersonName"
-        android:layout_alignBottom="@+id/linear3"
-        android:layout_alignStart="@+id/linear3" />
-
-    <EditText
-        android:id="@+id/namerel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:ems="10"
-        android:hint="Name of Relation"
-        android:inputType="textPersonName"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/linear3"
-        android:layout_alignStart="@+id/linear3" />
-
-
-
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:textSize="18dp"
                 android:layout_height="wrap_content"
-                android:text="Date of Birth"
-                android:layout_alignBaseline="@+id/dob"
-                android:layout_alignBottom="@+id/dob"
-                android:layout_alignEnd="@+id/textView6" />
-        <EditText
-            android:id="@+id/dob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/namerel2"
-            android:layout_marginTop="18dp"
-            android:layout_toEndOf="@+id/textView6"
-            android:ems="10"
-            android:hint="DD/MM/YYYY"
-            android:focusable="false"
-            android:inputType="date" />
 
+                android:hint="Enter personal relation's name"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="180dp"
+        android:id="@+id/DOB"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/tip3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Enter DOB"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/DOB"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:id="@+id/marital"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:gravity="center_horizontal"
+            android:text="Marital Status"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="Married"
+            android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Unmarried"
+                android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="Widow"
+            android:layout_height="wrap_content"/>
+
+
+        </RadioGroup>
+    </LinearLayout>
 
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:id="@+id/marry"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/dob"
-        android:layout_alignStart="@+id/textView9">
+        android:layout_width="match_parent"
+        android:layout_below="@+id/marital"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:id="@+id/gender"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+
         <TextView
-            android:layout_width="60dp"
-            android:layout_height="36dp"
-            android:text="Marital \nStatus"
-            android:textSize="15dp"/>
-        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/marital">
+            android:textSize="17dp"
+            android:gravity="center_horizontal"
+            android:text="Gender"/>
 
-        </Spinner>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Male"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Female"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Others"
+                android:layout_height="wrap_content"/>
+
+
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/gender"
+        android:id="@+id/relcaste"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Religion"
+                android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Caste"
+                android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
 
     </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/relcaste"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/mobid"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Mobile No."
+                android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Email Id"
+                android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/mobid"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Source of Income"
+                android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+`
 
 
 </RelativeLayout>

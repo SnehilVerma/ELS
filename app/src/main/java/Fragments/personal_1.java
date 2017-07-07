@@ -28,7 +28,7 @@ import java.util.Locale;
  */
 
 public class personal_1 extends Fragment {
-    EditText appname,relname,relname2,dob;
+    EditText fullname,relname,relname2,dob;
     Spinner spin,spin2,spin3,spin4,spin5,marital;
     private String [] arrspinner,arrspinner2,arrspinner3,arrspinner4,arrspinner5,arrspinner6;
     LinearLayout linear1,linear2,linear3,linear4;
@@ -63,6 +63,9 @@ public class personal_1 extends Fragment {
         relname = (EditText) x.findViewById(R.id.namerel);
         relname2 = (EditText) x.findViewById(R.id.namerel2);
         dob = (EditText) x.findViewById(R.id.dob);
+        fullname=(EditText)x.findViewById(R.id.appname);
+
+
         this.arrspinner = new String[]{
                "Not Selected", "Single", "Joint"
         };
@@ -103,6 +106,7 @@ public class personal_1 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 2) {
+                    fullname.setVisibility(View.VISIBLE);
                     linear1.setVisibility(View.VISIBLE);
                     linear2.setVisibility(View.GONE);
                     linear3.setVisibility(View.GONE);
@@ -110,6 +114,7 @@ public class personal_1 extends Fragment {
                     relname.setVisibility(View.GONE);
                 } else {
                     if (i == 1) {
+                        fullname.setVisibility(View.VISIBLE);
                         linear2.setVisibility(View.VISIBLE);
                         linear1.setVisibility(View.GONE);
                         linear3.setVisibility(View.GONE);
